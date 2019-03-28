@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package coletaInteligente;
+
 
 /**
  *
  * @author vinic
  */
-public class App {
+public class Main {
 
     /**
      * @param args the command line arguments
