@@ -15,7 +15,15 @@ public class Lixeira {
     float latitude;
     float longitude;
     int capacidade;
-
+    
+    public Lixeira(String codigo, String regiao, String latitude, String longitude, String capacidade){
+        this.codigo = Integer.parseInt(codigo);
+        this.cod_Regiao = Integer.parseInt(regiao);
+        this.latitude = Float.parseFloat(latitude);
+        this.longitude = Float.parseFloat(longitude);
+        this.capacidade = Integer.parseInt(capacidade);
+}
+    
     public int getCodigo() {
         return codigo;
     }
