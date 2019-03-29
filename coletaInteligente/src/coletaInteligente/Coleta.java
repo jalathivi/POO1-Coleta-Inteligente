@@ -9,9 +9,11 @@ import java.util.Calendar;
 /**
  *
  * @author Vinicius
+ * TESTE BRANCH
  */
 public class Coleta {
-    int cod_Lixeira;
+    //cod_Lixeira
+    int CODIGO;
     int cod_Coletor;
     float nivel_Atual;
     Calendar data;
