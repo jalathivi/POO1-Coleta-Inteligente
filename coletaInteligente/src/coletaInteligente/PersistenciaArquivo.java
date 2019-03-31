@@ -31,4 +31,19 @@ public class PersistenciaArquivo {
             Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void salvarCidadao(Cidadao cidadao) {
+        
+        FileWriter arq;
+        try {
+            arq = new FileWriter("C:\\Users\\20172bsi0513\\Cidadaos.txt", true);        
+            PrintWriter gravarArq = new PrintWriter(arq);
+            gravarArq.append(cidadao.getCodigo() + "," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + 
+                cidadao.getSenha() + "," + cidadao.getLatitude() + "," + cidadao.getLongitude()+ "\r\n");        
+            arq.close();   
+        } catch (IOException ex) {
+            Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }
