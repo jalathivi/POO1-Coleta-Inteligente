@@ -12,6 +12,11 @@ package coletaInteligente;
 public class Regiao {
     int codigo;
     String nome;
+    
+    public Regiao(String codigo, String nome) {
+        this.codigo = Integer.parseInt (codigo) ;
+        this.nome = nome;
+    }
 
     public int getCodigo() {
         return codigo;
