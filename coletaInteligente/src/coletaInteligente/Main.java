@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,17 +7,28 @@
 package coletaInteligente;
 import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author eu 
- */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+
+        String codigo = JOptionPane.showInputDialog("Digite o Código do Cliente ");
+        String nome = JOptionPane.showInputDialog("Digite o Nome do Cliente");
+        String email = JOptionPane.showInputDialog("Digite o E-mail");
+        String senha = JOptionPane.showInputDialog("Digite a Senha");
+        String latitude = JOptionPane.showInputDialog("Digite a Latitude");
+        String longitude = JOptionPane.showInputDialog("Digite a Longitude");
+        
+        Cidadao cidadao = new Cidadao (codigo, nome, email, senha, latitude, longitude);
+        
+        /*
+        cidadao.printa(cidadao);
+        */
+        
+        PersistenciaArquivo salvar = new PersistenciaArquivo();
+        salvar.salvarCidadao(cidadao);
+
       
         PersistenciaArquivo registro = new PersistenciaArquivo();
         
