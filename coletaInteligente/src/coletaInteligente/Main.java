@@ -66,6 +66,17 @@ public class Main {
                 break;
             
             case 4:
+                String codi = JOptionPane.showInputDialog("Digite o Código do Cliente "); 
+                String nomeC = JOptionPane.showInputDialog("Digite o Nome do Cliente");
+                String email = JOptionPane.showInputDialog("Digite o E-mail");
+                String senha = JOptionPane.showInputDialog("Digite a Senha");
+                String lati = JOptionPane.showInputDialog("Digite a Latitude");
+                String longi = JOptionPane.showInputDialog("Digite a Longitude");
+                Cidadao cidadao = new Cidadao (codi, nomeC, email, senha, lati, longi);
+
+                PersistenciaArquivo salvarC = new PersistenciaArquivo();
+                salvarC.salvarCidadao(cidadao);        
+                
             break;
         }
 
