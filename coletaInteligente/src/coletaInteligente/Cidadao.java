@@ -8,7 +8,9 @@ package coletaInteligente;
 /**
  *
  * @author Vinicius
+ *TESTE BRANCH
  */
+
 public class Cidadao {
    int codigo;
    String nome;
