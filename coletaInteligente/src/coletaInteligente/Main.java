@@ -6,6 +6,7 @@
 package coletaInteligente;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author vinic
@@ -29,7 +30,19 @@ public class Main {
        Coletor coletor = new Coletor(codigoColetor, placa, marca, modelo, ano, latitude, longitude, capacidade ); 
        PersistenciaArquivo arquivo = new PersistenciaArquivo();
        arquivo.salvaColetor(coletor);
+  
+  
+  
+  
+        String lixeira = JOptionPane.showInputDialog("Digite o código da lixeira: ");
+        String coletor = JOptionPane.showInputDialog("Digite o código do coletor: ");
+        String nivel = JOptionPane.showInputDialog("Digite o nível da lixeira quando coletada: ");
         
+        Coleta coletaLixo = new Coleta(lixeira, coletor, nivel);
+        coletaLixo.imprimeInfo();
+        
+        PersistenciaArquivo salvar = new PersistenciaArquivo();
+        salvar.salvaColeta(coletaLixo);
     }
     
 }
