@@ -11,20 +11,34 @@ package coletaInteligente;
  * @author Vinicius
  */
 public class Coletor {
-    int codigo;
+    
+    int codigoColetor;
     String placa;
     float latitude;
     float longitude;
     int capacidade;
+    String marca;
     String modelo;
     int ano;
 
+    public Coletor(String codigoColetor, String placa, String marca, String  modelo, String ano, String latitude, String longitude, String capacidade ) {
+        
+        this.codigoColetor = Integer.parseInt(codigoColetor);
+        this.placa = placa;
+        this.marca = marca;
+        this.modelo = placa;
+        this.longitude = Float.parseFloat(longitude);
+        this.latitude = Float.parseFloat(latitude);
+        this.capacidade = Integer.parseInt(capacidade);
+   
+    }
+
     public int getCodigo() {
-        return codigo;
+        return codigoColetor;
     }
 
     public void setCodigo(int codigo) {
-        this.codigo = codigo;
+        this.codigoColetor = codigoColetor;
     }
 
     public String getPlaca() {
@@ -59,6 +73,14 @@ public class Coletor {
         this.capacidade = capacidade;
     }
 
+    public String getMarca(){
+       return marca;
+    }
+    
+    public void setMarca(String marca){
+        this.marca = marca;
+    }
+    
     public String getModelo() {
         return modelo;
     }
