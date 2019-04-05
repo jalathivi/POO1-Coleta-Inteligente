@@ -16,10 +16,9 @@ public class Lixeira {
     float longitude;
     int capacidade;
     
-    public Lixeira(String codigo, String regiao, String latitude, String longitude, String capacidade){
+    public Lixeira(String codigo, Regiao regiao, String latitude, String longitude, String capacidade){
         this.codigo = Integer.parseInt(codigo);
-        this.regiao = new Regiao();
-        this.regiao.codigo = Integer.parseInt(regiao);
+        this.regiao = regiao;
         this.latitude = Float.parseFloat(latitude);
         this.longitude = Float.parseFloat(longitude);
         this.capacidade = Integer.parseInt(capacidade);

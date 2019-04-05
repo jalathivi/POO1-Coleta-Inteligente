@@ -56,12 +56,15 @@ public class Coleta {
 
     }
 
-    public void setNome_Coletor(Coletor nome_Coletor) {
-        this.nome_Coletor = nome_Coletor;
-    }
+//    public void setNome_Coletor(Coletor nome_Coletor) {
+//        this.nome_Coletor = nome_Coletor;
+//    }
 
     public void setNivel_Atual(float nivel_Atual) {
         this.nivel_Atual = nivel_Atual;
+    }
+    public float getNivel_Atual() {
+        return nivel_Atual;
     }
 
     public int getMinutos() 

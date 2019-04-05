@@ -59,7 +59,9 @@ public class PersistenciaArquivo {
     }
 
     public void salvaLixeira(Lixeira lixeira) {
-      
+    
+    FileWriter arq;
+        try {
         arq = new FileWriter("C:\\...\\Lixeiras.txt", true);//colocar o diretorio certo.      
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.append(lixeira.getCodigo() + "," +lixeira.regiao.getCodigo()
