@@ -44,4 +44,17 @@ public class PersistenciaArquivo {
             Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+  
+    public void salvaLixeira(Lixeira lixeira) {
+      
+        arq = new FileWriter("C:\\...\\Lixeiras.txt", true);//colocar o diretorio certo.      
+        PrintWriter gravarArq = new PrintWriter(arq);
+        gravarArq.append(lixeira.getCodigo() + "," +lixeira.regiao.getCodigo()
+        + ","+ lixeira.getLongitude()+","+ lixeira.getLatitude() +"," + lixeira.getCapacidade()+ "\r\n");
+        arq.close();   
+        } catch (IOException ex) {
+            Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+      
 }

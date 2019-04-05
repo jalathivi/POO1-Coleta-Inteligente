@@ -11,10 +11,12 @@ import java.util.Calendar;
  * @author thiagomr8
  * TESTE BRANCH 29-03/16:02
  */
+
 public class Coleta {
-    //Atributos
+
     String cod_Lixeira;
     String cod_Coletor;
+
     float nivel_Atual;
     Calendar c = Calendar.getInstance();
     int dia;
@@ -36,6 +38,7 @@ public class Coleta {
             
     }
 
+
     public String getCod_Lixeira() {
         return cod_Lixeira;
     }
@@ -50,10 +53,11 @@ public class Coleta {
 
     public void setCod_Coletor(String cod_Coletor) {
         this.cod_Coletor = cod_Coletor;
+
     }
 
-    public float getNivel_Atual() {
-        return nivel_Atual;
+    public void setNome_Coletor(Coletor nome_Coletor) {
+        this.nome_Coletor = nome_Coletor;
     }
 
     public void setNivel_Atual(float nivel_Atual) {
@@ -86,4 +90,5 @@ public class Coleta {
     {
         System.out.println("Lixeira: " + getCod_Lixeira() + ", " + "Coletor: " + getCod_Coletor() + ", " + "Nível na coleta: " + getNivel_Atual() + ", " + "Horas " + getHora() + ":" + getMinutos() + " , " + getDia() + "/" + getMes() + "/" + getAno());
     }
+
 }

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author vinic
+ * @author eu 
  */
 public class Main {
 
@@ -17,7 +17,19 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+      
+        PersistenciaArquivo registro = new PersistenciaArquivo();
         
+        String codigo  = JOptionPane.showInputDialog("Digite o codigo da lixeira");
+        String cod_Regiao = JOptionPane.showInputDialog("Digite a regiao da lixeira");
+        String latitude = JOptionPane.showInputDialog("Digite a latitude da lixeira");
+        String longitude = JOptionPane.showInputDialog("Digite a longitute da lixeira");
+        String capacidade = JOptionPane.showInputDialog("Digite a capacidade da lixeira");
+        
+        Lixeira lixeira = new Lixeira(codigo, cod_Regiao, latitude, longitude, capacidade);
+        registro.salvaLixeira(lixeira);
+        
+
         String codigoColetor = JOptionPane.showInputDialog("Codigo do Coletor: ");
         String placa = JOptionPane.showInputDialog("Placa: ");
         String latitude = JOptionPane.showInputDialog("Latitude: ");
@@ -31,8 +43,7 @@ public class Main {
        PersistenciaArquivo arquivo = new PersistenciaArquivo();
        arquivo.salvaColetor(coletor);
   
-  
-  
+
   
         String lixeira = JOptionPane.showInputDialog("Digite o código da lixeira: ");
         String coletor = JOptionPane.showInputDialog("Digite o código do coletor: ");
@@ -43,6 +54,7 @@ public class Main {
         
         PersistenciaArquivo salvar = new PersistenciaArquivo();
         salvar.salvaColeta(coletaLixo);
+
     }
     
 }

@@ -11,10 +11,19 @@ package coletaInteligente;
  */
 public class Lixeira {
     int codigo;
-    int cod_Regiao;
+    Regiao regiao;
     float latitude;
     float longitude;
     int capacidade;
+    
+    public Lixeira(String codigo, String regiao, String latitude, String longitude, String capacidade){
+        this.codigo = Integer.parseInt(codigo);
+        this.regiao = new Regiao();
+        this.regiao.codigo = Integer.parseInt(regiao);
+        this.latitude = Float.parseFloat(latitude);
+        this.longitude = Float.parseFloat(longitude);
+        this.capacidade = Integer.parseInt(capacidade);
+}
 
     public int getCodigo() {
         return codigo;
@@ -24,12 +33,12 @@ public class Lixeira {
         this.codigo = codigo;
     }
 
-    public int getCod_Regiao() {
-        return cod_Regiao;
+    public Regiao getRegiao() {
+        return regiao;
     }
 
-    public void setCod_Regiao(int cod_Regiao) {
-        this.cod_Regiao = cod_Regiao;
+    public void setRegiao(Regiao regiao) {
+        this.regiao = regiao;
     }
 
     public float getLatitude() {
@@ -55,5 +64,7 @@ public class Lixeira {
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
+    
+    
     
 }
