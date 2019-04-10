@@ -6,13 +6,13 @@ Lavinia
 Thiago
 Vinicius
 
-##Notas
+## Notas
 
-####**coletaInteligente**
->Implementação das classes
+#### **coletaInteligente**
+> Implementação das classes
 
-####**coletaInteligente_v2**
->Implementação das classes
->Implementação do conceito de herança
+#### **coletaInteligente_v2**
+> Implementação das classes
+> Implementação do conceito de herança
 
 
