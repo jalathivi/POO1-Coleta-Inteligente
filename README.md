@@ -1,5 +1,5 @@
 # POO1 - Coleta Inteligente
-#### **Desenvolvimento do trabalho de poo1**
+## Desenvolvimento do trabalho de poo1
 
 Por Jackson, Lavinia, Thiago e Vinicius
 
@@ -9,9 +9,9 @@ Por Jackson, Lavinia, Thiago e Vinicius
 > Implementação das classes
 
 #### **coletaInteligente_v2**
-	Implementação das classes <br>
-	Implementação do conceito de herança<br>
-	OLA<br>
-AA<br>
+	Implementação das classes 
+	Implementação do conceito de herança
+	OLA
+AA
 
 
