@@ -9,7 +9,7 @@ Por Jackson, Lavinia, Thiago e Vinicius
 > Implementação das classes
 
 #### **coletaInteligente_v2**
-> Implementação das classes
+> Implementação das classes <br>
 	Implementação do conceito de herança
 
 
