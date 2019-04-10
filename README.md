@@ -6,11 +6,11 @@ Por Jackson, Lavinia, Thiago e Vinicius
 ## Notas
 
 #### **coletaInteligente**
-> Implementação das classes
+-Implementação das classes
 
 #### **coletaInteligente_v2**
-	Implementação das classes 
-	Implementação do conceito de herança
+-Implementação das classes 
+-Implementação do conceito de herança
 	OLA
 AA
 
