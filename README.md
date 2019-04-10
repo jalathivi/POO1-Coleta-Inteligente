@@ -5,8 +5,11 @@ Por Jackson, Lavinia, Thiago e Vinicius
 
 ## Notas
 
+<p>
 #### **coletaInteligente**
 - Implementação das classes
+</p>
+
 
 #### **coletaInteligente_v2**
 - Implementação das classes 
