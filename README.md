@@ -7,10 +7,10 @@ Por Jackson, Lavinia, Thiago e Vinicius
 
 
 #### **coletaInteligente**
-_- Implementação das classes_
+- _Implementação das classes_
 
 
 #### **coletaInteligente_v2**
-_- Implementação das classes _
-- Implementação do conceito de herança
+- _Implementação das classes_
+- _Implementação do conceito de herança_
 
