@@ -1,5 +1,4 @@
-# POO1 - Coleta Inteligente
-## Desenvolvimento do trabalho de poo1
+# Coleta Inteligente: Trabalho de POO1
 
 Por Jackson, Lavinia, Thiago e Vinicius
 
