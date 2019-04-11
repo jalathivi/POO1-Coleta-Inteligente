@@ -26,7 +26,6 @@ public class Coleta {
     int minutos;
     
     public Coleta() {
-        
     }
     
     public Coleta(Lixeira lixeira, Coletor coleta, String nivel_Atual) 
@@ -45,7 +44,10 @@ public class Coleta {
 //    public void setNome_Coletor(Coletor nome_Coletor) {
 //        this.nome_Coletor = nome_Coletor;
 //    }
-
+    public void setColetor (Coletor coletor){
+        this.coletor = coletor;
+    }
+    
     public void setNivel_Atual(float nivel_Atual) {
         this.nivel_Atual = nivel_Atual;
     }

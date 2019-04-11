@@ -1,0 +1,7 @@
+0,acas,sadas,saddsaf,2012,34.0,1122.0,33444.0
+1,acas,sadas,saddsaf,2012,34.0,1122.0,33444.0
+2,acas,sadas,saddsaf,2012,34.0,1122.0,33444.0
+3,acas,sadas,saddsaf,2012,34.0,1122.0,33444.0
+4,acas,sadas,saddsaf,2012,34.0,1122.0,33444.0
+5,acas,sadas,saddsaf,2012,34.0,1122.0,33444.0
+6,acas,sadas,saddsaf,2012,34.0,1122.0,33444.0

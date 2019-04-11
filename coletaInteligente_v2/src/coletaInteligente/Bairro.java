@@ -9,15 +9,15 @@ package coletaInteligente;
  *
  * @author Vinicius
  */
-public class Regiao {
+public class Bairro {
     int codigo;
     String nome;
     
-    public Regiao() {
+    public Bairro() {
         
     }
     
-    public Regiao(String codigo, String nome) {
+    public Bairro(String codigo, String nome) {
         this.codigo = Integer.parseInt (codigo) ;
         this.nome = nome;
     }
@@ -36,6 +36,10 @@ public class Regiao {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    void setCodigo(String codRegiao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

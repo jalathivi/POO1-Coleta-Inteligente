@@ -13,6 +13,10 @@ public class Cidadao {
     Double latitude;
     Double longitude;
     
+    
+    public Cidadao (){
+    }
+    
     public Cidadao (String codigo, String nome, String email, String senha, Double latitude, Double longitude){
         this.codigo = codigo;
         this.nome = nome;

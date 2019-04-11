@@ -14,7 +14,10 @@ public class Coletor {
     String marca;
     String modelo;
     int ano;
-
+    
+    public Coletor (){
+    }
+    
     public Coletor(String codigoColetor, String placa, String marca, String  modelo, String ano, String latitude, String longitude, String capacidade ) {
         
         this.codigoColetor = Integer.parseInt(codigoColetor);
@@ -33,7 +36,7 @@ public class Coletor {
     }
 
     public void setCodigo(int codigo) {
-        this.codigoColetor = codigoColetor;
+        this.codigoColetor = codigo;
     }
 
     public String getPlaca() {

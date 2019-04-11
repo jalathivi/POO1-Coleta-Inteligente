@@ -16,32 +16,35 @@ import java.util.logging.Logger;
  * @author vinic
  */
 
-public class PersistenciaArquivo {
-       
+public class ArmazenaArquivo {
+  
+    
+  String caminho = "C:\\Users\\Jackson\\Documents\\GitHub\\POO1-Coleta-Inteligente\\dados\\";
+  
   public void salvaColetor(Coletor coletor) {
         
         FileWriter arq;
         try {
-            arq = new FileWriter("C:\\Users\\Jackson\\Documents\\Coletor.txt", true);        
+            arq = new FileWriter(caminho + "Coletor.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
             gravarArq.append(coletor.getCodigo() + "," + coletor.getPlaca() + ","+ coletor.getMarca() + "," + coletor.getModelo() + "," + coletor.getAno() + "," + coletor.getCapacidade() + "," + coletor.getLatitude() + "," + coletor.getLongitude() + "\r\n");        
             arq.close();   
         } catch (IOException ex) {
-            Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ArmazenaArquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
   
-    public void salvarCidadao(Cidadao cidadao) {
+    public void salvaCidadao(Cidadao cidadao) {
         
         FileWriter arq;
         try {
-            arq = new FileWriter("C:\\Users\\20172bsi0513\\Cidadaos.txt", true);        
+            arq = new FileWriter(caminho + "Cidadao.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
             gravarArq.append(cidadao.getCodigo() + "," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + 
                 cidadao.getSenha() + "," + cidadao.getLatitude() + "," + cidadao.getLongitude()+ "\r\n");
             arq.close();   
         } catch (IOException ex) {
-            Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ArmazenaArquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -50,12 +53,12 @@ public class PersistenciaArquivo {
         
         FileWriter arq;
         try {
-            arq = new FileWriter("Coleta.txt", true);        
+            arq = new FileWriter(caminho + "Coleta.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
             gravarArq.append(coleta.lixeira.getCodigo()+ ", " +  coleta.coletor.getCodigo() + ", " + coleta.getNivel_Atual() + ", " + coleta.getHora() + ":" + coleta.getMinutos() + " , " + coleta.getDia() + "/" + coleta.getMes() + "/" + coleta.getAno()+ "\r\n");       
             arq.close();   
         } catch (IOException ex) {
-            Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ArmazenaArquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -63,14 +66,26 @@ public class PersistenciaArquivo {
     
     FileWriter arq;
         try {
-        arq = new FileWriter("C:\\...\\Lixeiras.txt", true);//colocar o diretorio certo.      
+        arq = new FileWriter(caminho + "Lixeiras.txt", true);      
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.append(lixeira.getCodigo() + "," +lixeira.regiao.getCodigo()
         + ","+ lixeira.getLongitude()+","+ lixeira.getLatitude() +"," + lixeira.getCapacidade()+ "\r\n");
         arq.close();   
         } catch (IOException ex) {
-            Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ArmazenaArquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-      
+    
+    public void salvaBairro(Bairro bairro) {
+    
+    FileWriter arq;
+        try {
+        arq = new FileWriter(caminho + "Bairro.txt", true);    
+        PrintWriter gravarArq = new PrintWriter(arq);
+        gravarArq.append(bairro.getCodigo() + "," + bairro.getNome() + "\r\n");
+        arq.close();   
+        } catch (IOException ex) {
+            Logger.getLogger(ArmazenaArquivo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }     
 }
