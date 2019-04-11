@@ -1,6 +1,8 @@
 # Coleta Inteligente: Trabalho de POO1
 
 Por Jackson, Lavinia, Thiago e Vinicius
+[Ir para seção](#section)
+
 
 ## INTRODUÇÃO E MOTIVAÇAO
 <br>O sistema Lixeira Inteligente tem como objetivo auxiliar na coleta e no descarte de lixo. A aplicação auxiliará os cidadãos a encontrar a lixeira mais próxima disponível para o descarte e os coletores a percorrer o melhor trajeto  para o recolhimento de  resíduos das lixeiras consideradas como cheias.  Esse sistema tenta minimizar o problema de descarte de lixo de modo inapropriado, evitando que a cidade fique suja, e também visa criar rotas otimizadas para os coletores a fim de diminuir o desperdício de recursos durante o processo.<br>
@@ -20,3 +22,4 @@ Por Jackson, Lavinia, Thiago e Vinicius
 + _Padronização dos nomes das variáveis_
 + _Validação e-mail e senha_
 
+## <a name=“section”><a/> Seção
