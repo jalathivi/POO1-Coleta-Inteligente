@@ -1,7 +1,7 @@
 # Coleta Inteligente: Trabalho de POO1
 
 Por Jackson, Lavinia, Thiago e Vinicius
-[Ir para seção](#section)
+
 
 
 ## INTRODUÇÃO E MOTIVAÇAO
@@ -12,6 +12,7 @@ Por Jackson, Lavinia, Thiago e Vinicius
 
 ## Versões
 
+[Ir para seção](#section)
 #### **coletaInteligente**
 + _Implementação das classes_
 
@@ -21,6 +22,17 @@ Por Jackson, Lavinia, Thiago e Vinicius
 + _Implementação do conceito de herança_
 + _Padronização dos nomes das variáveis_
 + _Validação e-mail e senha_
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name=“section”><a/> Seção
 
