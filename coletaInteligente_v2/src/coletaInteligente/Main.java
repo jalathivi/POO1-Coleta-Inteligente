@@ -8,10 +8,6 @@ package coletaInteligente;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author eu 
- */
 public class Main {
 
     /**
@@ -72,10 +68,20 @@ public class Main {
                 String senha = JOptionPane.showInputDialog("Digite a Senha");
                 String lati = JOptionPane.showInputDialog("Digite a Latitude");
                 String longi = JOptionPane.showInputDialog("Digite a Longitude");
+                
                 Cidadao cidadao = new Cidadao (codi, nomeC, email, senha, lati, longi);
+                
+                while (!cidadao.verificaEmail(email)){
+                    email = JOptionPane.showInputDialog("Digite o E-mail");
+                    cidadao.setEmail(email);
+                }
+                while (!cidadao.verificaSenha(senha)){
+                    senha = JOptionPane.showInputDialog("Digite a Senha");
+                    cidadao.setSenha(senha);
+                }
 
                 PersistenciaArquivo salvarC = new PersistenciaArquivo();
-                salvarC.salvarCidadao(cidadao);        
+                salvarC.salvaCidadao(cidadao);        
                 
             break;
         }

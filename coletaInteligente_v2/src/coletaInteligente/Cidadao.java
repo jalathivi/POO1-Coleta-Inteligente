@@ -5,6 +5,9 @@
  */
 package coletaInteligente;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern; 
+
 public class Cidadao {
     String codigo;
     String nome;
@@ -31,6 +34,7 @@ public class Cidadao {
         this.longitude = Double.parseDouble(longitude);
     }
     
+
     
     public String getCodigo() {
         return codigo;
@@ -52,13 +56,19 @@ public class Cidadao {
         return email;
     }
     
-    /*
-    public int verifica_email(String email){
+    
+    public boolean verificaEmail(String email){
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$"; 
+        Pattern pat = Pattern.compile(emailRegex);
+        
+        if (email == null)
+            return false;
+        
+        return pat.matcher(email).matches();
     } 
-    */
+    
     
     public void setEmail(String email) {
-        /*necessario algo para verificacao e validacao do email*/
         this.email = email;
     }
 
@@ -66,10 +76,21 @@ public class Cidadao {
         return senha;
     }
     
-    /*
-    public int verifica_senha(String senha){
+
+    public boolean verificaSenha(String senha){
+        // pelo menos uma letra e entre 6 e 14 digitos
+        String PASSWORD_PATTERN = "((?=.*\\d).{6,14})";
+        
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        
+        if (senha == null)
+            return false;
+        
+        Matcher matcher = pattern.matcher(senha);
+        
+        return matcher.matches();
     } 
-    */
+   
     
     public void setSenha(String senha) {
         /*necessario algo para verificacao e validacao da senha*/
