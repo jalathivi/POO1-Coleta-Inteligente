@@ -12,7 +12,8 @@ Por Jackson, Lavinia, Thiago e Vinicius
 
 ## Versões
 
-[Ir para seção](#section)
+Take me to [pookie](#pookie)
+
 #### **coletaInteligente**
 + _Implementação das classes_
 
@@ -34,7 +35,7 @@ Por Jackson, Lavinia, Thiago e Vinicius
 
 
 
-## <a name=“section”><a/> Seção
+<a name="pookie"></a>
 
 
 saddasdsa
