@@ -25,4 +25,4 @@ Por Jackson, Lavinia, Thiago e Vinicius
 + _Implementação das classes_
 + _Implementação do conceito de herança_
 + _Padronização dos nomes das variáveis_
-+ _Validação e-mail e senha do usuário
++ _Validação e-mail e senha do usuário_
