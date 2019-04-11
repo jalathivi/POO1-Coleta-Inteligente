@@ -17,11 +17,11 @@ Por Jackson, Lavinia, Thiago e Vinicius
 
 ## <a name="versoes"></a>Versões
 
-#### **coletaInteligente**
+#### <a name="coletaInteligente"></a>**coletaInteligente**
 + _Implementação das classes_
 
 
-#### **coletaInteligente_v2**
+#### <a name="coletaInteligente_v2"></a>**coletaInteligente_v2**
 + _Implementação das classes_
 + _Implementação do conceito de herança_
 + _Padronização dos nomes das variáveis_
