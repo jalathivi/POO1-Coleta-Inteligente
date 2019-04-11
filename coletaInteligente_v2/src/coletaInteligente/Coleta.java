@@ -14,8 +14,8 @@ import java.util.Calendar;
 
 public class Coleta {
 
-    String cod_Lixeira;
-    String cod_Coletor;
+    Lixeira lixeira;
+    Coletor coletor;
 
     float nivel_Atual;
     Calendar c = Calendar.getInstance();
@@ -25,10 +25,14 @@ public class Coleta {
     int hora;
     int minutos;
     
-    public Coleta(String cod_Lixeira, String cod_Coletor, String nivel_Atual) 
+    public Coleta() {
+        
+    }
+    
+    public Coleta(Lixeira lixeira, Coletor coleta, String nivel_Atual) 
     {
-        this.cod_Lixeira = cod_Lixeira;
-        this.cod_Coletor = cod_Coletor;
+        this.lixeira = lixeira;
+        this.coletor = coleta;
         this.nivel_Atual = Float.parseFloat(nivel_Atual);
         this.dia = c.get(Calendar.DAY_OF_MONTH);
         this.mes = c.get(Calendar.MONTH);
@@ -36,24 +40,6 @@ public class Coleta {
         this.hora = c.get(Calendar.HOUR_OF_DAY);
         this.minutos = c.get(Calendar.MINUTE);
             
-    }
-
-
-    public String getCod_Lixeira() {
-        return cod_Lixeira;
-    }
-
-    public void setCod_Lixeira(String cod_Lixeira) {
-        this.cod_Lixeira = cod_Lixeira;
-    }
-
-    public String getCod_Coletor() {
-        return cod_Coletor;
-    }
-
-    public void setCod_Coletor(String cod_Coletor) {
-        this.cod_Coletor = cod_Coletor;
-
     }
 
 //    public void setNome_Coletor(Coletor nome_Coletor) {
@@ -91,7 +77,7 @@ public class Coleta {
     //Imprimindo Informações
     public void imprimeInfo()
     {
-        System.out.println("Lixeira: " + getCod_Lixeira() + ", " + "Coletor: " + getCod_Coletor() + ", " + "Nível na coleta: " + getNivel_Atual() + ", " + "Horas " + getHora() + ":" + getMinutos() + " , " + getDia() + "/" + getMes() + "/" + getAno());
+        System.out.println("Lixeira: " + lixeira.getCodigo()+ ", " + "Coletor: " + coletor.getCodigo() + ", " + "Nível na coleta: " + getNivel_Atual() + ", " + "Horas " + getHora() + ":" + getMinutos() + " , " + getDia() + "/" + getMes() + "/" + getAno());
     }
 
 }

@@ -52,7 +52,7 @@ public class PersistenciaArquivo {
         try {
             arq = new FileWriter("Coleta.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
-            gravarArq.append(coleta.getCod_Lixeira() + ", " +  coleta.getCod_Coletor() + ", " + coleta.getNivel_Atual() + ", " + coleta.getHora() + ":" + coleta.getMinutos() + " , " + coleta.getDia() + "/" + coleta.getMes() + "/" + coleta.getAno()+ "\r\n");       
+            gravarArq.append(coleta.lixeira.getCodigo()+ ", " +  coleta.coletor.getCodigo() + ", " + coleta.getNivel_Atual() + ", " + coleta.getHora() + ":" + coleta.getMinutos() + " , " + coleta.getDia() + "/" + coleta.getMes() + "/" + coleta.getAno()+ "\r\n");       
             arq.close();   
         } catch (IOException ex) {
             Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
