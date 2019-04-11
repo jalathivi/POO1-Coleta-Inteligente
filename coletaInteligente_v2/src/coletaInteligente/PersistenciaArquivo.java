@@ -18,18 +18,19 @@ import java.util.logging.Logger;
 
 public class PersistenciaArquivo {
        
-    public void salvaColetor(Coletor coletor) {
+  public void salvaColetor(Coletor coletor) {
         
         FileWriter arq;
         try {
-            arq = new FileWriter("//media//aluno//JEFERSON SILVA//Users//Jackson//GIT//POO1-Coleta-Inteligente//coletaInteligente//src//coletaInteligente//Coletor.txt", true);        
+            arq = new FileWriter("C:\\Users\\Jackson\\Documents\\Coletor.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
-            gravarArq.append(coletor.getCodigo() + "," + coletor.getPlaca() + ","+ coletor.getMarca() + "," + coletor.getModelo() + "," + coletor.getAno() + "," + coletor.getCapacidade() + "," + coletor.getLatitude() + "," + coletor.getLongitude() + "\r\n");       
+            gravarArq.append(coletor.getCodigo() + "," + coletor.getPlaca() + ","+ coletor.getMarca() + "," + coletor.getModelo() + "," + coletor.getAno() + "," + coletor.getCapacidade() + "," + coletor.getLatitude() + "," + coletor.getLongitude() + "\r\n");        
             arq.close();   
         } catch (IOException ex) {
             Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+   }
+  
     public void salvarCidadao(Cidadao cidadao) {
         
         FileWriter arq;

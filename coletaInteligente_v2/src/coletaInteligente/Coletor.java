@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coletaInteligente;
 
 
 /**
- *
- * @author Vinicius
+ * @author Jackson Willian Silva Agostinho
  */
 public class Coletor {
     
@@ -16,7 +10,7 @@ public class Coletor {
     String placa;
     float latitude;
     float longitude;
-    int capacidade;
+    float capacidade;
     String marca;
     String modelo;
     int ano;
@@ -26,10 +20,11 @@ public class Coletor {
         this.codigoColetor = Integer.parseInt(codigoColetor);
         this.placa = placa;
         this.marca = marca;
-        this.modelo = placa;
+        this.modelo = modelo;
+        this.ano = Integer.parseInt(ano);
         this.longitude = Float.parseFloat(longitude);
         this.latitude = Float.parseFloat(latitude);
-        this.capacidade = Integer.parseInt(capacidade);
+        this.capacidade = Float.parseFloat(capacidade);
    
     }
 
@@ -65,11 +60,11 @@ public class Coletor {
         this.longitude = longitude;
     }
 
-    public int getCapacidade() {
+    public float getCapacidade() {
         return capacidade;
     }
 
-    public void setCapacidade(int capacidade) {
+    public void setCapacidade(float capacidade) {
         this.capacidade = capacidade;
     }
 
