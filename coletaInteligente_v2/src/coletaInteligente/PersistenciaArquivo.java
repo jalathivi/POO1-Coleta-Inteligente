@@ -11,10 +11,6 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author vinic
- */
 
 public class PersistenciaArquivo {
        
@@ -31,7 +27,7 @@ public class PersistenciaArquivo {
         }
    }
   
-    public void salvarCidadao(Cidadao cidadao) {
+    public void salvaCidadao(Cidadao cidadao) {
         
         FileWriter arq;
         try {

@@ -33,7 +33,7 @@ public class Coletor {
     }
 
     public void setCodigo(int codigo) {
-        this.codigoColetor = codigoColetor;
+        this.codigoColetor = codigo;
     }
 
     public String getPlaca() {
