@@ -33,7 +33,7 @@ public class PersistenciaArquivo {
         try {
             arq = new FileWriter("Cidadaos.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
-            gravarArq.append(cidadao.getCodigo() + "," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + 
+            gravarArq.append("," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + 
                 cidadao.getSenha() + "," + cidadao.getLatitude() + "," + cidadao.getLongitude()+ "\r\n");
             arq.close();   
         } catch (IOException ex) {

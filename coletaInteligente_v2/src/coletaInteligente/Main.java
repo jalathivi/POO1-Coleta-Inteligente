@@ -39,7 +39,7 @@ public class Main {
         latitude = JOptionPane.showInputDialog("Digite a Latitude");
         longitude = JOptionPane.showInputDialog("Digite a Longitude");
         
-        cidadao.setCodigo(codigoCidadao);
+        cidadao.setCodigo(Integer.parseInt(codigoCidadao));
         cidadao.setNome(nomeCidadao);
         cidadao.setEmail(emailCidadao);
         cidadao.setSenha(senhaCidadao);

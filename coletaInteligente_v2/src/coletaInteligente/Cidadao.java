@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern; 
 
 public class Cidadao {
-    String codigo;
+    int codigo;
     String nome;
     String email;
     String senha;
@@ -19,7 +19,7 @@ public class Cidadao {
     public Cidadao (){
     }
     
-    public Cidadao (String codigo, String nome, String email, String senha, Double latitude, Double longitude){
+    public Cidadao (int codigo, String nome, String email, String senha, Double latitude, Double longitude){
         this.codigo = codigo;
         this.nome = nome;
         this.email = email;
@@ -29,7 +29,7 @@ public class Cidadao {
     }
     
     public Cidadao (String codigo, String nome, String email, String senha, String latitude, String longitude){
-        this.codigo = codigo;
+        this.codigo = Integer.parseInt(codigo);
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -39,11 +39,11 @@ public class Cidadao {
     
 
     
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
