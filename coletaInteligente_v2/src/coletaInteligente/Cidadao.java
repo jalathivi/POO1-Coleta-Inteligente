@@ -16,6 +16,9 @@ public class Cidadao {
     Double latitude;
     Double longitude;
     
+    public Cidadao (){
+    }
+    
     public Cidadao (String codigo, String nome, String email, String senha, Double latitude, Double longitude){
         this.codigo = codigo;
         this.nome = nome;
@@ -78,7 +81,7 @@ public class Cidadao {
     
 
     public boolean verificaSenha(String senha){
-        // pelo menos uma letra e entre 6 e 14 digitos
+        // pelo menos um numero e entre 6 e 14 digitos
         String PASSWORD_PATTERN = "((?=.*\\d).{6,14})";
         
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
@@ -104,7 +107,7 @@ public class Cidadao {
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
-
+    
     public Double getLongitude() {
         return longitude;
     }
@@ -113,9 +116,4 @@ public class Cidadao {
         this.longitude = longitude;
     }
     
-    /*
-    public void printa(Cidadao cidadao){
-        System.out.println(cidadao.getCodigo() + "," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + cidadao.getSenha() + "," + cidadao.getLatitude() + "," + cidadao.getLongitude()+ "\r\n");  
-    }
-    */
 }

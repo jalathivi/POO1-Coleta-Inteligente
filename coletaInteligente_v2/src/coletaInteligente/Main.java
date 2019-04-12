@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
       
         int resposta, infoColeta, infoColetor, novaColeta;
-        String codigoCidadao, nomeCidadao, emailCidadao, senhaCidadao = null, latitude, longitude,capacidade, nivel;
+        String codigoCidadao, nomeCidadao, emailCidadao, senhaCidadao, latitude, longitude,capacidade, nivel;
         Bairro bairro;
         Cidadao cidadao;
         Coleta coleta;
@@ -15,32 +15,43 @@ public class Main {
         PersistenciaArquivo registro;
       
         registro = new PersistenciaArquivo();
+        cidadao = new Cidadao ();
         
         JOptionPane.showMessageDialog(null, "Cadastro Usuário");
         codigoCidadao = JOptionPane.showInputDialog("Digite o Código do Cidadao "); 
         nomeCidadao = JOptionPane.showInputDialog("Digite o Nome do Cidadao");
         emailCidadao = JOptionPane.showInputDialog("Digite o E-mail");
-//        while (!cidadao.verificaEmail(email)){
-//                email = JOptionPane.showInputDialog("Digite o E-mail");
-//                cidadao.setEmail(email);
-//        }
-        String senha = JOptionPane.showInputDialog("Digite a Senha");
-//        while (!cidadao.verificaSenha(senha)){
-//                senha = JOptionPane.showInputDialog("Digite a Senha");
-//                cidadao.setSenha(senha);
-//        } 
+        
+        while (!cidadao.verificaEmail(emailCidadao)){
+                JOptionPane.showMessageDialog(null, "E-mail Inválido!");
+                emailCidadao = JOptionPane.showInputDialog("Digite o E-mail");
+                cidadao.setEmail(emailCidadao);
+        }
+        
+        senhaCidadao = JOptionPane.showInputDialog("Digite a Senha");
+        while (!cidadao.verificaSenha(senhaCidadao)){
+                JOptionPane.showMessageDialog(null, "Senha Inválida!\nInsira uma com numeros e tamanho entre 6 e 14 digitos!");
+                senhaCidadao = JOptionPane.showInputDialog("Digite a Senha");
+                cidadao.setSenha(senhaCidadao);
+        } 
 
         JOptionPane.showMessageDialog(null, "Insira a sua localizacao");
         latitude = JOptionPane.showInputDialog("Digite a Latitude");
         longitude = JOptionPane.showInputDialog("Digite a Longitude");
         
-        cidadao = new Cidadao (codigoCidadao, nomeCidadao, emailCidadao, senhaCidadao, latitude, longitude);
+        cidadao.setCodigo(codigoCidadao);
+        cidadao.setNome(nomeCidadao);
+        cidadao.setEmail(emailCidadao);
+        cidadao.setSenha(senhaCidadao);
+        cidadao.setLatitude(Double.parseDouble(latitude));
+        cidadao.setLongitude(Double.parseDouble(longitude));
         
         registro.salvaCidadao(cidadao);
         
         JOptionPane.showMessageDialog(null, "Cadastro de uma lixeira inteligente");
         
         do{
+            
             String codigo  = JOptionPane.showInputDialog("Digite o codigo da lixeira");
             String id = JOptionPane.showInputDialog("Digite o codigo da regiao da lixeira");
             String nome = JOptionPane.showInputDialog("Digite o nome da região da lixeira");

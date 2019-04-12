@@ -27,6 +27,9 @@ public class Coleta {
     int hora;
     int minutos;
     
+    public Coleta (){
+    }
+            
     public Coleta(String cod_lixeira, String cod_coletor, String nivel_Atual)
     {
         this.codigo = Integer.parseInt(cod_lixeira);

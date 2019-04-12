@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/vinic/OneDrive/Documentos/GitHub/POO1-Coleta-Inteligente/coletaInteligente/src/coletaInteligente/Coleta.java</file>
-            <file>file:/C:/Users/vinic/OneDrive/Documentos/GitHub/POO1-Coleta-Inteligente/coletaInteligente/src/coletaInteligente/Cidadao.java</file>
+            <file>file:/C:/Users/20162bsi0317/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_v2/src/coletaInteligente/Main.java</file>
+            <file>file:/C:/Users/20162bsi0317/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_v2/src/coletaInteligente/Lixeira.java</file>
+            <file>file:/C:/Users/20162bsi0317/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_v2/src/coletaInteligente/visao/TelaUsuario.java</file>
+            <file>file:/C:/Users/20162bsi0317/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_v2/src/coletaInteligente/Cidadao.java</file>
+            <file>file:/C:/Users/20162bsi0317/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_v2/src/coletaInteligente/Coletor.java</file>
+            <file>file:/C:/Users/20162bsi0317/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_v2/src/coletaInteligente/Coleta.java</file>
+            <file>file:/C:/Users/20162bsi0317/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_v2/src/coletaInteligente/PersistenciaArquivo.java</file>
         </group>
     </open-files>
 </project-private>
