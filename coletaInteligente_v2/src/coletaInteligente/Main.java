@@ -43,8 +43,8 @@ public class Main {
         cidadao.setNome(nomeCidadao);
         cidadao.setEmail(emailCidadao);
         cidadao.setSenha(senhaCidadao);
-        cidadao.setLatitude(Double.parseDouble(latitude));
-        cidadao.setLongitude(Double.parseDouble(longitude));
+        cidadao.setLatitude(Float.parseFloat(latitude));
+        cidadao.setLongitude(Float.parseFloat(longitude));
         
         registro.salvaCidadao(cidadao);
         
@@ -97,7 +97,6 @@ public class Main {
             resposta = JOptionPane.showConfirmDialog(null, "Deseja cadastrar nova lixeira?");
         } while(resposta == JOptionPane.YES_OPTION);
         JOptionPane.showMessageDialog(null, "Fim do cadastro");
-        
     
     }
     

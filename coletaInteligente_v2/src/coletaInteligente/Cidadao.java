@@ -13,13 +13,13 @@ public class Cidadao {
     String nome;
     String email;
     String senha;
-    Double latitude;
-    Double longitude;
+    float latitude;
+    float longitude;
     
     public Cidadao (){
     }
     
-    public Cidadao (int codigo, String nome, String email, String senha, Double latitude, Double longitude){
+    public Cidadao (int codigo, String nome, String email, String senha, float latitude, float longitude){
         this.codigo = codigo;
         this.nome = nome;
         this.email = email;
@@ -33,8 +33,8 @@ public class Cidadao {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.latitude = Double.parseDouble(latitude);
-        this.longitude = Double.parseDouble(longitude);
+        this.latitude = Float.parseFloat(latitude);
+        this.longitude = Float.parseFloat(longitude);
     }
     
 
@@ -100,20 +100,24 @@ public class Cidadao {
         this.senha = senha;
     }
 
-    public Double getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
-    
-    public Double getLongitude() {
+
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
+
+
+
     
+
 }
