@@ -24,6 +24,11 @@ Por Jackson, Lavinia, Thiago e Vinicius
 
 #### <a name="coletaInteligente_v2"></a>**coletaInteligente_v2**
 + _Implementação das classes_
-+ _Implementação do conceito de herança_
-+ _Padronização dos nomes das variáveis_
 + _Validação e-mail e senha do usuário_
+
+#### <a name="coletaInteligente_v3"></a>**coletaInteligente_v3**
++ _Implementação das classes_
++ _Validação e-mail e senha do usuário_
++ _Padronização dos nomes das variáveis_
++ _Simplificação da classe PersistenciaArquivo_
+
