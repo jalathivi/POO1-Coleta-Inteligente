@@ -22,7 +22,7 @@ public class PersistenciaArquivo {
         
         FileWriter arq;
         try {
-            arq = new FileWriter("C:\\Users\\Jackson\\Documents\\Coletor.txt", true);        
+            arq = new FileWriter("Coletor.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
             gravarArq.append(coletor.getCodigo() + "," + coletor.getPlaca() + ","+ coletor.getMarca() + "," + coletor.getModelo() + "," + coletor.getAno() + "," + coletor.getCapacidade() + "," + coletor.getLatitude() + "," + coletor.getLongitude() + "\r\n");        
             arq.close();   
@@ -35,7 +35,7 @@ public class PersistenciaArquivo {
         
         FileWriter arq;
         try {
-            arq = new FileWriter("C:\\Users\\20172bsi0513\\Cidadaos.txt", true);        
+            arq = new FileWriter("Cidadaos.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
             gravarArq.append(cidadao.getCodigo() + "," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + 
                 cidadao.getSenha() + "," + cidadao.getLatitude() + "," + cidadao.getLongitude()+ "\r\n");
@@ -63,7 +63,7 @@ public class PersistenciaArquivo {
     
     FileWriter arq;
         try {
-        arq = new FileWriter("C:\\...\\Lixeiras.txt", true);//colocar o diretorio certo.      
+        arq = new FileWriter("Lixeiras.txt", true);//colocar o diretorio certo.      
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.append(lixeira.getCodigo() + "," +lixeira.regiao.getCodigo()
         + ","+ lixeira.getLongitude()+","+ lixeira.getLatitude() +"," + lixeira.getCapacidade()+ "\r\n");
