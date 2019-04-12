@@ -1,51 +1,41 @@
-﻿
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coletaInteligente;
 import javax.swing.JOptionPane;
 
-
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        int resposta;
-        int infoColeta;
-        int infoColetor;
-        int novaColeta;
+      
+        int resposta, infoColeta, infoColetor, novaColeta;
+        String codigoCidadao, nomeCidadao, emailCidadao, senhaCidadao = null, latitude, longitude,capacidade, nivel;
+        Bairro bairro;
+        Cidadao cidadao;
+        Coleta coleta;
+        Coletor coletor;
+        Lixeira lixeira;
+        PersistenciaArquivo registro;
+      
+        registro = new PersistenciaArquivo();
         
-        JOptionPane.showMessageDialog(null, "Cadastre o seu Usuário");
-        String codi = JOptionPane.showInputDialog("Digite o Código do Cliente "); 
-        String nomeC = JOptionPane.showInputDialog("Digite o Nome do Cliente");
-        String email = JOptionPane.showInputDialog("Digite o E-mail");
- 		while (!cidadao.verificaEmail(email)){
-			email = JOptionPane.showInputDialog("Digite o E-mail");
-			cidadao.setEmail(email);
-		}
-		       
+        JOptionPane.showMessageDialog(null, "Cadastro Usuário");
+        codigoCidadao = JOptionPane.showInputDialog("Digite o Código do Cidadao "); 
+        nomeCidadao = JOptionPane.showInputDialog("Digite o Nome do Cidadao");
+        emailCidadao = JOptionPane.showInputDialog("Digite o E-mail");
+//        while (!cidadao.verificaEmail(email)){
+//                email = JOptionPane.showInputDialog("Digite o E-mail");
+//                cidadao.setEmail(email);
+//        }
         String senha = JOptionPane.showInputDialog("Digite a Senha");
-		while (!cidadao.verificaSenha(senha)){
-			senha = JOptionPane.showInputDialog("Digite a Senha");
-			cidadao.setSenha(senha);
-		} 
-		       
+//        while (!cidadao.verificaSenha(senha)){
+//                senha = JOptionPane.showInputDialog("Digite a Senha");
+//                cidadao.setSenha(senha);
+//        } 
+
         JOptionPane.showMessageDialog(null, "Insira a sua localizacao");
-        String lati = JOptionPane.showInputDialog("Digite a Latitude");
-        String longi = JOptionPane.showInputDialog("Digite a Longitude");
+        latitude = JOptionPane.showInputDialog("Digite a Latitude");
+        longitude = JOptionPane.showInputDialog("Digite a Longitude");
         
-        Cidadao cidadao = new Cidadao (codi, nomeC, email, senha, lati, longi);
+        cidadao = new Cidadao (codigoCidadao, nomeCidadao, emailCidadao, senhaCidadao, latitude, longitude);
         
-        PersistenciaArquivo registro = new PersistenciaArquivo();
-       
-       
-
-
-		PersistenciaArquivo salvarC = new PersistenciaArquivo(); 
         registro.salvaCidadao(cidadao);
         
         JOptionPane.showMessageDialog(null, "Cadastro de uma lixeira inteligente");
@@ -54,12 +44,12 @@ public class Main {
             String codigo  = JOptionPane.showInputDialog("Digite o codigo da lixeira");
             String id = JOptionPane.showInputDialog("Digite o codigo da regiao da lixeira");
             String nome = JOptionPane.showInputDialog("Digite o nome da região da lixeira");
-            String latitude = JOptionPane.showInputDialog("Digite a latitude da lixeira");
-            String longitude = JOptionPane.showInputDialog("Digite a longitute da lixeira");
-            String capacidade = JOptionPane.showInputDialog("Digite a capacidade total da lixeira");
+            latitude = JOptionPane.showInputDialog("Digite a latitude da lixeira");
+            longitude = JOptionPane.showInputDialog("Digite a longitute da lixeira");
+            capacidade = JOptionPane.showInputDialog("Digite a capacidade total da lixeira");
             
-            Regiao regiao =  new Regiao(id, nome);
-            Lixeira lixeira = new Lixeira(codigo, regiao, latitude, longitude, capacidade);
+            bairro = new Bairro(id, nome);
+            lixeira = new Lixeira(codigo, bairro, latitude, longitude, capacidade);
             
             do{
                 JOptionPane.showMessageDialog(null, "Cadastre o coletor");
@@ -72,14 +62,14 @@ public class Main {
                 String modelo = JOptionPane.showInputDialog("Modelo: ");
                 String ano = JOptionPane.showInputDialog("Ano do veículo: ");
 
-                Coletor coletor = new Coletor(codigoColetor, placa, marca, modelo, ano, lat, lon, cap );
+                coletor = new Coletor(codigoColetor, placa, marca, modelo, ano, lat, lon, cap );
 
                 novaColeta = JOptionPane.showConfirmDialog(null, "Deseja realizar o registro de uma coleta deste coletor?");
                 if(novaColeta == JOptionPane.YES_OPTION)
                 {
                     do{
-                        String nivel = JOptionPane.showInputDialog("Digite o nível da lixeira quando coletada: ");
-                        Coleta coleta = new Coleta(codigo, codigoColetor, nivel);
+                        nivel = JOptionPane.showInputDialog("Digite o nível da lixeira quando coletada: ");
+                        coleta = new Coleta(codigo, codigoColetor, nivel);
                         registro.salvaColeta(coleta);
 
                         novaColeta = JOptionPane.showConfirmDialog(null, "Deseja realizar o registro de uma nova coleta deste coletor?");
@@ -88,8 +78,7 @@ public class Main {
                 }
                 registro.salvaColetor(coletor);
 
-                infoColetor = JOptionPane.showConfirmDialog(null, "Deseja cadastrar novo coletor?")
-
+                infoColetor = JOptionPane.showConfirmDialog(null, "Deseja cadastrar novo coletor?");
             } while(infoColetor == JOptionPane.YES_OPTION);
 
       
