@@ -33,7 +33,7 @@ public class PersistenciaArquivo {
         try {
             arq = new FileWriter("Cidadaos.txt", true);        
             PrintWriter gravarArq = new PrintWriter(arq);
-            gravarArq.append("," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + 
+            gravarArq.append(cidadao.getCodigo() + "," + cidadao.getNome()+ "," + cidadao.getEmail() + "," + 
                 cidadao.getSenha() + "," + cidadao.getLatitude() + "," + cidadao.getLongitude()+ "\r\n");
             arq.close();   
         } catch (IOException ex) {
@@ -62,7 +62,7 @@ public class PersistenciaArquivo {
         arq = new FileWriter("Lixeiras.txt", true);//colocar o diretorio certo.      
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.append(lixeira.getCodigo() + "," +lixeira.regiao.getCodigo()
-        + ","+ lixeira.getLongitude()+","+ lixeira.getLatitude() +"," + lixeira.getCapacidade()+ "\r\n");
+        + ","+ lixeira.getLongitude()+","+ lixeira.getLatitude() +"," + lixeira.getCapacidade() + "\r\n");
         arq.close();   
         } catch (IOException ex) {
             Logger.getLogger(PersistenciaArquivo.class.getName()).log(Level.SEVERE, null, ex);

@@ -14,14 +14,14 @@ public class Lixeira {
     Bairro regiao;
     float latitude;
     float longitude;
-    int capacidade;
+    float capacidade;
     
     public Lixeira(String codigo, Bairro regiao, String latitude, String longitude, String capacidade){
         this.codigo = Integer.parseInt(codigo);
         this.regiao = regiao;
         this.latitude = Float.parseFloat(latitude);
         this.longitude = Float.parseFloat(longitude);
-        this.capacidade = Integer.parseInt(capacidade);
+        this.capacidade = Float.parseFloat(capacidade);
 }
 
     public int getCodigo() {
@@ -56,14 +56,14 @@ public class Lixeira {
         this.longitude = longitude;
     }
 
-    public int getCapacidade() {
+    public float getCapacidade() {
         return capacidade;
     }
 
-    public void setCapacidade(int capacidade) {
+    public void setCapacidade(float capacidade) {
         this.capacidade = capacidade;
     }
-    
-    
+
+  
     
 }
