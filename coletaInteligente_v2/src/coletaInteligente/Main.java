@@ -18,68 +18,78 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int resposta;
+        int infoColeta;
+        int infoColetor;
+        int novaColeta;
         
-        String sSwitch = JOptionPane.showInputDialog("Escolha uma opção:\n <1> cadastrar lixeira \n<2> cadastrar coletor \n<3> cadastrar coleta \n<4> cadastrar cidadão\n ");
-        int nSwitch = Integer.parseInt(sSwitch);
+        JOptionPane.showMessageDialog(null, "Cadastre o seu Usuário");
+        String codi = JOptionPane.showInputDialog("Digite o Código do Cliente "); 
+        String nomeC = JOptionPane.showInputDialog("Digite o Nome do Cliente");
+        String email = JOptionPane.showInputDialog("Digite o E-mail");
+        String senha = JOptionPane.showInputDialog("Digite a Senha");
+        JOptionPane.showMessageDialog(null, "Insira a sua localizacao");
+        String lati = JOptionPane.showInputDialog("Digite a Latitude");
+        String longi = JOptionPane.showInputDialog("Digite a Longitude");
         
-        switch(nSwitch) {
-            case 1:
-                PersistenciaArquivo registro = new PersistenciaArquivo();
-
-                String codigo  = JOptionPane.showInputDialog("Digite o codigo da lixeira");
-                String nome = JOptionPane.showInputDialog("Digite o codigo da regiao da lixeira");
-                String id = JOptionPane.showInputDialog("Digite o nome da região da lixeira");
-                String latitude = JOptionPane.showInputDialog("Digite a latitude da lixeira");
-                String longitude = JOptionPane.showInputDialog("Digite a longitute da lixeira");
-                String capacidade = JOptionPane.showInputDialog("Digite a capacidade da lixeira");
-
-                Regiao regiao =  new Regiao(id, nome);
-                Lixeira lixeira = new Lixeira(codigo, regiao, latitude, longitude, capacidade);
-                registro.salvaLixeira(lixeira);
-                break;
+        Cidadao cidadao = new Cidadao (codi, nomeC, email, senha, lati, longi);
         
-            case 2:
+        PersistenciaArquivo registro = new PersistenciaArquivo();
+        
+        registro.salvarCidadao(cidadao);
+        
+        JOptionPane.showMessageDialog(null, "Cadastro de uma lixeira inteligente");
+        
+        do{
+            String codigo  = JOptionPane.showInputDialog("Digite o codigo da lixeira");
+            String id = JOptionPane.showInputDialog("Digite o codigo da regiao da lixeira");
+            String nome = JOptionPane.showInputDialog("Digite o nome da região da lixeira");
+            String latitude = JOptionPane.showInputDialog("Digite a latitude da lixeira");
+            String longitude = JOptionPane.showInputDialog("Digite a longitute da lixeira");
+            String capacidade = JOptionPane.showInputDialog("Digite a capacidade total da lixeira");
+            
+            Regiao regiao =  new Regiao(id, nome);
+            Lixeira lixeira = new Lixeira(codigo, regiao, latitude, longitude, capacidade);
+            
+            do{
+                JOptionPane.showMessageDialog(null, "Cadastre o coletor");
                 String codigoColetor = JOptionPane.showInputDialog("Codigo do Coletor: ");
-                String placa = JOptionPane.showInputDialog("Placa: ");
+                String placa = JOptionPane.showInputDialog("Placa do veículo: ");
                 String lat = JOptionPane.showInputDialog("Latitude: ");
                 String lon = JOptionPane.showInputDialog("Longitude: ");
-                String cap = JOptionPane.showInputDialog("Capacidade: ");
+                String cap = JOptionPane.showInputDialog("Capacidade de carga: ");
                 String marca = JOptionPane.showInputDialog("Marca: ");
                 String modelo = JOptionPane.showInputDialog("Modelo: ");
-                String ano = JOptionPane.showInputDialog("Ano: "); 
+                String ano = JOptionPane.showInputDialog("Ano do veículo: ");
 
-                Coletor coletor = new Coletor(codigoColetor, placa, marca, modelo, ano, lat, lon, cap ); 
-                PersistenciaArquivo arquivo = new PersistenciaArquivo();
-                arquivo.salvaColetor(coletor);
-                break;
-                
-            case 3:
-                String lix = JOptionPane.showInputDialog("Digite o código da lixeira: ");
-                String col = JOptionPane.showInputDialog("Digite o código do coletor: ");
-                String nivel = JOptionPane.showInputDialog("Digite o nível da lixeira quando coletada: ");
+                Coletor coletor = new Coletor(codigoColetor, placa, marca, modelo, ano, lat, lon, cap );
 
-                Coleta coletaLixo = new Coleta(lix, col, nivel);
-                coletaLixo.imprimeInfo();
+                novaColeta = JOptionPane.showConfirmDialog(null, "Deseja realizar o registro de uma coleta deste coletor?");
+                if(novaColeta == JOptionPane.YES_OPTION)
+                {
+                    do{
+                        String nivel = JOptionPane.showInputDialog("Digite o nível da lixeira quando coletada: ");
+                        Coleta coleta = new Coleta(codigo, codigoColetor, nivel);
 
-                PersistenciaArquivo salvar = new PersistenciaArquivo();
-                salvar.salvaColeta(coletaLixo);
-                break;
-            
-            case 4:
-                String codi = JOptionPane.showInputDialog("Digite o Código do Cliente "); 
-                String nomeC = JOptionPane.showInputDialog("Digite o Nome do Cliente");
-                String email = JOptionPane.showInputDialog("Digite o E-mail");
-                String senha = JOptionPane.showInputDialog("Digite a Senha");
-                String lati = JOptionPane.showInputDialog("Digite a Latitude");
-                String longi = JOptionPane.showInputDialog("Digite a Longitude");
-                Cidadao cidadao = new Cidadao (codi, nomeC, email, senha, lati, longi);
+                        registro.salvaColeta(coleta);
 
-                PersistenciaArquivo salvarC = new PersistenciaArquivo();
-                salvarC.salvarCidadao(cidadao);        
-                
-            break;
-        }
+                        novaColeta = JOptionPane.showConfirmDialog(null, "Deseja realizar o registro de uma nova coleta deste coletor?");
 
+                    } while(novaColeta == JOptionPane.YES_OPTION);
+                }
+                registro.salvaColetor(coletor);
+
+                infoColetor = JOptionPane.showConfirmDialog(null, "Deseja cadastrar novo coletor?");
+
+            } while(infoColetor == JOptionPane.YES_OPTION);
+
+      
+            registro.salvaLixeira(lixeira);
+            resposta = JOptionPane.showConfirmDialog(null, "Deseja cadastrar nova lixeira?");
+        } while(resposta == JOptionPane.YES_OPTION);
+        JOptionPane.showMessageDialog(null, "Fim do cadastro");
+        
+    
     }
     
 }
