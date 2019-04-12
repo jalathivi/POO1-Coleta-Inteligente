@@ -9,11 +9,11 @@ package coletaInteligente;
  *
  * @author Vinicius
  */
-public class Regiao {
+public class Bairro {
     int codigo;
     String nome;
     
-    public Regiao(String codigo, String nome) {
+    public Bairro(String codigo, String nome) {
         this.codigo = Integer.parseInt (codigo) ;
         this.nome = nome;
     }
