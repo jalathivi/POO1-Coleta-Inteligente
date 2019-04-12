@@ -23,7 +23,17 @@ public class Main {
         String codi = JOptionPane.showInputDialog("Digite o Código do Cliente "); 
         String nomeC = JOptionPane.showInputDialog("Digite o Nome do Cliente");
         String email = JOptionPane.showInputDialog("Digite o E-mail");
+ 		while (!cidadao.verificaEmail(email)){
+			email = JOptionPane.showInputDialog("Digite o E-mail");
+			cidadao.setEmail(email);
+		}
+		       
         String senha = JOptionPane.showInputDialog("Digite a Senha");
+		while (!cidadao.verificaSenha(senha)){
+			senha = JOptionPane.showInputDialog("Digite a Senha");
+			cidadao.setSenha(senha);
+		} 
+		       
         JOptionPane.showMessageDialog(null, "Insira a sua localizacao");
         String lati = JOptionPane.showInputDialog("Digite a Latitude");
         String longi = JOptionPane.showInputDialog("Digite a Longitude");
@@ -31,8 +41,12 @@ public class Main {
         Cidadao cidadao = new Cidadao (codi, nomeC, email, senha, lati, longi);
         
         PersistenciaArquivo registro = new PersistenciaArquivo();
-        
-        registro.salvarCidadao(cidadao);
+       
+       
+
+
+		PersistenciaArquivo salvarC = new PersistenciaArquivo(); 
+        registro.salvaCidadao(cidadao);
         
         JOptionPane.showMessageDialog(null, "Cadastro de uma lixeira inteligente");
         
