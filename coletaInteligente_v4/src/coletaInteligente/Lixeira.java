@@ -8,6 +8,9 @@ public class Lixeira {
     float longitude;
     float capacidade;
     
+    public Lixeira(){
+    }
+    
     public Lixeira(String codigo, Bairro regiao, String latitude, String longitude, String capacidade){
         this.codigo = Integer.parseInt(codigo);
         this.regiao = regiao;

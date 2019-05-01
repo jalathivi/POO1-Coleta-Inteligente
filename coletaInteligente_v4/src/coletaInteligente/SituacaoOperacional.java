@@ -8,6 +8,9 @@ public class SituacaoOperacional {
     Status status;
     Calendar data;
     
+    public SituacaoOperacional(){
+    }
+    
     public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data ){
         this.lixeira = lixeira;
         this.coletor = coletor;

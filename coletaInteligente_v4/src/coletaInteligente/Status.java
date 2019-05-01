@@ -5,7 +5,6 @@ public class Status {
     int codigo;
     String descricao;
 
-    
     public Status(){
     }
     

@@ -5,6 +5,9 @@ public class Bairro {
     int codigo;
     String nome;
     
+    public Bairro(){
+    }
+    
     public Bairro(String codigoBairro, String nomeBairro) {
         this.codigo = Integer.parseInt (codigoBairro) ;
         this.nome = nomeBairro;
