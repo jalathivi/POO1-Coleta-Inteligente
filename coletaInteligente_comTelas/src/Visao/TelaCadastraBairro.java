@@ -42,6 +42,8 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
         Sair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Bairro");
+        setResizable(false);
 
         jLabel1.setText("Bairro");
 
@@ -115,7 +117,8 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(416, 339));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
