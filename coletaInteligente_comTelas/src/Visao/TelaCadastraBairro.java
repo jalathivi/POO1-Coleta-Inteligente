@@ -42,7 +42,7 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
         Sair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastrar Bairro");
+        setTitle("Cadastro Bairro");
         setResizable(false);
 
         jLabel1.setText("Bairro");
@@ -53,7 +53,7 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("CADASTRAR BAIRRO");
+        jLabel2.setText("CADASTRO BAIRRO");
 
         Salvar.setText("Salvar");
         Salvar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +81,7 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(164, Short.MAX_VALUE)
                 .addComponent(Sair)
                 .addGap(18, 18, 18)
                 .addComponent(Limpar)
@@ -98,7 +98,7 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(campoNomeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
