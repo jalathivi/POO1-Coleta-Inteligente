@@ -17,7 +17,7 @@ public class Bairro {
     }
     
     public Bairro(int codigoBairro, String nomeBairro) {
-        this.codigo = random.nextInt(100);
+        this.codigo = codigoBairro;
         this.nome = nomeBairro;
     }
 

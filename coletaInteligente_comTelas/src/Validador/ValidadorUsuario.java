@@ -28,9 +28,8 @@ public class ValidadorUsuario implements Validador {
         if (email.equalsIgnoreCase(""))
             throw new Exception("O email não pode ser Vazio");
         if(!pat.matcher(email).matches())
-        {
             throw new Exception("O email deve ter um formato do tipo nome@nomeProvedorEmail.com");
-        }
+        
        
     }
     
@@ -38,7 +37,6 @@ public class ValidadorUsuario implements Validador {
     public void verificaSenha(String senha) throws Exception{
         // pelo menos um numero e entre 6 e 14 digitos
         String PASSWORD_PATTERN = "((?=.*\\d).{6,14})";
-        
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         
         if (senha.equalsIgnoreCase(""))

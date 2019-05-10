@@ -37,17 +37,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="82" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="88" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButtonStatus" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                       <Component id="jButtonColetor" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonRegiao" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cadastraBairro" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -56,6 +51,11 @@
                       <Component id="jButtonSituacaoOP" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -71,7 +71,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButtonRegiao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cadastraBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonColeta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -103,10 +103,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonColetorActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonRegiao">
+        <Component class="javax.swing.JButton" name="cadastraBairro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar Regi&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar Bairro"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastraBairroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSituacaoOP">
           <Properties>

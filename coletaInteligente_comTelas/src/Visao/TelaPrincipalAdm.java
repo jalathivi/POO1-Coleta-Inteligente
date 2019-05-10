@@ -33,7 +33,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButtonLixeira = new javax.swing.JButton();
         jButtonColetor = new javax.swing.JButton();
-        jButtonRegiao = new javax.swing.JButton();
+        cadastraBairro = new javax.swing.JButton();
         jButtonSituacaoOP = new javax.swing.JButton();
         jButtonColeta = new javax.swing.JButton();
         jButtonStatus = new javax.swing.JButton();
@@ -53,7 +53,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
-        jButtonRegiao.setText("Cadastrar Região");
+        cadastraBairro.setText("Cadastrar Bairro");
+        cadastraBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastraBairroActionPerformed(evt);
+            }
+        });
 
         jButtonSituacaoOP.setText("Verificar Situação Operacional das Lixeiras");
 
@@ -65,22 +70,22 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 82, Short.MAX_VALUE)
+                .addGap(0, 88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonColetor)
-                    .addComponent(jButtonRegiao))
+                    .addComponent(cadastraBairro))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonColeta)
                     .addComponent(jButtonLixeira)
                     .addComponent(jButtonSituacaoOP))
                 .addGap(129, 129, 129))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +98,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                     .addComponent(jButtonLixeira))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRegiao)
+                    .addComponent(cadastraBairro)
                     .addComponent(jButtonColeta))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,6 +121,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButtonColetorActionPerformed
+
+    private void cadastraBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraBairroActionPerformed
+        // TODO add your handling code here:
+        TelaCadastraBairro tCadastrOBairro = new TelaCadastraBairro();
+        tCadastrOBairro.show(true);
+    }//GEN-LAST:event_cadastraBairroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,10 +164,10 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastraBairro;
     private javax.swing.JButton jButtonColeta;
     private javax.swing.JButton jButtonColetor;
     private javax.swing.JButton jButtonLixeira;
-    private javax.swing.JButton jButtonRegiao;
     private javax.swing.JButton jButtonSituacaoOP;
     private javax.swing.JButton jButtonStatus;
     private javax.swing.JLabel jLabel1;
