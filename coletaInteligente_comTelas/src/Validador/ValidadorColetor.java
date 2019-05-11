@@ -33,7 +33,7 @@ public class ValidadorColetor {
             throw new Exception("Campo marca não pode ser vazio");
         
         if (marca.length() > 16)
-            throw new Exception ("Tamanho maximo de 16 caracteres");
+            throw new Exception ("Marca deve ter tamanho maximo de 16 caracteres");
     }
     
     public void verificaModelo (String modelo) throws Exception{
@@ -41,11 +41,14 @@ public class ValidadorColetor {
             throw new Exception("Campo modelo não pode ser vazio");
         
         if (modelo.length() > 16)
-            throw new Exception ("Tamanho maximo de 16 caracteres");
+            throw new Exception ("Modelo deve ter tamanho maximo de 16 caracteres");
     }
     
     public void verificaAno (String ano) throws Exception{
-        if (!ano.matches("[0-9]"))
+        if (ano.equalsIgnoreCase(""))
+            throw new Exception("Campo ano não pode ser vazio");
+        
+        if (!ano.matches("[0-9]*"))
             throw new Exception ("O ano deve conter apenas numeros");
         
         /*considera que o ano nao deve ser maior que o atual, e o ano minimo deve ser 1950*/
@@ -55,7 +58,10 @@ public class ValidadorColetor {
     }
     
     public void verificaCapacidade(String capacidade) throws Exception{
-        if (!capacidade.matches("[0-9]"))
+        if (capacidade.equalsIgnoreCase(""))
+            throw new Exception("Campo capacidade não pode ser vazio");
+
+        if (!capacidade.matches("[0-9]*"))
             throw new Exception ("A capacidade deve conter apenas numeros");
         
         float cap = Float.parseFloat(capacidade);
