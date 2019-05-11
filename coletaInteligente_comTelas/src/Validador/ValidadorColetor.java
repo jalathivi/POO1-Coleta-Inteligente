@@ -53,7 +53,7 @@ public class ValidadorColetor {
         
         /*considera que o ano nao deve ser maior que o atual, e o ano minimo deve ser 1950*/
         int a = Integer.parseInt(ano);
-        if (a > 2020 || a < 1950)
+        if (a > 2019 || a < 1950)
             throw new Exception ("O ano deve conter 4 numeros e estar situado entre 1950 e 2020");
     }
     
