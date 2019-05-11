@@ -7,7 +7,11 @@ package Visao;
 
 import coletaInteligente.Coletor;
 import coletaInteligente.PersistenciaArquivo;
+import Validador.ValidadorColetor;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -149,13 +153,37 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
 
     private void jButtonRegistrarColetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarColetorActionPerformed
         // TODO add your handling code here:
-        
         Random random = new Random();
-        PersistenciaArquivo registro = new PersistenciaArquivo();
         Coletor coletor;
-        coletor = new Coletor(random.nextInt(100), jTextFieldPlaca.getText(), jTextFieldMarca.getText(), jTextFieldModelo.getText(), Integer.parseInt(jTextFieldAno.getText()), random.nextFloat(), random.nextFloat(), Float.parseFloat(jTextFieldCapacidade.getText()));
-        registro.salvaColetor(coletor);
-        this.dispose();
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        PersistenciaArquivo registro = new PersistenciaArquivo();
+        int codigo = random.nextInt(100);
+        String placa = jTextFieldPlaca.getText();
+        String marca = jTextFieldMarca.getText();
+        String modelo = jTextFieldModelo.getText();
+        String ano = jTextFieldAno.getText();
+        float longitude = random.nextFloat();
+        float latitude = random.nextFloat();
+        String capacidade = jTextFieldCapacidade.getText();
+        
+        try {
+            validaColetor.verificaPlaca(placa);
+            validaColetor.verificaMarca(marca);
+            validaColetor.verificaModelo(modelo);
+            validaColetor.verificaAno(ano);
+            validaColetor.verificaCapacidade(capacidade);
+            
+            JOptionPane.showMessageDialog(null, "Coletor cadastrado Com sucesso!");
+            
+            coletor = new Coletor(codigo, placa, marca, modelo, Integer.parseInt(ano), longitude, latitude, Float.parseFloat(capacidade));
+            registro.salvaColetor(coletor);
+            this.dispose();
+            
+        } catch (Exception ex){
+            //Logger.getLogger(TelaCadastroColetor.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
     }//GEN-LAST:event_jButtonRegistrarColetorActionPerformed
 
     /**
