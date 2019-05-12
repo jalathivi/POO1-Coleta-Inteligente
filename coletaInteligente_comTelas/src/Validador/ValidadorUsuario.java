@@ -47,7 +47,7 @@ public class ValidadorUsuario implements Validador {
     
     public void senhaIguais (String senha, String senha2) throws Exception{
         
-        if (!senha.equalsIgnoreCase(senha2))
+        if (!senha.equals(senha2))
             throw new Exception("As senhas digitadas não são iguais!");
     }
     

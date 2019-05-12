@@ -3,10 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaCadastraBairro.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/coletaInteligente/Main.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Validador/ValidadorColetor.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaCadastroColetor.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/coletaInteligente/Cidadao.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaCadastroColetor.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/coletaInteligente/Main.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaVCidadao.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaPrincipalCidadao.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaCadastroBairro.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Validador/ValidadorBairro.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Validador/ValidadorUsuario.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaPrincipalAdm.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/coletaInteligente/Coleta.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/coletaInteligente/Bairro.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaCadastroCidadao.java</file>
+            <file>file:/C:/Users/Jackson/Documents/GitHub/POO1-Coleta-Inteligente/coletaInteligente_comTelas/src/Visao/TelaCadastroStatus.java</file>
         </group>
     </open-files>
 </project-private>
