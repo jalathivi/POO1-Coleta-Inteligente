@@ -45,4 +45,11 @@ public class ValidadorUsuario implements Validador {
             throw new Exception("Senha deve ter de 6 a 14 caracteres numéricos");
     }
     
+    public void senhaIguais (String senha, String senha2) throws Exception{
+        
+        if (!senha.equalsIgnoreCase(senha2))
+            throw new Exception("As senhas digitadas não são iguais!");
+    }
+    
+    
 }
