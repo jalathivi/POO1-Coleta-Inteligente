@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author Jackson
  */
-public class TelaCadastraBairro extends javax.swing.JFrame {
+public class TelaCadastroBairro extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastraBairro
      */
-    public TelaCadastraBairro() {
+    public TelaCadastroBairro() {
         initComponents();
     }
 
@@ -133,10 +133,10 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
             valBairro.verificaNome(nome);
             bairro = new Bairro(nome);
             registro.salvaBairro(bairro);
-            JOptionPane.showMessageDialog(null, "Bairro Cadastrado Com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Bairro cadastrado com sucesso!");
             campoNomeBairro.setText("");
         } catch (Exception ex) {
-            Logger.getLogger(TelaCadastraBairro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastroBairro.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
 
@@ -183,20 +183,21 @@ public class TelaCadastraBairro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroBairro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastraBairro().setVisible(true);
+                new TelaCadastroBairro().setVisible(true);
             }
         });
     }

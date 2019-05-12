@@ -65,6 +65,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jButtonColeta.setText("Gerar Rota para Coleta");
 
         jButtonStatus.setText("Criar Status");
+        jButtonStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,16 +122,19 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaCadastroColetor tCadastroColetor = new TelaCadastroColetor();
         tCadastroColetor.show(true);
-        
-        
-        
     }//GEN-LAST:event_jButtonColetorActionPerformed
 
     private void cadastraBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraBairroActionPerformed
         // TODO add your handling code here:
-        TelaCadastraBairro tCadastrOBairro = new TelaCadastraBairro();
-        tCadastrOBairro.show(true);
+        TelaCadastroBairro tCadastroBairro = new TelaCadastroBairro();
+        tCadastroBairro.show(true);
     }//GEN-LAST:event_cadastraBairroActionPerformed
+
+    private void jButtonStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStatusActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroStatus tCadastroStatus = new TelaCadastroStatus();
+        tCadastroStatus.show(true);
+    }//GEN-LAST:event_jButtonStatusActionPerformed
 
     /**
      * @param args the command line arguments
