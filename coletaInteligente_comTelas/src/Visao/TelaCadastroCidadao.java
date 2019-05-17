@@ -7,7 +7,6 @@ package Visao;
 
 import coletaInteligente.Cidadao;
 import coletaInteligente.PersistenciaArquivo;
-import Validador.ValidadorCidadao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -170,7 +169,10 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
         senha = jPasswordFieldSenha.getText();
 
         try {
-            cidadao = new Cidadao(nome, email, senha);
+            cidadao = new Cidadao();
+            cidadao.setNome(nome);
+            cidadao.setEmail(email);
+            cidadao.setSenha(senha);
             PersistenciaArquivo registro = new PersistenciaArquivo();
             registro.salvaCidadao(cidadao);
             JOptionPane.showMessageDialog(null, "Cadastrado realizado com sucesso!");

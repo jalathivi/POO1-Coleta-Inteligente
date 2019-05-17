@@ -11,7 +11,8 @@ public class Coleta {
 
     public Coleta (){   
     }
-            
+     
+    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
     public Coleta(Lixeira lixeira, Coletor coletor, String nivelAtual, Calendar data ){   
         this.lixeira = lixeira;
         this.coletor = coletor;
@@ -24,7 +25,7 @@ public class Coleta {
         this.coletor = coletor;
         this.data = data;
         this.nivelAtual = nivelAtual;
-    }
+    }*/
   
     public void setLixeira(Lixeira lixeira){
         this.lixeira = lixeira;

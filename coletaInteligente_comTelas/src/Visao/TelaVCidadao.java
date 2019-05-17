@@ -132,7 +132,7 @@ public class TelaVCidadao extends javax.swing.JFrame {
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // TODO add your handling code here:
-        TelaPrincipalCidadao tPCidadao = new TelaPrincipalCidadao();
+        TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
         tPCidadao.show(true);
         this.dispose();
     }//GEN-LAST:event_jButtonEntrarActionPerformed

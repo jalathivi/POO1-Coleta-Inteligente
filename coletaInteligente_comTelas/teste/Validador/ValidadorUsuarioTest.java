@@ -86,19 +86,5 @@ public class ValidadorUsuarioTest {
         }
       
     }
-
-    /**
-     * Test of senhaIguais method, of class ValidadorCidadao.
-     */
-//    @Test
-    public void testSenhaIguais() throws Exception {
-        System.out.println("senhaIguais");
-        String senha = "";
-        String senha2 = "";
-        ValidadorCidadao instance = new ValidadorCidadao();
-        instance.senhaIguais(senha, senha2);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }

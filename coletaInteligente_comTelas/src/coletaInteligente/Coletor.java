@@ -4,24 +4,24 @@ import Validador.ValidadorColetor;
 import java.util.Random;
 
 public class Coletor {
+    Random random = new Random();
     
-    int codigo;
+    int codigo = random.nextInt(100);
+    float latitude = random.nextFloat();
+    float longitude = random.nextFloat();
+    
     String placa;
-    float latitude;
-    float longitude;
     float capacidade;
     String marca;
     String modelo;
     int ano;
     
-    Random random = new Random();
-
+    
     public Coletor (){
-        this.codigo = random.nextInt(100);
-        this.latitude = random.nextFloat();
-        this.longitude = random.nextFloat();
+    
     }
     
+    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
     public Coletor(String placa, String marca, String  modelo, String ano, String capacidade ) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
         validaColetor.verificaPlaca(placa);
@@ -38,15 +38,16 @@ public class Coletor {
         this.codigo = random.nextInt(100);
         this.latitude = random.nextFloat();
         this.longitude = random.nextFloat();
-    }
+    }*/
    
     public int getCodigo() {
         return codigo;
     }
 
+    /*
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }
+    }*/
     
     public String getPlaca() {
         return placa;
@@ -55,7 +56,6 @@ public class Coletor {
     public void setPlaca(String placa) throws Exception {
         ValidadorColetor validaColetor = new ValidadorColetor();
         validaColetor.verificaPlaca(placa);
-        
         this.placa = placa;
     }
 
@@ -63,18 +63,17 @@ public class Coletor {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
-
+    /*public void setLatitude(float latitude) {
         this.latitude = latitude;
-    }
+    }*/
 
     public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    /*public void setLongitude(float longitude) {
         this.longitude = longitude;
-    }
+    }*/
 
     public float getCapacidade() {
         return capacidade;
@@ -83,7 +82,6 @@ public class Coletor {
     public void setCapacidade(float capacidade) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
         validaColetor.verificaCapacidade(Float.toString(capacidade));
-        
         this.capacidade = capacidade;
     }
 
@@ -94,7 +92,6 @@ public class Coletor {
     public void setMarca(String marca) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
         validaColetor.verificaMarca(marca);
-        
         this.marca = marca;
     }
     
@@ -105,7 +102,6 @@ public class Coletor {
     public void setModelo(String modelo) throws Exception {
         ValidadorColetor validaColetor = new ValidadorColetor();
         validaColetor.verificaModelo(modelo);
-     
         this.modelo = modelo;
     }
 
@@ -116,7 +112,6 @@ public class Coletor {
     public void setAno(int ano) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
         validaColetor.verificaAno(Integer.toString(ano));
-
         this.ano = ano;
     }
 

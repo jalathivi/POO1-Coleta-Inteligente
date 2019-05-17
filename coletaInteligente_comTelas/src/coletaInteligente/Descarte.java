@@ -1,22 +1,25 @@
 
 package coletaInteligente;
 import java.util.Calendar;
+import java.util.Random;
 
 public class Descarte {
-
+    Random random = new Random();
     Lixeira lixeira;
     Cidadao cidadao;
     Calendar data; //data = Calendar.getInstance();
     float nivelAtual;
     
     //ATributos provisórios? Talvez
-    int codLixeira;
-    int codCidadao;
+    int codLixeira = random.nextInt();
+    int codCidadao = random.nextInt();
     
 
     public Descarte(){  
+        
     }
             
+    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
     public Descarte(Lixeira lixeira, Cidadao cidadao, String nivelAtual, Calendar data){   
         this.lixeira = lixeira;
         this.cidadao = cidadao;
@@ -37,7 +40,7 @@ public class Descarte {
         this.codCidadao = codCidadao;
         this.data = data;
         this.nivelAtual = nivel;
-    }
+    }*/
   
     public void setLixeira(Lixeira lixeira){
         this.lixeira = lixeira;
@@ -67,6 +70,14 @@ public class Descarte {
     
     public float getNivelAtual() {
         return nivelAtual;
+    }
+    
+    public void setData(Calendar data) {
+        this.data = data;
+    }
+    
+    public Calendar getData() {
+        return data;
     }
     
     public int getHora() {

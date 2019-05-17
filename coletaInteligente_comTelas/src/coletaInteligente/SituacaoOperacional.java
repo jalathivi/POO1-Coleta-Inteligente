@@ -11,12 +11,13 @@ public class SituacaoOperacional {
     public SituacaoOperacional(){
     }
     
+    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
     public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data ){
         this.lixeira = lixeira;
         this.coletor = coletor;
         this.status = status;
         this.data = data;
-    }
+    }*/
  
     public void setColetor (Status status){
         this.status = status;

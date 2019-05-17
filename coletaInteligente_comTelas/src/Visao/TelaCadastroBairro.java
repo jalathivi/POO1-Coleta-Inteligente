@@ -131,7 +131,8 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         
         try {
             valBairro.verificaNome(nome);
-            bairro = new Bairro(nome);
+            bairro = new Bairro();
+            bairro.setNome(nome);
             registro.salvaBairro(bairro);
             JOptionPane.showMessageDialog(null, "Bairro cadastrado com sucesso!");
             campoNomeBairro.setText("");

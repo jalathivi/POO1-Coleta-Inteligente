@@ -165,7 +165,12 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         String capacidade = jTextFieldCapacidade.getText();
         
         try {
-            coletor = new Coletor(placa, marca, modelo, ano, capacidade);
+            coletor = new Coletor();
+            coletor.setPlaca(placa);
+            coletor.setMarca(marca);
+            coletor.setModelo(modelo);
+            coletor.setAno(Integer.parseInt(ano));
+            coletor.setCapacidade(Float.parseFloat(capacidade));
             registro.salvaColetor(coletor);
             JOptionPane.showMessageDialog(null, "Coletor cadastrado com sucesso!");
             

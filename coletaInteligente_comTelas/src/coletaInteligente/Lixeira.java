@@ -25,6 +25,7 @@ public class Lixeira {
 //        this.capacidade = Float.parseFloat(capacidade);
 //    }
 //   
+    
     public Lixeira(Bairro regiao, float capacidade) throws Exception{
         this.setLatitude( Float.toString(random.nextFloat()) );
         this.codigo = random.nextInt(100);

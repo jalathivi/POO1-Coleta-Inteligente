@@ -105,17 +105,14 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
     private void jButtonRegistrarStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarStatusActionPerformed
         // TODO add your handling code here:
-        Random random = new Random();
         Status status;
-        int codigo = random.nextInt(100);
         PersistenciaArquivo registro = new PersistenciaArquivo();
-        ValidadorStatus valStatus = new ValidadorStatus();
-
         String descricao = jTextFieldDescricao.getText();
 
         try {
-            valStatus.verificaDescricao(descricao);
-            status = new Status(codigo, descricao);
+            
+            status = new Status();
+            status.setDescricao(descricao);
             registro.salvaStatus(status);
             JOptionPane.showMessageDialog(null, "Status cadastrado com sucesso!");
             this.dispose();
