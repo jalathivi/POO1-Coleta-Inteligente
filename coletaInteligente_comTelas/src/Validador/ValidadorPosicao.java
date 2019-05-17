@@ -11,6 +11,7 @@ package Validador;
  */
 public class ValidadorPosicao {
     
+    
     public void latitude(String lat) throws Exception {
         if (lat.equalsIgnoreCase(""))
               throw new Exception("O campo latitude deve ser preenchido"); 

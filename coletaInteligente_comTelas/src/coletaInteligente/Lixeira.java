@@ -17,16 +17,16 @@ public class Lixeira {
     public Lixeira(){
     }
     
-    public Lixeira(Bairro regiao, String capacidade){
-        this.codigo = random.nextInt(100);
-        this.regiao = regiao;
-        this.latitude = random.nextFloat();
-        this.longitude = random.nextFloat();
-        this.capacidade = Float.parseFloat(capacidade);
-    }
-   
+//    public Lixeira(Bairro regiao, String capacidade){
+//        this.codigo = random.nextInt(100);
+//        this.regiao = regiao;
+//        this.latitude = random.nextFloat();
+//        this.longitude = random.nextFloat();
+//        this.capacidade = Float.parseFloat(capacidade);
+//    }
+//   
     public Lixeira(Bairro regiao, float capacidade) throws Exception{
-        setLatitude( Float.toString(random.nextFloat()) );
+        this.setLatitude( Float.toString(random.nextFloat()) );
         this.codigo = random.nextInt(100);
         this.regiao = regiao;
         this.longitude = random.nextFloat();

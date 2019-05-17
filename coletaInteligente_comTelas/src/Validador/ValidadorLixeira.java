@@ -5,8 +5,6 @@
  */
 package Validador;
 
-import ValidadorPosicao;
-
 /**
  *
  * @author Vinicius
