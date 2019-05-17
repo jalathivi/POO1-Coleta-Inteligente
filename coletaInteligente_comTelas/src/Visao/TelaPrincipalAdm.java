@@ -45,6 +45,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jLabel1.setText("Administrador");
 
         jButtonLixeira.setText("Cadastrar Lixeira");
+        jButtonLixeira.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLixeiraActionPerformed(evt);
+            }
+        });
 
         jButtonColetor.setText("Cadastrar Coletor");
         jButtonColetor.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +140,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         TelaCadastroStatus tCadastroStatus = new TelaCadastroStatus();
         tCadastroStatus.show(true);
     }//GEN-LAST:event_jButtonStatusActionPerformed
+
+    private void jButtonLixeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLixeiraActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroLixeira tCadastroLixeira = new TelaCadastroLixeira();
+        tCadastroLixeira.show(true);
+    }//GEN-LAST:event_jButtonLixeiraActionPerformed
 
     /**
      * @param args the command line arguments

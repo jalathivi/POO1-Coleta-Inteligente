@@ -6,13 +6,15 @@ import Validador.ValidadorPosicao;
 import java.util.Random;
 
 public class Lixeira {
-    int codigo;
+    Random random = new Random();
+    
+    int codigo = random.nextInt(100);
     Bairro regiao;
     float latitude;
     float longitude;
     float capacidade;
+    float nivel_atual;
     
-    Random random = new Random();
     
     public Lixeira(){
     }
@@ -26,21 +28,22 @@ public class Lixeira {
 //    }
 //   
     
+ /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
     public Lixeira(Bairro regiao, float capacidade) throws Exception{
         this.setLatitude( Float.toString(random.nextFloat()) );
         this.codigo = random.nextInt(100);
         this.regiao = regiao;
         this.longitude = random.nextFloat();
         this.capacidade = capacidade;
-    }
+    }*/
 
     public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo() {     
-        this.codigo = random.nextInt(100);
-    }
+    /*public void setCodigo() {     
+        this.codigo = codigo;
+    }*/
 
     public int getCodRegiao() {
         return regiao.getCodigo();
@@ -57,9 +60,16 @@ public class Lixeira {
     public float getLatitude() {
         return latitude;
     }
+    
+    public void setNivelAtual(float nivel) {
+        this.nivel_atual = nivel;
+    }
+    
+    public float getNivelAtual() {
+        return nivel_atual;
+    }
 
     public void setLatitude(String latitude) throws Exception {
-        
         ValidadorPosicao valPosicao = new ValidadorPosicao();
         valPosicao.latitude(latitude);
         this.latitude = Float.parseFloat(latitude);

@@ -11,12 +11,12 @@ package Validador;
  */
 public class ValidadorLixeira {
         
-    public void codigo(String cod) throws Exception {
+    /*public void codigo(String cod) throws Exception {
         if(cod.equalsIgnoreCase(""))
             throw new Exception("O campo codigo deve ser preenchido");
         if (!cod.matches("[0-9]*"))
             throw new Exception ("O campo codigo só deve ter numeros sem sinal");
-    }
+    }*/
     
     public void bairro(String bairro) throws Exception {
         if (bairro.equalsIgnoreCase(""))
@@ -25,7 +25,7 @@ public class ValidadorLixeira {
             throw new Exception ("O campo bairro só deve ter letras e números");
     }
     
-    public void latitude(String lat) throws Exception {
+    /*public void latitude(String lat) throws Exception {
         if (lat.equalsIgnoreCase(""))
               throw new Exception("O campo latitude deve ser preenchido"); 
         if (!lat.matches("[-+]?[0-9]*\\.?[0-9]*"))
@@ -45,7 +45,7 @@ public class ValidadorLixeira {
         Float float_lon = Float.parseFloat(lon); 
         if (float_lon < -180 || float_lon > 180)
             throw new Exception("Intervalo valido para a longitude é -180º a 180º"); 
-    }
+    }*/
 
     public void capacidade(String capacidade) throws Exception {
         if (capacidade.equalsIgnoreCase(""))
@@ -55,10 +55,10 @@ public class ValidadorLixeira {
     }
     public void todosCampos(String cod, String bai, String lat, String lon, String cap) {
         try {
-            codigo(cod);
+       //     codigo(cod);
             bairro(bai);
-            latitude(lat);
-            longitude(lon);
+        //    latitude(lat);
+        //    longitude(lon);
             capacidade(cap);  
         } catch (Exception e) {
             System.out.println(e.getMessage());
