@@ -1,6 +1,8 @@
 
 package coletaInteligente;
 
+import Validador.ValidadorPosicao;
+
 import java.util.Random;
 
 public class Lixeira {
@@ -22,11 +24,11 @@ public class Lixeira {
         this.longitude = random.nextFloat();
         this.capacidade = Float.parseFloat(capacidade);
     }
-    
-    public Lixeira(Bairro regiao, float capacidade){
+   
+    public Lixeira(Bairro regiao, float capacidade) throws Exception{
+        setLatitude( Float.toString(random.nextFloat()) );
         this.codigo = random.nextInt(100);
         this.regiao = regiao;
-        this.latitude = random.nextFloat();
         this.longitude = random.nextFloat();
         this.capacidade = capacidade;
     }
@@ -35,7 +37,7 @@ public class Lixeira {
         return codigo;
     }
 
-    public void setCodigo() {
+    public void setCodigo() {     
         this.codigo = random.nextInt(100);
     }
 
@@ -55,8 +57,11 @@ public class Lixeira {
         return latitude;
     }
 
-    public void setLatitude() {
-        this.latitude = random.nextInt(100);
+    public void setLatitude(String latitude) throws Exception {
+        
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.latitude(latitude);
+        this.latitude = Float.parseFloat(latitude);
     }
 
     public float getLongitude() {
