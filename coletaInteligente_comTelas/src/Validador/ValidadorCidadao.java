@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  *
  * @author 20162bsi0317
  */
-public class ValidadorUsuario implements Validador {
+public class ValidadorCidadao implements Validador {
     
     @Override
     public void verificaNome(String nome) throws Exception{
@@ -43,12 +43,6 @@ public class ValidadorUsuario implements Validador {
             throw new Exception("Senha não pode ser vazia");
         if(!pattern.matcher(senha).matches())
             throw new Exception("Senha deve ter de 6 a 14 caracteres numéricos");
-    }
-    
-    public void senhaIguais (String senha, String senha2) throws Exception{
-        
-        if (!senha.equals(senha2))
-            throw new Exception("As senhas digitadas não são iguais!");
     }
     
     

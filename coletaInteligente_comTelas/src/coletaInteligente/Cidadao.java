@@ -1,6 +1,7 @@
 
 package coletaInteligente;
 
+import Validador.ValidadorCidadao;
 import java.util.Random;
 
 public class Cidadao{
@@ -11,6 +12,7 @@ public class Cidadao{
     float latitude;
     float longitude;
     
+    
     Random random = new Random();
     
     public Cidadao (){
@@ -19,14 +21,17 @@ public class Cidadao{
         this.longitude = random.nextFloat();
     }
     
-    public Cidadao (String nome, String email, String senha){
+    public Cidadao (String nome, String email, String senha) throws Exception {
+        ValidadorCidadao valCidadao = new ValidadorCidadao();
+        valCidadao.verificaNome(nome);
+        valCidadao.verificaEmail(email);
+        valCidadao.verificaSenha(senha);
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.codigo = random.nextInt(100);
         this.latitude = random.nextFloat();
         this.longitude = random.nextFloat();
-        
     }
     
     public int getCodigo() {
@@ -37,7 +42,9 @@ public class Cidadao{
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws Exception {
+        ValidadorCidadao valCidadao = new ValidadorCidadao();
+        valCidadao.verificaNome(nome);
         this.nome = nome;
     }
 
@@ -46,7 +53,9 @@ public class Cidadao{
     }
     
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws Exception {
+        ValidadorCidadao valCidadao = new ValidadorCidadao();
+        valCidadao.verificaEmail(email);
         this.email = email;
     }
 
@@ -55,7 +64,9 @@ public class Cidadao{
     }
     
     
-    public void setSenha(String senha) {
+    public void setSenha(String senha) throws Exception {
+        ValidadorCidadao valCidadao = new ValidadorCidadao();
+        valCidadao.verificaSenha(senha);        
         this.senha = senha;
     }
 

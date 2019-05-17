@@ -7,7 +7,7 @@ package Visao;
 
 import coletaInteligente.Cidadao;
 import coletaInteligente.PersistenciaArquivo;
-import Validador.ValidadorUsuario;
+import Validador.ValidadorCidadao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -44,8 +44,6 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
         jPasswordFieldSenha = new javax.swing.JPasswordField();
         jButtonOK = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jPasswordFieldSenha2 = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Cliente");
@@ -81,14 +79,6 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
 
         jLabel6.setText("OK = Compartilhar sua \"Localização\"");
 
-        jPasswordFieldSenha2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldSenha2ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Confirmar Senha");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -104,20 +94,15 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addGap(46, 46, 46)))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jPasswordFieldSenha2)
                             .addComponent(jPasswordFieldSenha)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
@@ -147,11 +132,7 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordFieldSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonOK)
                     .addComponent(jLabel6))
@@ -180,22 +161,15 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
         // TODO add your handling code here:
         Cidadao cidadao;
-        ValidadorUsuario validaUser = new ValidadorUsuario();
         String email;
         String senha;
-        String senha2;
         String nome;
         
         nome = jTextFieldNome.getText();
         email = jTextFieldEmail.getText();
         senha = jPasswordFieldSenha.getText();
-        senha2 = jPasswordFieldSenha2.getText();
+
         try {
-            validaUser.verificaNome(nome);
-            validaUser.verificaEmail(email);
-            validaUser.verificaSenha(senha);
-            validaUser.verificaSenha(senha2);
-            validaUser.senhaIguais(senha, senha2);
             cidadao = new Cidadao(nome, email, senha);
             PersistenciaArquivo registro = new PersistenciaArquivo();
             registro.salvaCidadao(cidadao);
@@ -211,10 +185,6 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
     private void jPasswordFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
-
-    private void jPasswordFieldSenha2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenha2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldSenha2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,11 +227,9 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldSenha;
-    private javax.swing.JPasswordField jPasswordFieldSenha2;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables

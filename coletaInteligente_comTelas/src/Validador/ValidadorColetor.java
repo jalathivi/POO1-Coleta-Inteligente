@@ -68,4 +68,12 @@ public class ValidadorColetor {
         if (cap == 0)
             throw new Exception ("A capacidade não pode ser 0");
     }
+
+    public void verificaCapacidade(float capacidade) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void verificaAno(int ano) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

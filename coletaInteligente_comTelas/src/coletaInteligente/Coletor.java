@@ -1,5 +1,8 @@
 package coletaInteligente;
 
+import Validador.ValidadorColetor;
+import java.util.Random;
+
 public class Coletor {
     
     int codigo;
@@ -10,32 +13,33 @@ public class Coletor {
     String marca;
     String modelo;
     int ano;
+    
+    Random random = new Random();
 
     public Coletor (){
+        this.codigo = random.nextInt(100);
+        this.latitude = random.nextFloat();
+        this.longitude = random.nextFloat();
     }
     
-    public Coletor(String codigo, String placa, String marca, String  modelo, String ano, String latitude, String longitude, String capacidade ) {
-        this.codigo = Integer.parseInt(codigo);
+    public Coletor(String placa, String marca, String  modelo, String ano, String capacidade ) throws Exception{
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.verificaPlaca(placa);
+        validaColetor.verificaMarca(marca);
+        validaColetor.verificaModelo(modelo);
+        validaColetor.verificaAno(ano);
+        validaColetor.verificaCapacidade(capacidade);
+
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.ano = Integer.parseInt(ano);
-        this.longitude = Float.parseFloat(longitude);
-        this.latitude = Float.parseFloat(latitude);
         this.capacidade = Float.parseFloat(capacidade);
+        this.codigo = random.nextInt(100);
+        this.latitude = random.nextFloat();
+        this.longitude = random.nextFloat();
     }
-    //COLETOR TEM UM CÓDIGO E NÃO TEM UM NOME? E SE ELE VAI DIRIGIR NÃO DEVERIA TER A CNH?
-    public Coletor(int codigo, String placa, String marca, String  modelo, int ano, float latitude, float longitude, float capacidade ) {
-        this.codigo = codigo;
-        this.placa = placa;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ano = ano;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.capacidade = capacidade;
-    }    
-    
+   
     public int getCodigo() {
         return codigo;
     }
@@ -48,7 +52,10 @@ public class Coletor {
         return placa;
     }
 
-    public void setPlaca(String placa) {
+    public void setPlaca(String placa) throws Exception {
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.verificaPlaca(placa);
+        
         this.placa = placa;
     }
 
@@ -57,6 +64,7 @@ public class Coletor {
     }
 
     public void setLatitude(float latitude) {
+
         this.latitude = latitude;
     }
 
@@ -72,7 +80,10 @@ public class Coletor {
         return capacidade;
     }
 
-    public void setCapacidade(float capacidade) {
+    public void setCapacidade(float capacidade) throws Exception{
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.verificaCapacidade(Float.toString(capacidade));
+        
         this.capacidade = capacidade;
     }
 
@@ -80,7 +91,10 @@ public class Coletor {
        return marca;
     }
     
-    public void setMarca(String marca){
+    public void setMarca(String marca) throws Exception{
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.verificaMarca(marca);
+        
         this.marca = marca;
     }
     
@@ -88,7 +102,10 @@ public class Coletor {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(String modelo) throws Exception {
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.verificaModelo(modelo);
+     
         this.modelo = modelo;
     }
 
@@ -96,7 +113,10 @@ public class Coletor {
         return ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(int ano) throws Exception{
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.verificaAno(Integer.toString(ano));
+
         this.ano = ano;
     }
 

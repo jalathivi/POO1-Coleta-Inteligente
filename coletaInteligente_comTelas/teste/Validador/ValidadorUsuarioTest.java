@@ -39,33 +39,33 @@ public class ValidadorUsuarioTest {
     }
 
     /**
-     * Test of verificaNome method, of class ValidadorUsuario.
+     * Test of verificaNome method, of class ValidadorCidadao.
      */
 //    @Test
     public void testVerificaNome() throws Exception {
         System.out.println("verificaNome");
         String nome = "";
-        ValidadorUsuario instance = new ValidadorUsuario();
+        ValidadorCidadao instance = new ValidadorCidadao();
         instance.verificaNome(nome);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of verificaEmail method, of class ValidadorUsuario.
+     * Test of verificaEmail method, of class ValidadorCidadao.
      */
 //    @Test
     public void testVerificaEmail() throws Exception {
         System.out.println("verificaEmail");
         String email = "";
-        ValidadorUsuario instance = new ValidadorUsuario();
+        ValidadorCidadao instance = new ValidadorCidadao();
         instance.verificaEmail(email);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of verificaSenha method, of class ValidadorUsuario.
+     * Test of verificaSenha method, of class ValidadorCidadao.
      */
     @Test
     public void testVerificaSenha() throws Exception {
@@ -74,7 +74,7 @@ public class ValidadorUsuarioTest {
     }
     
     private void setSenhaInvalida(String senha) {
-        ValidadorUsuario instancia = new ValidadorUsuario();
+        ValidadorCidadao instancia = new ValidadorCidadao();
         
         try {
             instancia.verificaSenha(senha);
@@ -88,14 +88,14 @@ public class ValidadorUsuarioTest {
     }
 
     /**
-     * Test of senhaIguais method, of class ValidadorUsuario.
+     * Test of senhaIguais method, of class ValidadorCidadao.
      */
 //    @Test
     public void testSenhaIguais() throws Exception {
         System.out.println("senhaIguais");
         String senha = "";
         String senha2 = "";
-        ValidadorUsuario instance = new ValidadorUsuario();
+        ValidadorCidadao instance = new ValidadorCidadao();
         instance.senhaIguais(senha, senha2);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

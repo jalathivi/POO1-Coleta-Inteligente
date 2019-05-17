@@ -8,7 +8,6 @@ package Visao;
 import coletaInteligente.Coletor;
 import coletaInteligente.PersistenciaArquivo;
 import Validador.ValidadorColetor;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -156,27 +155,17 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
 
     private void jButtonRegistrarColetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarColetorActionPerformed
         // TODO add your handling code here:
-        Random random = new Random();
         Coletor coletor;
         ValidadorColetor validaColetor = new ValidadorColetor();
         PersistenciaArquivo registro = new PersistenciaArquivo();
-        int codigo = random.nextInt(100);
         String placa = jTextFieldPlaca.getText();
         String marca = jTextFieldMarca.getText();
         String modelo = jTextFieldModelo.getText();
         String ano = jTextFieldAno.getText();
-        float longitude = random.nextFloat();
-        float latitude = random.nextFloat();
         String capacidade = jTextFieldCapacidade.getText();
         
         try {
-            validaColetor.verificaPlaca(placa);
-            validaColetor.verificaMarca(marca);
-            validaColetor.verificaModelo(modelo);
-            validaColetor.verificaAno(ano);
-            validaColetor.verificaCapacidade(capacidade);
- 
-            coletor = new Coletor(codigo, placa, marca, modelo, Integer.parseInt(ano), longitude, latitude, Float.parseFloat(capacidade));
+            coletor = new Coletor(placa, marca, modelo, ano, capacidade);
             registro.salvaColetor(coletor);
             JOptionPane.showMessageDialog(null, "Coletor cadastrado com sucesso!");
             
