@@ -11,10 +11,10 @@ package Validador;
  */
 public class ValidadorLixeira {
         
-    public void codigo(String cod) throws Exception {
-        if(cod.equalsIgnoreCase(""))
+    public void codigo(String codigo) throws Exception {
+        if(codigo.equalsIgnoreCase(""))
             throw new Exception("O campo codigo deve ser preenchido");
-        if (!cod.matches("[0-9]*"))
+        if (!codigo.matches("[0-9]*"))
             throw new Exception ("O campo codigo só deve ter numeros sem sinal");
     }
     
