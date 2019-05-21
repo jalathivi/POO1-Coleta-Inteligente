@@ -35,7 +35,7 @@ public class Status {
 
     public void setDescricao(String descricao) throws Exception {
         ValidadorStatus valida = new ValidadorStatus();
-        valida.verificaDescricao(descricao);
+        valida.descricao(descricao);
         this.descricao = descricao;
     }
 

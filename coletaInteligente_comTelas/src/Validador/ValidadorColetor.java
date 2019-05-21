@@ -18,7 +18,7 @@ public class ValidadorColetor {
             throw new Exception ("O campo codigo só deve ter numeros sem sinal");
     }    
         
-    public void verificaPlaca(String placa) throws Exception{
+    public void placa(String placa) throws Exception{
         if (placa.equalsIgnoreCase(""))
             throw new Exception ("Campo placa não pode ser vazio");
         
@@ -35,7 +35,7 @@ public class ValidadorColetor {
             throw new Exception ("Quatro ultimos caracteres da placa devem ser numeros");
     }
     
-    public void verificaMarca (String marca) throws Exception{
+    public void marca (String marca) throws Exception{
         if (marca.equalsIgnoreCase(""))
             throw new Exception("Campo marca não pode ser vazio");
         
@@ -43,7 +43,7 @@ public class ValidadorColetor {
             throw new Exception ("Marca deve ter tamanho maximo de 16 caracteres");
     }
     
-    public void verificaModelo (String modelo) throws Exception{
+    public void modelo (String modelo) throws Exception{
         if (modelo.equalsIgnoreCase(""))
             throw new Exception("Campo modelo não pode ser vazio");
         
@@ -51,7 +51,7 @@ public class ValidadorColetor {
             throw new Exception ("Modelo deve ter tamanho maximo de 16 caracteres");
     }
     
-    public void verificaAno (String ano) throws Exception{
+    public void ano (String ano) throws Exception{
         if (ano.equalsIgnoreCase(""))
             throw new Exception("Campo ano não pode ser vazio");
         
@@ -64,7 +64,7 @@ public class ValidadorColetor {
             throw new Exception ("O ano deve conter 4 numeros e estar situado entre 1950 e 2020");
     }
     
-    public void verificaCapacidade(String capacidade) throws Exception{
+    public void capacidade(String capacidade) throws Exception{
         if (capacidade.equalsIgnoreCase(""))
             throw new Exception("Campo capacidade não pode ser vazio");
 

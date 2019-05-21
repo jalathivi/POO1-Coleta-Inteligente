@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Validador;
 
 public class ValidadorStatus {
@@ -14,8 +10,7 @@ public class ValidadorStatus {
             throw new Exception ("O campo codigo só deve ter numeros sem sinal");
     } 
    
-   
-    public void verificaDescricao(String descricao) throws Exception{
+    public void descricao(String descricao) throws Exception{
     
         if(descricao.equals(""))
             throw new Exception("Descrição não deve ser vazio!");
