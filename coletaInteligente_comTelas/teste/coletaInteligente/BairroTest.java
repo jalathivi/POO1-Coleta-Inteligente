@@ -39,35 +39,42 @@ public class BairroTest {
     public void tearDown() {
     }
     
+    /*
+    * Teste do Método setNome
+    */
+    
     @Test
     public void testSetNomeValido(){
         System.out.println("setNomeValido");
         Bairro instance = new Bairro();
+        
         try {
             instance.setNome("Jardim Limoeiro");
             instance.setNome("Barcelona");
             instance.setNome("Valparaiso");
             instance.setNome("São Marcos I");
             instance.setNome("São Marcos 2");
-            
         } catch (Exception ex) {
             Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
-            fail("Teste Falhou: Inputs válidos não foram aceitos!\n" + ex.getMessage());
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
         }
+        
     }
     
     @Test
     public void testSetNomeInvalido(){
         System.out.println("setNomeInvalido");
         Bairro instance = new Bairro();
+        
         try {
             instance.setNome("");
             instance.setNome(" ");
+            instance.setNome("Bairro Jardim Limoeiro do Municipio da Serra do Estado do Espirito Santo ");
             fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
-            
         } catch (Exception ex) {
             Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex); 
         }
+        
     }
     
 }
