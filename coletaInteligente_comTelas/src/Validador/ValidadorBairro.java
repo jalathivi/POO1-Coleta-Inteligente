@@ -17,7 +17,7 @@ public class ValidadorBairro {
         }
         
         
-        public void verificaNome(String nome) throws Exception{
+        public void nome(String nome) throws Exception{
   
             if (nome.equalsIgnoreCase(""))
                 throw new Exception("Bairro não pode ser vazio!");

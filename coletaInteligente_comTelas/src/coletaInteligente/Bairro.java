@@ -34,7 +34,7 @@ public class Bairro {
 
     public void setNome(String nome) throws Exception {
         ValidadorBairro valida = new ValidadorBairro();
-        valida.verificaNome(nome);
+        valida.nome(nome);
         this.nome = nome;
     }
 
