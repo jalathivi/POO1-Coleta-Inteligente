@@ -11,17 +11,16 @@ public class Bairro {
     public Bairro(){
     }
     
-    /* NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public Bairro(String codigo, String nomeBairro) {
-        this.codigo = Integer.parseInt(codigo);
-        this.nome = nomeBairro;
+    
+    public Bairro(String codigo, String nomeBairro) throws Exception {
+        setCodigo(Integer.parseInt(codigo));
+        setNome(nomeBairro);
     }
     
-    public Bairro(int codigoBairro, String nomeBairro) {
-        this.codigo = codigoBairro;
-        this.nome = nomeBairro;
+    public Bairro(int codigoBairro, String nomeBairro) throws Exception {
+        setCodigo(codigo);
+        setNome(nomeBairro);
     }
-    */
 
     public int getCodigo() {
         return codigo;
