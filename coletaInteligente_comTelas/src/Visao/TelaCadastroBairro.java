@@ -5,7 +5,6 @@
  */
 package Visao;
 
-import Validador.ValidadorBairro;
 import coletaInteligente.Bairro;
 import coletaInteligente.PersistenciaArquivo;
 import java.util.logging.Level;
@@ -123,15 +122,12 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
        
-        Bairro bairro;
-        ValidadorBairro valBairro = new ValidadorBairro();
         PersistenciaArquivo registro = new PersistenciaArquivo();
         
         String nome = campoNomeBairro.getText();
         
         try {
-            valBairro.verificaNome(nome);
-            bairro = new Bairro();
+            Bairro bairro = new Bairro();
             bairro.setNome(nome);
             registro.salvaBairro(bairro);
             JOptionPane.showMessageDialog(null, "Bairro cadastrado com sucesso!");
