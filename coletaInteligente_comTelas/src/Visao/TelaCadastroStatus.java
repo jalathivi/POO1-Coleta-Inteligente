@@ -133,8 +133,7 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
         try {
             
-            Status status = new Status();
-            status.setDescricao(descricao);
+            Status status = new Status(descricao);
             registro.salvaStatus(status);
             JOptionPane.showMessageDialog(null, "Status cadastrado com sucesso!");
             this.dispose();
