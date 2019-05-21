@@ -1,6 +1,7 @@
 
 package coletaInteligente;
 
+import Validador.ValidadorLixeira;
 import Validador.ValidadorPosicao;
 
 import java.util.Random;
@@ -10,10 +11,10 @@ public class Lixeira {
     
     int codigo = random.nextInt(100);
     Bairro regiao;
-    float latitude;
-    float longitude;
+    float latitude = random.nextFloat();
+    float longitude = random.nextFloat();
     float capacidade;
-    float nivel_atual;
+    float nivelAtual;
     
     
     public Lixeira(){
@@ -26,24 +27,36 @@ public class Lixeira {
 //        this.longitude = random.nextFloat();
 //        this.capacidade = Float.parseFloat(capacidade);
 //    }
-//   
+
     
- /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public Lixeira(Bairro regiao, float capacidade) throws Exception{
-        this.setLatitude( Float.toString(random.nextFloat()) );
-        this.codigo = random.nextInt(100);
-        this.regiao = regiao;
-        this.longitude = random.nextFloat();
-        this.capacidade = capacidade;
-    }*/
+ /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO*/
+    
+    public Lixeira(String regiao, String capacidade, String codigo ,String latitude, String longitude, String nivelAtual) throws Exception{   
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.bairro(regiao);
+        valLixeira.capacidade(capacidade);
+        valLixeira.nivelAtual(nivelAtual);
+        valLixeira.codigo(codigo);
+        valPosicao.latitude(latitude);
+        valPosicao.latitude(longitude);
+        
+        this.latitude = Float.parseFloat(latitude);
+        this.longitude = Float.parseFloat(longitude);
+        this.capacidade = Float.parseFloat(capacidade);
+        this.nivelAtual = Float.parseFloat(nivelAtual);
+        this.codigo = Integer.parseInt(codigo);
+    }
 
     public int getCodigo() {
         return codigo;
     }
 
-    /*public void setCodigo() {     
-        this.codigo = codigo;
-    }*/
+    public void setCodigo(String codigo) throws Exception {     
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
+    }
 
     public int getCodRegiao() {
         return regiao.getCodigo();
@@ -61,12 +74,14 @@ public class Lixeira {
         return latitude;
     }
     
-    public void setNivelAtual(float nivel) {
-        this.nivel_atual = nivel;
+    public void setNivelAtual(String nivel) throws Exception {
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.nivelAtual(nivel);
+        this.nivelAtual = Float.parseFloat(nivel);
     }
     
     public float getNivelAtual() {
-        return nivel_atual;
+        return nivelAtual;
     }
 
     public void setLatitude(String latitude) throws Exception {
@@ -79,7 +94,9 @@ public class Lixeira {
         return longitude;
     }
 
-    public void setLongitude() {
+    public void setLongitude(String longitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.latitude(longitude);
         this.longitude = random.nextInt(100);
     }
 
@@ -87,13 +104,15 @@ public class Lixeira {
         return capacidade;
     }
 
-    public void setCapacidade(float capacidade) {
-        this.capacidade = capacidade;
+    public void setCapacidade(String capacidade) throws Exception{
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.capacidade(capacidade);
+        this.capacidade = Float.parseFloat(capacidade);
     }
 
     @Override
     public String toString() {
-        return  getCodigo()+", "+getCodRegiao()+", "+getCapacidade()+", "+getLatitude()+", "+getLongitude();
+        return  getCodigo()+", "+getCodRegiao()+", "+getCapacidade()+", "+getLatitude()+", "+getLongitude()+", "+ getNivelAtual();
     }
 
 }

@@ -11,12 +11,12 @@ package Validador;
  */
 public class ValidadorLixeira {
         
-    /*public void codigo(String cod) throws Exception {
+    public void codigo(String cod) throws Exception {
         if(cod.equalsIgnoreCase(""))
             throw new Exception("O campo codigo deve ser preenchido");
         if (!cod.matches("[0-9]*"))
             throw new Exception ("O campo codigo só deve ter numeros sem sinal");
-    }*/
+    }
     
     public void bairro(String bairro) throws Exception {
         if (bairro.equalsIgnoreCase(""))
@@ -68,4 +68,11 @@ public class ValidadorLixeira {
 //    Exemplo de testes:         
 //    ValidadorLixeira validaLixeira = new ValidadorLixeira();
 //    validaLixeira.todosCampos("1", "santo antonio", "-40.00", "-20.00", "200");
+
+    public void nivelAtual(String nivelAtual) throws Exception{
+                if (nivelAtual.equalsIgnoreCase(""))
+            throw new Exception("O campo nivel deve ser preenchido");
+        if (!nivelAtual.matches("[0-9]*"))
+            throw new Exception ("O campo nivel só suporta números");
+    }
 }
