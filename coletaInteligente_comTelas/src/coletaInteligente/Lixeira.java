@@ -79,7 +79,7 @@ public class Lixeira {
     public void setLongitude(String longitude) throws Exception {
         ValidadorPosicao valPosicao = new ValidadorPosicao();
         valPosicao.latitude(longitude);
-        this.longitude = random.nextInt(100);
+        this.longitude = Float.parseFloat(longitude);
     }
 
     public float getCapacidade() {

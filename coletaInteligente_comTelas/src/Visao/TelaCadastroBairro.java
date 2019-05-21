@@ -10,7 +10,6 @@ import coletaInteligente.PersistenciaArquivo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.util.Random;
 /**
  *
  * @author Jackson
@@ -126,12 +125,9 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         
         String nome = campoNomeBairro.getText();
         
-        Random random = new Random();
-        
-        int codigo = random.nextInt();
-                
+  
         try {
-            Bairro bairro = new Bairro(codigo, nome);
+            Bairro bairro = new Bairro(nome);
             registro.salvaBairro(bairro);
             JOptionPane.showMessageDialog(null, "Bairro cadastrado com sucesso!");
             campoNomeBairro.setText("");
