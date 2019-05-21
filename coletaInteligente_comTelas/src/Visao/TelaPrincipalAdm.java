@@ -154,8 +154,8 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
     private void jButtonSituacaoOperacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSituacaoOperacionalActionPerformed
         // TODO add your handling code here:
-        TelaCadastroLixeira tCadastroLixeira = new TelaCadastroLixeira();
-        tCadastroLixeira.show(true);
+        TelaRegistraSituacaoOperacional tSituacaoOperacional = new TelaRegistraSituacaoOperacional();
+        tSituacaoOperacional.show(true);
     }//GEN-LAST:event_jButtonSituacaoOperacionalActionPerformed
 
     /**
