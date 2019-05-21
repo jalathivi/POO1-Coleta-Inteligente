@@ -14,7 +14,7 @@ public class Bairro {
     
     public Bairro(String nomeBairro) throws Exception {
         Random random = new Random();
-        setCodigo(random.nextInt(100));
+        setCodigo(Integer.toString(random.nextInt(100)));
         setNome(nomeBairro);
     }
     
@@ -22,8 +22,10 @@ public class Bairro {
         return codigo;
     }
     
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigo(String codigo) throws Exception {
+        ValidadorBairro valida = new ValidadorBairro();
+        valida.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
     }
 
     public String getNome() {

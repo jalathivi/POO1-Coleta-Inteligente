@@ -14,6 +14,14 @@ import java.util.regex.Pattern;
  */
 public class ValidadorCidadao implements Validador {
     
+    
+   public void codigo(String codigo) throws Exception {
+        if(codigo.equalsIgnoreCase(""))
+            throw new Exception("O campo codigo deve ser preenchido");
+        if (!codigo.matches("[0-9]*"))
+            throw new Exception ("O campo codigo só deve ter numeros sem sinal");
+    }    
+    
     @Override
     public void verificaNome(String nome) throws Exception{
         if(nome.equalsIgnoreCase(""))

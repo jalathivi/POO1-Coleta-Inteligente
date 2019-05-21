@@ -52,10 +52,7 @@ public class Lixeira {
         this.bairro = bairro;
     }
 
-    public float getLatitude() {
-        return latitude;
-    }
-    
+
     public void setNivelAtual(String nivel) throws Exception {
         ValidadorLixeira valLixeira = new ValidadorLixeira();
         valLixeira.nivelAtual(nivel);
@@ -66,6 +63,10 @@ public class Lixeira {
         return nivelAtual;
     }
 
+    public float getLatitude() {
+        return latitude;
+    }    
+    
     public void setLatitude(String latitude) throws Exception {
         ValidadorPosicao valPosicao = new ValidadorPosicao();
         valPosicao.latitude(latitude);

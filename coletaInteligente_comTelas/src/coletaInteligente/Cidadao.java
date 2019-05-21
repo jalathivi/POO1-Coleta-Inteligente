@@ -2,6 +2,7 @@
 package coletaInteligente;
 
 import Validador.ValidadorCidadao;
+import Validador.ValidadorPosicao;
 import java.util.Random;
 
 public class Cidadao{
@@ -18,20 +19,22 @@ public class Cidadao{
    
     public Cidadao (String nome, String email, String senha) throws Exception {
         Random random = new Random();
-        setCodigo(random.nextInt(100));
+        setCodigo(Integer.toString(random.nextInt(100)));
         setNome(nome);
         setEmail(email);
         setSenha(senha);
-        setLatitude(random.nextFloat());
-        setLongitude(random.nextFloat());
+        setLatitude(Float.toString(random.nextFloat()));
+        setLongitude(Float.toString(random.nextFloat()));
     }
     
     public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigo(String codigo) throws Exception {
+        ValidadorCidadao valCidadao = new ValidadorCidadao();
+        valCidadao.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
     }   
     
     public String getNome() {
@@ -66,18 +69,22 @@ public class Cidadao{
 
     public float getLatitude() {
         return latitude;
+    }    
+    
+    public void setLatitude(String latitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.latitude(latitude);
+        this.latitude = Float.parseFloat(latitude);
     }
 
-    public void setLatitude(float latitude){
-        this.latitude = latitude;
-    }
-    
     public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude){
-        this.longitude = longitude;
+    public void setLongitude(String longitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.latitude(longitude);
+        this.longitude = Float.parseFloat(longitude);
     }
     
     @Override
