@@ -4,50 +4,39 @@ import Validador.ValidadorColetor;
 import java.util.Random;
 
 public class Coletor {
-    Random random = new Random();
     
-    int codigo = random.nextInt(100);
-    float latitude = random.nextFloat();
-    float longitude = random.nextFloat();
-    
+    int codigo;
     String placa;
     float capacidade;
     String marca;
     String modelo;
     int ano;
+    float latitude;
+    float longitude;
     
     
     public Coletor (){
-    
     }
-    
-    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
+     
     public Coletor(String placa, String marca, String  modelo, String ano, String capacidade ) throws Exception{
-        ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaPlaca(placa);
-        validaColetor.verificaMarca(marca);
-        validaColetor.verificaModelo(modelo);
-        validaColetor.verificaAno(ano);
-        validaColetor.verificaCapacidade(capacidade);
-
-        this.placa = placa;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ano = Integer.parseInt(ano);
-        this.capacidade = Float.parseFloat(capacidade);
-        this.codigo = random.nextInt(100);
-        this.latitude = random.nextFloat();
-        this.longitude = random.nextFloat();
-    }*/
+        Random random = new Random();
+        setCodigo(random.nextInt());
+        setPlaca(placa);
+        setMarca(marca);
+        setModelo(modelo);
+        setAno(Integer.parseInt(ano));
+        setCapacidade(Float.parseFloat(capacidade));
+        setLatitude(random.nextFloat());
+        setLongitude(random.nextFloat());
+    }
    
     public int getCodigo() {
         return codigo;
     }
 
-    /*
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }*/
+    }
     
     public String getPlaca() {
         return placa;
@@ -63,17 +52,17 @@ public class Coletor {
         return latitude;
     }
 
-    /*public void setLatitude(float latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
-    }*/
+    }
 
     public float getLongitude() {
         return longitude;
     }
 
-    /*public void setLongitude(float longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
-    }*/
+    }
 
     public float getCapacidade() {
         return capacidade;
