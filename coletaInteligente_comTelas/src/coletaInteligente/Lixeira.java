@@ -19,15 +19,6 @@ public class Lixeira {
     public Lixeira(){
     }
     
-//    public Lixeira(Bairro bairro, String capacidade){
-//        this.codigo = ;
-//        this.bairro = bairro;
-//        this.latitude = random.nextFloat();
-//        this.longitude = random.nextFloat();
-//        this.capacidade = Float.parseFloat(capacidade);
-//    }
-
-    
 
     public Lixeira(Bairro bairro, String capacidade, String nivelAtual) throws Exception{   
         Random random = new Random();
@@ -35,8 +26,8 @@ public class Lixeira {
         setRegiao(bairro);
         setLatitude(Float.toString(random.nextFloat()));
         setLongitude(Float.toString(random.nextFloat()));
-        setCapacidade(Float.parseFloat(capacidade));
-        setNivelAtual(Float.parseFloat(nivelAtual));
+        setCapacidade(capacidade);
+        setNivelAtual(nivelAtual);
     }
 
     public int getCodigo() {
