@@ -169,19 +169,4 @@ public class CidadaoTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("getLongitude incorreto");
     }
-
-    /**
-     * Test of toString method, of class Cidadao.
-     */
-    //@Test
-    public void testToString() {
-        System.out.println("toString");
-        Cidadao instance = new Cidadao();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
 }
