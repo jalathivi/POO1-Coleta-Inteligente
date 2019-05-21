@@ -2,11 +2,10 @@
 package coletaInteligente;
 
 import Validador.ValidadorStatus;
-import java.util.Random;
 
 public class Status {
-    Random random = new Random();
-    int codigo = random.nextInt(100);
+    
+    int codigo;
     String descricao;
 
     public Status(){
@@ -27,9 +26,9 @@ public class Status {
         return codigo;
     }
 
-    /*public void setCodigo(int codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }*/
+    }
 
     public String getDescricao() {
         return descricao;
