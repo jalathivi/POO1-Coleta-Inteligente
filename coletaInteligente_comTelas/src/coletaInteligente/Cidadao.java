@@ -5,38 +5,35 @@ import Validador.ValidadorCidadao;
 import java.util.Random;
 
 public class Cidadao{
-    Random random = new Random();
     
     int codigo;
     private String nome;
     private String email;
     private String senha;
-    float latitude = random.nextFloat();
-    float longitude = random.nextFloat();
-    
-    
+    float latitude;
+    float longitude;
     
     public Cidadao (){
-        
     }
-    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
+   
     public Cidadao (String nome, String email, String senha) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaNome(nome);
-        valCidadao.verificaEmail(email);
-        valCidadao.verificaSenha(senha);
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.codigo = random.nextInt(100);
-        this.latitude = random.nextFloat();
-        this.longitude = random.nextFloat();
-    }*/
+        Random random = new Random();
+        setCodigo(random.nextInt(100));
+        setNome(nome);
+        setEmail(email);
+        setSenha(senha);
+        setLatitude(random.nextFloat());
+        setLongitude(random.nextFloat());
+    }
     
     public int getCodigo() {
         return codigo;
     }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }   
+    
     public String getNome() {
         return nome;
     }
@@ -51,7 +48,6 @@ public class Cidadao{
         return email;
     }
     
-
     public void setEmail(String email) throws Exception {
         ValidadorCidadao valCidadao = new ValidadorCidadao();
         valCidadao.verificaEmail(email);
@@ -61,7 +57,6 @@ public class Cidadao{
     public String getSenha() {
         return senha;
     }
-    
     
     public void setSenha(String senha) throws Exception {
         ValidadorCidadao valCidadao = new ValidadorCidadao();
@@ -73,10 +68,18 @@ public class Cidadao{
         return latitude;
     }
 
+    public void setLatitude(float latitude){
+        this.latitude = latitude;
+    }
+    
     public float getLongitude() {
         return longitude;
     }
 
+    public void setLongitude(float longitude){
+        this.longitude = longitude;
+    }
+    
     @Override
     public String toString() {
         return getCodigo()+", "+getNome()+", "+getEmail()+", "+getSenha()+", "+getLatitude()+", "+getLongitude();   
