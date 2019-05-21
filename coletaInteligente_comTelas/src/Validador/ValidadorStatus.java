@@ -7,7 +7,14 @@ package Validador;
 
 public class ValidadorStatus {
     
-    
+   public void codigo(String codigo) throws Exception {
+        if(codigo.equalsIgnoreCase(""))
+            throw new Exception("O campo codigo deve ser preenchido");
+        if (!codigo.matches("[0-9]*"))
+            throw new Exception ("O campo codigo só deve ter numeros sem sinal");
+    } 
+   
+   
     public void verificaDescricao(String descricao) throws Exception{
     
         if(descricao.equals(""))
