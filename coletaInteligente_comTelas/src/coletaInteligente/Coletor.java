@@ -47,7 +47,7 @@ public class Coletor {
 
     public void setPlaca(String placa) throws Exception {
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaPlaca(placa);
+        validaColetor.placa(placa);
         this.placa = placa;
     }
 
@@ -78,7 +78,7 @@ public class Coletor {
 
     public void setCapacidade(String capacidade) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaCapacidade(capacidade);
+        validaColetor.capacidade(capacidade);
         this.capacidade = Float.parseFloat(capacidade);
     }
 
@@ -88,7 +88,7 @@ public class Coletor {
     
     public void setMarca(String marca) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaMarca(marca);
+        validaColetor.marca(marca);
         this.marca = marca;
     }
     
@@ -98,7 +98,7 @@ public class Coletor {
 
     public void setModelo(String modelo) throws Exception {
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaModelo(modelo);
+        validaColetor.modelo(modelo);
         this.modelo = modelo;
     }
 
@@ -108,7 +108,7 @@ public class Coletor {
 
     public void setAno(String ano) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaAno(ano);
+        validaColetor.ano(ano);
         this.ano = Integer.parseInt(ano);
     }
 
