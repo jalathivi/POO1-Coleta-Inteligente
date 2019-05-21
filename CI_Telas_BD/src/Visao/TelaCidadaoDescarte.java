@@ -44,6 +44,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTextFieldDistancia = new javax.swing.JTextField();
         jTextFieldDirecao = new javax.swing.JTextField();
+        jButtonMapa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
@@ -80,6 +81,14 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 259, -1, -1));
         getContentPane().add(jTextFieldDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 221, 96, -1));
         getContentPane().add(jTextFieldDirecao, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 221, 90, -1));
+
+        jButtonMapa.setText("Visualizar no Mapa");
+        jButtonMapa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMapaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
 
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
@@ -127,6 +136,12 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
       
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButtonMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMapaActionPerformed
+        // TODO add your handling code here:
+        mapaCidadao mapa = new mapaCidadao();
+        mapa.show(true);
+    }//GEN-LAST:event_jButtonMapaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -166,6 +181,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLocalizar;
+    private javax.swing.JButton jButtonMapa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

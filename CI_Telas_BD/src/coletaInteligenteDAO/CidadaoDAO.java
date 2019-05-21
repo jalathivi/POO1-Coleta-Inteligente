@@ -66,7 +66,6 @@ public class CidadaoDAO {
                 c.setSenha(rs.getString("senha"));
                 c.setLatitude(rs.getFloat("latitude"));
                 c.setLongitude(rs.getFloat("longitude"));
-                JOptionPane.showMessageDialog(null, "Usuario encontrado");
             }
             
         } catch (SQLException ex) {

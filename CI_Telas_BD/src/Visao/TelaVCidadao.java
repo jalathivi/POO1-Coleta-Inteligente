@@ -51,8 +51,6 @@ public class TelaVCidadao extends javax.swing.JFrame {
 
         jLabel3.setText("Senha");
 
-        jTextFieldCEmail.setText("Só clica em entrar ou Cadastra");
-
         jButtonEntrar.setText("Entrar");
         jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +141,7 @@ public class TelaVCidadao extends javax.swing.JFrame {
             cidadaoDAO.selecionaEmail(cidadao,jTextFieldCEmail.getText());
             String senha = cidadao.getSenha();
             if (!senha.equals(jPasswordFieldCSenha.getText()))
-                JOptionPane.showMessageDialog(null, "As senhas digitadas não são iguais!");
+                JOptionPane.showMessageDialog(null, "Senha Incorreta");
             else{
                 TelaCidadaoDescarte tDescarte = new TelaCidadaoDescarte();
                 tDescarte.show(true);
