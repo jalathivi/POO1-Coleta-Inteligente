@@ -18,8 +18,16 @@ public class SituacaoOperacional {
         this.status = status;
         this.data = data;
     }*/
- 
-    public void setColetor (Status status){
+    
+    public void setData (Calendar data){
+        this.data = data;
+    }
+    
+    public Calendar getData (){
+        return data;
+    }
+    
+    public void setStatus (Status status){
         this.status = status;
     }
     
@@ -54,9 +62,11 @@ public class SituacaoOperacional {
     public int getDia(){
         return data.get(Calendar.DAY_OF_MONTH);
     }
+    
     public int getMes(){
         return data.get(Calendar.MONTH);
     }
+    
     public int getAno(){
         return data.get(Calendar.YEAR);
     }
