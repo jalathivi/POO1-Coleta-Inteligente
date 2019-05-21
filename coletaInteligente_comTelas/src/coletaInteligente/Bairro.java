@@ -2,37 +2,34 @@
 package coletaInteligente;
 
 import Validador.ValidadorBairro;
-import java.util.Random;
 
 public class Bairro {
-    Random random = new Random();
     
-    int codigo = random.nextInt(100);
+    int codigo;
     String nome;
-    
     
     public Bairro(){
     }
     
-    /*/*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public Bairro(String nomeBairro) {
-        this.codigo = random.nextInt(100);
+    /* NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
+    public Bairro(String codigo, String nomeBairro) {
+        this.codigo = Integer.parseInt(codigo);
         this.nome = nomeBairro;
     }
     
     public Bairro(int codigoBairro, String nomeBairro) {
         this.codigo = codigoBairro;
         this.nome = nomeBairro;
-    }*/
+    }
+    */
 
     public int getCodigo() {
         return codigo;
     }
     
-    /*
-    public void setCodigo() {
-        this.codigo = random.nextInt(100);
-    }*/
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
     public String getNome() {
         return nome;
