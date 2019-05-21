@@ -187,8 +187,8 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             coletor.setPlaca(placa);
             coletor.setMarca(marca);
             coletor.setModelo(modelo);
-            coletor.setAno(Integer.parseInt(ano));
-            coletor.setCapacidade(Float.parseFloat(capacidade));
+            coletor.setAno(ano);
+            coletor.setCapacidade(capacidade);
             registro.salvaColetor(coletor);
             JOptionPane.showMessageDialog(null, "Coletor cadastrado com sucesso!");
             
