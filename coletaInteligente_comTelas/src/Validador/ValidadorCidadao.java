@@ -22,6 +22,7 @@ public class ValidadorCidadao implements Validador {
             throw new Exception ("O campo codigo só deve ter numeros sem sinal");
     }    
     
+   
     @Override
     public void nome(String nome) throws Exception{
         if(nome.equalsIgnoreCase(""))
