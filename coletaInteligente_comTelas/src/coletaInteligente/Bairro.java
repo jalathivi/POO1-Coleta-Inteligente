@@ -2,6 +2,7 @@
 package coletaInteligente;
 
 import Validador.ValidadorBairro;
+import java.util.Random;
 
 public class Bairro {
     
@@ -11,17 +12,12 @@ public class Bairro {
     public Bairro(){
     }
     
-    
-    public Bairro(String codigo, String nomeBairro) throws Exception {
-        setCodigo(Integer.parseInt(codigo));
+    public Bairro(String nomeBairro) throws Exception {
+        Random random = new Random();
+        setCodigo(random.nextInt());
         setNome(nomeBairro);
     }
     
-    public Bairro(int codigoBairro, String nomeBairro) throws Exception {
-        setCodigo(codigo);
-        setNome(nomeBairro);
-    }
-
     public int getCodigo() {
         return codigo;
     }
