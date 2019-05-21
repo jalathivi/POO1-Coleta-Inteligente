@@ -5,6 +5,8 @@
  */
 package coletaInteligente;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,45 +40,38 @@ public class StatusTest {
     }
 
     /**
-     * Test of getCodigo method, of class Status.
+     * Teste do Método setDescricao
      */
+    
     @Test
-    public void testGetCodigo() {
-        System.out.println("getCodigo");
+    public void setDescricaoValido(){
+        System.out.println("setDescricaoValido");
         Status instance = new Status();
-        int expResult = instance.getCodigo();
-        int result = instance.getCodigo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+   
+        try {         
+            instance.setDescricao("Não Atende a Demanda");
+            instance.setDescricao("Ok");
+            instance.setDescricao("Quebrada");
+        } catch (Exception ex) {
+            Logger.getLogger(StatusTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+        }
 
-    /**
-     * Test of getDescricao method, of class Status.
-     */
-    @Test
-    public void testGetDescricao() throws Exception {
-        System.out.println("getDescricao");
-        Status instance = new Status();
-        String expResult = "Estragado";
-        instance.setDescricao(expResult);
-        String result = instance.getDescricao();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
+    
+    
+    @Test
+    public void setDescricaoInvalido(){
+        System.out.println("setDescricaoInvalido");
+        Status instance = new Status();
+   
+        try {         
+            instance.setDescricao("");
+            instance.setDescricao(" ");
+            fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
+        } catch (Exception ex) {
+            Logger.getLogger(StatusTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    /**
-     * Test of setDescricao method, of class Status.
-     * @throws java.lang.Exception
-     */
-    @Test
-    public void testSetDescricao() throws Exception {
-        System.out.println("setDescricao");
-        String descricao = "Estragado";
-        Status instance = new Status();
-        instance.setDescricao(descricao);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+    }    
 }
