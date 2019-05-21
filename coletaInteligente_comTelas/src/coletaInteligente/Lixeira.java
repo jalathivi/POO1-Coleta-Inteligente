@@ -7,21 +7,20 @@ import Validador.ValidadorPosicao;
 import java.util.Random;
 
 public class Lixeira {
-    Random random = new Random();
     
-    int codigo = random.nextInt(100);
+    int codigo;
     Bairro regiao;
-    float latitude = random.nextFloat();
-    float longitude = random.nextFloat();
     float capacidade;
     float nivelAtual;
+    float latitude;
+    float longitude;    
     
     
     public Lixeira(){
     }
     
 //    public Lixeira(Bairro regiao, String capacidade){
-//        this.codigo = random.nextInt(100);
+//        this.codigo = ;
 //        this.regiao = regiao;
 //        this.latitude = random.nextFloat();
 //        this.longitude = random.nextFloat();
@@ -31,32 +30,31 @@ public class Lixeira {
     
  /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO*/
     
-    public Lixeira(String regiao, String capacidade, String codigo ,String latitude, String longitude, String nivelAtual) throws Exception{   
-        ValidadorPosicao valPosicao = new ValidadorPosicao();
-        ValidadorLixeira valLixeira = new ValidadorLixeira();
-        valLixeira.bairro(regiao);
-        valLixeira.capacidade(capacidade);
-        valLixeira.nivelAtual(nivelAtual);
-        valLixeira.codigo(codigo);
-        valPosicao.latitude(latitude);
-        valPosicao.latitude(longitude);
-        
+    public Lixeira(String regiao, String capacidade, String nivelAtual) throws Exception{   
+        Random random = new Random();
+        setCodigo(random.nextInt(100));
+        set
         this.latitude = Float.parseFloat(latitude);
         this.longitude = Float.parseFloat(longitude);
         this.capacidade = Float.parseFloat(capacidade);
         this.nivelAtual = Float.parseFloat(nivelAtual);
-        this.codigo = Integer.parseInt(codigo);
     }
 
     public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) throws Exception {     
-        ValidadorLixeira valLixeira = new ValidadorLixeira();
-        valLixeira.codigo(codigo);
-        this.codigo = Integer.parseInt(codigo);
+    
+    public void setCodigo (int codigo){
+    
     }
+    
+    
+//    public void setCodigo(String codigo) throws Exception {     
+//        ValidadorLixeira valLixeira = new ValidadorLixeira();
+//        valLixeira.codigo(codigo);
+//        this.codigo = Integer.parseInt(codigo);
+//    }
 
     public int getCodRegiao() {
         return regiao.getCodigo();

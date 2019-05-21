@@ -20,7 +20,7 @@ public class Coletor {
      
     public Coletor(String placa, String marca, String  modelo, String ano, String capacidade ) throws Exception{
         Random random = new Random();
-        setCodigo(random.nextInt());
+        setCodigo(random.nextInt(100));
         setPlaca(placa);
         setMarca(marca);
         setModelo(modelo);

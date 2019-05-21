@@ -14,7 +14,7 @@ public class Bairro {
     
     public Bairro(String nomeBairro) throws Exception {
         Random random = new Random();
-        setCodigo(random.nextInt());
+        setCodigo(random.nextInt(100));
         setNome(nomeBairro);
     }
     
