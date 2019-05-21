@@ -9,7 +9,7 @@ import java.util.Random;
 public class Lixeira {
     
     int codigo;
-    Bairro regiao;
+    Bairro bairro;
     float capacidade;
     float nivelAtual;
     float latitude;
@@ -19,53 +19,46 @@ public class Lixeira {
     public Lixeira(){
     }
     
-//    public Lixeira(Bairro regiao, String capacidade){
+//    public Lixeira(Bairro bairro, String capacidade){
 //        this.codigo = ;
-//        this.regiao = regiao;
+//        this.bairro = bairro;
 //        this.latitude = random.nextFloat();
 //        this.longitude = random.nextFloat();
 //        this.capacidade = Float.parseFloat(capacidade);
 //    }
 
     
- /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO*/
-    
-    public Lixeira(String regiao, String capacidade, String nivelAtual) throws Exception{   
+
+    public Lixeira(Bairro bairro, String capacidade, String nivelAtual) throws Exception{   
         Random random = new Random();
-        setCodigo(random.nextInt(100));
-        set
-        this.latitude = Float.parseFloat(latitude);
-        this.longitude = Float.parseFloat(longitude);
-        this.capacidade = Float.parseFloat(capacidade);
-        this.nivelAtual = Float.parseFloat(nivelAtual);
+        setCodigo(Integer.toString(random.nextInt(100)));
+        setRegiao(bairro);
+        setLatitude(Float.toString(random.nextFloat()));
+        setLongitude(Float.toString(random.nextFloat()));
+        setCapacidade(Float.parseFloat(capacidade));
+        setNivelAtual(Float.parseFloat(nivelAtual));
     }
 
     public int getCodigo() {
         return codigo;
     }
 
-    
-    public void setCodigo (int codigo){
-    
+    public void setCodigo(String codigo) throws Exception {     
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
     }
-    
-    
-//    public void setCodigo(String codigo) throws Exception {     
-//        ValidadorLixeira valLixeira = new ValidadorLixeira();
-//        valLixeira.codigo(codigo);
-//        this.codigo = Integer.parseInt(codigo);
-//    }
 
     public int getCodRegiao() {
-        return regiao.getCodigo();
+        return bairro.getCodigo();
     }
     
     public String getNomeBairro() {
-        return regiao.getNome();
+        return bairro.getNome();
     }
 
-    public void setRegiao(Bairro regiao) {
-        this.regiao = regiao;
+    public void setRegiao(Bairro bairro) {
+        this.bairro = bairro;
     }
 
     public float getLatitude() {
