@@ -23,13 +23,13 @@ public class ValidadorCidadao implements Validador {
     }    
     
     @Override
-    public void verificaNome(String nome) throws Exception{
+    public void nome(String nome) throws Exception{
         if(nome.equalsIgnoreCase(""))
             throw new Exception("O Nome é um campo obrigatório");
     }
     
     @Override
-    public void verificaEmail(String email) throws Exception{
+    public void email(String email) throws Exception{
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$"; 
         Pattern pat = Pattern.compile(emailRegex);
         
@@ -42,7 +42,7 @@ public class ValidadorCidadao implements Validador {
     }
     
     @Override
-    public void verificaSenha(String senha) throws Exception{
+    public void senha(String senha) throws Exception{
         // pelo menos um numero e entre 6 e 14 digitos
         String PASSWORD_PATTERN = "((?=.*\\d).{6,14})";
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);

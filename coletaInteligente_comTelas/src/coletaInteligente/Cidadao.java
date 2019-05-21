@@ -32,8 +32,8 @@ public class Cidadao{
     }
 
     public void setCodigo(String codigo) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.codigo(codigo);
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.codigo(codigo);
         this.codigo = Integer.parseInt(codigo);
     }   
     
@@ -42,8 +42,8 @@ public class Cidadao{
     }
 
     public void setNome(String nome) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaNome(nome);
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.nome(nome);
         this.nome = nome;
     }
 
@@ -52,8 +52,8 @@ public class Cidadao{
     }
     
     public void setEmail(String email) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaEmail(email);
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.email(email);
         this.email = email;
     }
 
@@ -62,8 +62,8 @@ public class Cidadao{
     }
     
     public void setSenha(String senha) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaSenha(senha);        
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.senha(senha);        
         this.senha = senha;
     }
 
