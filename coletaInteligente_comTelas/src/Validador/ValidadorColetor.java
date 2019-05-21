@@ -11,6 +11,13 @@ package Validador;
  */
 public class ValidadorColetor {
     
+    public void codigo(String codigo) throws Exception {
+        if(codigo.equalsIgnoreCase(""))
+            throw new Exception("O campo codigo deve ser preenchido");
+        if (!codigo.matches("[0-9]*"))
+            throw new Exception ("O campo codigo só deve ter numeros sem sinal");
+    }    
+        
     public void verificaPlaca(String placa) throws Exception{
         if (placa.equalsIgnoreCase(""))
             throw new Exception ("Campo placa não pode ser vazio");

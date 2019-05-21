@@ -20,7 +20,7 @@ public class Coletor {
      
     public Coletor(String placa, String marca, String  modelo, String ano, String capacidade ) throws Exception{
         Random random = new Random();
-        setCodigo(random.nextInt(100));
+        setCodigo(Integer.toString(random.nextInt(100)));
         setPlaca(placa);
         setMarca(marca);
         setModelo(modelo);
@@ -34,8 +34,10 @@ public class Coletor {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigo(String codigo) throws Exception {
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
     }
     
     public String getPlaca() {
