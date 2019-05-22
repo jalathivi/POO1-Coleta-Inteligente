@@ -73,6 +73,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         });
 
         jButtonColeta.setText("Gerar Rota para Coleta");
+        jButtonColeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColetaActionPerformed(evt);
+            }
+        });
 
         jButtonStatus.setText("Criar Status");
         jButtonStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +91,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 94, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonColetor)
@@ -157,6 +162,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         TelaRegistraSituacaoOperacional tSituacaoOperacional = new TelaRegistraSituacaoOperacional();
         tSituacaoOperacional.show(true);
     }//GEN-LAST:event_jButtonSituacaoOperacionalActionPerformed
+
+    private void jButtonColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColetaActionPerformed
+        // TODO add your handling code here:
+        TelaGeraRota tGeraRota = new TelaGeraRota();
+        tGeraRota.show(true);
+    }//GEN-LAST:event_jButtonColetaActionPerformed
 
     /**
      * @param args the command line arguments
