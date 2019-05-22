@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Status {
     
-    int codigo;
-    String descricao;
+    private int codigo;
+    private String descricao;
 
     public Status(){
     }

@@ -6,7 +6,6 @@
 package Visao;
 
 import coletaInteligente.Descarte;
-import coletaInteligente.Cidadao;
 import coletaInteligente.PersistenciaArquivo;
 import java.util.Calendar;
 import java.util.Random;
@@ -44,6 +43,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTextFieldDistancia = new javax.swing.JTextField();
         jTextFieldDirecao = new javax.swing.JTextField();
+        jButtonMapa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
@@ -81,6 +81,14 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         getContentPane().add(jTextFieldDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 221, 96, -1));
         getContentPane().add(jTextFieldDirecao, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 221, 90, -1));
 
+        jButtonMapa.setText("Visualizar no Mapa");
+        jButtonMapa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMapaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -116,9 +124,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         float nivel = random.nextFloat() * 100;
         Calendar data = Calendar.getInstance();
         
-        Descarte descarte = new Descarte();
-        descarte.setNivelAtual(nivel);
-        descarte.setData(data);
+        Descarte descarte = new Descarte(nivel, data);
         
         PersistenciaArquivo registro = new PersistenciaArquivo();
         registro.salvaDescarte(descarte);
@@ -126,6 +132,12 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Descarte Registrado");
       
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMapaActionPerformed
+        // TODO add your handling code here:
+        TelaVisualizarMapa tMapa = new TelaVisualizarMapa();
+        tMapa.show(true);
+    }//GEN-LAST:event_jButtonMapaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,7 +150,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -166,6 +178,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLocalizar;
+    private javax.swing.JButton jButtonMapa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

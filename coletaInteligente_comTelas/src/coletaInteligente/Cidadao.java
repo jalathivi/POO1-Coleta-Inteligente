@@ -7,12 +7,12 @@ import java.util.Random;
 
 public class Cidadao{
     
-    int codigo;
+    private int codigo;
     private String nome;
     private String email;
     private String senha;
-    float latitude;
-    float longitude;
+    private float latitude;
+    private float longitude;
     
     public Cidadao (){
     }

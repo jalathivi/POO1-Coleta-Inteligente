@@ -165,7 +165,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
     private void jButtonColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColetaActionPerformed
         // TODO add your handling code here:
-        TelaGeraRota tGeraRota = new TelaGeraRota();
+        TelaColeta tGeraRota = new TelaColeta();
         tGeraRota.show(true);
     }//GEN-LAST:event_jButtonColetaActionPerformed
 

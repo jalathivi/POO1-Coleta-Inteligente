@@ -3,10 +3,10 @@ package coletaInteligente;
 import java.util.Calendar;
 
 public class SituacaoOperacional {
-    Lixeira lixeira;
-    Coletor coletor;
-    Status status;
-    Calendar data;
+    private Lixeira lixeira;
+    private Coletor coletor;
+    private Status status;
+    private Calendar data;
     
     public SituacaoOperacional(){
     }

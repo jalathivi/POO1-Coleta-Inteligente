@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Bairro {
     
-    int codigo;
-    String nome;
+    private int codigo;
+    private String nome;
     
     public Bairro(){
     }

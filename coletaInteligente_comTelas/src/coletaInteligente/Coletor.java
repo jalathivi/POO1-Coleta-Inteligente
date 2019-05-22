@@ -6,14 +6,14 @@ import java.util.Random;
 
 public class Coletor {
     
-    int codigo;
-    String placa;
-    float capacidade;
-    String marca;
-    String modelo;
-    int ano;
-    float latitude;
-    float longitude;
+    private int codigo;
+    private String placa;
+    private float capacidade;
+    private String marca;
+    private String modelo;
+    private int ano;
+    private float latitude;
+    private float longitude;
     
     
     public Coletor (){
