@@ -1,5 +1,5 @@
 
-package Validador;
+package validador;
 
 public class ValidadorStatus {
     

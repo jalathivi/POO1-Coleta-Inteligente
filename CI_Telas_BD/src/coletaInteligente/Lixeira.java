@@ -1,8 +1,8 @@
 
 package coletaInteligente;
 
-import Validador.ValidadorLixeira;
-import Validador.ValidadorPosicao;
+import validador.ValidadorLixeira;
+import validador.ValidadorPosicao;
 
 import java.util.Random;
 

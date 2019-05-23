@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package coletaInteligenteDAO;
+
+//TESTE COMMIT2
+package coletaInteligentedao;
 
 
-import Conexao.ConexaoDB;
+import conexao.ConexaoDB;
 import coletaInteligente.Cidadao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

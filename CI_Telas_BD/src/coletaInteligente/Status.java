@@ -1,7 +1,7 @@
 
 package coletaInteligente;
 
-import Validador.ValidadorStatus;
+import validador.ValidadorStatus;
 import java.util.Random;
 
 public class Status {

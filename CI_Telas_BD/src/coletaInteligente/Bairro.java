@@ -1,7 +1,7 @@
 
 package coletaInteligente;
 
-import Validador.ValidadorBairro;
+import validador.ValidadorBairro;
 import java.util.Random;
 
 public class Bairro {
