@@ -41,14 +41,20 @@ public class ValidadorColetor {
         
         if (marca.length() > 16)
             throw new Exception ("Marca deve ter tamanho maximo de 16 caracteres");
+        
+        if ((marca.matches("[\\W]*") && !marca.matches("[a-zA-Z]*")) || (marca.matches("[0-9]*") && !marca.matches("[a-zA-Z]*")) )  
+            throw new Exception("Marca deve conter letras!");
     }
     
     public void modelo (String modelo) throws Exception{
         if (modelo.equalsIgnoreCase(""))
-            throw new Exception("Campo modelo não pode ser vazio");
+            throw new Exception("Modelo não pode ser vazio");
         
         if (modelo.length() > 16)
             throw new Exception ("Modelo deve ter tamanho maximo de 16 caracteres");
+        
+        if ((modelo.matches("[\\W]*") && !modelo.matches("[a-zA-Z]*")) || (modelo.matches("[0-9]*") && !modelo.matches("[a-zA-Z]*")) )  
+            throw new Exception("Modelo deve conter letras!");
     }
     
     public void ano (String ano) throws Exception{

@@ -88,6 +88,8 @@ public class StatusTest {
             System.out.println(ex.getMessage());
         }
     }   
+    
+    
     /**
      * Teste do Método setDescricao
      */
