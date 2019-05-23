@@ -147,7 +147,6 @@ public class LixeiraTest {
    
         try {         
             instance.setLongitude(longitude);
-            
         } catch (Exception ex) {
             Logger.getLogger(LixeiraTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
@@ -168,6 +167,8 @@ public class LixeiraTest {
             System.out.println(ex.getMessage());
         }
     }  
+
+    
     @Test
     public void testSetCapacidade() {
         

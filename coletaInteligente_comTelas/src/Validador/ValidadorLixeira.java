@@ -57,17 +57,17 @@ public class ValidadorLixeira {
         if (capacidade.substring(1).equalsIgnoreCase("-"))
             throw new Exception ("O campo capacidade deve ser positivo");
     }
-    public void todosCampos(String cod, String bai, String lat, String lon, String cap) {
-        try {
-       //     codigo(cod);
-            bairro(bai);
-        //    latitude(lat);
-        //    longitude(lon);
-            capacidade(cap);  
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        }
+//    public void todosCampos(String cod, String bai, String lat, String lon, String cap) {
+//        try {
+//       //     codigo(cod);
+//            bairro(bai);
+//        //    latitude(lat);
+//        //    longitude(lon);
+//            capacidade(cap);  
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//        }
     
 //    Exemplo de testes:         
 //    ValidadorLixeira validaLixeira = new ValidadorLixeira();
