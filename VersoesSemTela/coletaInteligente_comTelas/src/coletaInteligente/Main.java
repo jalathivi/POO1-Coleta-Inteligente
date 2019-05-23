@@ -16,13 +16,6 @@ public class Main {
         
         int resposta;
         boolean concluido;
-        String cidadaoCodigo, cidadaoNome, cidadaoEmail, cidadaoSenha;
-        String bairroNome;
-        String lixeiraCapacidade;
-        String coletorPlaca, coletorCapacidade, coletorMarca, coletorModelo, coletorAno;
-        String coletaNivel;
-        
-        
         Calendar data;
         Bairro bairro = new Bairro ();
         Cidadao cidadao = new Cidadao();
@@ -30,7 +23,6 @@ public class Main {
         Coletor coletor = new Coletor();
         Lixeira lixeira = new Lixeira();
         PersistenciaArquivo registro =  new PersistenciaArquivo();
-        
         
         JOptionPane.showMessageDialog(null, "Versão Usuário");
         
