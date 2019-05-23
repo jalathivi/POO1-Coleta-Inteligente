@@ -60,7 +60,7 @@ public class LixeiraTest {
         }
     }
     @Test
-        public void setCodigoInvalido(){
+       public void setCodigoInvalido(){
             System.out.println("setCodigoValido");
             Lixeira instance = new Lixeira();
 
