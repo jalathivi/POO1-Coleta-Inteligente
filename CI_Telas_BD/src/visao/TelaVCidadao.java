@@ -137,20 +137,15 @@ public class TelaVCidadao extends javax.swing.JFrame {
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // TODO add your handling code here:
         CidadaoDAO cidadaoDAO = new CidadaoDAO();
-        Cidadao cidadao = new Cidadao();
-        
-        try {
-            cidadao.setEmail(jTextFieldCEmail.getText());
-            cidadaoDAO.selecionaEmail(cidadao);
-        } catch (Exception ex) {
-            Logger.getLogger(TelaVCidadao.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex);
+        String senha = new String(jPasswordFieldCSenha.getPassword());
+        if(cidadaoDAO.checkLogin(jTextFieldCEmail.getText(), senha)){
+            TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
+            tPCidadao.show(true);
+            this.dispose();
+        }else {
+            JOptionPane.showMessageDialog(null, "Email ou Senha incorretos");
         }
         
-        
-        TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
-        tPCidadao.show(true);
-        this.dispose();
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     /**

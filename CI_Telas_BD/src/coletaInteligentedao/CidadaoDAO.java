@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -125,26 +126,17 @@ public class CidadaoDAO {
             stmt = conexao.prepareStatement(linha);
             rs = stmt.executeQuery();
             
-            rs.first();
             
-            c.setCodigo(Integer.toString(rs.getInt("cod_cidadao")));
-            c.setNome(rs.getString("nome"));
-            c.setEmail(rs.getString("email"));
-            c.setSenha(rs.getString("senha"));
-            c.setLatitude(Float.toString(rs.getFloat("latitude")));
-            c.setLongitude(Float.toString(rs.getFloat("longitude")));
-            JOptionPane.showMessageDialog(null, rs.getString("nome"));
-
-            /*while(rs.next())
+            while(rs.next())
             {
-                /*c.setCodigo(Integer.toString(rs.getInt("cod_cidadao")));
+                c.setCodigo(Integer.toString(rs.getInt("cod_cidadao")));
                 c.setNome(rs.getString("nome"));
                 c.setEmail(rs.getString("email"));
                 c.setSenha(rs.getString("senha"));
                 c.setLatitude(Float.toString(rs.getFloat("latitude")));
                 c.setLongitude(Float.toString(rs.getFloat("longitude")));
          
-            }*/
+            }
             
         } catch (SQLException ex) {
             Logger.getLogger(CidadaoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,6 +144,31 @@ public class CidadaoDAO {
         } finally {
             ConexaoDB.closeConnection(conexao, stmt);
         }
+    }
+    
+    public boolean checkLogin(String email, String senha) {
+        Connection conexao = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean check = false;
+        
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM cidadao WHERE email = ? and senha = ?");
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            rs = stmt.executeQuery();
+            
+           if(rs.next()) {
+               check = true;
+           }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(conexao, stmt);
+        }
+        return check;
     }
     
 
