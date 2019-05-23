@@ -17,6 +17,7 @@ public class Cidadao{
     public Cidadao (){    
     }
    
+    //Teste Commit
     public Cidadao (String nome, String email, String senha) throws Exception {
         Random random = new Random();
         setCodigo(Integer.toString(random.nextInt(90)));
