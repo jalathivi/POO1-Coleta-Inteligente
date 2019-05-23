@@ -27,6 +27,9 @@ public class ValidadorCidadao implements Validador {
     public void nome(String nome) throws Exception{
         if(nome.equalsIgnoreCase(""))
             throw new Exception("O Nome é um campo obrigatório");
+        
+        if ((nome.matches("[\\W]*") && !nome.matches("[a-zA-Z]*")) || (nome.matches("[0-9]*") && !nome.matches("[a-zA-Z]*")) )  
+            throw new Exception("Marca deve conter letras!");
     }
     
     @Override

@@ -86,6 +86,100 @@ public class CidadaoTest {
         }
     }       
        
+    
+    
+    /**
+     * Método setNome
+     */
+    @Test
+    public void testSetNome(){
+        
+        System.out.println("setNomeValido");
+        testSetNomeValido("Lavinia C");
+        testSetNomeValido("Vinicius Freitas");
+        testSetNomeValido("Thiago Moreira");
+        testSetNomeValido("Jackson W Silva");
+        
+        System.out.println("setNomeInvalido");
+        testSetNomeInvalido("");
+        testSetNomeInvalido(" ");
+        testSetNomeInvalido(". ");
+        testSetNomeInvalido("123");
+   
+    }
+    
+    public void testSetNomeValido(String nome) {
+        
+        Cidadao instance = new Cidadao();
+        
+        try {
+            instance.setNome(nome);
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+        }
+    }
+
+     public void testSetNomeInvalido(String nome){
+      
+        Cidadao instance = new Cidadao();
+        
+        try {
+            instance.setNome(nome);
+            fail("Teste Falhou: Input inválido foi aceito!\n");
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+    }
+    
+    
+    
+    /**
+     * Método setEmail
+     */
+    @Test
+    public void testSetEmail(){
+        
+        System.out.println("setEmailValido");
+        testSetEmailValido("lavinia@gmail.com");
+        testSetEmailValido("vinicius.freitas123@outlook.com");
+        testSetEmailValido("tmoreira@hotmail.com");
+        testSetEmailValido("jackson.silva@gmail.com");
+        
+        System.out.println("setEmailInvalido");
+        testSetEmailInvalido("lavinia@gmail");
+        testSetEmailInvalido("vinicius.gmail.com");
+        testSetEmailInvalido("thiago@com");
+        testSetEmailInvalido("@gmail.com");
+        testSetEmailInvalido("");
+        testSetEmailInvalido(" ");
+   
+    }
+    
+    public void testSetEmailValido(String email) {
+        
+        Cidadao instance = new Cidadao();
+        
+        try {
+            instance.setEmail(email);
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+        }
+    }
+
+     public void testSetEmailInvalido(String email){
+      
+        Cidadao instance = new Cidadao();
+        
+        try {
+            instance.setEmail(email);
+            fail("Teste Falhou: Input inválido foi aceito!\n");
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+    }
+        
    
    @Test
     public void testSetLatitude() {
@@ -140,7 +234,6 @@ public class CidadaoTest {
         setLongitudeValido("90.000");
         setLongitudeValido("-65.8485");
         setLongitudeValido("-40.42200");
-        setLongitudeInvalido("-180");
     
         System.out.println("setLongitudeInvalido");
         setLongitudeInvalido("360.0065");

@@ -343,7 +343,6 @@ public class ColetorTest {
         setLongitudeValido("90.000");
         setLongitudeValido("-65.8485");
         setLongitudeValido("-40.42200");
-        setLongitudeInvalido("-180");
     
         System.out.println("setLongitudeInvalido");
         setLongitudeInvalido("360.0065");

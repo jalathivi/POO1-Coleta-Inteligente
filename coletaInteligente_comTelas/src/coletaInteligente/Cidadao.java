@@ -83,7 +83,7 @@ public class Cidadao{
 
     public void setLongitude(String longitude) throws Exception {
         ValidadorPosicao valPosicao = new ValidadorPosicao();
-        valPosicao.latitude(longitude);
+        valPosicao.longitude(longitude);
         this.longitude = Float.parseFloat(longitude);
     }
     
