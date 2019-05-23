@@ -26,8 +26,7 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 ## <a name="diagramaclasse"></a>Diagrama de Classe
 
 ## <a name = "moldecanvas"></a> Projeto de modelo Canvas
-[Projeto de modelo Canvas](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)
+[Projeto de modelo Canvas](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)<br>
 
 ## <a name = "#diariobord"></a> Diário de bordo
-[Díario de bordo](https://docs.google.com/document/d/1N2bfTq--9dVtOqcRP5bTsuJve3REAktGKFht3hsVc0o/edit?usp=sharing)
-<br>
+[Díario de bordo](https://docs.google.com/document/d/1N2bfTq--9dVtOqcRP5bTsuJve3REAktGKFht3hsVc0o/edit?usp=sharing)<br>
