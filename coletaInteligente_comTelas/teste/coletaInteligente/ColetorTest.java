@@ -44,36 +44,36 @@ public class ColetorTest {
      * Test of setPlaca method, of class Coletor.
      */
     @Test
-    public void testSetPlacaValida() {
+    public void testSetPlaca(){
+        testSetPlacaValida("ABC1234");
+        testSetPlacaInvalida("");
+        testSetPlacaInvalida(" ");
+        testSetPlacaInvalida("ABC-123");
+        testSetPlacaInvalida("ABCD123");
+        testSetPlacaInvalida("ABC11111");
+        testSetPlacaInvalida("ABC 123");
+        testSetPlacaInvalida("AAAAAAA");
+        testSetPlacaInvalida("abc1234");
+    }
+    
+    public void testSetPlacaValida(String placa) {
         System.out.println("setPlacaValida");
         Coletor instance = new Coletor();
         
         try {
-            instance.setPlaca("ABC1234");
-            instance.setPlaca("APA9293");
+            instance.setPlaca(placa);
         } catch (Exception ex) {
             Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
         }
     }
 
-    /**
-     * Test of setPlaca method, of class Coletor.
-     */
-    @Test
-    public void testSetPlacaInvalida(){
-        System.out.println("SetPlacaInvalida");
+    public void testSetPlacaInvalida(String placa){
+        System.out.println("setPlacaInvalida");
         Coletor instance = new Coletor();
         
         try {
-            instance.setPlaca("");
-            instance.setPlaca(" ");
-            instance.setPlaca("ABC-123");
-            instance.setPlaca("ABCD123");
-            instance.setPlaca("ABC11111");
-            instance.setPlaca("ABC 123");
-            instance.setPlaca("AAAAAAA");
-            instance.setPlaca("abc1234");
+            instance.setPlaca(placa);
             fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
         } catch (Exception ex) {
             Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex); 
@@ -85,13 +85,22 @@ public class ColetorTest {
      * Test of setCapacidade method, of class Coletor.
      */
     @Test
-    public void testSetCapacidadeValida() {
+    public void testSetCapacidade(){
+        testSetCapacidadeValida("112");
+        testSetCapacidadeValida("3333");
+        testSetCapacidadeInvalida("");
+        testSetCapacidadeInvalida(" ");
+        testSetCapacidadeInvalida("0");
+        testSetCapacidadeInvalida("abc3");
+
+    }
+    
+    public void testSetCapacidadeValida(String capacidade) {
         System.out.println("setCapacidadeValida");
         Coletor instance = new Coletor();
         
         try {
-            instance.setCapacidade("112");
-            instance.setCapacidade("3333");
+            instance.setCapacidade(capacidade);
 
         } catch (Exception ex) {
             Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,19 +108,12 @@ public class ColetorTest {
         }
     }
 
-    /**
-     * Test of setCapacidade method, of class Coletor.
-     */
-    @Test
-    public void testSetCapacidadeInvalida(){
+    public void testSetCapacidadeInvalida(String capacidade){
         System.out.println("testSetCapacidadeInvalida");
         Coletor instance = new Coletor();
         
         try {
-            instance.setCapacidade("0");
-            instance.setCapacidade("");
-            instance.setCapacidade(" ");
-            instance.setCapacidade("abc8");
+            instance.setCapacidade(capacidade);
             fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
             
         } catch (Exception ex) {
@@ -123,13 +125,21 @@ public class ColetorTest {
      * Test of setMarca method, of class Coletor.
      */
     @Test
-    public void testSetMarcaValida() {
+    public void testSetMarca(){
+        testSetMarcaValida("Toyota");
+        testSetMarcaValida("Volkswagen");
+        testSetMarcaInvalida("");
+        testSetMarcaInvalida(" ");
+        testSetMarcaInvalida("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+    }
+    
+    public void testSetMarcaValida(String marca) {
         System.out.println("testSetMarcaValida");
         Coletor instance = new Coletor();
         
         try {
-            instance.setMarca("Toyota");
-            instance.setMarca("Volkswagen");
+            instance.setMarca(marca);
 
         } catch (Exception ex) {
             Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,18 +147,13 @@ public class ColetorTest {
         }
     }
 
-    /**
-     * Test of setMarca method, of class Coletor.
-     */
-    @Test
-    public void testSetMarcaInvalida() {
+
+    public void testSetMarcaInvalida(String marca) {
         System.out.println("testSetMarcaInvalida");
         Coletor instance = new Coletor();
         
         try {
-            instance.setMarca("");
-            instance.setMarca("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            instance.setMarca(" ");
+            instance.setMarca(marca);
             fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
             
         } catch (Exception ex) {
@@ -160,13 +165,21 @@ public class ColetorTest {
      * Test of setModelo method, of class Coletor.
      */
     @Test
-    public void testSetModeloValido() {
+    public void testSetModelo(){
+        testSetModeloValido("VEGALIX");
+        testSetModeloValido("sita 6000");
+        testSetModeloInvalido("");
+        testSetModeloInvalido(" ");
+        testSetModeloInvalido("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+    }
+    
+    public void testSetModeloValido(String modelo) {
         System.out.println("testSetModeloValido");
         Coletor instance = new Coletor();
      
         try {
-            instance.setModelo("VEGALIX");
-            instance.setModelo("SITA 6000");
+            instance.setModelo(modelo);
 
         } catch (Exception ex) {
             Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -174,18 +187,12 @@ public class ColetorTest {
         }
     }
 
-    /**
-     * Test of setModelo method, of class Coletor.
-     */
-    @Test
-    public void testSetModeloInvalido() {
+    public void testSetModeloInvalido(String modelo) {
         System.out.println("testSetModeloInvalido");
         Coletor instance = new Coletor();
         
         try {
-            instance.setModelo("");
-            instance.setModelo("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            instance.setModelo(" ");
+            instance.setModelo(modelo);
             fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
             
         } catch (Exception ex) {
@@ -197,13 +204,24 @@ public class ColetorTest {
      * Test of setAno method, of class Coletor.
      */
     @Test
-    public void testSetAnoValido() {
+    public void testSetAno(){
+        testSetAnoValido("2008");
+        testSetAnoValido("1955");
+        testSetAnoInvalido("");
+        testSetAnoInvalido(" ");
+        testSetAnoInvalido("2050");
+        testSetAnoInvalido("abcde");
+        testSetAnoInvalido("abc1998");
+        testSetAnoInvalido("1900");   
+
+    }
+
+    public void testSetAnoValido(String ano) {
         System.out.println("testSetAnoValido");
         Coletor instance = new Coletor();
         
         try {
-            instance.setAno("2008");
-            instance.setAno("1955");
+            instance.setAno(ano);
 
         } catch (Exception ex) {
             Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -211,21 +229,12 @@ public class ColetorTest {
         }
     }
 
-    /**
-     * Test of setAno method, of class Coletor.
-     */
-    @Test
-    public void testSetAnoInvalido(){
+    public void testSetAnoInvalido(String ano){
         System.out.println("testSetAnoInvalido");
         Coletor instance = new Coletor();
         
         try {
-            instance.setAno("1900");
-            instance.setAno("abc1998");
-            instance.setAno("abcde");
-            instance.setAno("2050");
-            instance.setAno("");
-            instance.setAno(" ");
+            instance.setAno(ano);
             fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
             
         } catch (Exception ex) {
