@@ -40,6 +40,7 @@ public class ColetorTest {
     }
 
 
+    
     /*
     * Teste do Método setCodigo
     */
@@ -61,7 +62,6 @@ public class ColetorTest {
         setCodigoInvalido(":?:1");
     }
     
-   
     public void setCodigoValido(String codigo){
        
         Coletor instance = new Coletor();
