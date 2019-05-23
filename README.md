@@ -7,6 +7,7 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 + [MINI-MUNDO](#minimundo)
 + [PROTÓTIPOS](#prototipos)
 + [DIAGRAMA DE CLASSE](#diagramaclasse)
++ [CANVAS](#moldecanvas)
 <br><br>
 ## <a name="introducao"></a>Introdução e Motivação
   O sistema Lixeira Inteligente tem como objetivo auxiliar na coleta e no descarte de lixo. A aplicação auxiliará os cidadãos a encontrar a lixeira mais próxima disponível para o descarte e os coletores a percorrer o melhor trajeto  para o recolhimento de  resíduos das lixeiras consideradas como cheias.  Esse sistema tenta minimizar o problema de descarte de lixo de modo inapropriado, evitando que a cidade fique suja, e também visa criar rotas otimizadas para os coletores a fim de diminuir o desperdício de recursos durante o processo.<br>
@@ -23,4 +24,6 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 
 ## <a name="diagramaclasse"></a>Diagrama de Classe
 
+## <a name = "moldecanvas"></a> Canvas
+[Canvas](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)
 <br>
