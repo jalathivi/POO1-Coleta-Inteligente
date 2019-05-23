@@ -24,6 +24,7 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 [Protótipo Coletor](https://github.com/jalathivi/trab01/blob/master/arquivos/pdf/prototipo_motorista.pdf)<br>
 
 ## <a name="diagramaclasse"></a>Diagrama de Classe
+![](DiagramaDeClasse/ColetaInteligenteDiagram.png)
 
 ## <a name = "moldecanvas"></a> Projeto de modelo Canvas
 [Projeto de modelo Canvas](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)<br>
