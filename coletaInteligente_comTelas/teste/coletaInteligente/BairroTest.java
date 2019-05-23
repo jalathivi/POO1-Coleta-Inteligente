@@ -70,7 +70,7 @@ public class BairroTest {
         try {         
             instance.setCodigo(codigo);
         } catch (Exception ex) {
-            Logger.getLogger(LixeiraTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Teste Falhou: Input válido não foi aceito!\n");
             System.out.println(ex.getMessage());
         }
@@ -84,7 +84,7 @@ public class BairroTest {
             instance.setCodigo(codigo);
             fail("Teste Falhou: Input inválido foi aceito!\n");
         } catch (Exception ex) {
-            Logger.getLogger(LixeiraTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());
         }
     }   
