@@ -18,8 +18,8 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 
 
 ## <a name="prototipos"></a>Protótipos
-[Protótipo Lixeira Inteligente - Cidadão](https://github.com/jalathivi/trab01/blob/master/arquivos/pdf/prototipo_cidadao.pdf)<br>
-[Protótipo Lixeira Inteligente - Coletor](https://github.com/jalathivi/trab01/blob/master/arquivos/pdf/prototipo_motorista.pdf)<br><br>
+[Protótipo Cidadão](https://github.com/jalathivi/trab01/blob/master/arquivos/pdf/prototipo_cidadao.pdf)<br>
+[Protótipo Coletor](https://github.com/jalathivi/trab01/blob/master/arquivos/pdf/prototipo_motorista.pdf)<br><br>
 
 ## <a name="diagramaclasse"></a>Diagrama de Classe
 
