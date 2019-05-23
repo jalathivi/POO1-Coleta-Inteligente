@@ -5,6 +5,8 @@
 */
 package coletaInteligente;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -83,33 +85,39 @@ public class CidadaoTest {
 
     /**
      * Test of getEmail method, of class Cidadao.
-     * @throws java.lang.Exception
+     * 
      */
     @Test
-    public void testGetEmail() throws Exception {
+    public void testGetEmail() {
         //System.out.println(" !getEmail ");
         Cidadao instance = new Cidadao();
         String expResult = "thiagom.r@hotmail.com";
-        instance.setEmail(expResult);
-        String result = instance.getEmail();
-        System.out.print(result);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("getEMail mal executado");
+        try {
+            instance.setEmail(expResult);
+            String result = instance.getEmail();
+            assertEquals(expResult, result);
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Conseguiu passar mesmo não atendendo aos requisitos");
+            
+        }
     }
 
     /**
      * Test of setEmail method, of class Cidadao.
-     * @throws java.lang.Exception
+     * 
      */
     @Test
-    public void testSetEmail() throws Exception {
+    public void testSetEmail() {
         System.out.println("setEmail");
-        String email = "thiagom.r@hotmail.com";
+        String email = "thiagom.r";
         Cidadao instance = new Cidadao();
-        instance.setEmail(email);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("Email deve seguir as regras definidas pelo validador");
+        try {
+            instance.setEmail(email);
+            fail("Email deve seguir as regras definidas pelo validador");
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -117,29 +125,34 @@ public class CidadaoTest {
      * @throws java.lang.Exception
      */
     @Test
-    public void testGetSenha() throws Exception {
+    public void testGetSenha() {
         System.out.println("getSenha");
         Cidadao instance = new Cidadao();
         String expResult = "123456";
-        instance.setSenha(expResult);
-        String result = instance.getSenha();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("getSenha incorreto");
+        try {
+            instance.setSenha(expResult);
+            String result = instance.getSenha();
+            assertEquals(expResult, result);
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("getSenha incorreto");
+        }
     }
 
     /**
      * Test of setSenha method, of class Cidadao.
-     * @throws java.lang.Exception
      */
     @Test
-    public void testSetSenha() throws Exception {
+    public void testSetSenha() {
         System.out.println("setSenha");
         String senha = "123456";
         Cidadao instance = new Cidadao();
-        instance.setSenha(senha);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("A senha deve atender os requisitos indicados pelo validador");
+        try {
+            instance.setSenha(senha);
+            fail("A senha deve atender os requisitos indicados pelo validador");
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
