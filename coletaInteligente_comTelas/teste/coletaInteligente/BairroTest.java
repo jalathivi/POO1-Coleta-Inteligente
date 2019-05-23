@@ -39,42 +39,103 @@ public class BairroTest {
     public void tearDown() {
     }
     
+    
+    /*
+    * Teste do Método setCodigo
+    */
+    @Test
+    public void testSetCodigo(){
+        
+        System.out.println("setCodigoValido");
+        setCodigoValido("369258");
+        setCodigoValido("666");
+        setCodigoValido("42");
+        setCodigoValido("0");
+        
+        System.out.println("setCodigoInvalido");
+        setCodigoInvalido("-1");
+        setCodigoInvalido("A");
+        setCodigoInvalido(" ");
+        setCodigoInvalido("");
+        setCodigoInvalido("!@#");
+        setCodigoInvalido(":?:1");
+          
+    }
+    
+    
+    public void setCodigoValido(String codigo){
+       
+        Bairro instance = new Bairro();
+   
+        try {         
+            instance.setCodigo(codigo);
+        } catch (Exception ex) {
+            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Input válido não foi aceito!\n");
+            System.out.println(ex.getMessage());
+        }
+    }    
+    
+    public void setCodigoInvalido(String codigo){
+    
+        Bairro instance = new Bairro();
+
+        try {         
+            instance.setCodigo(codigo);
+            fail("Teste Falhou: Input inválido foi aceito!\n");
+        } catch (Exception ex) {
+            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
+    }   
+    
     /*
     * Teste do Método setNome
     */
-    
     @Test
-    public void testSetNomeValido(){
-        System.out.println("setNomeValido");
-        Bairro instance = new Bairro();
+    public void testSetNome(){
+      
+        System.out.println("setNomeInválido");
+        setNomeInvalido("");
+        setNomeInvalido(" ");
+        setNomeInvalido("123");
+        setNomeInvalido("   ");
+        setNomeInvalido(".");
+        setNomeInvalido("-");
         
-        try {
-            instance.setNome("Jardim Limoeiro");
-            instance.setNome("Barcelona");
-            instance.setNome("Valparaiso");
-            instance.setNome("São Marcos I");
-            instance.setNome("São Marcos 2");
-        } catch (Exception ex) {
-            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
-            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
-        }
-        
+        System.out.println("setNomeVálido");
+        setNomeValido("Morada de Laranjeiras");
+        setNomeValido("Barcelona");
+        setNomeValido("São Marcos 1");
+        setNomeValido("São Marcos II");
     }
     
-    @Test
-    public void testSetNomeInvalido(){
-        System.out.println("setNomeInvalido");
+    public void setNomeInvalido(String nome){
+        
         Bairro instance = new Bairro();
         
         try {
-            instance.setNome("");
-            instance.setNome(" ");
-            instance.setNome("Bairro Jardim Limoeiro do Municipio da Serra do Estado do Espirito Santo ");
-            fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
+            instance.setNome(nome);
+            fail("Teste Falhou: Input inválido foi aceito!\n");
         } catch (Exception ex) {
             Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex); 
         }
+    }
+    
+    public void setNomeValido(String nome){
+        
+        Bairro instance = new Bairro();
+        
+        try {
+            instance.setNome(nome);
+        } catch (Exception ex) {
+            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Input válido não foi aceito!\n");
+        }
         
     }
+    
+    
+    
     
 }
