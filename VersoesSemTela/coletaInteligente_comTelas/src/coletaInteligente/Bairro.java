@@ -9,14 +9,12 @@ public class Bairro {
     private int codigo;
     private String nome;
     
-    public Bairro() throws Exception{
-        Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));
+    public Bairro(){
     }
     
     public Bairro(String nomeBairro) throws Exception {
         Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));
+        setCodigo(Integer.toString(random.nextInt(90)));
         setNome(nomeBairro);
     }
     

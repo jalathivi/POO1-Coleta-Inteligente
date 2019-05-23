@@ -16,23 +16,19 @@ public class Coletor {
     private float longitude;
     
     
-    public Coletor () throws Exception{
-        Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));  
-        setLatitude(Float.toString(random.nextFloat() + random.nextInt(100)));
-        setLongitude(Float.toString(random.nextFloat() + random.nextInt(100)));
+    public Coletor (){
     }
      
     public Coletor(String placa, String marca, String  modelo, String ano, String capacidade ) throws Exception{
         Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));
+        setCodigo(Integer.toString(random.nextInt(90)));
         setPlaca(placa);
         setMarca(marca);
         setModelo(modelo);
         setAno(ano);
         setCapacidade(capacidade);
-        setLatitude(Float.toString(random.nextFloat() + random.nextInt(100)));
-        setLongitude(Float.toString(random.nextFloat() + random.nextInt(100)));
+        setLatitude(Float.toString(random.nextFloat() + random.nextInt(90)));
+        setLongitude(Float.toString(random.nextFloat() + random.nextInt(90)));
     }
    
     public int getCodigo() {

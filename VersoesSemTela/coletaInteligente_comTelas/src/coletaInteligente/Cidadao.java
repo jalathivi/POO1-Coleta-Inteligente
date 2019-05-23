@@ -14,21 +14,17 @@ public class Cidadao{
     private float latitude;
     private float longitude;
     
-    public Cidadao () throws Exception{
-        Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));
-        setLatitude(Float.toString(random.nextFloat() + random.nextInt(100)));
-        setLongitude(Float.toString(random.nextFloat() + random.nextInt(100)));        
+    public Cidadao (){    
     }
    
     public Cidadao (String nome, String email, String senha) throws Exception {
         Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));
+        setCodigo(Integer.toString(random.nextInt(90)));
         setNome(nome);
         setEmail(email);
         setSenha(senha);
-        setLatitude(Float.toString(random.nextFloat()+ random.nextInt(100)));
-        setLongitude(Float.toString(random.nextFloat() + random.nextInt(100)));
+        setLatitude(Float.toString(random.nextFloat()+ random.nextInt(90)));
+        setLongitude(Float.toString(random.nextFloat() + random.nextInt(90)));
     }
     
     public int getCodigo() {

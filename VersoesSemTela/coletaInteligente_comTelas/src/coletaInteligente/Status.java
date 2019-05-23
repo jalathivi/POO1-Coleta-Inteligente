@@ -15,7 +15,7 @@ public class Status {
    
     public Status(String descricao) throws Exception{
         Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));
+        setCodigo(Integer.toString(random.nextInt(90)));
         setDescricao(descricao);
     }
     

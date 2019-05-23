@@ -16,20 +16,16 @@ public class Lixeira {
     private float longitude;    
     
     
-    public Lixeira() throws Exception{
-        Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));        
-        setLatitude(Float.toString(random.nextFloat() + random.nextInt(100)));
-        setLongitude(Float.toString(random.nextFloat() + random.nextInt(100)));        
+    public Lixeira(){
     }
     
 
     public Lixeira(Bairro bairro, String capacidade, String nivelAtual) throws Exception{   
         Random random = new Random();
-        setCodigo(Integer.toString(random.nextInt(100)));
+        setCodigo(Integer.toString(random.nextInt(90)));
         setRegiao(bairro);
-        setLatitude(Float.toString(random.nextFloat() + random.nextInt(100)));
-        setLongitude(Float.toString(random.nextFloat()+ random.nextInt(100)));
+        setLatitude(Float.toString(random.nextFloat() + random.nextInt(90)));
+        setLongitude(Float.toString(random.nextFloat()+ random.nextInt(90)));
         setCapacidade(capacidade);
         setNivelAtual(nivelAtual);
     }
