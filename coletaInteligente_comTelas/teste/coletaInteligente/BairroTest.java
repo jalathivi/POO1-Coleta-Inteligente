@@ -42,39 +42,52 @@ public class BairroTest {
     /*
     * Teste do Método setNome
     */
-    
     @Test
-    public void testSetNomeValido(){
-        System.out.println("setNomeValido");
-        Bairro instance = new Bairro();
+    public void testSetNome(){
         
-        try {
-            instance.setNome("Jardim Limoeiro");
-            instance.setNome("Barcelona");
-            instance.setNome("Valparaiso");
-            instance.setNome("São Marcos I");
-            instance.setNome("São Marcos 2");
-        } catch (Exception ex) {
-            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
-            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
-        }
         
+        System.out.println("setNomeInválido");
+        setNomeInvalido("");
+        setNomeInvalido(" ");
+        setNomeInvalido("123");
+        setNomeInvalido("   ");
+        setNomeInvalido(".");
+        setNomeInvalido("-");
+       
+        
+        System.out.println("setNomeVálido");
+        setNomeValido("Morada de Laranjeiras");
+        setNomeValido("Barcelona");
+        setNomeValido("São Marcos 1");
+        setNomeValido("São Marcos II");
     }
     
-    @Test
-    public void testSetNomeInvalido(){
-        System.out.println("setNomeInvalido");
+    public void setNomeInvalido(String nome){
+        
         Bairro instance = new Bairro();
         
         try {
-            instance.setNome("");
-            instance.setNome(" ");
-            instance.setNome("Bairro Jardim Limoeiro do Municipio da Serra do Estado do Espirito Santo ");
-            fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
+            instance.setNome(nome);
+            fail("Teste Falhou: Input inválido foi aceito!\n");
         } catch (Exception ex) {
             Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex); 
         }
+    }
+    
+    public void setNomeValido(String nome){
+        
+        Bairro instance = new Bairro();
+        
+        try {
+            instance.setNome(nome);
+        } catch (Exception ex) {
+            Logger.getLogger(BairroTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Input válido não foi aceito!\n");
+        }
         
     }
+    
+    
+    
     
 }
