@@ -76,7 +76,7 @@ public class BairroTest {
         }
     }    
     
-    public void setCodigoInvalido(String codigo){
+    public void setCodigoInvalido(String codigo) throws Exception{
     
         Bairro instance = new Bairro();
 

@@ -62,9 +62,10 @@ public class CidadaoTest {
     
     public void setCodigoValido(String codigo){
        
-        Cidadao instance = new Cidadao();
+        Cidadao instance;
    
-        try {         
+        try {     
+            instance = new Cidadao();
             instance.setCodigo(codigo);
         } catch (Exception ex) {
             Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -75,9 +76,9 @@ public class CidadaoTest {
     
     public void setCodigoInvalido(String codigo){
     
-        Cidadao instance = new Cidadao();
-
-        try {         
+        Cidadao instance;
+        try {
+            instance = new Cidadao();
             instance.setCodigo(codigo);
             fail("Teste Falhou: Input inválido foi aceito!\n");
         } catch (Exception ex) {
@@ -110,9 +111,11 @@ public class CidadaoTest {
     
     public void testSetNomeValido(String nome) {
         
-        Cidadao instance = new Cidadao();
-        
+        Cidadao instance;
+  
         try {
+            
+            instance = new Cidadao();
             instance.setNome(nome);
         } catch (Exception ex) {
             Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
