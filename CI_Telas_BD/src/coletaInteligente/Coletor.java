@@ -1,7 +1,7 @@
 package coletaInteligente;
 
-import validador.ValidadorColetor;
-import validador.ValidadorPosicao;
+import Validador.ValidadorColetor;
+import Validador.ValidadorPosicao;
 import java.util.Random;
 
 public class Coletor {

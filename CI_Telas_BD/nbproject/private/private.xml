@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletaInteligentedao/CidadaoDAO.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/Conexao/ConexaoDB.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/teste/coletaInteligente/CidadaoTest.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletaInteligente/Status.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/teste/coletaInteligente/StatusTest.java</file>
         </group>
     </open-files>
 </project-private>

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package Visao;
 
 import coletaInteligente.Cidadao;
 import coletaInteligente.PersistenciaArquivo;
-import coletaInteligentedao.CidadaoDAO;
+import coletaInteligenteDAO.CidadaoDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -175,7 +175,7 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
             cidadaoDAO = new CidadaoDAO();
             PersistenciaArquivo registro = new PersistenciaArquivo();
             registro.salvaCidadao(cidadao);
-            cidadaoDAO.Insere(cidadao);
+            cidadaoDAO.insere(cidadao);
             JOptionPane.showMessageDialog(null, "Cadastrado realizado com sucesso!");
             this.dispose();
             

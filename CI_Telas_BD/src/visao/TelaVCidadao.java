@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package Visao;
+
+import coletaInteligente.Cidadao;
+import coletaInteligenteDAO.CidadaoDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,8 +51,6 @@ public class TelaVCidadao extends javax.swing.JFrame {
         jLabel2.setText("Email");
 
         jLabel3.setText("Senha");
-
-        jTextFieldCEmail.setText("Só clica em entrar ou Cadastra");
 
         jButtonEntrar.setText("Entrar");
         jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +136,18 @@ public class TelaVCidadao extends javax.swing.JFrame {
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // TODO add your handling code here:
+        CidadaoDAO cidadaoDAO = new CidadaoDAO();
+        Cidadao cidadao = new Cidadao();
+        
+        try {
+            cidadao.setEmail(jTextFieldCEmail.getText());
+            cidadaoDAO.selecionaEmail(cidadao);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaVCidadao.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        
         TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
         tPCidadao.show(true);
         this.dispose();
