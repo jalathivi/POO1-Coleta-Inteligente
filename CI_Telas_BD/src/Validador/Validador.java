@@ -11,9 +11,9 @@ package Validador;
  */
 public interface Validador {
     
-    public void verificaNome(String nome) throws Exception;
-    public void verificaEmail(String email) throws Exception;
-    public void verificaSenha(String senha) throws Exception;
+    public void nome(String nome) throws Exception;
+    public void email(String email) throws Exception;
+    public void senha(String senha) throws Exception;
     
     
     

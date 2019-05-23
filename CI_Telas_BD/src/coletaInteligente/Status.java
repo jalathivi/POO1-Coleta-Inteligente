@@ -5,31 +5,29 @@ import Validador.ValidadorStatus;
 import java.util.Random;
 
 public class Status {
-    Random random = new Random();
-    int codigo = random.nextInt(100);
-    String descricao;
+    
+    private int codigo;
+    private String descricao;
 
     public Status(){
     }
     
-    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public Status(String codigo, String descricao){
-        this.codigo = Integer.parseInt(codigo);
-        this.descricao = descricao;
+   
+    public Status(String descricao) throws Exception{
+        Random random = new Random();
+        setCodigo(Integer.toString(random.nextInt(90)));
+        setDescricao(descricao);
     }
-  
-    public Status(int codigo, String descricao){
-        this.codigo = codigo;
-        this.descricao = descricao;
-    } */
-        
+    
     public int getCodigo() {
         return codigo;
     }
 
-    /*public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }*/
+    public void setCodigo(String codigo) throws Exception {
+        ValidadorStatus valida = new ValidadorStatus();
+        valida.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
+    }
 
     public String getDescricao() {
         return descricao;
@@ -37,7 +35,7 @@ public class Status {
 
     public void setDescricao(String descricao) throws Exception {
         ValidadorStatus valida = new ValidadorStatus();
-        valida.verificaDescricao(descricao);
+        valida.descricao(descricao);
         this.descricao = descricao;
     }
 

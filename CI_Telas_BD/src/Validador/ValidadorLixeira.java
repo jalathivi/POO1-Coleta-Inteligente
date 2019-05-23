@@ -11,12 +11,12 @@ package Validador;
  */
 public class ValidadorLixeira {
         
-    /*public void codigo(String cod) throws Exception {
-        if(cod.equalsIgnoreCase(""))
+    public void codigo(String codigo) throws Exception {
+        if(codigo.equalsIgnoreCase(""))
             throw new Exception("O campo codigo deve ser preenchido");
-        if (!cod.matches("[0-9]*"))
+        if (!codigo.matches("[0-9]*"))
             throw new Exception ("O campo codigo só deve ter numeros sem sinal");
-    }*/
+    }
     
     public void bairro(String bairro) throws Exception {
         if (bairro.equalsIgnoreCase(""))
@@ -50,22 +50,35 @@ public class ValidadorLixeira {
     public void capacidade(String capacidade) throws Exception {
         if (capacidade.equalsIgnoreCase(""))
             throw new Exception("O campo capacidade deve ser preenchido");
-        if (!capacidade.matches("[0-9]*"))
+        if (!capacidade.matches("[0-9.]*"))
             throw new Exception ("O campo capacidade só suporta números");
+        if (capacidade.equalsIgnoreCase("0"))
+            throw new Exception ("O campo capacidade deve ser maior que 0");
+        if (capacidade.substring(1).equalsIgnoreCase("-"))
+            throw new Exception ("O campo capacidade deve ser positivo");
     }
-    public void todosCampos(String cod, String bai, String lat, String lon, String cap) {
-        try {
-       //     codigo(cod);
-            bairro(bai);
-        //    latitude(lat);
-        //    longitude(lon);
-            capacidade(cap);  
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        }
+//    public void todosCampos(String cod, String bai, String lat, String lon, String cap) {
+//        try {
+//       //     codigo(cod);
+//            bairro(bai);
+//        //    latitude(lat);
+//        //    longitude(lon);
+//            capacidade(cap);  
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//        }
     
 //    Exemplo de testes:         
 //    ValidadorLixeira validaLixeira = new ValidadorLixeira();
 //    validaLixeira.todosCampos("1", "santo antonio", "-40.00", "-20.00", "200");
+
+    public void nivelAtual(String nivelAtual) throws Exception{
+        if (nivelAtual.equalsIgnoreCase(""))
+            throw new Exception("O campo nivel deve ser preenchido");
+        if (!nivelAtual.matches("[0-9.]*"))
+            throw new Exception ("O campo nivel só suporta números");
+        if (nivelAtual.substring(1).equalsIgnoreCase("-"))
+            throw new Exception ("O campo capacidade deve ser positivo");
+    }
 }

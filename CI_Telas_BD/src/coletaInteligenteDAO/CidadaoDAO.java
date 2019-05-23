@@ -28,13 +28,13 @@ public class CidadaoDAO {
         
         try {
             stmt = con.prepareStatement(
-                    "INSERT INTO cidadao (cod_cidadao, nome, senha, email, latitude, longitude) VALUES (?,?,?,?,?,?)");
-            stmt.setInt(1, c.getCodigo());
-            stmt.setString(2, c.getNome());
-            stmt.setString(3, c.getSenha());
-            stmt.setString(4, c.getEmail());
-            stmt.setFloat(5, c.getLatitude());
-            stmt.setFloat(6, c.getLongitude());
+                    "INSERT INTO cidadao (nome, senha, email, latitude, longitude) VALUES (?,?,?,?,?)");
+           //stmt.setInt(1, c.getCodigo());
+            stmt.setString(1, c.getNome());
+            stmt.setString(2, c.getSenha());
+            stmt.setString(3, c.getEmail());
+            stmt.setFloat(4, c.getLatitude());
+            stmt.setFloat(5, c.getLongitude());
             
             stmt.executeUpdate();
             
@@ -60,12 +60,12 @@ public class CidadaoDAO {
             
             while(rs.next())
             {
-                c.setCodigo(rs.getInt("cod_cidadao"));
+                c.setCodigo(Integer.toString(rs.getInt("cod_cidadao")));
                 c.setNome(rs.getString("nome"));
                 c.setEmail(rs.getString("email"));
                 c.setSenha(rs.getString("senha"));
-                c.setLatitude(rs.getFloat("latitude"));
-                c.setLongitude(rs.getFloat("longitude"));
+                c.setLatitude(Float.toString(rs.getFloat("latitude")));
+                c.setLongitude(Float.toString(rs.getFloat("longitude")));
             }
             
         } catch (SQLException ex) {

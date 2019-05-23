@@ -63,6 +63,12 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
 
         jLabel8.setText("Ano");
 
+        jTextFieldPlaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPlacaActionPerformed(evt);
+            }
+        });
+
         jButtonRegistrarColetor.setText("Registrar Veículo");
         jButtonRegistrarColetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,8 +193,8 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             coletor.setPlaca(placa);
             coletor.setMarca(marca);
             coletor.setModelo(modelo);
-            coletor.setAno(Integer.parseInt(ano));
-            coletor.setCapacidade(Float.parseFloat(capacidade));
+            coletor.setAno(ano);
+            coletor.setCapacidade(capacidade);
             registro.salvaColetor(coletor);
             JOptionPane.showMessageDialog(null, "Coletor cadastrado com sucesso!");
             
@@ -226,6 +232,10 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jTextFieldPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPlacaActionPerformed
 
     /**
      * @param args the command line arguments

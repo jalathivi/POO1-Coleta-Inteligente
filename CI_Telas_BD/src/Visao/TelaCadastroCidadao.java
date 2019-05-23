@@ -171,14 +171,11 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
         senha = jPasswordFieldSenha.getText();
 
         try {
-            cidadao = new Cidadao();
+            cidadao = new Cidadao(nome,email, senha);
             cidadaoDAO = new CidadaoDAO();
-            cidadao.setNome(nome);
-            cidadao.setEmail(email);
-            cidadao.setSenha(senha);
             PersistenciaArquivo registro = new PersistenciaArquivo();
-            cidadaoDAO.Insere(cidadao);
             registro.salvaCidadao(cidadao);
+            cidadaoDAO.Insere(cidadao);
             JOptionPane.showMessageDialog(null, "Cadastrado realizado com sucesso!");
             this.dispose();
             

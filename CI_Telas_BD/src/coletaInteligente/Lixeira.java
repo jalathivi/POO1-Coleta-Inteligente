@@ -1,74 +1,67 @@
 
 package coletaInteligente;
 
+import Validador.ValidadorLixeira;
 import Validador.ValidadorPosicao;
 
 import java.util.Random;
 
 public class Lixeira {
-    Random random = new Random();
     
-    int codigo = random.nextInt(100);
-    Bairro regiao;
-    float latitude;
-    float longitude;
-    float capacidade;
-    float nivel_atual;
+    private int codigo;
+    private Bairro bairro;
+    private float capacidade;
+    private float nivelAtual;
+    private float latitude;
+    private float longitude;    
     
     
     public Lixeira(){
     }
     
-//    public Lixeira(Bairro regiao, String capacidade){
-//        this.codigo = random.nextInt(100);
-//        this.regiao = regiao;
-//        this.latitude = random.nextFloat();
-//        this.longitude = random.nextFloat();
-//        this.capacidade = Float.parseFloat(capacidade);
-//    }
-//   
-    
- /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public Lixeira(Bairro regiao, float capacidade) throws Exception{
-        this.setLatitude( Float.toString(random.nextFloat()) );
-        this.codigo = random.nextInt(100);
-        this.regiao = regiao;
-        this.longitude = random.nextFloat();
-        this.capacidade = capacidade;
-    }*/
+
+    public Lixeira(Bairro bairro, String capacidade, String nivelAtual) throws Exception{   
+        Random random = new Random();
+        setCodigo(Integer.toString(random.nextInt(90)));
+        setRegiao(bairro);
+        setLatitude(Float.toString(random.nextFloat() + random.nextInt(90)));
+        setLongitude(Float.toString(random.nextFloat()+ random.nextInt(90)));
+        setCapacidade(capacidade);
+        setNivelAtual(nivelAtual);
+    }
 
     public int getCodigo() {
         return codigo;
     }
 
-    /*public void setCodigo() {     
-        this.codigo = codigo;
-    }*/
+    public void setCodigo(String codigo) throws Exception {     
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
+    }
 
-    public int getCodRegiao() {
-        return regiao.getCodigo();
+    public Bairro getRegiao() {
+        return bairro;
+    }
+  
+    public void setRegiao(Bairro bairro) {
+        this.bairro = bairro;
+    }
+
+    public void setNivelAtual(String nivel) throws Exception {
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.nivelAtual(nivel);
+        this.nivelAtual = Float.parseFloat(nivel);
     }
     
-    public String getNomeBairro() {
-        return regiao.getNome();
-    }
-
-    public void setRegiao(Bairro regiao) {
-        this.regiao = regiao;
+    public float getNivelAtual() {
+        return nivelAtual;
     }
 
     public float getLatitude() {
         return latitude;
-    }
+    }    
     
-    public void setNivelAtual(float nivel) {
-        this.nivel_atual = nivel;
-    }
-    
-    public float getNivelAtual() {
-        return nivel_atual;
-    }
-
     public void setLatitude(String latitude) throws Exception {
         ValidadorPosicao valPosicao = new ValidadorPosicao();
         valPosicao.latitude(latitude);
@@ -79,21 +72,25 @@ public class Lixeira {
         return longitude;
     }
 
-    public void setLongitude() {
-        this.longitude = random.nextInt(100);
+    public void setLongitude(String longitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.longitude(longitude);
+        this.longitude = Float.parseFloat(longitude);
     }
 
     public float getCapacidade() {
         return capacidade;
     }
 
-    public void setCapacidade(float capacidade) {
-        this.capacidade = capacidade;
+    public void setCapacidade(String capacidade) throws Exception{
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        valLixeira.capacidade(capacidade);
+        this.capacidade = Float.parseFloat(capacidade);
     }
 
     @Override
     public String toString() {
-        return  getCodigo()+", "+getCodRegiao()+", "+getCapacidade()+", "+getLatitude()+", "+getLongitude();
+        return  getCodigo()+", "+getRegiao().getNome()+", "+getCapacidade()+", "+getLatitude()+", "+getLongitude()+", "+ getNivelAtual();
     }
 
 }

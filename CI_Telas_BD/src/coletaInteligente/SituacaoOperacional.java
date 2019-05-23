@@ -3,10 +3,10 @@ package coletaInteligente;
 import java.util.Calendar;
 
 public class SituacaoOperacional {
-    Lixeira lixeira;
-    Coletor coletor;
-    Status status;
-    Calendar data;
+    private Lixeira lixeira;
+    private Coletor coletor;
+    private Status status;
+    private Calendar data;
     
     public SituacaoOperacional(){
     }
@@ -18,8 +18,22 @@ public class SituacaoOperacional {
         this.status = status;
         this.data = data;
     }*/
- 
-    public void setColetor (Status status){
+    
+    public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data ){
+        setLixeira(lixeira);
+        setColetor(coletor);
+        setStatus(status);
+        setData(data);
+    }   
+    public void setData (Calendar data){
+        this.data = data;
+    }
+    
+    public Calendar getData (){
+        return data;
+    }
+    
+    public void setStatus (Status status){
         this.status = status;
     }
     
@@ -54,9 +68,11 @@ public class SituacaoOperacional {
     public int getDia(){
         return data.get(Calendar.DAY_OF_MONTH);
     }
+    
     public int getMes(){
         return data.get(Calendar.MONTH);
     }
+    
     public int getAno(){
         return data.get(Calendar.YEAR);
     }

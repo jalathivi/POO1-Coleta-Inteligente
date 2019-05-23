@@ -5,8 +5,6 @@
  */
 package Visao;
 
-import java.util.Random;
-import Validador.ValidadorStatus;
 import coletaInteligente.Status;
 import coletaInteligente.PersistenciaArquivo;
 import java.util.logging.Level;
@@ -129,14 +127,13 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
     private void jButtonRegistrarStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarStatusActionPerformed
         // TODO add your handling code here:
-        Status status;
+        
         PersistenciaArquivo registro = new PersistenciaArquivo();
         String descricao = jTextFieldDescricao.getText();
 
         try {
             
-            status = new Status();
-            status.setDescricao(descricao);
+            Status status = new Status(descricao);
             registro.salvaStatus(status);
             JOptionPane.showMessageDialog(null, "Status cadastrado com sucesso!");
             this.dispose();

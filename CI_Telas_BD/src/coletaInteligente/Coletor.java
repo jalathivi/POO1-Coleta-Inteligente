@@ -1,53 +1,45 @@
 package coletaInteligente;
 
 import Validador.ValidadorColetor;
+import Validador.ValidadorPosicao;
 import java.util.Random;
 
 public class Coletor {
-    Random random = new Random();
     
-    int codigo = random.nextInt(100);
-    float latitude = random.nextFloat();
-    float longitude = random.nextFloat();
-    
-    String placa;
-    float capacidade;
-    String marca;
-    String modelo;
-    int ano;
+    private int codigo;
+    private String placa;
+    private float capacidade;
+    private String marca;
+    private String modelo;
+    private int ano;
+    private float latitude;
+    private float longitude;
     
     
     public Coletor (){
-    
     }
-    
-    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
+     
     public Coletor(String placa, String marca, String  modelo, String ano, String capacidade ) throws Exception{
-        ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaPlaca(placa);
-        validaColetor.verificaMarca(marca);
-        validaColetor.verificaModelo(modelo);
-        validaColetor.verificaAno(ano);
-        validaColetor.verificaCapacidade(capacidade);
-
-        this.placa = placa;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ano = Integer.parseInt(ano);
-        this.capacidade = Float.parseFloat(capacidade);
-        this.codigo = random.nextInt(100);
-        this.latitude = random.nextFloat();
-        this.longitude = random.nextFloat();
-    }*/
+        Random random = new Random();
+        setCodigo(Integer.toString(random.nextInt(90)));
+        setPlaca(placa);
+        setMarca(marca);
+        setModelo(modelo);
+        setAno(ano);
+        setCapacidade(capacidade);
+        setLatitude(Float.toString(random.nextFloat() + random.nextInt(90)));
+        setLongitude(Float.toString(random.nextFloat() + random.nextInt(90)));
+    }
    
     public int getCodigo() {
         return codigo;
     }
 
-    /*
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }*/
+    public void setCodigo(String codigo) throws Exception {
+        ValidadorColetor validaColetor = new ValidadorColetor();
+        validaColetor.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
+    }
     
     public String getPlaca() {
         return placa;
@@ -55,34 +47,39 @@ public class Coletor {
 
     public void setPlaca(String placa) throws Exception {
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaPlaca(placa);
+        validaColetor.placa(placa);
         this.placa = placa;
     }
 
     public float getLatitude() {
         return latitude;
+    }    
+    
+    public void setLatitude(String latitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.latitude(latitude);
+        this.latitude = Float.parseFloat(latitude);
     }
-
-    /*public void setLatitude(float latitude) {
-        this.latitude = latitude;
-    }*/
 
     public float getLongitude() {
         return longitude;
     }
 
-    /*public void setLongitude(float longitude) {
-        this.longitude = longitude;
-    }*/
+    public void setLongitude(String longitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.longitude(longitude);
+        this.longitude = Float.parseFloat(longitude);
+    }
+    
 
     public float getCapacidade() {
         return capacidade;
     }
 
-    public void setCapacidade(float capacidade) throws Exception{
+    public void setCapacidade(String capacidade) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaCapacidade(Float.toString(capacidade));
-        this.capacidade = capacidade;
+        validaColetor.capacidade(capacidade);
+        this.capacidade = Float.parseFloat(capacidade);
     }
 
     public String getMarca(){
@@ -91,7 +88,7 @@ public class Coletor {
     
     public void setMarca(String marca) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaMarca(marca);
+        validaColetor.marca(marca);
         this.marca = marca;
     }
     
@@ -101,7 +98,7 @@ public class Coletor {
 
     public void setModelo(String modelo) throws Exception {
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaModelo(modelo);
+        validaColetor.modelo(modelo);
         this.modelo = modelo;
     }
 
@@ -109,10 +106,10 @@ public class Coletor {
         return ano;
     }
 
-    public void setAno(int ano) throws Exception{
+    public void setAno(String ano) throws Exception{
         ValidadorColetor validaColetor = new ValidadorColetor();
-        validaColetor.verificaAno(Integer.toString(ano));
-        this.ano = ano;
+        validaColetor.ano(ano);
+        this.ano = Integer.parseInt(ano);
     }
 
     @Override

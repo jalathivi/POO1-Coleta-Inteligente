@@ -6,7 +6,6 @@
 package Visao;
 
 import coletaInteligente.Descarte;
-import coletaInteligente.Cidadao;
 import coletaInteligente.PersistenciaArquivo;
 import java.util.Calendar;
 import java.util.Random;
@@ -88,7 +87,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 jButtonMapaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
@@ -125,12 +124,10 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         float nivel = random.nextFloat() * 100;
         Calendar data = Calendar.getInstance();
         
-        Descarte descarte = new Descarte();
-        descarte.setNivelAtual(nivel);
-        descarte.setData(data);
+        //Descarte descarte = new Descarte(nivel, data);
         
         PersistenciaArquivo registro = new PersistenciaArquivo();
-        registro.salvaDescarte(descarte);
+        //registro.salvaDescarte(descarte);
         
         JOptionPane.showMessageDialog(null, "Descarte Registrado");
       
@@ -138,8 +135,8 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
 
     private void jButtonMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMapaActionPerformed
         // TODO add your handling code here:
-        mapaCidadao mapa = new mapaCidadao();
-        mapa.show(true);
+        TelaVisualizarMapa tMapa = new TelaVisualizarMapa();
+        tMapa.show(true);
     }//GEN-LAST:event_jButtonMapaActionPerformed
 
     /**
@@ -153,7 +150,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

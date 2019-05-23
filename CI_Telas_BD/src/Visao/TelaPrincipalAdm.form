@@ -38,7 +38,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="88" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButtonStatus" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                       <Component id="jButtonColetor" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -48,7 +48,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButtonColeta" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonLixeira" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonSituacaoOP" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSituacaoOperacional" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
               </Group>
@@ -76,7 +76,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButtonSituacaoOP" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSituacaoOperacional" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonStatus" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="81" max="32767" attributes="0"/>
@@ -114,15 +114,21 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastraBairroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonSituacaoOP">
+        <Component class="javax.swing.JButton" name="jButtonSituacaoOperacional">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Verificar Situa&#xe7;&#xe3;o Operacional das Lixeiras"/>
+            <Property name="text" type="java.lang.String" value="Registrar Situa&#xe7;&#xe3;o Operacional da Lixeira"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSituacaoOperacionalActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonColeta">
           <Properties>
             <Property name="text" type="java.lang.String" value="Gerar Rota para Coleta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonColetaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonStatus">
           <Properties>

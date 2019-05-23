@@ -12,25 +12,25 @@ package Validador;
 public class ValidadorPosicao {
     
     
-    public void latitude(String lat) throws Exception {
-        if (lat.equalsIgnoreCase(""))
+    public void latitude(String latitude) throws Exception {
+        if (latitude.equalsIgnoreCase(""))
               throw new Exception("O campo latitude deve ser preenchido"); 
-        if (!lat.matches("[-+]?[0-9]*\\.?[0-9]*"))
+        if (!latitude.matches("[-+]?[0-9]*\\.?[0-9]*"))
             throw new Exception("O campo latitude deve ser numérico");
         
-        Float float_lat = Float.parseFloat(lat); 
-        if (float_lat < -90 || float_lat > 90)
+        Float float_latitude = Float.parseFloat(latitude); 
+        if (float_latitude < -90 || float_latitude > 90)
             throw new Exception("Intervalo valido para a latitude é -90º a 90º");            
     }
 
-    public void longitude(String lon) throws Exception {
-        if (lon.equalsIgnoreCase(""))
-              throw new Exception("O campo latitude deve ser preenchido"); 
-        if (!lon.matches("[-+]?[0-9]*\\.?[0-9]*"))
-            throw new Exception("O campo latitude deve ser numérico");
+    public void longitude(String longitude) throws Exception {
+        if (longitude.equalsIgnoreCase(""))
+              throw new Exception("O campo longitude deve ser preenchido"); 
+        if (!longitude.matches("[-+]?[0-9]*\\.?[0-9]*"))
+            throw new Exception("O campo longitude deve ser numérico");
         
-        Float float_lon = Float.parseFloat(lon); 
-        if (float_lon < -180 || float_lon > 180)
+        Float float_latitude = Float.parseFloat(longitude); 
+        if (float_latitude < -180 || float_latitude > 180)
             throw new Exception("Intervalo valido para a longitude é -180º a 180º"); 
     }
 }

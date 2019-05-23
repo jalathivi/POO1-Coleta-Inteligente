@@ -11,7 +11,14 @@ package Validador;
  */
 public class ValidadorColetor {
     
-    public void verificaPlaca(String placa) throws Exception{
+    public void codigo(String codigo) throws Exception {
+        if(codigo.equalsIgnoreCase(""))
+            throw new Exception("O campo codigo deve ser preenchido");
+        if (!codigo.matches("[0-9]*"))
+            throw new Exception ("O campo codigo só deve ter numeros sem sinal");
+    }    
+        
+    public void placa(String placa) throws Exception{
         if (placa.equalsIgnoreCase(""))
             throw new Exception ("Campo placa não pode ser vazio");
         
@@ -28,23 +35,29 @@ public class ValidadorColetor {
             throw new Exception ("Quatro ultimos caracteres da placa devem ser numeros");
     }
     
-    public void verificaMarca (String marca) throws Exception{
+    public void marca (String marca) throws Exception{
         if (marca.equalsIgnoreCase(""))
             throw new Exception("Campo marca não pode ser vazio");
         
         if (marca.length() > 16)
             throw new Exception ("Marca deve ter tamanho maximo de 16 caracteres");
+        
+        if ((marca.matches("[\\W]*") && !marca.matches("[a-zA-Z]*")) || (marca.matches("[0-9]*") && !marca.matches("[a-zA-Z]*")) )  
+            throw new Exception("Marca deve conter letras!");
     }
     
-    public void verificaModelo (String modelo) throws Exception{
+    public void modelo (String modelo) throws Exception{
         if (modelo.equalsIgnoreCase(""))
-            throw new Exception("Campo modelo não pode ser vazio");
+            throw new Exception("Modelo não pode ser vazio");
         
         if (modelo.length() > 16)
             throw new Exception ("Modelo deve ter tamanho maximo de 16 caracteres");
+        
+        if ((modelo.matches("[\\W]*") && !modelo.matches("[a-zA-Z]*")) || (modelo.matches("[0-9]*") && !modelo.matches("[a-zA-Z]*")) )  
+            throw new Exception("Modelo deve conter letras!");
     }
     
-    public void verificaAno (String ano) throws Exception{
+    public void ano (String ano) throws Exception{
         if (ano.equalsIgnoreCase(""))
             throw new Exception("Campo ano não pode ser vazio");
         
@@ -57,7 +70,7 @@ public class ValidadorColetor {
             throw new Exception ("O ano deve conter 4 numeros e estar situado entre 1950 e 2020");
     }
     
-    public void verificaCapacidade(String capacidade) throws Exception{
+    public void capacidade(String capacidade) throws Exception{
         if (capacidade.equalsIgnoreCase(""))
             throw new Exception("Campo capacidade não pode ser vazio");
 
@@ -68,12 +81,5 @@ public class ValidadorColetor {
         if (cap == 0)
             throw new Exception ("A capacidade não pode ser 0");
     }
-
-    public void verificaCapacidade(float capacidade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void verificaAno(int ano) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

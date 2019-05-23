@@ -4,68 +4,79 @@ import java.util.Calendar;
 import java.util.Random;
 
 public class Descarte {
-    Random random = new Random();
-    Lixeira lixeira;
-    Cidadao cidadao;
-    Calendar data; //data = Calendar.getInstance();
-    float nivelAtual;
+    private Lixeira lixeira;
+    private Cidadao cidadao;
+    private Calendar data;
+    private float nivelAtual;
     
-    //ATributos provisórios? Talvez
-    int codLixeira = random.nextInt();
-    int codCidadao = random.nextInt();
+    //ATributos provisórios
+    //private int codLixeira;
+    //private int codCidadao;
     
 
-    public Descarte(){  
+    public Descarte(){
         
     }
-            
-    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public Descarte(Lixeira lixeira, Cidadao cidadao, String nivelAtual, Calendar data){   
-        this.lixeira = lixeira;
-        this.cidadao = cidadao;
-        this.data = data;
-        this.nivelAtual = Float.parseFloat(nivelAtual);
-    }
- 
-    public Descarte(Lixeira lixeira, Cidadao cidadao, float nivelAtual, Calendar data ){   
-        this.lixeira = lixeira;
-        this.cidadao = cidadao;
-        this.data = data;
-        this.nivelAtual = nivelAtual;
-    }
 
+    
+    public Descarte(Lixeira lixeira, Cidadao cidadao, String nivelAtual, Calendar data ){
+        setLixeira(lixeira);
+        setCidadao(cidadao);
+        setData(data);
+        setNivelAtual(nivelAtual);
+    }    
+    
     //CONTRUTOR PROVISÓRIO ENQUANTO NÃO DÁ PRA RESGATAR AS INFORMAÇÕES DO BANCO, OU DO ARQUIVO POR PREGUIÇA RS
-    public Descarte(int codLixeira, int codCidadao, int nivel, Calendar data) {
-        this.codLixeira = codLixeira;
-        this.codCidadao = codCidadao;
-        this.data = data;
-        this.nivelAtual = nivel;
-    }*/
-  
-    public void setLixeira(Lixeira lixeira){
-        this.lixeira = lixeira;
-    }
+//    public Descarte(float nivelAtual, Calendar data) {
+//        setCodCidadao();
+//        setCodLixeira();
+//        setData(data);
+//        setNivelAtual(nivelAtual);
+//    }
+ 
+//    public void setCodCidadao() {
+//        Random random = new Random();
+//        int cidadao = random.nextInt(100);
+//        this.codCidadao = cidadao;
+//    }
+//    
+//    public int getCodCidadao() {
+//        return codCidadao;
+//    }
+//    
+//    public int getCodLixeira() {
+//        return codLixeira;
+//    }
+//    
+//    public void setCodLixeira() {
+//        Random random = new Random();
+//        int lixeira = random.nextInt(100);
+//        this.codLixeira = lixeira;
+//    }
+//    
+//    public void setNivelAtual(float nivelAtual) {
+//        this.nivelAtual = nivelAtual;
+//    }
+//    
     
-    /*public int getCodLixeira (){
-        return lixeira.getCodigo();
-    }*/
-    public int getCodLixeira (){
-        return codLixeira;
-    }
-    
-    public void setCidadao (Cidadao cidadao){
+    public void setCidadao(Cidadao cidadao) {
         this.cidadao = cidadao;
     }
     
-    /*public int getCodCidadao (){
-        return cidadao.getCodigo(); 
-    }*/
-    public int getCodCidadao (){
-        return codCidadao; 
+    public void setLixeira(Lixeira lixeira) {
+        this.lixeira = lixeira;
     }
     
-    public void setNivelAtual(float nivelAtual) {
-        this.nivelAtual = nivelAtual;
+    public Cidadao getCidadao() {
+        return cidadao;
+    }
+    
+    public Lixeira getLixeira() {
+        return lixeira;
+    }
+    
+    public void setNivelAtual(String nivelAtual) {
+        this.nivelAtual = Float.parseFloat(nivelAtual);
     }
     
     public float getNivelAtual() {
@@ -108,7 +119,7 @@ public class Descarte {
     
     @Override
     public String toString() {
-        return getCodLixeira()+", "+getCodCidadao()+", "+getNivelAtual()+", "+getStringData()+", "+getStringHora();
+        return getLixeira().getCodigo()+", "+getCidadao().getCodigo()+", "+getNivelAtual()+", "+getStringData()+", "+getStringHora();
     }
     
 }

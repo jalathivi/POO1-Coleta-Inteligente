@@ -34,7 +34,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jButtonLixeira = new javax.swing.JButton();
         jButtonColetor = new javax.swing.JButton();
         cadastraBairro = new javax.swing.JButton();
-        jButtonSituacaoOP = new javax.swing.JButton();
+        jButtonSituacaoOperacional = new javax.swing.JButton();
         jButtonColeta = new javax.swing.JButton();
         jButtonStatus = new javax.swing.JButton();
 
@@ -65,9 +65,19 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
-        jButtonSituacaoOP.setText("Verificar Situação Operacional das Lixeiras");
+        jButtonSituacaoOperacional.setText("Registrar Situação Operacional da Lixeira");
+        jButtonSituacaoOperacional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSituacaoOperacionalActionPerformed(evt);
+            }
+        });
 
         jButtonColeta.setText("Gerar Rota para Coleta");
+        jButtonColeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColetaActionPerformed(evt);
+            }
+        });
 
         jButtonStatus.setText("Criar Status");
         jButtonStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +91,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 88, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonColetor)
@@ -90,7 +100,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonColeta)
                     .addComponent(jButtonLixeira)
-                    .addComponent(jButtonSituacaoOP))
+                    .addComponent(jButtonSituacaoOperacional))
                 .addGap(129, 129, 129))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(270, 270, 270)
@@ -112,7 +122,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                     .addComponent(jButtonColeta))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonSituacaoOP)
+                    .addComponent(jButtonSituacaoOperacional)
                     .addComponent(jButtonStatus))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
@@ -146,6 +156,18 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         TelaCadastroLixeira tCadastroLixeira = new TelaCadastroLixeira();
         tCadastroLixeira.show(true);
     }//GEN-LAST:event_jButtonLixeiraActionPerformed
+
+    private void jButtonSituacaoOperacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSituacaoOperacionalActionPerformed
+        // TODO add your handling code here:
+        TelaRegistraSituacaoOperacional tSituacaoOperacional = new TelaRegistraSituacaoOperacional();
+        tSituacaoOperacional.show(true);
+    }//GEN-LAST:event_jButtonSituacaoOperacionalActionPerformed
+
+    private void jButtonColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColetaActionPerformed
+        // TODO add your handling code here:
+        TelaColeta tGeraRota = new TelaColeta();
+        tGeraRota.show(true);
+    }//GEN-LAST:event_jButtonColetaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,7 +209,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JButton jButtonColeta;
     private javax.swing.JButton jButtonColetor;
     private javax.swing.JButton jButtonLixeira;
-    private javax.swing.JButton jButtonSituacaoOP;
+    private javax.swing.JButton jButtonSituacaoOperacional;
     private javax.swing.JButton jButtonStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

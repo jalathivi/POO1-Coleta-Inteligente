@@ -5,11 +5,6 @@
  */
 package Visao;
 
-import coletaInteligente.Cidadao;
-import coletaInteligenteDAO.CidadaoDAO;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 /**
  *
  * @author thiag
@@ -50,6 +45,8 @@ public class TelaVCidadao extends javax.swing.JFrame {
         jLabel2.setText("Email");
 
         jLabel3.setText("Senha");
+
+        jTextFieldCEmail.setText("Só clica em entrar ou Cadastra");
 
         jButtonEntrar.setText("Entrar");
         jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,27 +132,9 @@ public class TelaVCidadao extends javax.swing.JFrame {
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // TODO add your handling code here:
-        Cidadao cidadao = new Cidadao();
-        CidadaoDAO cidadaoDAO = new CidadaoDAO();
-        try {
-            cidadaoDAO.selecionaEmail(cidadao,jTextFieldCEmail.getText());
-            String senha = cidadao.getSenha();
-            if (!senha.equals(jPasswordFieldCSenha.getText()))
-                JOptionPane.showMessageDialog(null, "Senha Incorreta");
-            else{
-                TelaCidadaoDescarte tDescarte = new TelaCidadaoDescarte();
-                tDescarte.show(true);
-                this.dispose();
-            }
-            
-        } catch (Exception ex) {
-            Logger.getLogger(TelaVCidadao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.print("Erro");
-        }
-        
-        //TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
-        //tPCidadao.show(true);
-        //this.dispose();
+        TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
+        tPCidadao.show(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     /**

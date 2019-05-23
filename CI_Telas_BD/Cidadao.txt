@@ -1,2 +1,9 @@
 0, Lorraine, lorrainekiefer@gmail.com, 01111995, 0.0, 0.0
 0, lorraine, lorrainethi@gmail.com, 01111995, 0.0, 0.0
+0, Thiagomr, thiagomr@gmail.com, 01111995, 0.0, 0.0
+46, Thiagomr8, thiago8@gmail.com, 01111995, 32.943336, 66.35023
+49, thithi, thi@gmail.cin, 053698, 41.235817, 21.02669
+40, Jakson, Jakson@hotmail.com, 056985, 80.500145, 27.687687
+10, Jakson, Jakson@gmail.com, 056321, 34.721554, 3.3229501
+6, thithi, thi@gmail.com, 01111999, 22.164305, 52.423653
+63, jakson, jakson@gmail.com, 0115236, 58.55614, 7.828377

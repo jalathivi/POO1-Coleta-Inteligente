@@ -5,34 +5,28 @@ import Validador.ValidadorBairro;
 import java.util.Random;
 
 public class Bairro {
-    Random random = new Random();
     
-    int codigo = random.nextInt(100);
-    String nome;
-    
+    private int codigo;
+    private String nome;
     
     public Bairro(){
     }
     
-    /*/*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public Bairro(String nomeBairro) {
-        this.codigo = random.nextInt(100);
-        this.nome = nomeBairro;
+    public Bairro(String nomeBairro) throws Exception {
+        Random random = new Random();
+        setCodigo(Integer.toString(random.nextInt(90)));
+        setNome(nomeBairro);
     }
     
-    public Bairro(int codigoBairro, String nomeBairro) {
-        this.codigo = codigoBairro;
-        this.nome = nomeBairro;
-    }*/
-
     public int getCodigo() {
         return codigo;
     }
     
-    /*
-    public void setCodigo() {
-        this.codigo = random.nextInt(100);
-    }*/
+    public void setCodigo(String codigo) throws Exception {
+        ValidadorBairro valida = new ValidadorBairro();
+        valida.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
+    }
 
     public String getNome() {
         return nome;
@@ -40,7 +34,7 @@ public class Bairro {
 
     public void setNome(String nome) throws Exception {
         ValidadorBairro valida = new ValidadorBairro();
-        valida.verificaNome(nome);
+        valida.nome(nome);
         this.nome = nome;
     }
 

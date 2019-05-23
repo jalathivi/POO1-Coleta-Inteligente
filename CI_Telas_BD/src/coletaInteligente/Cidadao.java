@@ -2,10 +2,10 @@
 package coletaInteligente;
 
 import Validador.ValidadorCidadao;
-//import java.util.Random;
+import Validador.ValidadorPosicao;
+import java.util.Random;
 
 public class Cidadao{
-    //Random random = new Random();
     
     private int codigo;
     private String nome;
@@ -14,40 +14,37 @@ public class Cidadao{
     private float latitude;
     private float longitude;
     
-    
-    
-    public Cidadao (){
-        
+    public Cidadao (){    
     }
-    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
+   
+    //Teste Commit
     public Cidadao (String nome, String email, String senha) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaNome(nome);
-        valCidadao.verificaEmail(email);
-        valCidadao.verificaSenha(senha);
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.codigo = random.nextInt(100);
-        this.latitude = random.nextFloat();
-        this.longitude = random.nextFloat();
-    }*/
+        Random random = new Random();
+        setCodigo(Integer.toString(random.nextInt(90)));
+        setNome(nome);
+        setEmail(email);
+        setSenha(senha);
+        setLatitude(Float.toString(random.nextFloat()+ random.nextInt(90)));
+        setLongitude(Float.toString(random.nextFloat() + random.nextInt(90)));
+    }
     
     public int getCodigo() {
         return codigo;
     }
-    
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
 
+    public void setCodigo(String codigo) throws Exception {
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.codigo(codigo);
+        this.codigo = Integer.parseInt(codigo);
+    }   
+    
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaNome(nome);
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.nome(nome);
         this.nome = nome;
     }
 
@@ -55,10 +52,9 @@ public class Cidadao{
         return email;
     }
     
-
     public void setEmail(String email) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaEmail(email);
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.email(email);
         this.email = email;
     }
 
@@ -66,29 +62,32 @@ public class Cidadao{
         return senha;
     }
     
-    
     public void setSenha(String senha) throws Exception {
-        ValidadorCidadao valCidadao = new ValidadorCidadao();
-        valCidadao.verificaSenha(senha);        
+        ValidadorCidadao valida = new ValidadorCidadao();
+        valida.senha(senha);        
         this.senha = senha;
     }
 
     public float getLatitude() {
         return latitude;
-    }
+    }    
     
-    public void setLatitude(float latitude){
-        this.latitude = latitude;
+    public void setLatitude(String latitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.latitude(latitude);
+        this.latitude = Float.parseFloat(latitude);
     }
 
     public float getLongitude() {
         return longitude;
     }
-    
-    public void setLongitude(float Longitude){
-        this.longitude = Longitude;
-    }
 
+    public void setLongitude(String longitude) throws Exception {
+        ValidadorPosicao valPosicao = new ValidadorPosicao();
+        valPosicao.longitude(longitude);
+        this.longitude = Float.parseFloat(longitude);
+    }
+    
     @Override
     public String toString() {
         return getCodigo()+", "+getNome()+", "+getEmail()+", "+getSenha()+", "+getLatitude()+", "+getLongitude();   
