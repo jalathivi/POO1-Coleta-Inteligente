@@ -289,6 +289,96 @@ public class ColetorTest {
             Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+   @Test
+    public void testSetLatitude() {
+        
+        System.out.println("setLatitudeValido");
+        setLatitudeValido("90.000");
+        setLatitudeValido("-65.8485");
+        setLatitudeValido("-40.42200");
+        setLatitudeValido("00");
+        
+        System.out.println("setLatitudeInvalido");
+        setLatitudeInvalido("180");
+        setLatitudeInvalido("325oi1265");
+        setLatitudeInvalido("jujuba");
+        setLatitudeInvalido("totosa");
+    }
+        
+    public void setLatitudeValido(String latitude){
+     
+        Coletor instance = new Coletor();
+   
+        try {         
+            instance.setLatitude(latitude);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    
+    public void setLatitudeInvalido(String latitude){
+       
+        Coletor instance = new Coletor();
+   
+        try {         
+            instance.setLatitude(latitude);
+            fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    
+    @Test
+    public void testSetLongitude() {
+        
+        System.out.println("setLongitudeValido");
+        setLongitudeValido("90.000");
+        setLongitudeValido("-65.8485");
+        setLongitudeValido("-40.42200");
+        setLongitudeInvalido("-180");
+    
+        System.out.println("setLongitudeInvalido");
+        setLongitudeInvalido("360.0065");
+        setLongitudeInvalido("325oi1265");
+        setLongitudeInvalido("jujuba");
+        setLongitudeInvalido("totosa"); 
+    }
+        
+    public void setLongitudeValido(String longitude){
+        
+        Coletor instance = new Coletor();
+   
+        try {         
+            instance.setLongitude(longitude);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+            System.out.println(ex.getMessage());
+        }
+    }
+     
+    public void setLongitudeInvalido(String longitude){
+       
+        Coletor instance = new Coletor();
+   
+        try {         
+            instance.setLongitude(longitude);
+            fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ColetorTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
+    }  
 
     
 }
