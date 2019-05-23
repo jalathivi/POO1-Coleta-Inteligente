@@ -39,162 +39,145 @@ public class CidadaoTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getCodigo method, of class Cidadao.
-     */
+    /*
+    * Teste do Método setCodigo
+    */
     @Test
-    public void testGetCodigo() {
-        System.out.println("getCodigo");
-        Cidadao instance = new Cidadao();
-        int expResult = instance.getCodigo();
-        int result = instance.getCodigo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("Codigo gerado 2 vezes para a mesma instancia");
+    public void testSetCodigo(){
+        
+        System.out.println("setCodigoValido");
+        setCodigoValido("369258");
+        setCodigoValido("666");
+        setCodigoValido("42");
+        setCodigoValido("0");
+        
+        System.out.println("setCodigoInvalido");
+        setCodigoInvalido("-1");
+        setCodigoInvalido("A");
+        setCodigoInvalido(" ");
+        setCodigoInvalido("");
+        setCodigoInvalido("!@#");
+        setCodigoInvalido(":?:1");
     }
-
-    /**
-     * Test of getNome method, of class Cidadao.
-     * @throws java.lang.Exception
-     */
-    @Test
-    public void testGetNome() throws Exception {
-        System.out.println("getNome");
+    
+    public void setCodigoValido(String codigo){
+       
         Cidadao instance = new Cidadao();
-        String expResult = "Thiago";
-        instance.setNome(expResult);
-        String result = instance.getNome();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("Nome não está sendo pego corretamente");
-    }
-
-    /**
-     * Test of setNome method, of class Cidadao.
-     * @throws java.lang.Exception
-     */
-    @Test
-    public void testSetNome() throws Exception {
-        System.out.println("setNome");
-        String nome = "Thiago";
-        Cidadao instance = new Cidadao();
-        instance.setNome(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("Nome não pode ser vazio");
-    }
-
-    /**
-     * Test of getEmail method, of class Cidadao.
-     * 
-     */
-    @Test
-    public void testGetEmail() {
-        //System.out.println(" !getEmail ");
-        Cidadao instance = new Cidadao();
-        String expResult = "thiagom.r@hotmail.com";
-        try {
-            instance.setEmail(expResult);
-            String result = instance.getEmail();
-            assertEquals(expResult, result);
+   
+        try {         
+            instance.setCodigo(codigo);
         } catch (Exception ex) {
             Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
-            fail("Conseguiu passar mesmo não atendendo aos requisitos");
+            fail("Teste Falhou: Input válido não foi aceito!\n");
+            System.out.println(ex.getMessage());
+        }
+    }    
+    
+    public void setCodigoInvalido(String codigo){
+    
+        Cidadao instance = new Cidadao();
+
+        try {         
+            instance.setCodigo(codigo);
+            fail("Teste Falhou: Input inválido foi aceito!\n");
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
+    }       
+       
+   
+   @Test
+    public void testSetLatitude() {
+        
+        System.out.println("setLatitudeValido");
+        setLatitudeValido("90.000");
+        setLatitudeValido("-65.8485");
+        setLatitudeValido("-40.42200");
+        setLatitudeValido("00");
+        
+        System.out.println("setLatitudeInvalido");
+        setLatitudeInvalido("180");
+        setLatitudeInvalido("325oi1265");
+        setLatitudeInvalido("jujuba");
+        setLatitudeInvalido("totosa");
+    }
+        
+    public void setLatitudeValido(String latitude){
+     
+        Cidadao instance = new Cidadao();
+   
+        try {         
+            instance.setLatitude(latitude);
             
-        }
-    }
-
-    /**
-     * Test of setEmail method, of class Cidadao.
-     * 
-     */
-    @Test
-    public void testSetEmail() {
-        System.out.println("setEmail");
-        String email = "thiagom.r";
-        Cidadao instance = new Cidadao();
-        try {
-            instance.setEmail(email);
-            fail("Email deve seguir as regras definidas pelo validador");
         } catch (Exception ex) {
             Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+            System.out.println(ex.getMessage());
         }
     }
-
-    /**
-     * Test of getSenha method, of class Cidadao.
-     * @throws java.lang.Exception
-     */
-    @Test
-    public void testGetSenha() {
-        System.out.println("getSenha");
+    
+    
+    public void setLatitudeInvalido(String latitude){
+       
         Cidadao instance = new Cidadao();
-        String expResult = "123456";
-        try {
-            instance.setSenha(expResult);
-            String result = instance.getSenha();
-            assertEquals(expResult, result);
+   
+        try {         
+            instance.setLatitude(latitude);
+            fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
+            
         } catch (Exception ex) {
             Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
-            fail("getSenha incorreto");
+            System.out.println(ex.getMessage());
         }
     }
-
-    /**
-     * Test of setSenha method, of class Cidadao.
-     */
+    
+    
     @Test
-    public void testSetSenha() {
-        System.out.println("setSenha");
-        String senha = "123456";
+    public void testSetLongitude() {
+        
+        System.out.println("setLongitudeValido");
+        setLongitudeValido("90.000");
+        setLongitudeValido("-65.8485");
+        setLongitudeValido("-40.42200");
+        setLongitudeInvalido("-180");
+    
+        System.out.println("setLongitudeInvalido");
+        setLongitudeInvalido("360.0065");
+        setLongitudeInvalido("325oi1265");
+        setLongitudeInvalido("jujuba");
+        setLongitudeInvalido("totosa"); 
+    }
+        
+    public void setLongitudeValido(String longitude){
+        
         Cidadao instance = new Cidadao();
-        try {
-            instance.setSenha(senha);
-            fail("A senha deve atender os requisitos indicados pelo validador");
+   
+        try {         
+            instance.setLongitude(longitude);
+            
         } catch (Exception ex) {
             Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+            System.out.println(ex.getMessage());
         }
     }
-
-    /**
-     * Test of getLatitude method, of class Cidadao.
-     */
-    @Test
-    public void testGetLatitude() {
-        System.out.println("getLatitude");
+     
+    public void setLongitudeInvalido(String longitude){
+       
         Cidadao instance = new Cidadao();
-        float expResult = instance.getLatitude();
-        float result = instance.getLatitude();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("getLatitude Incorreto");
-    }
-
-    /**
-     * Test of getLongitude method, of class Cidadao.
-     */
-    @Test
-    public void testGetLongitude() {
-        System.out.println("getLongitude");
-        Cidadao instance = new Cidadao();
-        float expResult = instance.getLongitude();
-        float result = instance.getLongitude();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("getLongitude incorreto");
-    }
-
-    /**
-     * Test of toString method, of class Cidadao.
-     */
-    //@Test
-    public void testToString() {
-        System.out.println("toString");
-        Cidadao instance = new Cidadao();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+   
+        try {         
+            instance.setLongitude(longitude);
+            fail("Teste Falhou: Inputs inválidos foram aceitos!\n");
+            
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
+    }  
+    
+    
+  
     
 }
