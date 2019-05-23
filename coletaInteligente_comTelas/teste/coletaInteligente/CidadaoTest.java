@@ -180,7 +180,59 @@ public class CidadaoTest {
         }
     }
         
+
+     
+    /**
+     * Método setSenha
+     */
+     
+    @Test
+    public void testSetSenha(){
+        
+        System.out.println("setSenhaValido");
+        testSetSenhaValido("1234acb#");
+        testSetSenhaValido("naruto2019");
+        testSetSenhaValido("Ichigo15");
+        testSetSenhaValido("Rukia2019");
+        
+        System.out.println("setSenhaInvalido");
+        testSetSenhaInvalido("12311");
+        testSetSenhaInvalido("         ");
+        testSetSenhaInvalido("..-- ");
+        testSetSenhaInvalido("");
    
+    }
+    
+    public void testSetSenhaValido(String senha) {
+        
+        Cidadao instance = new Cidadao();
+        
+        try {
+            instance.setSenha(senha);
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Teste Falhou: Inputs válidos não foram aceitos!\n");
+        }
+    }
+
+     public void testSetSenhaInvalido(String senha){
+      
+        Cidadao instance = new Cidadao();
+        
+        try {
+            instance.setSenha(senha);
+            fail("Teste Falhou: Input inválido foi aceito!\n");
+        } catch (Exception ex) {
+            Logger.getLogger(CidadaoTest.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+    }
+     
+        
+    /**
+     * Método setLatitude
+     */
+       
+         
    @Test
     public void testSetLatitude() {
         
@@ -226,7 +278,11 @@ public class CidadaoTest {
         }
     }
     
-    
+     
+    /**
+     * Método setLogitude
+     */
+         
     @Test
     public void testSetLongitude() {
         
