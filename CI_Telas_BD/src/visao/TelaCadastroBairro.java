@@ -71,6 +71,11 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
             }
         });
 
+        jListBairros.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListBairrosValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jListBairros);
 
         jLabel3.setText("Bairros");
@@ -93,6 +98,12 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAlterarActionPerformed(evt);
+            }
+        });
+
+        jTextFieldNomeNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeNewActionPerformed(evt);
             }
         });
 
@@ -247,14 +258,25 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         BairroDAO bairroDAO = new BairroDAO();
         int index = jListBairros.getSelectedIndex();
         ArrayList dados = bairroDAO.selectListaBairro();
-        if("".equals(jTextFieldNomeNew.getText())) {
+        if(("".equals(jTextFieldNomeNew.getText())) || index == -1 ) {
             JOptionPane.showMessageDialog(null, "Insira um nome");
         }else{
             bairroDAO.alteraBairro((String) dados.get(index), jTextFieldNomeNew.getText());
+            jTextFieldNomeNew.setText(null);
             jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
         
         }
     }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void jTextFieldNomeNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeNewActionPerformed
+
+    private void jListBairrosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListBairrosValueChanged
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Selecionado:  " + jListBairros.getSelectedValue().toString());
+        jTextFieldNomeNew.setText(null);
+    }//GEN-LAST:event_jListBairrosValueChanged
 
     /**
      * @param args the command line arguments
