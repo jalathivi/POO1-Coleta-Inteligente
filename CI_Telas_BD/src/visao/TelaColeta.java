@@ -47,7 +47,7 @@ public class TelaColeta extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxRegiao = new javax.swing.JComboBox<String>();
+        jComboBoxRegiao = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jButtonGerarRota = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
@@ -64,7 +64,7 @@ public class TelaColeta extends javax.swing.JFrame {
         jLabel1.setText("Selecione a Região para a Rota");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 35, -1, -1));
 
-        jComboBoxRegiao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Região X", "Região Y", "Região Z" }));
+        jComboBoxRegiao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Região X", "Região Y", "Região Z" }));
         jComboBoxRegiao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRegiaoActionPerformed(evt);

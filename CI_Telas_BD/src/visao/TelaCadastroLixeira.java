@@ -31,7 +31,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCapacidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxRegiao = new javax.swing.JComboBox<String>();
+        jComboBoxRegiao = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldLat = new javax.swing.JTextField();
@@ -61,7 +61,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jLabel1.setText("Capacidade da Lixeira");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
 
-        jComboBoxRegiao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxRegiao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBoxRegiao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 140, -1));
 
         jLabel4.setText("Localização Precisa");
