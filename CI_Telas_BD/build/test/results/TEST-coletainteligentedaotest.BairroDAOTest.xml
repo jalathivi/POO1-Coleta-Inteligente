@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="3" hostname="LAPTOP-L8AO2GKK" name="coletainteligentedaotest.BairroDAOTest" skipped="0" tests="4" time="5.692" timestamp="2019-05-24T04:08:07">
+<testsuite errors="0" failures="0" hostname="LAPTOP-L8AO2GKK" name="coletainteligentedaotest.BairroDAOTest" skipped="0" tests="4" time="4.618" timestamp="2019-05-24T04:21:49">
   <properties>
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\netbeans\ide\modules\org-apache-commons-logging.jar;C:\Program Files\netbeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
     <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
@@ -28,7 +28,7 @@
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.3\bin" />
     <property name="libs.CopyLibs.src" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletainteligentedaotest.BairroDAOTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletainteligentedaotest.BairroDAOTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher11766806210020921126.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit6548916138955111141.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletainteligentedaotest.BairroDAOTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletainteligentedaotest.BairroDAOTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher5795917852912525797.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit13047655462007720493.properties" />
     <property name="jdk.debug" value="release" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="javac.source" value="1.8" />
@@ -377,31 +377,10 @@
     <property name="annotation.processing.run.all.processors" value="true" />
     <property name="junit.forkmode" value="perTest" />
   </properties>
-  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testReadBairro" time="0.276" />
-  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testAlteraBairro" time="3.847">
-    <failure message="The test case is a prototype." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: The test case is a prototype.
-	at coletainteligentedaotest.BairroDAOTest.testAlteraBairro(BairroDAOTest.java:109)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-</failure>
-  </testcase>
-  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testSelectListaBairro" time="0.099">
-    <failure message="expected:&lt;null&gt; but was:&lt;[Coqueiral, Vila Nova, Jardim Marinho]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;null&gt; but was:&lt;[Coqueiral, Vila Nova, Jardim Marinho]&gt;
-	at coletainteligentedaotest.BairroDAOTest.testSelectListaBairro(BairroDAOTest.java:80)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-</failure>
-  </testcase>
-  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testDeleta" time="1.203">
-    <failure message="The test case is a prototype." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: The test case is a prototype.
-	at coletainteligentedaotest.BairroDAOTest.testDeleta(BairroDAOTest.java:95)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-</failure>
-  </testcase>
+  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testReadBairro" time="0.317" />
+  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testAlteraBairro" time="3.083" />
+  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testSelectListaBairro" time="0.233" />
+  <testcase classname="coletainteligentedaotest.BairroDAOTest" name="testDeleta" time="0.784" />
   <system-out><![CDATA[readBairro
 alteraBairro
 selectListaBairro

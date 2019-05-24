@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="LAPTOP-L8AO2GKK" name="coletaInteligente.CidadaoTest" skipped="0" tests="6" time="0.765" timestamp="2019-05-24T04:10:00">
+<testsuite errors="0" failures="0" hostname="LAPTOP-L8AO2GKK" name="coletaInteligente.CidadaoTest" skipped="0" tests="6" time="0.949" timestamp="2019-05-24T04:21:42">
   <properties>
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\netbeans\ide\modules\org-apache-commons-logging.jar;C:\Program Files\netbeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
     <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
@@ -28,7 +28,7 @@
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.3\bin" />
     <property name="libs.CopyLibs.src" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletaInteligente.CidadaoTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletaInteligente.CidadaoTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher3009976273214116964.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit14513618554971923551.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletaInteligente.CidadaoTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletaInteligente.CidadaoTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher12814378055467168422.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit2679058074211165265.properties" />
     <property name="jdk.debug" value="release" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="javac.source" value="1.8" />
@@ -377,12 +377,12 @@
     <property name="annotation.processing.run.all.processors" value="true" />
     <property name="junit.forkmode" value="perTest" />
   </properties>
-  <testcase classname="coletaInteligente.CidadaoTest" name="testSetLongitude" time="0.278" />
-  <testcase classname="coletaInteligente.CidadaoTest" name="testSetLatitude" time="0.036" />
-  <testcase classname="coletaInteligente.CidadaoTest" name="testSetCodigo" time="0.083" />
-  <testcase classname="coletaInteligente.CidadaoTest" name="testSetNome" time="0.033" />
-  <testcase classname="coletaInteligente.CidadaoTest" name="testSetEmail" time="0.046" />
-  <testcase classname="coletaInteligente.CidadaoTest" name="testSetSenha" time="0.029" />
+  <testcase classname="coletaInteligente.CidadaoTest" name="testSetLongitude" time="0.385" />
+  <testcase classname="coletaInteligente.CidadaoTest" name="testSetLatitude" time="0.042" />
+  <testcase classname="coletaInteligente.CidadaoTest" name="testSetCodigo" time="0.081" />
+  <testcase classname="coletaInteligente.CidadaoTest" name="testSetNome" time="0.046" />
+  <testcase classname="coletaInteligente.CidadaoTest" name="testSetEmail" time="0.077" />
+  <testcase classname="coletaInteligente.CidadaoTest" name="testSetSenha" time="0.047" />
   <system-out><![CDATA[setLongitudeValido
 setLongitudeInvalido
 Intervalo valido para a longitude é -180º a 180º
@@ -410,7 +410,7 @@ setEmailInvalido
 setSenhaValido
 setSenhaInvalido
 ]]></system-out>
-  <system-err><![CDATA[mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLongitudeInvalido
+  <system-err><![CDATA[mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: Intervalo valido para a longitude é -180º a 180º
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:34)
@@ -443,7 +443,7 @@ java.lang.Exception: Intervalo valido para a longitude é -180º a 180º
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLongitudeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo longitude deve ser numérico
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:30)
@@ -476,7 +476,7 @@ java.lang.Exception: O campo longitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLongitudeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo longitude deve ser numérico
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:30)
@@ -509,7 +509,7 @@ java.lang.Exception: O campo longitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLongitudeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo longitude deve ser numérico
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:30)
@@ -542,7 +542,7 @@ java.lang.Exception: O campo longitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLatitudeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: Intervalo valido para a latitude é -90º a 90º
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:23)
@@ -575,7 +575,7 @@ java.lang.Exception: Intervalo valido para a latitude é -90º a 90º
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLatitudeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo latitude deve ser numérico
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:19)
@@ -608,7 +608,7 @@ java.lang.Exception: O campo latitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLatitudeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo latitude deve ser numérico
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:19)
@@ -641,7 +641,7 @@ java.lang.Exception: O campo latitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setLatitudeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo latitude deve ser numérico
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:19)
@@ -674,7 +674,7 @@ java.lang.Exception: O campo latitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setCodigoInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorCidadao.codigo(ValidadorCidadao.java:22)
@@ -707,7 +707,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setCodigoInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorCidadao.codigo(ValidadorCidadao.java:22)
@@ -740,7 +740,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setCodigoInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorCidadao.codigo(ValidadorCidadao.java:22)
@@ -773,7 +773,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setCodigoInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo deve ser preenchido
 	at validador.ValidadorCidadao.codigo(ValidadorCidadao.java:20)
@@ -806,7 +806,7 @@ java.lang.Exception: O campo codigo deve ser preenchido
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setCodigoInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorCidadao.codigo(ValidadorCidadao.java:22)
@@ -839,7 +839,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest setCodigoInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorCidadao.codigo(ValidadorCidadao.java:22)
@@ -872,7 +872,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetNomeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest testSetNomeInvalido
 SEVERE: null
 java.lang.Exception: O Nome é um campo obrigatório
 	at validador.ValidadorCidadao.nome(ValidadorCidadao.java:29)
@@ -905,7 +905,7 @@ java.lang.Exception: O Nome é um campo obrigatório
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetNomeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest testSetNomeInvalido
 SEVERE: null
 java.lang.Exception: Marca deve conter letras!
 	at validador.ValidadorCidadao.nome(ValidadorCidadao.java:32)
@@ -938,7 +938,7 @@ java.lang.Exception: Marca deve conter letras!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetNomeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest testSetNomeInvalido
 SEVERE: null
 java.lang.Exception: Marca deve conter letras!
 	at validador.ValidadorCidadao.nome(ValidadorCidadao.java:32)
@@ -971,7 +971,7 @@ java.lang.Exception: Marca deve conter letras!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetNomeInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest testSetNomeInvalido
 SEVERE: null
 java.lang.Exception: Marca deve conter letras!
 	at validador.ValidadorCidadao.nome(ValidadorCidadao.java:32)
@@ -1004,7 +1004,7 @@ java.lang.Exception: Marca deve conter letras!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetEmailInvalido
+mai 24, 2019 1:21:42 AM coletaInteligente.CidadaoTest testSetEmailInvalido
 SEVERE: null
 java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.com
 	at validador.ValidadorCidadao.email(ValidadorCidadao.java:43)
@@ -1037,7 +1037,7 @@ java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetEmailInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetEmailInvalido
 SEVERE: null
 java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.com
 	at validador.ValidadorCidadao.email(ValidadorCidadao.java:43)
@@ -1070,7 +1070,7 @@ java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetEmailInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetEmailInvalido
 SEVERE: null
 java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.com
 	at validador.ValidadorCidadao.email(ValidadorCidadao.java:43)
@@ -1103,7 +1103,7 @@ java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetEmailInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetEmailInvalido
 SEVERE: null
 java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.com
 	at validador.ValidadorCidadao.email(ValidadorCidadao.java:43)
@@ -1136,7 +1136,7 @@ java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetEmailInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetEmailInvalido
 SEVERE: null
 java.lang.Exception: O email não pode ser Vazio
 	at validador.ValidadorCidadao.email(ValidadorCidadao.java:41)
@@ -1169,7 +1169,7 @@ java.lang.Exception: O email não pode ser Vazio
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetEmailInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetEmailInvalido
 SEVERE: null
 java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.com
 	at validador.ValidadorCidadao.email(ValidadorCidadao.java:43)
@@ -1202,7 +1202,7 @@ java.lang.Exception: O email deve ter um formato do tipo nome@nomeProvedorEmail.
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
 SEVERE: null
 java.lang.Exception: Senha deve ter de 6 a 14 caracteres numéricos
 	at validador.ValidadorCidadao.senha(ValidadorCidadao.java:57)
@@ -1235,7 +1235,7 @@ java.lang.Exception: Senha deve ter de 6 a 14 caracteres numéricos
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
 SEVERE: null
 java.lang.Exception: Senha deve ter de 6 a 14 caracteres numéricos
 	at validador.ValidadorCidadao.senha(ValidadorCidadao.java:57)
@@ -1268,7 +1268,7 @@ java.lang.Exception: Senha deve ter de 6 a 14 caracteres numéricos
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
 SEVERE: null
 java.lang.Exception: Senha deve ter de 6 a 14 caracteres numéricos
 	at validador.ValidadorCidadao.senha(ValidadorCidadao.java:57)
@@ -1301,7 +1301,7 @@ java.lang.Exception: Senha deve ter de 6 a 14 caracteres numéricos
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:00 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
+mai 24, 2019 1:21:43 AM coletaInteligente.CidadaoTest testSetSenhaInvalido
 SEVERE: null
 java.lang.Exception: Senha não pode ser vazia
 	at validador.ValidadorCidadao.senha(ValidadorCidadao.java:55)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="LAPTOP-L8AO2GKK" name="coletaInteligente.LixeiraTest" skipped="0" tests="5" time="0.632" timestamp="2019-05-24T04:10:04">
+<testsuite errors="0" failures="0" hostname="LAPTOP-L8AO2GKK" name="coletaInteligente.LixeiraTest" skipped="0" tests="5" time="0.839" timestamp="2019-05-24T04:21:46">
   <properties>
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\netbeans\ide\modules\org-apache-commons-logging.jar;C:\Program Files\netbeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
     <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
@@ -28,7 +28,7 @@
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.3\bin" />
     <property name="libs.CopyLibs.src" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletaInteligente.LixeiraTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletaInteligente.LixeiraTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher15160282439013540727.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit11233691386226729598.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletaInteligente.LixeiraTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletaInteligente.LixeiraTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher13550522954927448401.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit11259898994782022608.properties" />
     <property name="jdk.debug" value="release" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="javac.source" value="1.8" />
@@ -377,11 +377,11 @@
     <property name="annotation.processing.run.all.processors" value="true" />
     <property name="junit.forkmode" value="perTest" />
   </properties>
-  <testcase classname="coletaInteligente.LixeiraTest" name="testSetLongitude" time="0.33" />
-  <testcase classname="coletaInteligente.LixeiraTest" name="testSetNivelAtual" time="0.016" />
-  <testcase classname="coletaInteligente.LixeiraTest" name="testSetLatitude" time="0.027" />
-  <testcase classname="coletaInteligente.LixeiraTest" name="testSetCodigo" time="0.029" />
-  <testcase classname="coletaInteligente.LixeiraTest" name="testSetCapacidade" time="0.018" />
+  <testcase classname="coletaInteligente.LixeiraTest" name="testSetLongitude" time="0.382" />
+  <testcase classname="coletaInteligente.LixeiraTest" name="testSetNivelAtual" time="0.03" />
+  <testcase classname="coletaInteligente.LixeiraTest" name="testSetLatitude" time="0.065" />
+  <testcase classname="coletaInteligente.LixeiraTest" name="testSetCodigo" time="0.081" />
+  <testcase classname="coletaInteligente.LixeiraTest" name="testSetCapacidade" time="0.022" />
   <system-out><![CDATA[setLongitudeValido
 setLongitudeInvalido
 Intervalo valido para a longitude é -180º a 180º
@@ -407,7 +407,7 @@ O campo capacidade só suporta números
 O campo capacidade só suporta números
 O campo capacidade deve ser maior que 0
 ]]></system-out>
-  <system-err><![CDATA[mai 24, 2019 1:10:04 AM coletaInteligente.LixeiraTest setLongitudeInvalido
+  <system-err><![CDATA[mai 24, 2019 1:21:46 AM coletaInteligente.LixeiraTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: Intervalo valido para a longitude é -180º a 180º
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:34)
@@ -440,7 +440,7 @@ java.lang.Exception: Intervalo valido para a longitude é -180º a 180º
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:04 AM coletaInteligente.LixeiraTest setLongitudeInvalido
+mai 24, 2019 1:21:46 AM coletaInteligente.LixeiraTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo longitude deve ser numérico
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:30)
@@ -473,7 +473,7 @@ java.lang.Exception: O campo longitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setLongitudeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo longitude deve ser numérico
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:30)
@@ -506,7 +506,7 @@ java.lang.Exception: O campo longitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setLongitudeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setLongitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo longitude deve ser numérico
 	at validador.ValidadorPosicao.longitude(ValidadorPosicao.java:30)
@@ -539,7 +539,7 @@ java.lang.Exception: O campo longitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setNivelAtualInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setNivelAtualInvalido
 SEVERE: null
 java.lang.Exception: O campo nivel só suporta números
 	at validador.ValidadorLixeira.nivelAtual(ValidadorLixeira.java:80)
@@ -572,7 +572,7 @@ java.lang.Exception: O campo nivel só suporta números
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setNivelAtualInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setNivelAtualInvalido
 SEVERE: null
 java.lang.Exception: O campo nivel só suporta números
 	at validador.ValidadorLixeira.nivelAtual(ValidadorLixeira.java:80)
@@ -605,7 +605,7 @@ java.lang.Exception: O campo nivel só suporta números
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setNivelAtualInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setNivelAtualInvalido
 SEVERE: null
 java.lang.Exception: O campo nivel só suporta números
 	at validador.ValidadorLixeira.nivelAtual(ValidadorLixeira.java:80)
@@ -638,7 +638,7 @@ java.lang.Exception: O campo nivel só suporta números
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setLatitudeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: Intervalo valido para a latitude é -90º a 90º
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:23)
@@ -671,7 +671,7 @@ java.lang.Exception: Intervalo valido para a latitude é -90º a 90º
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setLatitudeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo latitude deve ser numérico
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:19)
@@ -704,7 +704,7 @@ java.lang.Exception: O campo latitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setLatitudeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo latitude deve ser numérico
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:19)
@@ -737,7 +737,7 @@ java.lang.Exception: O campo latitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setLatitudeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setLatitudeInvalido
 SEVERE: null
 java.lang.Exception: O campo latitude deve ser numérico
 	at validador.ValidadorPosicao.latitude(ValidadorPosicao.java:19)
@@ -770,7 +770,7 @@ java.lang.Exception: O campo latitude deve ser numérico
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setCodigoInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorLixeira.codigo(ValidadorLixeira.java:18)
@@ -803,7 +803,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setCodigoInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorLixeira.codigo(ValidadorLixeira.java:18)
@@ -836,7 +836,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setCodigoInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorLixeira.codigo(ValidadorLixeira.java:18)
@@ -869,7 +869,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setCodigoInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorLixeira.codigo(ValidadorLixeira.java:18)
@@ -902,7 +902,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setCapacidadeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setCapacidadeInvalido
 SEVERE: null
 java.lang.Exception: O campo capacidade só suporta números
 	at validador.ValidadorLixeira.capacidade(ValidadorLixeira.java:54)
@@ -935,7 +935,7 @@ java.lang.Exception: O campo capacidade só suporta números
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setCapacidadeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setCapacidadeInvalido
 SEVERE: null
 java.lang.Exception: O campo capacidade só suporta números
 	at validador.ValidadorLixeira.capacidade(ValidadorLixeira.java:54)
@@ -968,7 +968,7 @@ java.lang.Exception: O campo capacidade só suporta números
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:10:05 AM coletaInteligente.LixeiraTest setCapacidadeInvalido
+mai 24, 2019 1:21:47 AM coletaInteligente.LixeiraTest setCapacidadeInvalido
 SEVERE: null
 java.lang.Exception: O campo capacidade deve ser maior que 0
 	at validador.ValidadorLixeira.capacidade(ValidadorLixeira.java:56)

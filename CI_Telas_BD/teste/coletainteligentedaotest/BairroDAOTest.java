@@ -75,7 +75,7 @@ public class BairroDAOTest {
     public void testSelectListaBairro() {
         System.out.println("selectListaBairro");
         BairroDAO instance = new BairroDAO();
-        ArrayList expResult = null;
+        ArrayList expResult = instance.selectListaBairro();
         ArrayList result = instance.selectListaBairro();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

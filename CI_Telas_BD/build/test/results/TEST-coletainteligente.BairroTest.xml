@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="LAPTOP-L8AO2GKK" name="coletaInteligente.BairroTest" skipped="0" tests="2" time="0.423" timestamp="2019-05-24T04:09:58">
+<testsuite errors="0" failures="0" hostname="LAPTOP-L8AO2GKK" name="coletaInteligente.BairroTest" skipped="0" tests="2" time="0.581" timestamp="2019-05-24T04:21:40">
   <properties>
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\netbeans\ide\modules\org-apache-commons-logging.jar;C:\Program Files\netbeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
     <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
@@ -28,7 +28,7 @@
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.3\bin" />
     <property name="libs.CopyLibs.src" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletaInteligente.BairroTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletaInteligente.BairroTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher18331176857005633414.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit4180307783123470673.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner coletaInteligente.BairroTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\test\results\TEST-coletaInteligente.BairroTest.xml crashfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junitvmwatcher7559135162119761751.properties propsfile=C:\Users\thiag\Documents\GitHub\POO1-Coleta-Inteligente\CI_Telas_BD\build\junit1647860460603824459.properties" />
     <property name="jdk.debug" value="release" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="javac.source" value="1.8" />
@@ -377,8 +377,8 @@
     <property name="annotation.processing.run.all.processors" value="true" />
     <property name="junit.forkmode" value="perTest" />
   </properties>
-  <testcase classname="coletaInteligente.BairroTest" name="testSetCodigo" time="0.178" />
-  <testcase classname="coletaInteligente.BairroTest" name="testSetNome" time="0.05" />
+  <testcase classname="coletaInteligente.BairroTest" name="testSetCodigo" time="0.291" />
+  <testcase classname="coletaInteligente.BairroTest" name="testSetNome" time="0.096" />
   <system-out><![CDATA[setCodigoValido
 setCodigoInvalido
 O campo codigo só deve ter numeros sem sinal
@@ -390,7 +390,7 @@ O campo codigo só deve ter numeros sem sinal
 setNomeInválido
 setNomeVálido
 ]]></system-out>
-  <system-err><![CDATA[mai 24, 2019 1:09:58 AM coletaInteligente.BairroTest setCodigoInvalido
+  <system-err><![CDATA[mai 24, 2019 1:21:40 AM coletaInteligente.BairroTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorBairro.codigo(ValidadorBairro.java:16)
@@ -423,7 +423,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:58 AM coletaInteligente.BairroTest setCodigoInvalido
+mai 24, 2019 1:21:40 AM coletaInteligente.BairroTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorBairro.codigo(ValidadorBairro.java:16)
@@ -456,7 +456,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setCodigoInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorBairro.codigo(ValidadorBairro.java:16)
@@ -489,7 +489,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setCodigoInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo deve ser preenchido
 	at validador.ValidadorBairro.codigo(ValidadorBairro.java:14)
@@ -522,7 +522,7 @@ java.lang.Exception: O campo codigo deve ser preenchido
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setCodigoInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorBairro.codigo(ValidadorBairro.java:16)
@@ -555,7 +555,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setCodigoInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setCodigoInvalido
 SEVERE: null
 java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at validador.ValidadorBairro.codigo(ValidadorBairro.java:16)
@@ -588,7 +588,7 @@ java.lang.Exception: O campo codigo só deve ter numeros sem sinal
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setNomeInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setNomeInvalido
 SEVERE: null
 java.lang.Exception: o nome do bairro não pode ser vazio!
 	at validador.ValidadorBairro.nome(ValidadorBairro.java:23)
@@ -621,7 +621,7 @@ java.lang.Exception: o nome do bairro não pode ser vazio!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setNomeInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setNomeInvalido
 SEVERE: null
 java.lang.Exception: O nome do bairro deve conter letras!
 	at validador.ValidadorBairro.nome(ValidadorBairro.java:29)
@@ -654,7 +654,7 @@ java.lang.Exception: O nome do bairro deve conter letras!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setNomeInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setNomeInvalido
 SEVERE: null
 java.lang.Exception: O nome do bairro deve conter letras!
 	at validador.ValidadorBairro.nome(ValidadorBairro.java:29)
@@ -687,7 +687,7 @@ java.lang.Exception: O nome do bairro deve conter letras!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setNomeInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setNomeInvalido
 SEVERE: null
 java.lang.Exception: O nome do bairro deve conter letras!
 	at validador.ValidadorBairro.nome(ValidadorBairro.java:29)
@@ -720,7 +720,7 @@ java.lang.Exception: O nome do bairro deve conter letras!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setNomeInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setNomeInvalido
 SEVERE: null
 java.lang.Exception: O nome do bairro deve conter letras!
 	at validador.ValidadorBairro.nome(ValidadorBairro.java:29)
@@ -753,7 +753,7 @@ java.lang.Exception: O nome do bairro deve conter letras!
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1196)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1041)
 
-mai 24, 2019 1:09:59 AM coletaInteligente.BairroTest setNomeInvalido
+mai 24, 2019 1:21:41 AM coletaInteligente.BairroTest setNomeInvalido
 SEVERE: null
 java.lang.Exception: O nome do bairro deve conter letras!
 	at validador.ValidadorBairro.nome(ValidadorBairro.java:29)
