@@ -22,7 +22,7 @@ public class ConexaoDB {
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/ColetaInteligente";
     private static final String USER = "postgres";
-    private static final String PASS = "root";
+    private static final String PASS = "postgres";
     
     public static Connection getConexao() {
         
