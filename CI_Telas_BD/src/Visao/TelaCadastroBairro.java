@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Visao;
+package visao;
 
-import coletaInteligente.Bairro;
-import coletaInteligente.PersistenciaArquivo;
+import coletainteligente.Bairro;
+import coletainteligente.PersistenciaArquivo;
+import coletainteligentedao.BairroDAO;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -31,14 +33,21 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         campoNomeBairro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Salvar = new javax.swing.JButton();
-        Limpar = new javax.swing.JButton();
         Sair = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListBairros = new javax.swing.JList();
+        jLabel3 = new javax.swing.JLabel();
+        jButtonViewBairros = new javax.swing.JButton();
+        jButtonDeletar = new javax.swing.JButton();
+        jButtonAlterar = new javax.swing.JButton();
+        jTextFieldNomeNew = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Bairro");
         setResizable(false);
 
-        jLabel1.setText("Bairro");
+        jLabel1.setText("Novo Bairro");
 
         campoNomeBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,17 +57,10 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
 
         jLabel2.setText("Cadastro Bairro");
 
-        Salvar.setText("Salvar");
+        Salvar.setText("Cadastrar");
         Salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalvarActionPerformed(evt);
-            }
-        });
-
-        Limpar.setText("Limpar");
-        Limpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimparActionPerformed(evt);
             }
         });
 
@@ -69,45 +71,114 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setViewportView(jListBairros);
+
+        jLabel3.setText("Bairros");
+
+        jButtonViewBairros.setText("Ver Bairros");
+        jButtonViewBairros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonViewBairrosActionPerformed(evt);
+            }
+        });
+
+        jButtonDeletar.setText("Deletar");
+        jButtonDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeletarActionPerformed(evt);
+            }
+        });
+
+        jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Novo Nome");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoNomeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(164, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Sair)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonViewBairros, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(25, 25, 25)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(campoNomeBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(Salvar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(7, 7, 7)
+                            .addComponent(jButtonDeletar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonAlterar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldNomeNew)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(Limpar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Salvar)
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(152, 152, 152))))
+                        .addComponent(jLabel4)))
+                .addGap(179, 179, 179))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(Sair)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(64, 64, 64)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoNomeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(campoNomeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Salvar)
-                    .addComponent(Limpar)
-                    .addComponent(Sair))
-                .addContainerGap())
+                    .addComponent(Salvar))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonViewBairros)
+                        .addGap(103, 103, 103))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonDeletar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4)
+                                .addGap(1, 1, 1)
+                                .addComponent(jTextFieldNomeNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButtonAlterar))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(Sair)
+                        .addContainerGap())))
         );
 
         setSize(new java.awt.Dimension(416, 339));
@@ -115,15 +186,19 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
-       
+        BairroDAO bairroDAO = new BairroDAO();
+        
         PersistenciaArquivo registro = new PersistenciaArquivo();
         
         String nome = campoNomeBairro.getText();
 
         try {
             Bairro bairro = new Bairro(nome);
+            bairroDAO.insere(bairro);
             registro.salvaBairro(bairro);
-            JOptionPane.showMessageDialog(null, "Bairro cadastrado com sucesso!");
+            //JOptionPane.showMessageDialog(null, "Bairro cadastrado com sucesso!");
+            jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
+        
             campoNomeBairro.setText("");
         } catch (Exception ex) {
             Logger.getLogger(TelaCadastroBairro.class.getName()).log(Level.SEVERE, null, ex);
@@ -150,11 +225,37 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeBairroActionPerformed
 
-    private void LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparActionPerformed
+    private void jButtonViewBairrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewBairrosActionPerformed
+        // TODO add your handling code here:
+        BairroDAO bairroDAO = new BairroDAO();
+        jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
         
-        campoNomeBairro.setText("");
- 
-    }//GEN-LAST:event_LimparActionPerformed
+        
+    }//GEN-LAST:event_jButtonViewBairrosActionPerformed
+
+    private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
+        // TODO add your handling code here:
+        BairroDAO bairroDAO = new BairroDAO();
+        int index = jListBairros.getSelectedIndex();
+        ArrayList dados = bairroDAO.selectListaBairro();
+        bairroDAO.deleta((String) dados.get(index));
+        jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
+        
+    }//GEN-LAST:event_jButtonDeletarActionPerformed
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        // TODO add your handling code here:
+        BairroDAO bairroDAO = new BairroDAO();
+        int index = jListBairros.getSelectedIndex();
+        ArrayList dados = bairroDAO.selectListaBairro();
+        if("".equals(jTextFieldNomeNew.getText())) {
+            JOptionPane.showMessageDialog(null, "Insira um nome");
+        }else{
+            bairroDAO.alteraBairro((String) dados.get(index), jTextFieldNomeNew.getText());
+            jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
+        
+        }
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,11 +294,18 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Limpar;
     private javax.swing.JButton Sair;
     private javax.swing.JButton Salvar;
     private javax.swing.JTextField campoNomeBairro;
+    private javax.swing.JButton jButtonAlterar;
+    private javax.swing.JButton jButtonDeletar;
+    private javax.swing.JButton jButtonViewBairros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JList jListBairros;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextFieldNomeNew;
     // End of variables declaration//GEN-END:variables
 }

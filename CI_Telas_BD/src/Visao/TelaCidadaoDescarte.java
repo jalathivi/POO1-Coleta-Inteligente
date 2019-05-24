@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Visao;
+package visao;
 
-import coletaInteligente.Descarte;
-import coletaInteligente.PersistenciaArquivo;
+import coletainteligente.PersistenciaArquivo;
 import java.util.Calendar;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -45,7 +44,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jTextFieldDirecao = new javax.swing.JTextField();
         jButtonMapa = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Principal");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

@@ -3,9 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/thiag/Documents/CI_Telas_BD/src/Visao/TelaGerencia.java</file>
-            <file>file:/C:/Users/thiag/Documents/CI_Telas_BD/src/coletaInteligenteDAO/CidadaoDAO.java</file>
-            <file>file:/C:/Users/thiag/Documents/CI_Telas_BD/src/Visao/TelaVCidadao.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaCadastroBairro.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletainteligente/Coletor.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletainteligente/Cidadao.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletainteligente/Status.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/teste/coletaInteligente/ColetorTest.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaCadastroColetor.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaCidadaoDescarte.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaGerencia.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/teste/coletaInteligente/StatusTest.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletainteligentedao/CidadaoDAO.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/teste/coletainteligentedaotest/CidadaoDAOTest.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/teste/coletainteligentedaotest/BairroDAOTest.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaCadastroStatus.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaPrincipalAdm.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaVersoes.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/teste/coletaInteligente/LixeiraTest.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletainteligentedao/BairroDAO.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaCadastroCidadao.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaVCidadao.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/visao/TelaColeta.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletainteligente/Bairro.java</file>
+            <file>file:/C:/Users/thiag/Documents/GitHub/POO1-Coleta-Inteligente/CI_Telas_BD/src/coletainteligente/Lixeira.java</file>
         </group>
     </open-files>
 </project-private>

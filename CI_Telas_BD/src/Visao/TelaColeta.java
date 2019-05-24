@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Visao;
+package visao;
 
-import coletaInteligente.Coleta;
-import coletaInteligente.PersistenciaArquivo;
+import coletainteligente.PersistenciaArquivo;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 

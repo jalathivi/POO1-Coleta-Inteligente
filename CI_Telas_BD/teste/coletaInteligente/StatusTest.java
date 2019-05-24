@@ -5,6 +5,7 @@
  */
 package coletaInteligente;
 
+import coletainteligente.Status;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
