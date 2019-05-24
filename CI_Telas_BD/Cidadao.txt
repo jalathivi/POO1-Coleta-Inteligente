@@ -9,5 +9,3 @@
 63, jakson, jakson@gmail.com, 0115236, 58.55614, 7.828377
 43, jackson, jackson@gmail.com, 1234abcd, 65.08044, 5.237577
 63, jeferson, jeferson@gmail.com, 123abc, 56.294956, 49.866245
-50, Thiago Moreira Ribeiro, thiagom.r@hotmail.com, 01111995, 10.839674, 63.047836
-39, Thiago Moreira Ribeiro, thiagom.r@hotmail.com, 01111995, 76.86213, 8.343794

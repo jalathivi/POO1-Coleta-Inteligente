@@ -5,10 +5,7 @@
  */
 package Visao;
 
-import coletaInteligente.Cidadao;
 import coletaInteligenteDAO.CidadaoDAO;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,6 +38,7 @@ public class TelaVCidadao extends javax.swing.JFrame {
         jPasswordFieldCSenha = new javax.swing.JPasswordField();
         jButtonEntrar = new javax.swing.JButton();
         jButtonCadastrar = new javax.swing.JButton();
+        jButtonGerencia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +64,13 @@ public class TelaVCidadao extends javax.swing.JFrame {
             }
         });
 
+        jButtonGerencia.setText("Gerenciar Conta");
+        jButtonGerencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGerenciaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -86,10 +91,11 @@ public class TelaVCidadao extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldCEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextFieldCEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonGerencia, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addContainerGap(155, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonCadastrar)
                 .addGap(41, 41, 41))
         );
@@ -109,7 +115,9 @@ public class TelaVCidadao extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jButtonEntrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButtonCadastrar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCadastrar)
+                    .addComponent(jButtonGerencia))
                 .addGap(27, 27, 27))
         );
 
@@ -136,6 +144,7 @@ public class TelaVCidadao extends javax.swing.JFrame {
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // TODO add your handling code here:
+        //TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
         CidadaoDAO cidadaoDAO = new CidadaoDAO();
         String senha = new String(jPasswordFieldCSenha.getPassword());
         if(cidadaoDAO.checkLogin(jTextFieldCEmail.getText(), senha)){
@@ -145,8 +154,13 @@ public class TelaVCidadao extends javax.swing.JFrame {
         }else {
             JOptionPane.showMessageDialog(null, "Email ou Senha incorretos");
         }
-        
     }//GEN-LAST:event_jButtonEntrarActionPerformed
+
+    private void jButtonGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenciaActionPerformed
+        // TODO add your handling code here:
+        TelaGerencia tGerencia = new TelaGerencia();
+        tGerencia.show(true);
+    }//GEN-LAST:event_jButtonGerenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +200,7 @@ public class TelaVCidadao extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonEntrar;
+    private javax.swing.JButton jButtonGerencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

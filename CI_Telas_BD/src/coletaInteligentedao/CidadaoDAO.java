@@ -13,7 +13,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -86,7 +85,56 @@ public class CidadaoDAO {
             ConexaoDB.closeConnection(con, stmt);
             
         }
-    }    
+    }
+
+    public void alteraSenha(String senha, String email){
+        
+        Connection con = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        
+        try {
+            
+            stmt = con.prepareStatement("UPDATE cidadao SET senha=? WHERE email=?");
+            stmt.setString(1, senha);
+            stmt.setString(2, email);
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Update realizado com sucesso");
+            ConexaoDB.closeConnection(con, stmt);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
+            
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);
+            
+        }
+    }
+
+    
+    
+    public void deletaUsuario(String email) {
+        Connection con = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        
+       try {
+           stmt = con.prepareStatement("DELETE FROM cidadao WHERE email=?");
+           stmt.setString(1, email);
+            
+           stmt.executeUpdate();
+
+           JOptionPane.showMessageDialog(null, "Exclusão realizado com sucesso");
+           ConexaoDB.closeConnection(con, stmt);
+       } catch (SQLException ex) {
+            Logger.getLogger(CidadaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Exclusão não deu certo!\n" + ex.getMessage()); 
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);   
+        }
+            
+    }
     
     
     public void deleta(Cidadao c){
@@ -125,7 +173,6 @@ public class CidadaoDAO {
         try {
             stmt = conexao.prepareStatement(linha);
             rs = stmt.executeQuery();
-            
             
             while(rs.next())
             {
@@ -210,6 +257,30 @@ public class CidadaoDAO {
         String linha = "SELECT * FROM cidadao WHERE email = '" + c.getEmail() + "';";
         seleciona(c, linha);
         //return c;
+    }
+    
+    public boolean selectEmail(String email) {
+        Connection conexao = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean check = false;
+        
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM cidadao WHERE email = ?;");
+            stmt.setString(1, email);
+            rs = stmt.executeQuery();
+            
+           if(rs.next()) {
+               check = true;
+           }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(conexao, stmt);
+        }
+        return check;
     }
     
     public void selecionaNome(Cidadao c, ArrayList lista) throws Exception{

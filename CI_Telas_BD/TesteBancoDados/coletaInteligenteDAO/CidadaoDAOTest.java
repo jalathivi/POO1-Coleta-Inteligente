@@ -93,14 +93,13 @@ public class CidadaoDAOTest {
     Cidadao c = new Cidadao();
    
     try {
-        c.setEmail("jakson.r@hotmail.com");
+        c.setEmail("jackson@gmail.com");
         selecionaEmail(c);
-        JOptionPane.showMessageDialog(null, "Encontrou E-mail"+ c.toString() );
     } catch (Exception ex) {
         Logger.getLogger(CidadaoDAOTest.class.getName()).log(Level.SEVERE, null, ex);
     }
    
-    
+    JOptionPane.showMessageDialog(null, "Encontrou E-mail"+ c.toString() );
  } 
  
  public void selecionaEmail(Cidadao c) {
@@ -111,7 +110,6 @@ public class CidadaoDAOTest {
           instance.selecionaEmail(c);
       } catch (Exception ex) {
           Logger.getLogger(CidadaoDAOTest.class.getName()).log(Level.SEVERE, null, ex);
-          JOptionPane.showMessageDialog(null, ex);
       }
 } 
      
