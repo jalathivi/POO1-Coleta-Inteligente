@@ -2,7 +2,7 @@
 
 Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 
-[Diário de Bordo](https://docs.google.com/document/d/1N2bfTq--9dVtOqcRP5bTsuJve3REAktGKFht3hsVc0o/edit?usp=sharing)<br>
+[CANVAS DE AQUECIMENTO](https://docs.google.com/presentation/d/1y6j9EljmDc8kBXV1M4UDpAI0vJILvSqZwEgCBdyqM8s/edit#slide=id.g275249ce01_0_14)<br>
 
 # <a name="sumario"></a>Sumário
 + [INTRODUÇÃO E MOTIVAÇÃO](#introducao)
