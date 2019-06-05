@@ -5,17 +5,43 @@
  */
 package visao;
 
+import coletainteligente.Lixeira;
+import coletainteligentedao.BairroDAO;
+import coletainteligentedao.LixeiraDAO;
+import conexao.ConexaoDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author thiag
  */
 public class TelaCadastroLixeira extends javax.swing.JFrame {
 
+    LixeiraDAO lixeiradao = new LixeiraDAO();
+
     /**
      * Creates new form TelaCadastroLixeira
      */
     public TelaCadastroLixeira() {
         initComponents();
+        inicializa();
+    }
+
+    private void inicializa() {
+        listaLixeiras();
+        BairroDAO bairroDAO = new BairroDAO();
+        ArrayList selectListaBairro = bairroDAO.selectListaBairro();
+        for (Object bairro : selectListaBairro) {
+            jComboBoxBairro.addItem((String) bairro);
+        }
     }
 
     /**
@@ -31,60 +57,105 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCapacidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxRegiao = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        jComboBoxBairro = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldLat = new javax.swing.JTextField();
+        jTextFieldLatitude = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldLong = new javax.swing.JTextField();
+        jTextFieldLongitude = new javax.swing.JTextField();
+        jButtonCadastrar = new javax.swing.JButton();
+        jButtonLimpar = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableLixeira = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Lixeira");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Cadastro Lixeira");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        jLabel2.setText("Controle de Lixeiras ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 20));
 
-        jLabel3.setText("Selecione a Regiao da Lixeira");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jLabel3.setText("Bairro");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         jTextFieldCapacidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCapacidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCapacidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 110, -1));
+        getContentPane().add(jTextFieldCapacidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 110, -1));
 
-        jLabel1.setText("Capacidade da Lixeira");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
+        jLabel1.setText("Capacidade");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
-        jComboBoxRegiao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBoxRegiao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 140, -1));
-
-        jLabel4.setText("Localização Precisa");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        jComboBoxBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxBairroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 140, -1));
 
         jLabel5.setText("Latitude");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
-        getContentPane().add(jTextFieldLat, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 100, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
+        getContentPane().add(jTextFieldLatitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 100, -1));
 
         jLabel6.setText("Longitude");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
-        getContentPane().add(jTextFieldLong, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 110, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
+        getContentPane().add(jTextFieldLongitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 110, -1));
 
-        jButton1.setText("Cadastrar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
 
-        jButton2.setText("Limpar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, -1));
+        jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
 
-        jButton3.setText("Sair");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
+        jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, -1, -1));
 
-        setSize(new java.awt.Dimension(416, 339));
+        jTableLixeira.setAutoCreateRowSorter(true);
+        jTableLixeira.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Bairro", "Capacidade", "Latitude", "Longitude"
+            }
+        ));
+        jTableLixeira.setDropMode(javax.swing.DropMode.ON);
+        jTableLixeira.setEnabled(false);
+        jTableLixeira.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTableLixeira);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 540, 90));
+
+        jButton1.setText("Deletar selecionado");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+
+        setSize(new java.awt.Dimension(570, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -92,6 +163,61 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCapacidadeActionPerformed
 
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        Lixeira lixeira = new Lixeira();
+        String capacidade = jTextFieldCapacidade.getText();
+        String latitude = jTextFieldLatitude.getText();
+        String longitude = jTextFieldLongitude.getText();
+        String bairro = (String) jComboBoxBairro.getSelectedItem();
+        try {
+            lixeira.setCapacidade(capacidade);
+            lixeira.setLatitude(latitude);
+            lixeira.setLongitude(longitude);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaCadastroLixeira.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        lixeiradao.insere(lixeira);
+        //System.out.println(capacidade + latitude + longitude + bairro);
+
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jComboBoxBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBairroActionPerformed
+
+    }//GEN-LAST:event_jComboBoxBairroActionPerformed
+
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        jTextFieldLatitude.setText("");
+        jTextFieldLongitude.setText("");
+        jTextFieldCapacidade.setText("");
+    }//GEN-LAST:event_jButtonLimparActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Lixeira lixeira = new Lixeira();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void listaLixeiras() {
+                    
+        Connection con = ConexaoDB.getConexao();
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM LIXEIRA");
+            rs = stmt.executeQuery();
+            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));    
+        } catch (SQLException ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro na listagem de lixeiras\n" + ex.getMessage()); 
+            
+        } finally {
+            ConexaoDB.closeConnection(con, stmt); 
+        }  
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -129,17 +255,19 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBoxRegiao;
+    private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonLimpar;
+    private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox<String> jComboBoxBairro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableLixeira;
     private javax.swing.JTextField jTextFieldCapacidade;
-    private javax.swing.JTextField jTextFieldLat;
-    private javax.swing.JTextField jTextFieldLong;
+    private javax.swing.JTextField jTextFieldLatitude;
+    private javax.swing.JTextField jTextFieldLongitude;
     // End of variables declaration//GEN-END:variables
 }

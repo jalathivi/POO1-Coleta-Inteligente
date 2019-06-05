@@ -3,3 +3,6 @@
 36, Palmeiras
 68, Planalto Serra
 26, São Marcos
+35, são pedro
+70, santo antônio
+69, jardin da penha
