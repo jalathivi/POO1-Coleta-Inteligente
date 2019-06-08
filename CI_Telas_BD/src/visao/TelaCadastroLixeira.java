@@ -5,10 +5,13 @@
  */
 package visao;
 
+
+import coletainteligente.Bairro;
 import coletainteligente.Lixeira;
 import coletainteligentedao.BairroDAO;
 import coletainteligentedao.LixeiraDAO;
 import conexao.ConexaoDB;
+import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import validador.ValidadorLixeira;
 
 /**
  *
@@ -38,9 +42,9 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     private void inicializa() {
         listaLixeiras();
         BairroDAO bairroDAO = new BairroDAO();
-        ArrayList selectListaBairro = bairroDAO.selectListaBairro();
-        for (Object bairro : selectListaBairro) {
-            jComboBoxBairro.addItem((String) bairro);
+        ArrayList selectListaCodBairro = bairroDAO.selectListaCodBairro();
+        for (Object codigo : selectListaCodBairro) {
+            jComboBoxBairro.addItem((String) codigo);
         }
     }
 
@@ -53,7 +57,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        conexaoDB1 = new conexao.ConexaoDB();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCapacidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -67,42 +71,46 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jButtonSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLixeira = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
+        jTextFieldBairro = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldCodigoLixeira = new javax.swing.JTextField();
+        jButtonEditar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldNivelAtual = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Lixeira");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Controle de Lixeiras ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 20));
-
-        jLabel3.setText("Bairro");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jLabel3.setText("Cód_Bairro");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         jTextFieldCapacidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCapacidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCapacidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 110, -1));
+        getContentPane().add(jTextFieldCapacidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 50, -1));
 
         jLabel1.setText("Capacidade");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
 
         jComboBoxBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxBairroActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 140, -1));
+        getContentPane().add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 50, -1));
 
         jLabel5.setText("Latitude");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
-        getContentPane().add(jTextFieldLatitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 100, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
+        getContentPane().add(jTextFieldLatitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 60, -1));
 
         jLabel6.setText("Longitude");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
-        getContentPane().add(jTextFieldLongitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 110, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+        getContentPane().add(jTextFieldLongitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 70, -1));
 
         jButtonCadastrar.setText("Cadastrar");
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +118,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
+        getContentPane().add(jButtonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
         jButtonLimpar.setText("Limpar");
         jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +126,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonLimparActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+        getContentPane().add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
 
         jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
@@ -126,36 +134,89 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonSairActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, -1, -1));
+        getContentPane().add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
 
         jTableLixeira.setAutoCreateRowSorter(true);
         jTableLixeira.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Bairro", "Capacidade", "Latitude", "Longitude"
+
             }
         ));
         jTableLixeira.setDropMode(javax.swing.DropMode.ON);
-        jTableLixeira.setEnabled(false);
         jTableLixeira.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTableLixeira);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 540, 90));
-
-        jButton1.setText("Deletar selecionado");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jTableLixeira.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableLixeiraMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+        jTableLixeira.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTableLixeiraKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableLixeira);
 
-        setSize(new java.awt.Dimension(570, 339));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 430, 90));
+
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 70, -1));
+
+        jTextFieldBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldBairroActionPerformed(evt);
+            }
+        });
+        jTextFieldBairro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldBairroKeyReleased(evt);
+            }
+        });
+        getContentPane().add(jTextFieldBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 130, -1));
+
+        jLabel4.setText("Filtrar por cod bairro");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 20));
+
+        jLabel7.setText("Cód_Lixeira");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, -1));
+
+        jTextFieldCodigoLixeira.setEnabled(false);
+        jTextFieldCodigoLixeira.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCodigoLixeiraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldCodigoLixeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 50, -1));
+
+        jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+
+        jLabel2.setText("Nível_Atual");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
+
+        jTextFieldNivelAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNivelAtualActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldNivelAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 70, -1));
+
+        setSize(new java.awt.Dimension(463, 346));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -165,40 +226,98 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         Lixeira lixeira = new Lixeira();
+        Bairro bairro = new Bairro();
         String capacidade = jTextFieldCapacidade.getText();
         String latitude = jTextFieldLatitude.getText();
         String longitude = jTextFieldLongitude.getText();
-        String bairro = (String) jComboBoxBairro.getSelectedItem();
+        String nivelAtual = jTextFieldNivelAtual.getText();
+        String codbairro = jComboBoxBairro.getSelectedItem().toString();
         try {
+            lixeira.setRegiao(bairro);
+            lixeira.bairro.setCodigo(codbairro);
             lixeira.setCapacidade(capacidade);
             lixeira.setLatitude(latitude);
             lixeira.setLongitude(longitude);
+            lixeira.setNivelAtual(nivelAtual);
+            lixeiradao.insere(lixeira);
+            listaLixeiras();
         } catch (Exception ex) {
             Logger.getLogger(TelaCadastroLixeira.class.getName()).log(Level.SEVERE, null, ex);
         }
-        lixeiradao.insere(lixeira);
         //System.out.println(capacidade + latitude + longitude + bairro);
 
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jComboBoxBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBairroActionPerformed
-
+        System.out.println("linha" + jTableLixeira.getSelectionModel());
     }//GEN-LAST:event_jComboBoxBairroActionPerformed
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         jTextFieldLatitude.setText("");
         jTextFieldLongitude.setText("");
         jTextFieldCapacidade.setText("");
+        jTextFieldCodigoLixeira.setText("");
+        jTextFieldNivelAtual.setText(""); 
+        
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonSairActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Lixeira lixeira = new Lixeira();
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        String instrucaoDel = "DELETE FROM lixeira WHERE cod_lixeira = ?";
+        if (!jTextFieldCodigoLixeira.getText().equalsIgnoreCase("")){
+            LixeiraDAO lixeiradao = new LixeiraDAO();
+            instrucaoDel = instrucaoDel.replace("?", jTextFieldCodigoLixeira.getText());
+            lixeiradao.genericSQL(instrucaoDel);
+            listaLixeiras();
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Só é possivel excluir lixeiras já cadastradas");
+        }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+        
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jTextFieldBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBairroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldBairroActionPerformed
+
+    private void jTableLixeiraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableLixeiraKeyReleased
+        
+    }//GEN-LAST:event_jTableLixeiraKeyReleased
+
+    private void jTextFieldBairroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBairroKeyReleased
+        ValidadorLixeira valLixeira = new ValidadorLixeira();
+        String codigoLixeira = jTextFieldBairro.getText();
+        try {
+            valLixeira.codigo(codigoLixeira);
+            filtraLixeiras();
+        } catch (Exception ex) {
+            listaLixeiras();
+            if (!jTextFieldBairro.getText().equalsIgnoreCase("")) {
+                JOptionPane.showMessageDialog(null, "Filtragem só funciona com entradas numericas :\n Ex cod_bairro = 2 ");
+            }
+        }
+    }//GEN-LAST:event_jTextFieldBairroKeyReleased
+
+    private void jTextFieldCodigoLixeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoLixeiraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCodigoLixeiraActionPerformed
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jTableLixeiraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLixeiraMouseClicked
+        selecionaLinha();
+    }//GEN-LAST:event_jTableLixeiraMouseClicked
+
+    private void jTextFieldNivelAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNivelAtualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNivelAtualActionPerformed
     public void listaLixeiras() {
                     
         Connection con = ConexaoDB.getConexao();
@@ -216,8 +335,33 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         } finally {
             ConexaoDB.closeConnection(con, stmt); 
         }  
-
     }
+    
+    public void filtraLixeiras() {
+        Connection con = ConexaoDB.getConexao();
+        ResultSet rs;
+        PreparedStatement stmt;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM LIXEIRA WHERE cod_bairro = ?");
+            stmt.setInt(1, parseInt(jTextFieldBairro.getText()));
+            rs = stmt.executeQuery();
+            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroLixeira.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void selecionaLinha() {
+        
+        int select = jTableLixeira.getSelectedRow();
+        jTextFieldCodigoLixeira.setText(jTableLixeira.getModel().getValueAt(select,0).toString());
+        jComboBoxBairro.setSelectedItem(jTableLixeira.getModel().getValueAt(select,1).toString());
+        jTextFieldCapacidade.setText(jTableLixeira.getModel().getValueAt(select,2).toString());
+        jTextFieldLatitude.setText(jTableLixeira.getModel().getValueAt(select,3).toString());
+        jTextFieldLongitude.setText(jTableLixeira.getModel().getValueAt(select,4).toString());
+        jTextFieldNivelAtual.setText(jTableLixeira.getModel().getValueAt(select,5).toString());
+    }
+        
     /**
      * @param args the command line arguments
      */
@@ -254,20 +398,27 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private conexao.ConexaoDB conexaoDB1;
     private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JComboBox<String> jComboBoxBairro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLixeira;
+    private javax.swing.JTextField jTextFieldBairro;
     private javax.swing.JTextField jTextFieldCapacidade;
+    private javax.swing.JTextField jTextFieldCodigoLixeira;
     private javax.swing.JTextField jTextFieldLatitude;
     private javax.swing.JTextField jTextFieldLongitude;
+    private javax.swing.JTextField jTextFieldNivelAtual;
     // End of variables declaration//GEN-END:variables
 }

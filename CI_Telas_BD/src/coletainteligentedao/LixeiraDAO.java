@@ -40,13 +40,13 @@ public class LixeiraDAO {
         
         try {
             
-            stmt = con.prepareStatement("INSERT INTO lixeira (capacidade, nivel_atual, latitude, longitude) VALUES (?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO lixeira (cod_bairro, capacidade, nivel_atual, latitude, longitude) VALUES (?,?,?,?,?)");
             //stmt.setInt(?, lixeira.getCodigo());
-            //stmt.setInt(?, lixeira.getRegiao().getCodigo());
-            stmt.setFloat(1, lixeira.getCapacidade());
-            stmt.setFloat(2, lixeira.getNivelAtual());
-            stmt.setFloat(3, lixeira.getLatitude());
-            stmt.setFloat(4, lixeira.getLongitude());
+            stmt.setInt(1, lixeira.bairro.getCodigo());
+            stmt.setFloat(2, lixeira.getCapacidade());
+            stmt.setFloat(3, lixeira.getNivelAtual());
+            stmt.setFloat(4, lixeira.getLatitude());
+            stmt.setFloat(5, lixeira.getLongitude());
             
             stmt.executeUpdate();
             
@@ -86,5 +86,24 @@ public class LixeiraDAO {
             
         }         
     }
+    public void genericSQL(String sql) {
+        Connection con = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        
+        try {        
+            stmt = con.prepareStatement(sql);           
+            stmt.executeUpdate();          
+            JOptionPane.showMessageDialog(null, "Comando executado com sucesso");
+            ConexaoDB.closeConnection(con, stmt);   
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro na instrução SQL!\n" + ex.getMessage());
+            
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);
+        } 
+    }  
+        
        
 }

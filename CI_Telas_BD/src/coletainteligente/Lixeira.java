@@ -9,7 +9,7 @@ import java.util.Random;
 public class Lixeira {
     
     private int codigo;
-    private Bairro bairro;
+    public Bairro bairro;
     private float capacidade;
     private float nivelAtual;
     private float latitude;
