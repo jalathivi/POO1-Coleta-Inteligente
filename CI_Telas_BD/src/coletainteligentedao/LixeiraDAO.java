@@ -20,12 +20,6 @@ import javax.swing.JOptionPane;
  *
  * @author Vinicius
  * /*
- *  private int codigo;
-    private Bairro bairro;
-    private float capacidade;
-    private float nivelAtual;
-    private float latitude;
-    private float longitude; 
  * */
  
 public class LixeiraDAO {
@@ -41,7 +35,6 @@ public class LixeiraDAO {
         try {
             
             stmt = con.prepareStatement("INSERT INTO lixeira (cod_bairro, capacidade, nivel_atual, latitude, longitude) VALUES (?,?,?,?,?)");
-            //stmt.setInt(?, lixeira.getCodigo());
             stmt.setInt(1, lixeira.bairro.getCodigo());
             stmt.setFloat(2, lixeira.getCapacidade());
             stmt.setFloat(3, lixeira.getNivelAtual());
@@ -82,8 +75,7 @@ public class LixeiraDAO {
             JOptionPane.showMessageDialog(null, "Exclusão não deu certo!\n" + ex.getMessage()); 
             
         } finally {
-            ConexaoDB.closeConnection(con, stmt);
-            
+            ConexaoDB.closeConnection(con, stmt);   
         }         
     }
     public void genericSQL(String sql) {
@@ -103,7 +95,34 @@ public class LixeiraDAO {
         } finally {
             ConexaoDB.closeConnection(con, stmt);
         } 
-    }  
+    }
+    
+    public void setLixeira(Lixeira lixeira) {
+        Connection con = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        
+        try {
+            
+            stmt = con.prepareStatement("UPDATE lixeira SET cod_bairro=?, capacidade=?, latitude=?, longitude=?, nivel_atual=? WHERE cod_lixeira=?");
+            stmt.setInt(1, lixeira.getRegiao().getCodigo());
+            stmt.setFloat(2, lixeira.getCapacidade());
+            stmt.setFloat(3, lixeira.getLatitude());
+            stmt.setFloat(4, lixeira.getLongitude());
+            stmt.setFloat(5, lixeira.getNivelAtual());
+            stmt.setInt(6, lixeira.getCodigo());
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Update realizado com sucesso");
+            ConexaoDB.closeConnection(con, stmt);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
+            
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);   
+        }   
+    }
         
        
 }

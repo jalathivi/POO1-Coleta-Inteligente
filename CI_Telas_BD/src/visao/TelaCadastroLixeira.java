@@ -25,7 +25,7 @@ import validador.ValidadorLixeira;
 
 /**
  *
- * @author thiag
+ * @author Vinicius
  */
 public class TelaCadastroLixeira extends javax.swing.JFrame {
 
@@ -56,6 +56,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         conexaoDB1 = new conexao.ConexaoDB();
         jLabel3 = new javax.swing.JLabel();
@@ -81,36 +82,86 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jTextFieldNivelAtual = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro Lixeira");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("Controle Lixeiras");
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setText("Cód_Bairro");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jLabel3, gridBagConstraints);
 
         jTextFieldCapacidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCapacidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCapacidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 50, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jTextFieldCapacidade, gridBagConstraints);
 
         jLabel1.setText("Capacidade");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
+        jComboBoxBairro.setSelectedItem(this);
         jComboBoxBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxBairroActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 50, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jComboBoxBairro, gridBagConstraints);
 
         jLabel5.setText("Latitude");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
-        getContentPane().add(jTextFieldLatitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 60, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jLabel5, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 80;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jTextFieldLatitude, gridBagConstraints);
 
         jLabel6.setText("Longitude");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
-        getContentPane().add(jTextFieldLongitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 70, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jLabel6, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 80;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jTextFieldLongitude, gridBagConstraints);
 
         jButtonCadastrar.setText("Cadastrar");
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +169,14 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jButtonCadastrar, gridBagConstraints);
 
         jButtonLimpar.setText("Limpar");
         jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +184,13 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonLimparActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 2, 5, 5);
+        getContentPane().add(jButtonLimpar, gridBagConstraints);
 
         jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +198,13 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonSairActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 2, 5, 5);
+        getContentPane().add(jButtonSair, gridBagConstraints);
 
         jTableLixeira.setAutoCreateRowSorter(true);
         jTableLixeira.setModel(new javax.swing.table.DefaultTableModel(
@@ -162,7 +232,17 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableLixeira);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 430, 90));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipady = 63;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 20);
+        getContentPane().add(jScrollPane1, gridBagConstraints);
 
         jButtonExcluir.setText("Excluir");
         jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +250,13 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 70, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jButtonExcluir, gridBagConstraints);
 
         jTextFieldBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,13 +268,33 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jTextFieldBairroKeyReleased(evt);
             }
         });
-        getContentPane().add(jTextFieldBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 130, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jTextFieldBairro, gridBagConstraints);
 
         jLabel4.setText("Filtrar por cod bairro");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jLabel4, gridBagConstraints);
 
         jLabel7.setText("Cód_Lixeira");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jLabel7, gridBagConstraints);
 
         jTextFieldCodigoLixeira.setEnabled(false);
         jTextFieldCodigoLixeira.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +302,14 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jTextFieldCodigoLixeiraActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCodigoLixeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 50, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jTextFieldCodigoLixeira, gridBagConstraints);
 
         jButtonEditar.setText("Editar");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -204,19 +317,35 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jButtonEditar, gridBagConstraints);
 
         jLabel2.setText("Nível_Atual");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         jTextFieldNivelAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNivelAtualActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNivelAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 70, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(jTextFieldNivelAtual, gridBagConstraints);
 
-        setSize(new java.awt.Dimension(463, 346));
+        setSize(new java.awt.Dimension(523, 346));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,6 +372,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
             listaLixeiras();
         } catch (Exception ex) {
             Logger.getLogger(TelaCadastroLixeira.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Campos obrigatórios não estão preenchidos");
         }
         //System.out.println(capacidade + latitude + longitude + bairro);
 
@@ -276,9 +406,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         else {
             JOptionPane.showMessageDialog(null, "Só é possivel excluir lixeiras já cadastradas");
         }
-        
-
-        
+     
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jTextFieldBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBairroActionPerformed
@@ -308,7 +436,31 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodigoLixeiraActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+        Lixeira lixeira = new Lixeira();
+        Bairro bairro = new Bairro();
+        
+        String codLixeira = jTextFieldCodigoLixeira.getText();
+        String codBairro = jComboBoxBairro.getSelectedItem().toString();
+        String capacidade = jTextFieldCapacidade.getText();
+        String latitude = jTextFieldLatitude.getText();
+        String longitude = jTextFieldLongitude.getText();
+        String nivelAtual = jTextFieldNivelAtual.getText();
+        
+        try {
+            lixeira.setCodigo(codLixeira);
+            lixeira.setRegiao(bairro);
+            lixeira.bairro.setCodigo(codBairro);
+            lixeira.setCapacidade(capacidade);
+            lixeira.setLatitude(latitude);
+            lixeira.setLongitude(longitude);
+            lixeira.setNivelAtual(nivelAtual);
+            lixeiradao.setLixeira(lixeira);
+            listaLixeiras();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            Logger.getLogger(TelaCadastroLixeira.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTableLixeiraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLixeiraMouseClicked
