@@ -6,3 +6,10 @@
 35, são pedro
 70, santo antônio
 69, jardin da penha
+57, Jardim América
+59, Porto de Santana
+12, Vitória
+44, Jardim da Penha
+38, Jardim Camburi
+69, Goiabeiras
+20, Maria Ortiz
