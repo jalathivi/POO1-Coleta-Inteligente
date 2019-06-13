@@ -1,0 +1,4 @@
+88, Quebrada
+78, Não atende a demanda
+6, Ausente
+43, Ausente
