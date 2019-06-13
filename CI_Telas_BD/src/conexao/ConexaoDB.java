@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 
 public class ConexaoDB {
     private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/ColetaInteligente";
-    private static final String USER = "postgres";
-    private static final String PASS = "Javali@123";
+    private static final String URL = "jdbc:postgresql://tuffi.db.elephantsql.com:5432/wklgsdti";
+    private static final String USER = "wklgsdti";
+    private static final String PASS = "Uuq8_HchYwffnmp1lVPUMqioWV9ZCJXD";
     
     public static Connection getConexao() {
         
