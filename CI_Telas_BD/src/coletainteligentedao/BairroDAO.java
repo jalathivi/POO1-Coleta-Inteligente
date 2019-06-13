@@ -167,7 +167,7 @@ public class BairroDAO {
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
-            Logger.getLogger(CidadaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
             
         } finally {
