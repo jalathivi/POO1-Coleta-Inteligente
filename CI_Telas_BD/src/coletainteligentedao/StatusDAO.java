@@ -48,7 +48,7 @@ public class StatusDAO {
     }  
     
     /**
-     *Retorna Falso caso não encontre o nome
+     *Retorna Falso caso não encontre a descricao
      * @param descricao
      * @return check
      */
@@ -152,7 +152,7 @@ public class StatusDAO {
         }
     }    
     
-    public void alteraBairro(String descricaoOld, String descricao){
+    public void alteraStatus(String descricaoOld, String descricao){
         
         Connection con = ConexaoDB.getConexao();
         PreparedStatement stmt = null;

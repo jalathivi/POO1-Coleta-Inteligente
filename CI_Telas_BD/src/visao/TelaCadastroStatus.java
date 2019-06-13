@@ -286,7 +286,7 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
         if(("".equals(campoNovaDescricao.getText())) || index == -1 ) {
             JOptionPane.showMessageDialog(null, "Insira uma descrição");
         }else{
-            statusDAO.alteraBairro((String) dados.get(index), campoNovaDescricao.getText());
+            statusDAO.alteraStatus((String) dados.get(index), campoNovaDescricao.getText());
             campoNovaDescricao.setText(null);
             jListStatus.setListData(statusDAO.selectListaStatus().toArray());
         }
