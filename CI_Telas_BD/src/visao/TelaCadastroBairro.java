@@ -71,11 +71,6 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
             }
         });
 
-        jListBairros.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jListBairrosValueChanged(evt);
-            }
-        });
         jScrollPane1.setViewportView(jListBairros);
 
         jLabel3.setText("Bairros");
@@ -271,12 +266,6 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     private void jTextFieldNomeNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeNewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeNewActionPerformed
-
-    private void jListBairrosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListBairrosValueChanged
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Selecionado:  " + jListBairros.getSelectedValue().toString());
-        jTextFieldNomeNew.setText(null);
-    }//GEN-LAST:event_jListBairrosValueChanged
 
     /**
      * @param args the command line arguments

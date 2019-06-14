@@ -94,11 +94,6 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
             }
         });
 
-        jListStatus.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jListStatusValueChanged(evt);
-            }
-        });
         jScrollPane1.setViewportView(jListStatus);
 
         jLabel3.setText("Status");
@@ -262,12 +257,6 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
     private void campoNovaDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNovaDescricaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNovaDescricaoActionPerformed
-
-    private void jListStatusValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListStatusValueChanged
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Selecionado:  " + jListStatus.getSelectedValue().toString());
-        campoNovaDescricao.setText(null);
-    }//GEN-LAST:event_jListStatusValueChanged
 
     private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
         // TODO add your handling code here:
