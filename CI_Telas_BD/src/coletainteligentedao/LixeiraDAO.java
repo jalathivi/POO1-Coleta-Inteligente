@@ -7,14 +7,18 @@ package coletainteligentedao;
 
 import conexao.ConexaoDB;
 import coletainteligente.Lixeira;
+import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.TableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -55,6 +59,42 @@ public class LixeiraDAO {
         }
         
     }
+    
+    public void listaLixeiras (JTable jTableLixeira) {
+                    
+        Connection con = ConexaoDB.getConexao();
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM LIXEIRA");
+            rs = stmt.executeQuery();
+            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));    
+        } catch (SQLException ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro na listagem de lixeiras\n" + ex.getMessage()); 
+            
+        } finally {
+            ConexaoDB.closeConnection(con, stmt); 
+        }  
+    }
+            
+    public void filtraLixeirasPorBairro(JTable jTableLixeira, JTextField jTextFieldBairro) {
+        
+        Connection con = ConexaoDB.getConexao();
+        ResultSet rs;
+        PreparedStatement stmt;
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM LIXEIRA WHERE cod_bairro = ?");
+            stmt.setInt(1, parseInt(jTextFieldBairro.getText()));
+            rs = stmt.executeQuery();
+            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }            
+            
     public void deleta(Lixeira lixeira) {
         
         Connection con = ConexaoDB.getConexao();

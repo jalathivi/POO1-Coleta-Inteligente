@@ -10,17 +10,11 @@ import coletainteligente.Bairro;
 import coletainteligente.Lixeira;
 import coletainteligentedao.BairroDAO;
 import coletainteligentedao.LixeiraDAO;
-import conexao.ConexaoDB;
 import static java.lang.Integer.parseInt;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
 import validador.ValidadorLixeira;
 
 /**
@@ -62,7 +56,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCapacidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxBairro = new javax.swing.JComboBox<>();
+        jComboBoxBairro = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldLatitude = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -368,6 +362,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
             lixeira.setLatitude(latitude);
             lixeira.setLongitude(longitude);
             lixeira.setNivelAtual(nivelAtual);
+            
             lixeiradao.insere(lixeira);
             listaLixeiras();
         } catch (Exception ex) {
@@ -422,7 +417,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         String codigoLixeira = jTextFieldBairro.getText();
         try {
             valLixeira.codigo(codigoLixeira);
-            filtraLixeiras();
+            filtraLixeirasPorBairro();
         } catch (Exception ex) {
             listaLixeiras();
             if (!jTextFieldBairro.getText().equalsIgnoreCase("")) {
@@ -471,36 +466,14 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNivelAtualActionPerformed
     public void listaLixeiras() {
-                    
-        Connection con = ConexaoDB.getConexao();
-        ResultSet rs = null;
-        PreparedStatement stmt = null;
-        
-        try {
-            stmt = con.prepareStatement("SELECT * FROM LIXEIRA");
-            rs = stmt.executeQuery();
-            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));    
-        } catch (SQLException ex) {
-            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Erro na listagem de lixeiras\n" + ex.getMessage()); 
-            
-        } finally {
-            ConexaoDB.closeConnection(con, stmt); 
-        }  
+        LixeiraDAO lixeiradao = new LixeiraDAO();
+        lixeiradao.listaLixeiras(jTableLixeira);    
+
     }
     
-    public void filtraLixeiras() {
-        Connection con = ConexaoDB.getConexao();
-        ResultSet rs;
-        PreparedStatement stmt;
-        try {
-            stmt = con.prepareStatement("SELECT * FROM LIXEIRA WHERE cod_bairro = ?");
-            stmt.setInt(1, parseInt(jTextFieldBairro.getText()));
-            rs = stmt.executeQuery();
-            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroLixeira.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void filtraLixeirasPorBairro() {
+        LixeiraDAO lixeiradao = new LixeiraDAO();
+        lixeiradao.filtraLixeirasPorBairro(jTableLixeira,  jTextFieldBairro);   
     }
     
     public void selecionaLinha() {
