@@ -18,6 +18,7 @@ public class TelaColeta extends javax.swing.JFrame {
     /**
      * Creates new form TelaGeraRota
      */
+    
     public TelaColeta() {
         initComponents();
         

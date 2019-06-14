@@ -43,6 +43,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jTextFieldDistancia = new javax.swing.JTextField();
         jTextFieldDirecao = new javax.swing.JTextField();
         jButtonMapa = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Principal");
@@ -76,7 +77,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 259, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
         getContentPane().add(jTextFieldDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 221, 96, -1));
         getContentPane().add(jTextFieldDirecao, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 221, 90, -1));
 
@@ -86,9 +87,17 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 jButtonMapaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
-        setSize(new java.awt.Dimension(416, 339));
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+
+        setSize(new java.awt.Dimension(490, 359));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,6 +147,11 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         tMapa.show(true);
     }//GEN-LAST:event_jButtonMapaActionPerformed
 
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,6 +192,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLocalizar;
     private javax.swing.JButton jButtonMapa;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

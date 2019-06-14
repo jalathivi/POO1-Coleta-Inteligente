@@ -1,58 +1,28 @@
 
 package coletainteligente;
 import java.util.Calendar;
-import java.util.Random;
+import java.util.Date;
 
 public class Coleta {
 
-    private Lixeira lixeira;
-    private Coletor coletor;
+
+
+    public Lixeira lixeira;
+    public Coletor coletor;
     private Calendar data;
-    private float nivelAtual;
-    private int cod_lixeira;
-    private int cod_coletor;
+    private Date data_atual;
+    private Date hora;
+    private float volume;
 
     public Coleta (){   
     }
-     
-    //Não está funcionando passar as classes por parametro ainda Lixeira lixeira, Coletor coletor
-//    public Coleta(float nivelAtual, Calendar data ){
-//        setCodLixeira();
-//        setCodColetor();
-//        setData(data);
-//        setNivelAtual(nivelAtual);
-//    }
-//    
-     public Coleta(Lixeira lixeira, Coletor coletor, String nivelAtual, Calendar data ){
+
+     public Coleta(Lixeira lixeira, Coletor coletor, String volume,Date hora, Calendar data ){
         setLixeira(lixeira);
         setColetor(coletor);
         setData(data);
-        setNivelAtual(nivelAtual);
-    }
-       
-    
-//    public void setCodLixeira() {
-//        Random random = new Random();
-//        this.cod_lixeira = random.nextInt(4);
-//    }
-//    
-//    public int getCodLixeira() {
-//        return cod_lixeira;
-//    }
-    
-//    public void setCodColetor() {
-//        Random random = new Random();
-//        this.cod_coletor = random.nextInt(4);
-//    }
-    
-//    public int getCodColetor() {;
-//        return cod_coletor;
-//    }
- 
-//   public void setNivelAtual(float nivelAtual) {
-//        this.nivelAtual = nivelAtual;
-//    }
-     
+        setVolume(volume);
+    } 
   
     public void setLixeira(Lixeira lixeira){
         this.lixeira = lixeira;
@@ -60,7 +30,8 @@ public class Coleta {
 
     public Lixeira getLixeira (){
         return lixeira;
-    }    
+    }
+
     public void setColetor (Coletor coletor){
         this.coletor = coletor;
     }
@@ -69,12 +40,12 @@ public class Coleta {
         return coletor;
     }
 
- public void setNivelAtual(String nivelAtual) {
-        this.nivelAtual = Float.parseFloat(nivelAtual);
+ public void setVolume(String volume) {
+        this.volume = Float.parseFloat(volume);
     }
     
-    public float getNivelAtual() {
-        return nivelAtual;
+    public float getVolume() {
+        return volume;
     }
     
     public void setData(Calendar data) {
@@ -83,6 +54,32 @@ public class Coleta {
     
     public Calendar getData() {
         return data;
+    }
+    
+      /**
+     * @param hora the hora to set
+     */
+    public void setHora(Date hora) {
+        this.hora = hora;
+    }
+    
+    public Date getHoras() {
+        return hora;
+    }
+    
+    
+    /**
+     * @return the data_atual
+     */
+    public Date getData_atual() {
+        return data_atual;
+    }
+
+    /**
+     * @param data_atual the data_atual to set
+     */
+    public void setData_atual(Date data_atual) {
+        this.data_atual = data_atual;
     }
 
     
@@ -114,7 +111,7 @@ public class Coleta {
     
     @Override
     public String toString() {
-        return getLixeira().getCodigo()+", "+getColetor().getCodigo()+", "+getNivelAtual()+", "+getStringData()+", "+getStringHora();
+        return getLixeira().getCodigo()+", "+getColetor().getCodigo()+", "+getVolume()+", "+getStringData()+", "+getStringHora();
     }
     
 }

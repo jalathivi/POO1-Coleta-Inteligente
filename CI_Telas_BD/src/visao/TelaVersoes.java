@@ -106,7 +106,6 @@ public class TelaVersoes extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaPrincipalAdm telaAdm = new TelaPrincipalAdm();
         telaAdm.show(true);
-        this.dispose();
     }//GEN-LAST:event_jButtonADMActionPerformed
 
     /**

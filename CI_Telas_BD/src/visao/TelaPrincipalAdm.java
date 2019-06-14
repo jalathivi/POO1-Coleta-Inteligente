@@ -35,12 +35,17 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jButtonSituacaoOperacional = new javax.swing.JButton();
         jButtonColeta = new javax.swing.JButton();
         jButtonStatus = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrador");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setEnabled(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setText("Administrador");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         jButtonLixeira.setText("Cadastrar Lixeira");
         jButtonLixeira.addActionListener(new java.awt.event.ActionListener() {
@@ -48,6 +53,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonLixeiraActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonLixeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 170, -1));
 
         jButtonColetor.setText("Cadastrar Coletor");
         jButtonColetor.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +61,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonColetorActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 150, -1));
 
         cadastraBairro.setText("Cadastrar Bairro");
         cadastraBairro.addActionListener(new java.awt.event.ActionListener() {
@@ -62,13 +69,15 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 cadastraBairroActionPerformed(evt);
             }
         });
+        jPanel1.add(cadastraBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 150, -1));
 
-        jButtonSituacaoOperacional.setText("Registrar Situação Operacional da Lixeira");
+        jButtonSituacaoOperacional.setText("Registrar S.O. da Lixeira");
         jButtonSituacaoOperacional.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSituacaoOperacionalActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonSituacaoOperacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 170, -1));
 
         jButtonColeta.setText("Gerar Rota para Coleta");
         jButtonColeta.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +85,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonColetaActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonColeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 170, -1));
 
         jButtonStatus.setText("Criar Status");
         jButtonStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -83,89 +93,62 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonStatusActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonColetor)
-                    .addComponent(cadastraBairro))
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonColeta)
-                    .addComponent(jButtonLixeira)
-                    .addComponent(jButtonSituacaoOperacional))
-                .addGap(129, 129, 129))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(69, 69, 69)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonColetor)
-                    .addComponent(jButtonLixeira))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cadastraBairro)
-                    .addComponent(jButtonColeta))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonSituacaoOperacional)
-                    .addComponent(jButtonStatus))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 300));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 300));
 
-        setSize(new java.awt.Dimension(670, 339));
+        setSize(new java.awt.Dimension(524, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonColetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColetorActionPerformed
         // TODO add your handling code here:
         TelaCadastroColetor tCadastroColetor = new TelaCadastroColetor();
-        tCadastroColetor.show(true);
+        tCadastroColetor.setVisible(true);
     }//GEN-LAST:event_jButtonColetorActionPerformed
 
     private void cadastraBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraBairroActionPerformed
         // TODO add your handling code here:
         TelaCadastroBairro tCadastroBairro = new TelaCadastroBairro();
-        tCadastroBairro.show(true);
+        tCadastroBairro.setVisible(true);
     }//GEN-LAST:event_cadastraBairroActionPerformed
 
     private void jButtonStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStatusActionPerformed
         // TODO add your handling code here:
         TelaCadastroStatus tCadastroStatus = new TelaCadastroStatus();
-        tCadastroStatus.show(true);
+        tCadastroStatus.setVisible(true);
     }//GEN-LAST:event_jButtonStatusActionPerformed
 
     private void jButtonLixeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLixeiraActionPerformed
         // TODO add your handling code here:
         TelaCadastroLixeira tCadastroLixeira = new TelaCadastroLixeira();
-        tCadastroLixeira.show(true);
+        tCadastroLixeira.setVisible(true);
     }//GEN-LAST:event_jButtonLixeiraActionPerformed
 
     private void jButtonSituacaoOperacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSituacaoOperacionalActionPerformed
         // TODO add your handling code here:
-        TelaRegistraSituacaoOperacional tSituacaoOperacional = new TelaRegistraSituacaoOperacional();
-        tSituacaoOperacional.show(true);
+        TelaRegistraSO tSituacaoOperacional = new TelaRegistraSO();
+        tSituacaoOperacional.setVisible(true);
     }//GEN-LAST:event_jButtonSituacaoOperacionalActionPerformed
 
     private void jButtonColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColetaActionPerformed
         // TODO add your handling code here:
         TelaColeta tGeraRota = new TelaColeta();
-        tGeraRota.show(true);
+        tGeraRota.setVisible(true);
     }//GEN-LAST:event_jButtonColetaActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,7 +161,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -209,6 +192,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLixeira;
     private javax.swing.JButton jButtonSituacaoOperacional;
     private javax.swing.JButton jButtonStatus;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

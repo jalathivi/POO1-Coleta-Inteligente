@@ -14,3 +14,4 @@
 69, Goiabeiras
 20, Maria Ortiz
 3, Carapina
+40, Coqueiral de Itaparica
