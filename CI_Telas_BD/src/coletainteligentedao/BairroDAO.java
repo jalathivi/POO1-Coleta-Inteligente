@@ -7,6 +7,7 @@ package coletainteligentedao;
 
 import conexao.ConexaoDB;
 import coletainteligente.Bairro;
+import coletainteligente.Lixeira;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -99,6 +101,37 @@ public class BairroDAO {
             ConexaoDB.closeConnection(conexao, stmt);
         }
         return dados;
+    }
+    
+    public void listaLixeirasCheias(DefaultTableModel model, String nome) {
+        Connection conexao = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = conexao.prepareStatement("SELECT cod_lixeira, nivel_atual, latitude, longitude FROM LIXEIRA INNER JOIN BAIRRO ON (BAIRRO.COD_BAIRRO = LIXEIRA.COD_BAIRRO) WHERE nivel_atual > 70 AND bairro.nome = ?");
+            stmt.setString(1, nome);
+            rs = stmt.executeQuery();
+            
+           while(rs.next()) {
+              
+               
+                try {
+         
+                    model.addRow(new Object[]{Integer.toString(rs.getInt("cod_lixeira")),Float.toString(rs.getFloat("nivel_atual")),Float.toString(rs.getFloat("latitude")), Float.toString(rs.getFloat("longitude"))});
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              
+           }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(conexao, stmt);
+        }
     }
     
         public ArrayList selectListaCodBairro() {
