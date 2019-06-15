@@ -8,6 +8,7 @@ package coletainteligentedao;
 import coletainteligente.Coleta;
 import conexao.ConexaoDB;
 import java.sql.*;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -28,13 +29,14 @@ public class ColetaDAO {
         PreparedStatement stmt = null;
 
         try{
-            stmt = con.prepareStatement("INSERT INTO coleta (cod_coletor, cod_lixeira, volume, hora_coletada, data_coleta) VALUES (?,?,?,?,?))");
-            stmt.setInt(1, coleta.lixeira.getCodigo());
-            stmt.setInt(2, coleta.coletor.getCodigo());
+            stmt = con.prepareStatement("INSERT INTO coleta (cod_coletor, cod_lixeira, volume) VALUES (?,?,?)");
+            stmt.setInt(1, coleta.coletor.getCodigo());
+            stmt.setInt(2, coleta.lixeira.getCodigo());
             stmt.setDouble(3, coleta.getVolume());
-            stmt.setDate(4, (Date) coleta.getHoras());
-            stmt.setDate(5, (Date) coleta.getData_atual());
-
+            stmt.executeUpdate();
+            
+            stmt = con.prepareStatement("UPDATE lixeira SET nivel_atual = 0 WHERE cod_lixeira=?");
+            stmt.setInt(1, coleta.getLixeira().getCodigo());
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Insert criado com sucesso");
@@ -105,6 +107,10 @@ public class ColetaDAO {
             stmt.setDate(4, (Date) coleta.getHoras());
             stmt.setDate(5, (Date) coleta.getData_atual());
             stmt.executeUpdate();
+            
+
+            
+            
             
             JOptionPane.showMessageDialog(null, "Update realizado com sucesso");
             ConexaoDB.closeConnection(con, stmt);
