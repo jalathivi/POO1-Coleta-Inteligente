@@ -7,7 +7,6 @@ package coletainteligentedao;
 
 import conexao.ConexaoDB;
 import coletainteligente.Coletor;
-import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +16,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -49,7 +47,7 @@ public void insere(Coletor coletor){
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
-            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
             
         } finally {
@@ -69,7 +67,7 @@ public void insere(Coletor coletor){
             rs = stmt.executeQuery();
             jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));    
         } catch (SQLException ex) {
-            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Erro na listagem de coletores\n" + ex.getMessage()); 
             
         } finally {
@@ -89,7 +87,7 @@ public void insere(Coletor coletor){
             rs = stmt.executeQuery();
             jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (SQLException ex) {
-            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }            
             
@@ -141,7 +139,7 @@ public void insere(Coletor coletor){
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
-            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
             
         } finally {
