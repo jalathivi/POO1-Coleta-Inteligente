@@ -78,6 +78,31 @@ public class BairroDAO {
         }
         return check;
     }
+ 
+     public int codBairro (String nome) {
+        Connection conexao = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int codigo = 0;
+        
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM bairro WHERE nome = ?;");
+            stmt.setString(1, nome);
+            rs = stmt.executeQuery();
+            
+           if(rs.next()) {
+               codigo = rs.getInt("cod_bairro");
+           }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(conexao, stmt);
+        }
+        return codigo;
+    }
+       
     
     public ArrayList selectListaBairro() {
         Connection conexao = ConexaoDB.getConexao();
