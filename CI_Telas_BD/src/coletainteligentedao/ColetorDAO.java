@@ -31,15 +31,14 @@ public void insere(Coletor coletor){
         
         try {
             
-            stmt = con.prepareStatement("INSERT INTO lixeira (cod_coletor, placa, modelo, marca, ano, capacidade, latitude, longitude) VALUES (?,?,?,?,?)");
-            stmt.setInt(1, coletor.getCodigo());
-            stmt.setString(2, coletor.getPlaca());
-            stmt.setString(3, coletor.getModelo());
-            stmt.setString(4, coletor.getMarca());
-            stmt.setInt(5, coletor.getAno());
-            stmt.setFloat(6, coletor.getCapacidade());
-            stmt.setFloat(7, coletor.getLatitude());
-            stmt.setFloat(8, coletor.getLongitude());
+            stmt = con.prepareStatement("INSERT INTO coletor ( placa, modelo, marca, ano, capacidade, latitude, longitude) VALUES (?,?,?,?,?,?,?)");
+            stmt.setString(1, coletor.getPlaca());
+            stmt.setString(2, coletor.getModelo());
+            stmt.setString(3, coletor.getMarca());
+            stmt.setInt(4, coletor.getAno());
+            stmt.setFloat(5, coletor.getCapacidade());
+            stmt.setFloat(6, coletor.getLatitude());
+            stmt.setFloat(7, coletor.getLongitude());
             
             stmt.executeUpdate();
             
