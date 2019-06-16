@@ -71,7 +71,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCapacidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxBairro = new javax.swing.JComboBox<String>();
+        jComboBoxBairro = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldLatitude = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -88,7 +88,6 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jButtonEditar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNivelAtual = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -216,14 +215,11 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldNivelAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, 56, -1));
 
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 90, 20));
-
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 206, -1));
 
         setSize(new java.awt.Dimension(643, 382));
@@ -342,18 +338,18 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNivelAtualActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           
-           if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("Todos")){
-               
-                listaLixeiras();  
-                
-           }else {
-
-                filtraLixeirasPorBairro();
-           }
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("Todos")){
+
+            listaLixeiras();  
+
+       }else {
+
+            filtraLixeirasPorBairro();
+   }
+    
+    }//GEN-LAST:event_jComboBox1ActionPerformed
     public void listaLixeiras() {
         
         // REMOVE LINHA DAS TABELAS
@@ -435,7 +431,6 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private conexao.ConexaoDB conexaoDB1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;

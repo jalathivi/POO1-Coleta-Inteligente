@@ -94,7 +94,7 @@ public class LixeiraDAO {
         
         Connection con = ConexaoDB.getConexao();
         ResultSet rs;
-        PreparedStatement stmt;
+        PreparedStatement stmt = null;
         
         try {
             stmt = con.prepareStatement("SELECT cod_lixeira, nome, capacidade, latitude, longitude, nivel_atual FROM LIXEIRA INNER JOIN BAIRRO ON (LIXEIRA.cod_bairro = BAIRRO.cod_bairro) WHERE lixeira.cod_bairro = ?");
@@ -114,6 +114,8 @@ public class LixeiraDAO {
             
         } catch (SQLException ex) {
             Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexaoDB.closeConnection(con, stmt); 
         }
     }            
             
