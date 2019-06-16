@@ -40,10 +40,11 @@ public class TelaColeta extends javax.swing.JFrame {
        
         BairroDAO bairrodao = new BairroDAO();
         listaBairro = bairrodao.selectListaBairro();
-        jComboBoxRegiao.removeAllItems();
+        jcbBairro.removeAllItems();
+        jcbColetor.removeAllItems();
         
         for(Object bairro : listaBairro){
-           jComboBoxRegiao.addItem((String) bairro);
+           jcbBairro.addItem((String) bairro);
         }
         
         //CRIA TABELA
@@ -75,65 +76,66 @@ public class TelaColeta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jComboBoxRegiao = new javax.swing.JComboBox<String>();
-        jButtonGerarRota = new javax.swing.JButton();
-        jButtonSair = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldNivel = new javax.swing.JTextField();
+        jlColetor = new javax.swing.JLabel();
+        jcbBairro = new javax.swing.JComboBox<String>();
+        jbGerarRota = new javax.swing.JButton();
+        jbSair = new javax.swing.JButton();
+        jbIniciarColeta = new javax.swing.JButton();
+        jlNivelColetado = new javax.swing.JLabel();
+        jtfNivelTotal = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
+        jcbColetor = new javax.swing.JComboBox();
+        jlBairro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerar Rota");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Selecione o coletor");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 4, -1, 20));
+        jlColetor.setText("Selecione o coletor");
+        getContentPane().add(jlColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 4, -1, 20));
 
-        getContentPane().add(jComboBoxRegiao, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 380, -1));
+        getContentPane().add(jcbBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 380, -1));
 
-        jButtonGerarRota.setText("Gerar Rota");
-        jButtonGerarRota.addActionListener(new java.awt.event.ActionListener() {
+        jbGerarRota.setText("Gerar Rota");
+        jbGerarRota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGerarRotaActionPerformed(evt);
+                jbGerarRotaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonGerarRota, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
+        getContentPane().add(jbGerarRota, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
 
-        jButtonSair.setText("Sair");
-        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+        jbSair.setText("Sair");
+        jbSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSairActionPerformed(evt);
+                jbSairActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+        getContentPane().add(jbSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
 
-        jButton1.setText("Iniciar Coleta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbIniciarColeta.setText("Iniciar Coleta");
+        jbIniciarColeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbIniciarColetaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
+        getContentPane().add(jbIniciarColeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
 
-        jLabel3.setText("Nivel Coletado");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, 20));
+        jlNivelColetado.setText("Nivel Coletado");
+        getContentPane().add(jlNivelColetado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, 20));
 
-        jTextFieldNivel.setEditable(false);
-        jTextFieldNivel.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldNivel.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        jTextFieldNivel.addActionListener(new java.awt.event.ActionListener() {
+        jtfNivelTotal.setEditable(false);
+        jtfNivelTotal.setBackground(new java.awt.Color(255, 255, 255));
+        jtfNivelTotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jtfNivelTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNivelActionPerformed(evt);
+                jtfNivelTotalActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 60, -1));
+        getContentPane().add(jtfNivelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 60, -1));
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -146,31 +148,31 @@ public class TelaColeta extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 380, 120));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setSelectedIndex(-1);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jcbColetor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbColetor.setSelectedIndex(-1);
+        jcbColetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jcbColetorActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 380, -1));
+        getContentPane().add(jcbColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 380, -1));
 
-        jLabel2.setText("Selecione a bairro");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
+        jlBairro.setText("Selecione a bairro");
+        getContentPane().add(jlBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
 
         setSize(new java.awt.Dimension(558, 348));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jButtonSairActionPerformed
+    }//GEN-LAST:event_jbSairActionPerformed
 
-    private void jButtonGerarRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarRotaActionPerformed
+    private void jbGerarRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGerarRotaActionPerformed
         
         BairroDAO bairrodao = new BairroDAO();
-        String nomeBairro = (String) listaBairro.get(jComboBoxRegiao.getSelectedIndex());
+        String nomeBairro = (String) listaBairro.get(jcbBairro.getSelectedIndex());
         
         // REMOVE LINHA DAS TABELAS
         while (model.getRowCount() > 0)
@@ -180,9 +182,9 @@ public class TelaColeta extends javax.swing.JFrame {
         bairrodao.listaLixeirasCheias(model, nomeBairro);
         jTable1.setModel(model);
         jScrollPane2.setViewportView(jTable1);    
-    }//GEN-LAST:event_jButtonGerarRotaActionPerformed
+    }//GEN-LAST:event_jbGerarRotaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbIniciarColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIniciarColetaActionPerformed
         // TODO add your handling code here:
       
         // int select = jTableLixeira.getSelectedRow();
@@ -221,7 +223,7 @@ public class TelaColeta extends javax.swing.JFrame {
             arquivo.salvaColeta(coleta);
 
             nivelTotal += coleta.getVolume();
-            jTextFieldNivel.setText(Float.toString(nivelTotal));
+            jtfNivelTotal.setText(Float.toString(nivelTotal));
             
            try {
                 Thread.sleep(1500);
@@ -244,15 +246,15 @@ public class TelaColeta extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Coleta Registrada");
         this.dispose();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbIniciarColetaActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jcbColetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbColetorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jcbColetorActionPerformed
 
-    private void jTextFieldNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNivelActionPerformed
+    private void jtfNivelTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNivelTotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNivelActionPerformed
+    }//GEN-LAST:event_jtfNivelTotalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,16 +293,16 @@ public class TelaColeta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonGerarRota;
-    private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox<String> jComboBoxRegiao;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFieldNivel;
+    private javax.swing.JButton jbGerarRota;
+    private javax.swing.JButton jbIniciarColeta;
+    private javax.swing.JButton jbSair;
+    private javax.swing.JComboBox<String> jcbBairro;
+    private javax.swing.JComboBox jcbColetor;
+    private javax.swing.JLabel jlBairro;
+    private javax.swing.JLabel jlColetor;
+    private javax.swing.JLabel jlNivelColetado;
+    private javax.swing.JTextField jtfNivelTotal;
     // End of variables declaration//GEN-END:variables
 }
