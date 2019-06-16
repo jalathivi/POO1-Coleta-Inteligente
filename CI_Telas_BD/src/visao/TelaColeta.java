@@ -12,6 +12,7 @@ import coletainteligente.Lixeira;
 import coletainteligente.PersistenciaArquivo;
 import coletainteligentedao.BairroDAO;
 import coletainteligentedao.ColetaDAO;
+import coletainteligentedao.ColetorDAO;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
@@ -32,6 +33,7 @@ public class TelaColeta extends javax.swing.JFrame {
      * Creates new form TelaGeraRota
      */
     private List <Object> listaBairro;
+    private List <Coletor> listaColetor;
     public  DefaultTableModel model;
     
     public TelaColeta() {
@@ -40,11 +42,19 @@ public class TelaColeta extends javax.swing.JFrame {
        
         BairroDAO bairrodao = new BairroDAO();
         listaBairro = bairrodao.selectListaBairro();
+        
+        ColetorDAO coletordao = new ColetorDAO();
+        listaColetor = coletordao.listaColetoresList();
+        
         jcbBairro.removeAllItems();
         jcbColetor.removeAllItems();
         
         for(Object bairro : listaBairro){
            jcbBairro.addItem((String) bairro);
+        }
+        
+        for(Coletor coletor : listaColetor){
+          jcbColetor.addItem(coletor.getPlaca());
         }
         
         //CRIA TABELA
@@ -190,15 +200,16 @@ public class TelaColeta extends javax.swing.JFrame {
         // int select = jTableLixeira.getSelectedRow();
        // jTextFieldCodigoLixeira.setText(jTableLixeira.getModel().getValueAt(select,0).toString());
         
-        int linha = 0;
         
-        Coletor coletor = new Coletor();
+        int indice = jcbColetor.getSelectedIndex();
+        Coletor coletor =  listaColetor.get(indice);
         Lixeira lixeira = new Lixeira();
         Coleta coleta = new Coleta();
-    
+      
+        
         float nivelTotal = 0;
      
-        while (model.getRowCount() > 0)
+        while (model.getRowCount() > 0 && nivelTotal < coletor.getCapacidade())
         {
             try {
                 // Pega primeira linha da tabela
@@ -231,7 +242,6 @@ public class TelaColeta extends javax.swing.JFrame {
                 Logger.getLogger(TelaColeta.class.getName()).log(Level.SEVERE, null, ex);
             }
              
-            linha = linha + 1;
         }
         
         // SET do model

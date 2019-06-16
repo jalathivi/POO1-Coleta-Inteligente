@@ -134,7 +134,7 @@ public class BairroDAO {
         ResultSet rs = null;
         
         try {
-            stmt = conexao.prepareStatement("SELECT cod_lixeira, nivel_atual, latitude, longitude FROM LIXEIRA INNER JOIN BAIRRO ON (BAIRRO.COD_BAIRRO = LIXEIRA.COD_BAIRRO) WHERE nivel_atual > 70 AND bairro.nome = ?");
+            stmt = conexao.prepareStatement("SELECT cod_lixeira, nivel_atual, latitude, longitude FROM LIXEIRA INNER JOIN BAIRRO ON (BAIRRO.COD_BAIRRO = LIXEIRA.COD_BAIRRO) WHERE nivel_atual >= 70 AND bairro.nome = ?");
             stmt.setString(1, nome);
             rs = stmt.executeQuery();
             

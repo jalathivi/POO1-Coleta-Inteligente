@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -89,7 +91,53 @@ public void insere(Coletor coletor){
             Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }            
+        
+    
+    
+    public List<Coletor> listaColetoresList() {
+                    
+        Connection con = ConexaoDB.getConexao();
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        List <Coletor> listaColetor = new ArrayList();
+        listaColetor.clear();
+        Coletor coletor;
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM COLETOR");
+            rs = stmt.executeQuery();
             
+            while(rs.next()){
+                coletor = new Coletor();
+                try {
+                    coletor.setCodigo(Integer.toString(rs.getInt("cod_coletor")));
+                    
+                    coletor.setPlaca(rs.getString("placa"));
+                    coletor.setModelo(rs.getString("modelo"));
+                    coletor.setMarca(rs.getString("marca"));
+                    coletor.setCapacidade(Float.toString(rs.getFloat("capacidade")));
+                   
+                    listaColetor.add(coletor);
+
+                } catch (Exception ex) {
+                    Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           }
+           
+            ConexaoDB.closeConnection(con, stmt);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro na listagem de coletores\n" + ex.getMessage()); 
+            
+        } finally {
+            ConexaoDB.closeConnection(con, stmt); 
+        }  
+       return listaColetor;
+    }
+          
+    
+    
     public void deleta(Coletor coletor) {
         
         Connection con = ConexaoDB.getConexao();

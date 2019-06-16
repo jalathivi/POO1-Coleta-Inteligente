@@ -38,9 +38,9 @@ public class ColetaDAO {
             stmt = con.prepareStatement("UPDATE lixeira SET nivel_atual = 0 WHERE cod_lixeira=?");
             stmt.setInt(1, coleta.getLixeira().getCodigo());
             stmt.executeUpdate();
-
-            JOptionPane.showMessageDialog(null, "Insert criado com sucesso");
+            
             ConexaoDB.closeConnection(con, stmt);
+            
         } catch (SQLException ex) {
             Logger.getLogger(ColetaDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
