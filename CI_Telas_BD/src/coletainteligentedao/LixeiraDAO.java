@@ -15,10 +15,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.TableModel;
-import net.proteanit.sql.DbUtils;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -60,16 +57,30 @@ public class LixeiraDAO {
         
     }
     
-    public void listaLixeiras (JTable jTableLixeira) {
+    public void listaLixeiras (DefaultTableModel model) {
                     
         Connection con = ConexaoDB.getConexao();
         ResultSet rs = null;
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM LIXEIRA");
+            stmt = con.prepareStatement("SELECT cod_lixeira, nome, capacidade, latitude, longitude, nivel_atual FROM LIXEIRA INNER JOIN BAIRRO ON (LIXEIRA.cod_bairro = BAIRRO.cod_bairro)");
             rs = stmt.executeQuery();
-            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));    
+            
+            while(rs.next()) {
+
+
+                 try {
+
+                     model.addRow(new Object[]{Integer.toString(rs.getInt("cod_lixeira")), rs.getString("nome"),Float.toString(rs.getFloat("capacidade")),Float.toString(rs.getFloat("latitude")), Float.toString(rs.getFloat("longitude")), Float.toString(rs.getFloat("nivel_atual"))});
+
+                 } catch (Exception ex) {
+                     Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+
+            }   
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Erro na listagem de lixeiras\n" + ex.getMessage()); 
@@ -79,17 +90,28 @@ public class LixeiraDAO {
         }  
     }
             
-    public void filtraLixeirasPorBairro(JTable jTableLixeira, JTextField jTextFieldBairro) {
+    public void filtraLixeirasPorBairro(DefaultTableModel model, String codbairro) {
         
         Connection con = ConexaoDB.getConexao();
         ResultSet rs;
         PreparedStatement stmt;
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM LIXEIRA WHERE cod_bairro = ?");
-            stmt.setInt(1, parseInt(jTextFieldBairro.getText()));
+            stmt = con.prepareStatement("SELECT cod_lixeira, nome, capacidade, latitude, longitude, nivel_atual FROM LIXEIRA INNER JOIN BAIRRO ON (LIXEIRA.cod_bairro = BAIRRO.cod_bairro) WHERE lixeira.cod_bairro = ?");
+            stmt.setInt(1, parseInt(codbairro));
             rs = stmt.executeQuery();
-            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));
+            
+            while(rs.next()) {
+                
+                try {
+
+                     model.addRow(new Object[]{Integer.toString(rs.getInt("cod_lixeira")), rs.getString("nome"),Float.toString(rs.getFloat("capacidade")),Float.toString(rs.getFloat("latitude")), Float.toString(rs.getFloat("longitude")), Float.toString(rs.getFloat("nivel_atual"))});
+
+                } catch (Exception ex) {
+                    Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

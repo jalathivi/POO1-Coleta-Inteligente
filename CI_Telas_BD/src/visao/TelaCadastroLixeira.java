@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import validador.ValidadorLixeira;
 
 /**
@@ -23,8 +24,10 @@ import validador.ValidadorLixeira;
  */
 public class TelaCadastroLixeira extends javax.swing.JFrame {
 
-    LixeiraDAO lixeiradao = new LixeiraDAO();
-
+  
+    //CRIA TABELA
+    DefaultTableModel model = new DefaultTableModel();
+    
     /**
      * Creates new form TelaCadastroLixeira
      */
@@ -34,11 +37,24 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     }
 
     private void inicializa() {
+       
+        //CRIA CABEÇALHO
+        model.setColumnIdentifiers(new Object[]{"Lixeira", "Bairro","Capacidade", "Latitude", "Longitude", "Nível Atual"});
+        //SETANDO TABELA
+        jTableLixeira.setModel(model);
+        //AUMENTA O TAMANHO DA SEGUNDA COLUNA
+        jTableLixeira.getColumnModel().getColumn(1).setPreferredWidth(190);
         listaLixeiras();
+        
+        
         BairroDAO bairroDAO = new BairroDAO();
-        ArrayList selectListaCodBairro = bairroDAO.selectListaCodBairro();
-        for (Object codigo : selectListaCodBairro) {
-            jComboBoxBairro.addItem((String) codigo);
+        ArrayList listaBairro = bairroDAO.selectListaBairro();
+        jComboBox1.removeAllItems();
+        jComboBox1.addItem("Todos");
+        jComboBoxBairro.removeAllItems();
+        for (Object bairro : listaBairro) {
+            jComboBox1.addItem((String) bairro);
+            jComboBoxBairro.addItem((String) bairro);
         }
     }
 
@@ -50,7 +66,6 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         conexaoDB1 = new conexao.ConexaoDB();
         jLabel3 = new javax.swing.JLabel();
@@ -67,47 +82,31 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLixeira = new javax.swing.JTable();
         jButtonExcluir = new javax.swing.JButton();
-        jTextFieldBairro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldCodigoLixeira = new javax.swing.JTextField();
         jButtonEditar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNivelAtual = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Controle Lixeiras");
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Cód_Bairro");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel3, gridBagConstraints);
+        jLabel3.setText("Bairro");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
 
         jTextFieldCapacidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCapacidadeActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jTextFieldCapacidade, gridBagConstraints);
+        getContentPane().add(jTextFieldCapacidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 260, 70, -1));
 
         jLabel1.setText("Capacidade");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel1, gridBagConstraints);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
 
         jComboBoxBairro.setSelectedItem(this);
         jComboBoxBairro.addActionListener(new java.awt.event.ActionListener() {
@@ -115,47 +114,15 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jComboBoxBairroActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jComboBoxBairro, gridBagConstraints);
+        getContentPane().add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 190, 20));
 
         jLabel5.setText("Latitude");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel5, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 80;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jTextFieldLatitude, gridBagConstraints);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 60, -1));
+        getContentPane().add(jTextFieldLatitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 86, -1));
 
         jLabel6.setText("Longitude");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel6, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 80;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jTextFieldLongitude, gridBagConstraints);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 60, -1));
+        getContentPane().add(jTextFieldLongitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 86, -1));
 
         jButtonCadastrar.setText("Cadastrar");
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,14 +130,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonCadastrarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jButtonCadastrar, gridBagConstraints);
+        getContentPane().add(jButtonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 126, -1));
 
         jButtonLimpar.setText("Limpar");
         jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -178,13 +138,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonLimparActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 2, 5, 5);
-        getContentPane().add(jButtonLimpar, gridBagConstraints);
+        getContentPane().add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 89, -1));
 
         jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
@@ -192,13 +146,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonSairActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 2, 5, 5);
-        getContentPane().add(jButtonSair, gridBagConstraints);
+        getContentPane().add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, -1, -1));
 
         jTableLixeira.setAutoCreateRowSorter(true);
         jTableLixeira.setModel(new javax.swing.table.DefaultTableModel(
@@ -226,17 +174,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableLixeira);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipady = 63;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 20);
-        getContentPane().add(jScrollPane1, gridBagConstraints);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 45, 570, 170));
 
         jButtonExcluir.setText("Excluir");
         jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -244,51 +182,13 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonExcluirActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jButtonExcluir, gridBagConstraints);
+        getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 86, -1));
 
-        jTextFieldBairro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBairroActionPerformed(evt);
-            }
-        });
-        jTextFieldBairro.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldBairroKeyReleased(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jTextFieldBairro, gridBagConstraints);
+        jLabel4.setText("Filtrar por Bairro");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 20));
 
-        jLabel4.setText("Filtrar por cod bairro");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel4, gridBagConstraints);
-
-        jLabel7.setText("Cód_Lixeira");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel7, gridBagConstraints);
+        jLabel7.setText("Código");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 61, -1));
 
         jTextFieldCodigoLixeira.setEnabled(false);
         jTextFieldCodigoLixeira.addActionListener(new java.awt.event.ActionListener() {
@@ -296,14 +196,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jTextFieldCodigoLixeiraActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jTextFieldCodigoLixeira, gridBagConstraints);
+        getContentPane().add(jTextFieldCodigoLixeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 50, -1));
 
         jButtonEditar.setText("Editar");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -311,35 +204,29 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jButtonEditar, gridBagConstraints);
+        getContentPane().add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
 
         jLabel2.setText("Nível_Atual");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel2, gridBagConstraints);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
 
         jTextFieldNivelAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNivelAtualActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jTextFieldNivelAtual, gridBagConstraints);
+        getContentPane().add(jTextFieldNivelAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, 56, -1));
 
-        setSize(new java.awt.Dimension(523, 346));
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 70, 20));
+
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 206, -1));
+
+        setSize(new java.awt.Dimension(643, 382));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -354,7 +241,9 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         String latitude = jTextFieldLatitude.getText();
         String longitude = jTextFieldLongitude.getText();
         String nivelAtual = jTextFieldNivelAtual.getText();
-        String codbairro = jComboBoxBairro.getSelectedItem().toString();
+        BairroDAO bairrodao = new BairroDAO();
+        String nomeBairro = jComboBoxBairro.getSelectedItem().toString();
+        String codbairro = Integer.toString(bairrodao.codBairro(nomeBairro));
         try {
             lixeira.setRegiao(bairro);
             lixeira.bairro.setCodigo(codbairro);
@@ -363,6 +252,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
             lixeira.setLongitude(longitude);
             lixeira.setNivelAtual(nivelAtual);
             
+            LixeiraDAO lixeiradao = new LixeiraDAO();
             lixeiradao.insere(lixeira);
             listaLixeiras();
         } catch (Exception ex) {
@@ -404,27 +294,9 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
-    private void jTextFieldBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBairroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBairroActionPerformed
-
     private void jTableLixeiraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableLixeiraKeyReleased
         
     }//GEN-LAST:event_jTableLixeiraKeyReleased
-
-    private void jTextFieldBairroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBairroKeyReleased
-        ValidadorLixeira valLixeira = new ValidadorLixeira();
-        String codigoLixeira = jTextFieldBairro.getText();
-        try {
-            valLixeira.codigo(codigoLixeira);
-            filtraLixeirasPorBairro();
-        } catch (Exception ex) {
-            listaLixeiras();
-            if (!jTextFieldBairro.getText().equalsIgnoreCase("")) {
-                JOptionPane.showMessageDialog(null, "Filtragem só funciona com entradas numericas :\n Ex cod_bairro = 2 ");
-            }
-        }
-    }//GEN-LAST:event_jTextFieldBairroKeyReleased
 
     private void jTextFieldCodigoLixeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoLixeiraActionPerformed
         // TODO add your handling code here:
@@ -433,9 +305,11 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         Lixeira lixeira = new Lixeira();
         Bairro bairro = new Bairro();
+        BairroDAO bairrodao = new BairroDAO();
         
         String codLixeira = jTextFieldCodigoLixeira.getText();
-        String codBairro = jComboBoxBairro.getSelectedItem().toString();
+        String nomeBairro = jComboBoxBairro.getSelectedItem().toString();
+        String codbairro = Integer.toString(bairrodao.codBairro(nomeBairro));
         String capacidade = jTextFieldCapacidade.getText();
         String latitude = jTextFieldLatitude.getText();
         String longitude = jTextFieldLongitude.getText();
@@ -444,11 +318,13 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         try {
             lixeira.setCodigo(codLixeira);
             lixeira.setRegiao(bairro);
-            lixeira.bairro.setCodigo(codBairro);
+            lixeira.bairro.setCodigo(codbairro);
             lixeira.setCapacidade(capacidade);
             lixeira.setLatitude(latitude);
             lixeira.setLongitude(longitude);
             lixeira.setNivelAtual(nivelAtual);
+            
+            LixeiraDAO lixeiradao = new LixeiraDAO();
             lixeiradao.setLixeira(lixeira);
             listaLixeiras();
         } catch (Exception ex) {
@@ -465,15 +341,50 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     private void jTextFieldNivelAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNivelAtualActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNivelAtualActionPerformed
-    public void listaLixeiras() {
-        LixeiraDAO lixeiradao = new LixeiraDAO();
-        lixeiradao.listaLixeiras(jTableLixeira);    
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+           
+           if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("Todos")){
+               
+                listaLixeiras();  
+                
+           }else {
+
+                filtraLixeirasPorBairro();
+           }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void listaLixeiras() {
+        
+        // REMOVE LINHA DAS TABELAS
+        while (model.getRowCount() > 0)
+        {
+         model.removeRow(0);
+        }
+          
+        LixeiraDAO lixeiradao = new LixeiraDAO();
+        lixeiradao.listaLixeiras(model);    
+        jTableLixeira.setModel(model);
+        jScrollPane1.setViewportView(jTableLixeira); 
+       
     }
     
     public void filtraLixeirasPorBairro() {
+       
+        // REMOVE LINHA DAS TABELAS
+        while (model.getRowCount() > 0)
+        {
+         model.removeRow(0);
+        }
+        
         LixeiraDAO lixeiradao = new LixeiraDAO();
-        lixeiradao.filtraLixeirasPorBairro(jTableLixeira,  jTextFieldBairro);   
+        BairroDAO bairrodao = new BairroDAO();
+        String nomeBairro = jComboBox1.getSelectedItem().toString();
+        String codbairro = Integer.toString(bairrodao.codBairro(nomeBairro));
+        lixeiradao.filtraLixeirasPorBairro(model, codbairro);    
+        jTableLixeira.setModel(model);
+        jScrollPane1.setViewportView(jTableLixeira); 
+
     }
     
     public void selecionaLinha() {
@@ -524,11 +435,13 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private conexao.ConexaoDB conexaoDB1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxBairro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -539,7 +452,6 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLixeira;
-    private javax.swing.JTextField jTextFieldBairro;
     private javax.swing.JTextField jTextFieldCapacidade;
     private javax.swing.JTextField jTextFieldCodigoLixeira;
     private javax.swing.JTextField jTextFieldLatitude;
