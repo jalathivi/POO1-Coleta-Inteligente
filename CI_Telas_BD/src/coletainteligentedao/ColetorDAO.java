@@ -65,7 +65,7 @@ public void insere(Coletor coletor){
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM COLETOR");
+            stmt = con.prepareStatement("SELECT * FROM coletor");
             rs = stmt.executeQuery();
             
             while (rs.next()) {
@@ -130,7 +130,7 @@ public void insere(Coletor coletor){
         Coletor coletor;
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM COLETOR");
+            stmt = con.prepareStatement("SELECT * FROM coletor");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -194,7 +194,7 @@ public void insere(Coletor coletor){
         
         try {
             
-            stmt = con.prepareStatement("DELETE FROM lixeira WHERE cod_coletor=?");
+            stmt = con.prepareStatement("DELETE FROM coletor WHERE cod_coletor=?");
             stmt.setInt(1, coletor.getCodigo());
             
             stmt.executeUpdate();
@@ -217,7 +217,7 @@ public void insere(Coletor coletor){
         
         try {
             
-            stmt = con.prepareStatement("UPDATE lixeira SET placa=? modelo=? marca=? ano=? capacidade=? latitude=? longitude=?  WHERE cod_coletor=?");
+            stmt = con.prepareStatement("UPDATE coletor SET placa=?, modelo=?, marca=?, ano=?, capacidade=?, latitude=?, longitude=?  WHERE cod_coletor=?");
 
             stmt.setString(1, coletor.getPlaca());
             stmt.setString(2, coletor.getModelo());

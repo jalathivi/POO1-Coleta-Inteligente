@@ -81,7 +81,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         jTextFildlatitude = new javax.swing.JTextField();
         jTextFildlongitude = new javax.swing.JTextField();
         jComboBoxModelo = new javax.swing.JComboBox<>();
-        jButtonBuscar = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Coletor");
@@ -121,6 +121,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel8, gridBagConstraints);
 
+        jTextFildcod.setEditable(false);
         jTextFildcod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFildcodActionPerformed(evt);
@@ -155,7 +156,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jTextFildano, gridBagConstraints);
 
-        jButtonRegistrarColetor.setText("Registrar Veículo");
+        jButtonRegistrarColetor.setText("Cadastrar");
         jButtonRegistrarColetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarColetorActionPerformed(evt);
@@ -164,6 +165,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 40, 5, 5);
         jPanel1.add(jButtonRegistrarColetor, gridBagConstraints);
@@ -192,8 +194,9 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jButtonLimpar, gridBagConstraints);
@@ -205,10 +208,10 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 5, 5);
         jPanel1.add(jButtonSair, gridBagConstraints);
 
         jButton1.setText("Excluir");
@@ -218,8 +221,9 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jButton1, gridBagConstraints);
@@ -245,7 +249,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 656;
         gridBagConstraints.ipady = 78;
@@ -338,27 +342,22 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel1.add(jComboBoxModelo, gridBagConstraints);
 
-        jButtonBuscar.setText("Buscar");
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
+                jButtonEditarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
-        jPanel1.add(jButtonBuscar, gridBagConstraints);
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel1.add(jButtonEditar, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = -51;
-        gridBagConstraints.ipady = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 54);
-        getContentPane().add(jPanel1, gridBagConstraints);
+        getContentPane().add(jPanel1, new java.awt.GridBagConstraints());
 
-        setSize(new java.awt.Dimension(697, 424));
+        setSize(new java.awt.Dimension(727, 358));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -483,20 +482,50 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
-
-    }//GEN-LAST:event_jComboBoxModeloActionPerformed
-
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        if(jComboBoxModelo.getSelectedItem().toString().equalsIgnoreCase("Todos")){
-            listaColetores();  
-       }else {
+        if(jComboBoxModelo == null || jComboBoxModelo.getSelectedItem() == null){
+        }else if(jComboBoxModelo.getSelectedItem().toString().equalsIgnoreCase("Todos")){
+            listaColetores();
+        }else{
             filtra();
         }
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
+    }//GEN-LAST:event_jComboBoxModeloActionPerformed
 
     private void jComboBoxModeloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxModeloMouseClicked
 
     }//GEN-LAST:event_jComboBoxModeloMouseClicked
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        Coletor coletor;
+        ColetorDAO coletordao = new ColetorDAO();
+        
+        String codigo = jTextFildcod.getText();
+        String placa = jTextFildplaca.getText();
+        String marca = jTextFildmarca.getText();
+        String modelo = jTextFildmodelo.getText();
+        String ano = jTextFildano.getText();
+        String capacidade = jTextFildcapacidade.getText();
+        String latitude = jTextFildlatitude.getText();
+        String longitude = jTextFildlongitude.getText();
+        
+
+        try {
+            coletor = new Coletor();
+            coletor.setCodigo(codigo);
+            coletor.setPlaca(placa);
+            coletor.setMarca(marca);
+            coletor.setModelo(modelo);
+            coletor.setAno(ano);
+            coletor.setLatitude(latitude);
+            coletor.setLongitude(longitude);  
+            coletor.setCapacidade(capacidade);
+            coletordao.setColetor(coletor);
+            listaColetores();
+
+        } catch (Exception ex){
+            Logger.getLogger(TelaCadastroColetor.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_jButtonEditarActionPerformed
     public void listaColetores() {
         
         while (model.getRowCount() > 0)
@@ -569,7 +598,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonRegistrarColetor;
     private javax.swing.JButton jButtonSair;
