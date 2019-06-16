@@ -8,10 +8,12 @@ package visao;
 import coletainteligente.Coletor;
 import coletainteligente.PersistenciaArquivo;
 import coletainteligentedao.ColetorDAO;
+import java.util.List;
 import validador.ValidadorColetor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +21,8 @@ import javax.swing.JOptionPane;
  */
 public class TelaCadastroColetor extends javax.swing.JFrame {
 
+    DefaultTableModel model = new DefaultTableModel();
+    
     /**
      * Creates new form TelaCadastroColetor
      */
@@ -27,7 +31,20 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         inicializa();
     }
     private void inicializa() {
-        listaColetores();
+        
+        //CRIA CABEÇALHO
+        model.setColumnIdentifiers(new Object[]{"Cod_coletor","Placa","modelo", "marca", "ano", "capacidade", "latitude", "longitude"});
+        //SETANDO TABELA
+        jTableColetores.setModel(model);
+        listaColetores(); 
+        
+        ColetorDAO coletordao = new ColetorDAO();
+        List listamodelo = coletordao.selectListaModelo();
+        jComboBoxModelo.removeAllItems();
+        jComboBoxModelo.addItem("Todos");
+        for (Object modelo : listamodelo) {
+            jComboBoxModelo.addItem(modelo.toString());
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,13 +74,14 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableColetores = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextFildmodelo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextFildlatitude = new javax.swing.JTextField();
         jTextFildlongitude = new javax.swing.JTextField();
+        jComboBoxModelo = new javax.swing.JComboBox<>();
+        jButtonBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Coletor");
@@ -245,20 +263,6 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 40, 5, 5);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 70;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(jTextField1, gridBagConstraints);
-
         jLabel2.setText("Código");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -318,6 +322,33 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jTextFildlongitude, gridBagConstraints);
 
+        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxModelo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxModeloMouseClicked(evt);
+            }
+        });
+        jComboBoxModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxModeloActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        jPanel1.add(jComboBoxModelo, gridBagConstraints);
+
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        jPanel1.add(jButtonBuscar, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -338,10 +369,6 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
     private void jTextFildmodeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFildmodeloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFildmodeloActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTableColetoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableColetoresMouseClicked
             selecionaLinha();
@@ -454,9 +481,44 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
+
+    }//GEN-LAST:event_jComboBoxModeloActionPerformed
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        if(jComboBoxModelo.getSelectedItem().toString().equalsIgnoreCase("Todos")){
+            listaColetores();  
+       }else {
+            filtra();
+        }
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jComboBoxModeloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxModeloMouseClicked
+
+    }//GEN-LAST:event_jComboBoxModeloMouseClicked
     public void listaColetores() {
+        
+        while (model.getRowCount() > 0)
+        {
+         model.removeRow(0);
+        }
+        
         ColetorDAO coletordao = new ColetorDAO();
-        coletordao.listaColetores(jTableColetores);    
+        coletordao.listaColetores(model);
+        jTableColetores.setModel(model);
+        jScrollPane1.setViewportView(jTableColetores);
+    }
+    public void filtra() {
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+        
+        ColetorDAO coletordao = new ColetorDAO();
+        String modelo = jComboBoxModelo.getSelectedItem().toString();
+        coletordao.filtraColetoresPorMarca(model,modelo);
+        jTableColetores.setModel(model);
+        jScrollPane1.setViewportView(jTableColetores);
     }
     /**
      * @param args the command line arguments
@@ -507,9 +569,11 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonRegistrarColetor;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox<String> jComboBoxModelo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -522,7 +586,6 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableColetores;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFildano;
     private javax.swing.JTextField jTextFildcapacidade;
     private javax.swing.JTextField jTextFildcod;

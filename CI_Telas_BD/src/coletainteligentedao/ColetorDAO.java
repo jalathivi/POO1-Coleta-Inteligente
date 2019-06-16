@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -57,7 +58,7 @@ public void insere(Coletor coletor){
         
     }
     
-    public void listaColetores(JTable jTableLixeira) {
+   public void listaColetores(DefaultTableModel model) {
                     
         Connection con = ConexaoDB.getConexao();
         ResultSet rs = null;
@@ -66,7 +67,18 @@ public void insere(Coletor coletor){
         try {
             stmt = con.prepareStatement("SELECT * FROM COLETOR");
             rs = stmt.executeQuery();
-            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));    
+            
+            while (rs.next()) {
+                try {
+                    model.addRow(new Object[] 
+                    {Integer.toString(rs.getInt("cod_coletor")),rs.getString("placa"),rs.getString("modelo"),rs.getString("marca"),
+                     Integer.toString(rs.getInt("ano")), Integer.toString(rs.getInt("capacidade")), Float.toString(rs.getFloat("latitude")),
+                     Float.toString(rs.getFloat("longitude"))});
+                }
+                catch (SQLException ex) {
+                    Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
         } catch (SQLException ex) {
             Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Erro na listagem de coletores\n" + ex.getMessage()); 
@@ -76,19 +88,33 @@ public void insere(Coletor coletor){
         }  
     }
             
-    public void filtraColetoresPorMarca(JTable jTableLixeira, JTextField jTextField) {
+    public void filtraColetoresPorMarca(DefaultTableModel model, String modelo) {
         
         Connection con = ConexaoDB.getConexao();
         ResultSet rs;
-        PreparedStatement stmt;
+        PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM COLETOR WHERE MODELO ILIKE ?");
-            stmt.setString(1,(jTextField.getText()));
+            stmt = con.prepareStatement("SELECT * FROM coletor WHERE modelo = ?");
+            stmt.setString(1,(modelo));
             rs = stmt.executeQuery();
-            jTableLixeira.setModel(DbUtils.resultSetToTableModel(rs));
+            
+            while (rs.next()) {
+                try {
+                    model.addRow(new Object[] 
+                    {Integer.toString(rs.getInt("cod_coletor")),rs.getString("placa"),rs.getString("modelo"),rs.getString("marca"),
+                     Integer.toString(rs.getInt("ano")), Integer.toString(rs.getInt("capacidade")), Float.toString(rs.getFloat("latitude")),
+                     Float.toString(rs.getFloat("longitude"))});
+                }
+                catch (SQLException ex) {
+                    Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);  
         }
     }            
         
@@ -134,6 +160,29 @@ public void insere(Coletor coletor){
             ConexaoDB.closeConnection(con, stmt); 
         }  
        return listaColetor;
+    }
+    
+    public ArrayList selectListaModelo() {
+        Connection conexao = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList listaModelo = new ArrayList();
+
+        try {
+            stmt = conexao.prepareStatement("SELECT modelo FROM coletor GROUP BY modelo;");
+            rs = stmt.executeQuery();
+            
+           while(rs.next()) {
+               listaModelo.add(rs.getString("modelo"));
+           }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(conexao, stmt);
+        }
+        return listaModelo;
     }
           
     
