@@ -22,8 +22,8 @@ public class ValidadorColetor {
         if (placa.equalsIgnoreCase(""))
             throw new Exception ("Campo placa não pode ser vazio");
         
-        if (placa.length() != 7)
-            throw new Exception ("Tamanho da placa deve ser de 7 caracteres");
+        if (placa.length() != 8)
+            throw new Exception ("Tamanho da placa deve ser de 8 caracteres");
         
         if (placa.contains("-"))
             throw new Exception ("O caracter - nao deve ser inserido na placa");
@@ -74,7 +74,7 @@ public class ValidadorColetor {
         if (capacidade.equalsIgnoreCase(""))
             throw new Exception("Campo capacidade não pode ser vazio");
 
-        if (!capacidade.matches("[0-9]*"))
+        if (!capacidade.matches("[0-9.]*"))
             throw new Exception ("A capacidade deve conter apenas numeros");
         
         float cap = Float.parseFloat(capacidade);
