@@ -192,9 +192,8 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         // TODO add your handling code here:
         StatusDAO statusdao = new StatusDAO();
         int codLixeira = Integer.parseInt(jListLixeira.getSelectedValue());
-        System.out.println(codLixeira);
         int codStatus = statusdao.verificaUltimoStatus(codLixeira);
-        System.out.println(codStatus);
+        
         
     }//GEN-LAST:event_jButtonVerificaActionPerformed
 
