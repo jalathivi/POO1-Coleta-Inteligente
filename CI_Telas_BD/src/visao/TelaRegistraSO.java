@@ -5,6 +5,17 @@
  */
 package visao;
 
+import coletainteligente.Coletor;
+import coletainteligentedao.BairroDAO;
+import coletainteligentedao.ColetorDAO;
+import coletainteligentedao.LixeiraDAO;
+import coletainteligentedao.StatusDAO;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Vector;
+
 /**
  *
  * @author thiag
@@ -14,8 +25,30 @@ public class TelaRegistraSO extends javax.swing.JFrame {
     /**
      * Creates new form testeJframe
      */
+    private List <Object> listaBairro;
+    private List <Coletor> listaColetor;
+    
     public TelaRegistraSO() {
         initComponents();
+        
+        BairroDAO bairrodao = new BairroDAO();
+        listaBairro = bairrodao.selectListaBairro();
+        
+        ColetorDAO coletordao = new ColetorDAO();
+        listaColetor = coletordao.listaColetoresList();
+        
+        jComboBoxColetor.removeAllItems();
+        jComboBoxBairro.removeAllItems();
+        
+        listaBairro.forEach((bairro) -> {
+            jComboBoxBairro.addItem((String) bairro);
+        });
+        
+        listaColetor.forEach((coletor) -> {
+            jComboBoxColetor.addItem(coletor.getPlaca());
+        });
+        
+        
     }
 
     /**
@@ -32,14 +65,19 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         jButtonRegistrar = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListBairro = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListLixeira = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListStatus = new javax.swing.JList<>();
+        jComboBoxColetor = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBoxBairro = new javax.swing.JComboBox<>();
+        jButtonMostrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListLixeira = new javax.swing.JList<>();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldSOAtual = new javax.swing.JTextField();
+        jButtonVerifica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registra SO");
@@ -56,7 +94,7 @@ public class TelaRegistraSO extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 242, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,47 +102,57 @@ public class TelaRegistraSO extends javax.swing.JFrame {
                 jButtonVoltarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 242, -1, -1));
+        jPanel1.add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
-        jLabel2.setText("Selecionar Bairro");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 62, -1, -1));
-
-        jListBairro.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jListBairro);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 82, 83, -1));
+        jLabel2.setText("Selecionar Coletor");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel3.setText("Selecionar Lixeira");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 62, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
-        jListLixeira.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jListLixeira);
+        jLabel4.setText("Novo Status");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 80, -1));
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 82, 86, -1));
-
-        jLabel4.setText("Selecionar Status");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 62, -1, -1));
-
-        jListStatus.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane3.setViewportView(jListStatus);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 82, 85, -1));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 85, 100));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 300));
+        jComboBoxColetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBoxColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 190, -1));
 
-        setSize(new java.awt.Dimension(457, 339));
+        jLabel5.setText("Selecionar Bairro");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jComboBoxBairro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 190, -1));
+
+        jButtonMostrar.setText("Mostrar Lixeiras");
+        jButtonMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMostrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+
+        jScrollPane1.setViewportView(jListLixeira);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 100));
+
+        jLabel6.setText("Situação Operacional Atual");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
+        jPanel1.add(jTextFieldSOAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 70, -1));
+
+        jButtonVerifica.setText("Verificar Status");
+        jButtonVerifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerificaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonVerifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 370));
+
+        setSize(new java.awt.Dimension(457, 406));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,7 +163,40 @@ public class TelaRegistraSO extends javax.swing.JFrame {
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
+
+    private void jButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarActionPerformed
+        // TODO add your handling code here:
+        int codBairro;
+        List<Integer> dados;
+        BairroDAO bairrodao = new BairroDAO();
+        LixeiraDAO lixeiradao = new LixeiraDAO();
+        
+        String nomeBairro = (String) listaBairro.get(jComboBoxBairro.getSelectedIndex());
+        codBairro = bairrodao.codBairro(nomeBairro);
+        dados = new ArrayList();
+        dados = lixeiradao.listaLixeirasPorBairro(codBairro);
+        String[] cod;
+        cod = new String[dados.size()];
+        
+        for(int i=0; i<dados.size();i++) {
+            cod[i] = Integer.toString(dados.get(i));
+        }
+        jListLixeira.setListData(cod);
+        
+        
+    }//GEN-LAST:event_jButtonMostrarActionPerformed
+
+    private void jButtonVerificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerificaActionPerformed
+        // TODO add your handling code here:
+        StatusDAO statusdao = new StatusDAO();
+        int codLixeira = Integer.parseInt(jListLixeira.getSelectedValue());
+        System.out.println(codLixeira);
+        int codStatus = statusdao.verificaUltimoStatus(codLixeira);
+        System.out.println(codStatus);
+        
+    }//GEN-LAST:event_jButtonVerificaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,18 +235,23 @@ public class TelaRegistraSO extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonMostrar;
     private javax.swing.JButton jButtonRegistrar;
+    private javax.swing.JButton jButtonVerifica;
     private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JComboBox<String> jComboBoxBairro;
+    private javax.swing.JComboBox<String> jComboBoxColetor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jListBairro;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jListLixeira;
     private javax.swing.JList<String> jListStatus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextFieldSOAtual;
     // End of variables declaration//GEN-END:variables
 }

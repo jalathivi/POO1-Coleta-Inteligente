@@ -188,7 +188,8 @@ public class TelaColeta extends javax.swing.JFrame {
         while (model.getRowCount() > 0)
         {
          model.removeRow(0);
-        }
+        }//
+        
         bairrodao.listaLixeirasCheias(model, nomeBairro);
         jTable1.setModel(model);
         jScrollPane2.setViewportView(jTable1);    

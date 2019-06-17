@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -88,6 +90,29 @@ public class LixeiraDAO {
         } finally {
             ConexaoDB.closeConnection(con, stmt); 
         }  
+    }
+    
+    public List<Integer> listaLixeirasPorBairro(int codbairro) {
+        Connection con = ConexaoDB.getConexao();
+        ResultSet rs;
+        PreparedStatement stmt = null;
+        List<Integer> dados = new ArrayList();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM lixeira WHERE cod_bairro = ?;");
+            stmt.setInt(1, codbairro);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+               dados.add(rs.getInt("cod_lixeira"));
+           }
+        } catch (SQLException ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);
+        }
+        return dados;
     }
             
     public void filtraLixeirasPorBairro(DefaultTableModel model, String codbairro) {
