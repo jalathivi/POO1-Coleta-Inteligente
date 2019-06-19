@@ -79,7 +79,7 @@ public class StatusDAO {
     }
     
     
-    public ArrayList selectListaStatus() {
+    public ArrayList selectListaDescricao() {
         Connection conexao = ConexaoDB.getConexao();
         PreparedStatement stmt = null;
         ResultSet rs = null;

@@ -219,7 +219,7 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
             statusDAO.insere(status);
             registro.salvaStatus(status);
             JOptionPane.showMessageDialog(null, "Status cadastrado com sucesso!");
-            jListStatus.setListData(statusDAO.selectListaStatus().toArray());
+            jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
             campoDescricaoStatus.setText("");
 
         } catch (Exception ex){
@@ -250,7 +250,7 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
     private void jButtonViewStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewStatusActionPerformed
         // TODO add your handling code here:
         StatusDAO statusDAO = new StatusDAO();
-        jListStatus.setListData(statusDAO.selectListaStatus().toArray());
+        jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
         
     }//GEN-LAST:event_jButtonViewStatusActionPerformed
 
@@ -262,22 +262,22 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
         // TODO add your handling code here:
         StatusDAO statusDAO = new StatusDAO();
         int index = jListStatus.getSelectedIndex();
-        ArrayList dados = statusDAO.selectListaStatus();
+        ArrayList dados = statusDAO.selectListaDescricao();
         statusDAO.deleta((String) dados.get(index));
-        jListStatus.setListData(statusDAO.selectListaStatus().toArray());
+        jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
     }//GEN-LAST:event_jButtonDeletarActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
         StatusDAO statusDAO = new StatusDAO();
         int index = jListStatus.getSelectedIndex();
-        ArrayList dados = statusDAO.selectListaStatus();
+        ArrayList dados = statusDAO.selectListaDescricao();
         if(("".equals(campoNovaDescricao.getText())) || index == -1 ) {
             JOptionPane.showMessageDialog(null, "Insira uma descrição");
         }else{
             statusDAO.alteraStatus((String) dados.get(index), campoNovaDescricao.getText());
             campoNovaDescricao.setText(null);
-            jListStatus.setListData(statusDAO.selectListaStatus().toArray());
+            jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
         }
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
