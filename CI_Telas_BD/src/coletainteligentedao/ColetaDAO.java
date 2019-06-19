@@ -8,7 +8,6 @@ package coletainteligentedao;
 import coletainteligente.Coleta;
 import conexao.ConexaoDB;
 import java.sql.*;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -29,10 +28,14 @@ public class ColetaDAO {
         PreparedStatement stmt = null;
 
         try{
-            stmt = con.prepareStatement("INSERT INTO coleta (cod_coletor, cod_lixeira, volume) VALUES (?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO coleta (cod_coletor, cod_lixeira, volume,hora_coleta, data_coleta) VALUES (?,?,?,?,?)");
             stmt.setInt(1, coleta.coletor.getCodigo());
             stmt.setInt(2, coleta.lixeira.getCodigo());
             stmt.setDouble(3, coleta.getVolume());
+            
+            stmt.setTime(4, coleta.getTime());
+            stmt.setDate(5, coleta.getData1());
+            
             stmt.executeUpdate();
             
             stmt = con.prepareStatement("UPDATE lixeira SET nivel_atual = 0 WHERE cod_lixeira=?");
@@ -58,7 +61,7 @@ public class ColetaDAO {
         try {
             
             stmt = con.prepareStatement("DELETE FROM coleta WHERE data_coleta=?");
-            stmt.setDate(1, (Date) coleta.getData_atual());
+            stmt.setString(1, coleta.getStringData());
             
             stmt.executeUpdate();
             
@@ -100,18 +103,16 @@ public class ColetaDAO {
         
         try {
             
-            stmt = con.prepareStatement("UPDATE coleta SET cod_lixeira=?, cod_coletor=?, volume=?, hora_coletada=?, data_coleta=? WHERE data_coleta=?");
+            stmt = con.prepareStatement("UPDATE coleta SET cod_lixeira=?, cod_coletor=?, volume=?, hora_coleta=?, data_coleta=? WHERE data_coleta=?");
             stmt.setInt(1, coleta.getLixeira().getCodigo());
             stmt.setInt(2, coleta.getColetor().getCodigo());
             stmt.setDouble(3, coleta.getVolume());
-            stmt.setDate(4, (Date) coleta.getHoras());
-            stmt.setDate(5, (Date) coleta.getData_atual());
+            JOptionPane.showMessageDialog(null, coleta.getStringHora());
+            stmt.setString(4, coleta.getStringHora());
+            stmt.setString(5, coleta.getStringData());
             stmt.executeUpdate();
             
 
-            
-            
-            
             JOptionPane.showMessageDialog(null, "Update realizado com sucesso");
             ConexaoDB.closeConnection(con, stmt);
             
@@ -124,10 +125,5 @@ public class ColetaDAO {
         }   
     }
     
-    
-    
-    
-    
-    
-    
+  
 }

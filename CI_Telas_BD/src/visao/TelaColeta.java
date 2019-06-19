@@ -5,7 +5,7 @@
  */
 package visao;
 
-import coletainteligente.Bairro;
+
 import coletainteligente.Coleta;
 import coletainteligente.Coletor;
 import coletainteligente.Lixeira;
@@ -15,11 +15,8 @@ import coletainteligentedao.ColetaDAO;
 import coletainteligentedao.ColetorDAO;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -64,17 +61,7 @@ public class TelaColeta extends javax.swing.JFrame {
         //SETANDO TABELA
         jTable1.setModel(model);
         jScrollPane2.setViewportView(jTable1); 
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
     }
 
     /**
@@ -227,7 +214,7 @@ public class TelaColeta extends javax.swing.JFrame {
           
             coleta.setColetor(coletor);
             coleta.setLixeira(lixeira);
-            coleta.setData(Calendar.getInstance());
+            coleta.setData(Calendar.getInstance().getTime());
             
             ColetaDAO coletadao = new ColetaDAO();
             coletadao.insere(coleta);
