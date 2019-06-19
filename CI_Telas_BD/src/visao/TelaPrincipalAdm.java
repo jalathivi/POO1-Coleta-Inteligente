@@ -26,6 +26,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,10 +43,16 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setEnabled(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("Administrador");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
+        jPanel1.add(jLabel1, gridBagConstraints);
 
         jButtonLixeira.setText("Cadastrar Lixeira");
         jButtonLixeira.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +60,14 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonLixeiraActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonLixeira, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 170, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(56, 4, 0, 80);
+        jPanel1.add(jButtonLixeira, gridBagConstraints);
 
         jButtonColetor.setText("Cadastrar Coletor");
         jButtonColetor.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +75,14 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonColetorActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 150, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(56, 40, 0, 0);
+        jPanel1.add(jButtonColetor, gridBagConstraints);
 
         cadastraBairro.setText("Cadastrar Bairro");
         cadastraBairro.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +90,14 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 cadastraBairroActionPerformed(evt);
             }
         });
-        jPanel1.add(cadastraBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 150, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 40, 0, 0);
+        jPanel1.add(cadastraBairro, gridBagConstraints);
 
         jButtonSituacaoOperacional.setText("Registrar S.O. da Lixeira");
         jButtonSituacaoOperacional.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +105,14 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonSituacaoOperacionalActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSituacaoOperacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 170, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 4, 0, 80);
+        jPanel1.add(jButtonSituacaoOperacional, gridBagConstraints);
 
         jButtonColeta.setText("Gerar Rota para Coleta");
         jButtonColeta.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +120,14 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonColetaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonColeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 170, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 4, 0, 80);
+        jPanel1.add(jButtonColeta, gridBagConstraints);
 
         jButtonStatus.setText("Criar Status");
         jButtonStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +135,14 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonStatusActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 40, 0, 0);
+        jPanel1.add(jButtonStatus, gridBagConstraints);
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +150,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 jButtonVoltarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 0, 17, 0);
+        jPanel1.add(jButtonVoltar, gridBagConstraints);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 300));
 

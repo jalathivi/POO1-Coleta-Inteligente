@@ -139,8 +139,8 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 100));
 
         jLabel6.setText("Situação Operacional Atual");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
-        jPanel1.add(jTextFieldSOAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 70, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        jPanel1.add(jTextFieldSOAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, 40));
 
         jButtonVerifica.setText("Verificar Status");
         jButtonVerifica.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +193,14 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         StatusDAO statusdao = new StatusDAO();
         int codLixeira = Integer.parseInt(jListLixeira.getSelectedValue());
         int codStatus = statusdao.verificaUltimoStatus(codLixeira);
+        System.out.println(codStatus);
+        String descricao;
+        if(codStatus == 0){
+            jTextFieldSOAtual.setText("Não há registro");
+        }else {
+            descricao = statusdao.retornaDescricao(codStatus);
+            jTextFieldSOAtual.setText(descricao);
+        }
         
         
     }//GEN-LAST:event_jButtonVerificaActionPerformed

@@ -22,17 +22,17 @@ public class ValidadorColetor {
         if (placa.equalsIgnoreCase(""))
             throw new Exception ("Campo placa não pode ser vazio");
         
-        if (placa.length() != 8)
-            throw new Exception ("Tamanho da placa deve ser de 8 caracteres");
+        if (placa.length() != 7)
+            throw new Exception ("Tamanho da placa deve ser de 7 caracteres");
         
-//        if (placa.contains("-"))
-//            throw new Exception ("O caracter - nao deve ser inserido na placa");
+        if (placa.contains("-"))
+            throw new Exception ("O caracter - nao deve ser inserido na placa");
 
         if (!placa.substring(0, 3).matches("[A-Z]*"))
             throw new Exception ("Tres primeiros caracteres da placa devem ser letras maiusculas");
         
-//        if (!placa.substring(3).matches("[0-9]*"))
-//            throw new Exception ("Quatro ultimos caracteres da placa devem ser numeros");
+        if (!placa.substring(3).matches("[0-9]*"))
+            throw new Exception ("Quatro ultimos caracteres da placa devem ser numeros");
     }
     
     public void marca (String marca) throws Exception{
