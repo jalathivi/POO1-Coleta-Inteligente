@@ -25,7 +25,8 @@ public class ValidadorColetor {
         if (placa.length() != 7)
             throw new Exception ("Tamanho da placa deve ser de 7 caracteres");
         
-       if (placa.contains("-"))
+
+        if (placa.contains("-"))
             throw new Exception ("O caracter - nao deve ser inserido na placa");
 
         if (!placa.substring(0, 3).matches("[A-Z]*"))
