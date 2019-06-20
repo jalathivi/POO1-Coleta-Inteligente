@@ -68,11 +68,10 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        conexaoDB1 = new conexao.ConexaoDB();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCapacidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxBairro = new javax.swing.JComboBox<>();
+        jComboBoxBairro = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldLatitude = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -451,11 +450,20 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
             
             LixeiraDAO lixeiradao = new LixeiraDAO();
             lixeiradao.setLixeira(lixeira);
-            listaLixeiras();
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             Logger.getLogger(TelaCadastroLixeira.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+            if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("Todos")){
+
+                 listaLixeiras();  
+
+            }else {
+
+                 filtraLixeirasPorBairro();
+            }
         
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
@@ -476,7 +484,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
        }else {
 
             filtraLixeirasPorBairro();
-   }
+       }
     
     }//GEN-LAST:event_jComboBox1ActionPerformed
     public void listaLixeiras() {
@@ -559,7 +567,6 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private conexao.ConexaoDB conexaoDB1;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
