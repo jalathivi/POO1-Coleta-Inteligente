@@ -36,7 +36,6 @@ public class TelaColeta extends javax.swing.JFrame {
     public TelaColeta() {
         initComponents();
         
-       
         BairroDAO bairrodao = new BairroDAO();
         listaBairro = bairrodao.selectListaBairro();
         
@@ -57,7 +56,7 @@ public class TelaColeta extends javax.swing.JFrame {
         //CRIA TABELA
         model = new DefaultTableModel();
         //CRIA CABEÇALHO
-        model.setColumnIdentifiers(new Object[]{"Código Lixeira", "Nivel Atual", "Latitude", "Longitude"});
+        model.setColumnIdentifiers(new Object[]{"Código Lixeira", "Volume Atual", "Latitude", "Longitude"});
         //SETANDO TABELA
         jTable1.setModel(model);
         jScrollPane2.setViewportView(jTable1); 
@@ -117,10 +116,10 @@ public class TelaColeta extends javax.swing.JFrame {
                 jbIniciarColetaActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIniciarColeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
+        getContentPane().add(jbIniciarColeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
-        jlNivelColetado.setText("Nivel Coletado");
-        getContentPane().add(jlNivelColetado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, 20));
+        jlNivelColetado.setText("Volume Coletado");
+        getContentPane().add(jlNivelColetado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, 20));
 
         jtfNivelTotal.setEditable(false);
         jtfNivelTotal.setBackground(new java.awt.Color(255, 255, 255));
@@ -130,7 +129,7 @@ public class TelaColeta extends javax.swing.JFrame {
                 jtfNivelTotalActionPerformed(evt);
             }
         });
-        getContentPane().add(jtfNivelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 60, -1));
+        getContentPane().add(jtfNivelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 70, -1));
 
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -169,80 +168,85 @@ public class TelaColeta extends javax.swing.JFrame {
     private void jbGerarRotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGerarRotaActionPerformed
         
         BairroDAO bairrodao = new BairroDAO();
-        String nomeBairro = (String) listaBairro.get(jcbBairro.getSelectedIndex());
-        
-        // REMOVE LINHA DAS TABELAS
-        while (model.getRowCount() > 0)
+        jtfNivelTotal.setText("");
+        if(jcbBairro.getSelectedIndex() != -1  && jcbColetor.getSelectedIndex() != -1)
         {
-         model.removeRow(0);
-        }//
-        
-        bairrodao.listaLixeirasCheias(model, nomeBairro);
-        jTable1.setModel(model);
-        jScrollPane2.setViewportView(jTable1);    
+            
+            String nomeBairro = (String) listaBairro.get(jcbBairro.getSelectedIndex());
+            float capacidadeCaminhao = (float) listaColetor.get(jcbColetor.getSelectedIndex()).getCapacidade();
+            // REMOVE LINHA DAS TABELAS
+            while (model.getRowCount() > 0)
+            {
+             model.removeRow(0);
+            }//
+
+            bairrodao.listaLixeirasCheias(model, nomeBairro,capacidadeCaminhao);
+
+            if (model.getRowCount() == 0){
+                JOptionPane.showMessageDialog(null, "Não há lixeiras cheias!");
+            }
+            
+            jTable1.setModel(model);
+            jScrollPane2.setViewportView(jTable1); 
+            
+        }else{
+             JOptionPane.showMessageDialog(null, "Deve ser selecionado um bairro e um coletor!");
+        }
     }//GEN-LAST:event_jbGerarRotaActionPerformed
 
     private void jbIniciarColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIniciarColetaActionPerformed
-        // TODO add your handling code here:
-      
-        // int select = jTableLixeira.getSelectedRow();
-       // jTextFieldCodigoLixeira.setText(jTableLixeira.getModel().getValueAt(select,0).toString());
         
-        
-        int indice = jcbColetor.getSelectedIndex();
-        Coletor coletor =  listaColetor.get(indice);
-        Lixeira lixeira = new Lixeira();
-        Coleta coleta = new Coleta();
-      
-        
-        float nivelTotal = 0;
-     
-        while (model.getRowCount() > 0 && nivelTotal < coletor.getCapacidade())
-        {
-            try {
-                // Pega primeira linha da tabela
-                lixeira.setCodigo(jTable1.getModel().getValueAt(0,0).toString());
-                coleta.setVolume(jTable1.getModel().getValueAt(0,1).toString());
-            } catch (Exception ex) {
-                Logger.getLogger(TelaColeta.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            // Remove primeira linha
-            model.removeRow(0);
-            
-            JOptionPane.showMessageDialog(null, "Lixeira coletada:  "+ lixeira.getCodigo());
-          
-            coleta.setColetor(coletor);
-            coleta.setLixeira(lixeira);
-            coleta.setData(Calendar.getInstance().getTime());
-            
-            ColetaDAO coletadao = new ColetaDAO();
-            coletadao.insere(coleta);
-            PersistenciaArquivo arquivo = new PersistenciaArquivo();
-            arquivo.salvaColeta(coleta);
+        if(model.getRowCount() != 0){
+            int indice = jcbColetor.getSelectedIndex();
+            Coletor coletor =  listaColetor.get(indice);
+            Lixeira lixeira = new Lixeira();
+            Coleta coleta = new Coleta();
 
-            nivelTotal += coleta.getVolume();
-            jtfNivelTotal.setText(Float.toString(nivelTotal));
-            
-           try {
-                Thread.sleep(1500);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(TelaColeta.class.getName()).log(Level.SEVERE, null, ex);
+
+            float nivelTotal = 0;
+
+            while (model.getRowCount() > 0 )
+            {
+                try {
+                    // Pega primeira linha da tabela
+                    lixeira.setCodigo(jTable1.getModel().getValueAt(0,0).toString());
+                    coleta.setVolume(jTable1.getModel().getValueAt(0,1).toString());
+                } catch (Exception ex) {
+                    Logger.getLogger(TelaColeta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                // Remove primeira linha
+                model.removeRow(0);
+
+                //JOptionPane.showMessageDialog(null, "Lixeira coletada:  "+ lixeira.getCodigo());
+
+                coleta.setColetor(coletor);
+                coleta.setLixeira(lixeira);
+                coleta.setData(Calendar.getInstance().getTime());
+
+                ColetaDAO coletadao = new ColetaDAO();
+                coletadao.insere(coleta);
+                PersistenciaArquivo arquivo = new PersistenciaArquivo();
+                arquivo.salvaColeta(coleta);
+
+                nivelTotal += coleta.getVolume();
+                jtfNivelTotal.setText(Float.toString(nivelTotal));
+
+               try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(TelaColeta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
-             
+
+            // SET do model
+            jTable1.setModel(model);
+            jScrollPane2.setViewportView(jTable1);
+
+            JOptionPane.showMessageDialog(null, "Coleta Registrada");
+            
         }
-        
-        // SET do model
-        jTable1.setModel(model);
-        jScrollPane2.setViewportView(jTable1);
-                
-        
-        
-        
-      
-       
-        JOptionPane.showMessageDialog(null, "Coleta Registrada");
-        this.dispose();
         
     }//GEN-LAST:event_jbIniciarColetaActionPerformed
 

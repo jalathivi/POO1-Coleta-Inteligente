@@ -111,7 +111,7 @@ public class BairroDAO {
         ArrayList dados = new ArrayList();
 
         try {
-            stmt = conexao.prepareStatement("SELECT * FROM bairro;");
+            stmt = conexao.prepareStatement("SELECT * FROM bairro ORDER BY nome;");
             //stmt.setString(1, nome);
             rs = stmt.executeQuery();
             
@@ -128,22 +128,23 @@ public class BairroDAO {
         return dados;
     }
     
-    public void listaLixeirasCheias(DefaultTableModel model, String nome) {
+    public void listaLixeirasCheias(DefaultTableModel model, String nome, float capacidadeCaminhao) {
         Connection conexao = ConexaoDB.getConexao();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        
+        float total = 0;
         try {
-            stmt = conexao.prepareStatement("SELECT cod_lixeira, nivel_atual, latitude, longitude FROM LIXEIRA INNER JOIN BAIRRO ON (BAIRRO.COD_BAIRRO = LIXEIRA.COD_BAIRRO) WHERE nivel_atual >= 70 AND bairro.nome = ?");
+            stmt = conexao.prepareStatement("SELECT cod_lixeira, nivel_atual, latitude, longitude, (capacidade *  (nivel_atual/100.0)) as  volumeAtual FROM LIXEIRA INNER JOIN BAIRRO ON (BAIRRO.COD_BAIRRO = LIXEIRA.COD_BAIRRO) WHERE nivel_atual >= 70 AND bairro.nome = ?");
             stmt.setString(1, nome);
             rs = stmt.executeQuery();
             
-           while(rs.next()) {
-              
+            
+           while(rs.next() && ((total + rs.getFloat("volumeAtual")) < capacidadeCaminhao)) {
+                 total += rs.getFloat("volumeAtual") ;
                
                 try {
-         
-                    model.addRow(new Object[]{Integer.toString(rs.getInt("cod_lixeira")),Float.toString(rs.getFloat("nivel_atual")),Float.toString(rs.getFloat("latitude")), Float.toString(rs.getFloat("longitude"))});
+                    
+                    model.addRow(new Object[]{Integer.toString(rs.getInt("cod_lixeira")),Float.toString(rs.getFloat("volumeAtual")),Float.toString(rs.getFloat("latitude")), Float.toString(rs.getFloat("longitude"))});
                     
                 } catch (Exception ex) {
                     Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);

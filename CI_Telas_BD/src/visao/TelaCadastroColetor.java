@@ -80,7 +80,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextFildlatitude = new javax.swing.JTextField();
         jTextFildlongitude = new javax.swing.JTextField();
-        jComboBoxModelo = new javax.swing.JComboBox<>();
+        jComboBoxModelo = new javax.swing.JComboBox<String>();
         jButtonEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -228,6 +228,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jButton1, gridBagConstraints);
 
+        jTableColetores.setAutoCreateRowSorter(true);
         jTableColetores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -326,7 +327,6 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jTextFildlongitude, gridBagConstraints);
 
-        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxModelo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBoxModeloMouseClicked(evt);
