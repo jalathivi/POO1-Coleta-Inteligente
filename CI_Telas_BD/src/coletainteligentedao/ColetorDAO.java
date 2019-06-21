@@ -130,7 +130,7 @@ public void insere(Coletor coletor){
         Coletor coletor;
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM coletor");
+            stmt = con.prepareStatement("SELECT * FROM coletor ORDER BY cod_coletor ASC");
             rs = stmt.executeQuery();
             
             while(rs.next()){
