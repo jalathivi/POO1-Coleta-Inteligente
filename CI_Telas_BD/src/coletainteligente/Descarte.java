@@ -1,13 +1,16 @@
 
 package coletainteligente;
-import java.util.Calendar;
-import java.util.Random;
+
+import java.sql.Time;
+import java.text.DateFormat;
+import java.util.Date;
 
 public class Descarte {
-    private Lixeira lixeira;
-    private Cidadao cidadao;
-    private Calendar data;
-    private float nivelAtual;
+    
+    public Lixeira lixeira;
+    public Cidadao cidadao;
+    public Date data;
+    public float volume;
     
     //ATributos provisórios
     //private int codLixeira;
@@ -19,11 +22,11 @@ public class Descarte {
     }
 
     
-    public Descarte(Lixeira lixeira, Cidadao cidadao, String nivelAtual, Calendar data ){
+    public Descarte(Lixeira lixeira, Cidadao cidadao, String volume, Date data ){
         setLixeira(lixeira);
         setCidadao(cidadao);
         setData(data);
-        setNivelAtual(nivelAtual);
+        setVolume(volume);
     }    
     
     //CONTRUTOR PROVISÓRIO ENQUANTO NÃO DÁ PRA RESGATAR AS INFORMAÇÕES DO BANCO, OU DO ARQUIVO POR PREGUIÇA RS
@@ -75,51 +78,43 @@ public class Descarte {
         return lixeira;
     }
     
-    public void setNivelAtual(String nivelAtual) {
-        this.nivelAtual = Float.parseFloat(nivelAtual);
+    public void setVolume(String nivelAtual) {
+        this.volume = Float.parseFloat(nivelAtual);
     }
     
-    public float getNivelAtual() {
-        return nivelAtual;
+    public float getVolume() {
+        return volume;
     }
     
-    public void setData(Calendar data) {
+    public void setData(Date data) {
         this.data = data;
     }
     
-    public Calendar getData() {
+    public Date getData() {
+        return data;
+    }    
+
+    public java.sql.Date getData1() {
+        java.sql.Date data = new java.sql.Date(this.data.getTime());
         return data;
     }
-    
-    public int getHora() {
-        return data.get(Calendar.HOUR_OF_DAY);
+     
+    public String getStringHora() {
+        DateFormat hora = DateFormat.getTimeInstance();
+        return hora.format(data);
     }
     
-    public int getMinutos(){
-        return data.get(Calendar.MINUTE);
+    public Time getTime() {
+        Time time = new Time(data.getTime());
+        return time;
     }
-    
-    public int getDia(){
-        return data.get(Calendar.DAY_OF_MONTH);
-    }
-    public int getMes(){
-        return data.get(Calendar.MONTH);
-    }
-    public int getAno(){
-        return data.get(Calendar.YEAR);
-    }
-
-    public String getStringHora(){
-        return " " + getHora() + ":" + getMinutos() + " ";
-    }
-            
-    public String getStringData(){
-        return " " + getAno() + "-" + getMes() + "-" +  + getDia() + " ";
-    }
-    
+    public String getStringData() {
+        DateFormat formataData = DateFormat.getDateInstance();
+        return formataData.format(data);
+    }   
     @Override
     public String toString() {
-        return getLixeira().getCodigo()+", "+getCidadao().getCodigo()+", "+getNivelAtual()+", "+getStringData()+", "+getStringHora();
+        return getLixeira().getCodigo()+", "+getCidadao().getCodigo()+", "+getVolume()+", "+getStringData()+", "+getStringHora();
     }
     
 }
