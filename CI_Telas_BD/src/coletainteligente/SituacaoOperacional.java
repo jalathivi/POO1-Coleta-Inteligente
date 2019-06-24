@@ -1,23 +1,18 @@
 
 package coletainteligente;
+import java.sql.Time;
 import java.util.Calendar;
+import java.util.Date;
 
 public class SituacaoOperacional {
-    private Lixeira lixeira;
-    private Coletor coletor;
-    private Status status;
+    public Lixeira lixeira;
+    public Coletor coletor;
+    public Status status;
     private Calendar data;
+    private Date date;
     
     public SituacaoOperacional(){
     }
-    
-    /*NÃO ESTÁ DANDO CERTO CONSTRUTORES COM PAREMETROS POR MOTIVOS DE VALIDACAO
-    public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data ){
-        this.lixeira = lixeira;
-        this.coletor = coletor;
-        this.status = status;
-        this.data = data;
-    }*/
     
     public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data ){
         setLixeira(lixeira);
@@ -25,6 +20,16 @@ public class SituacaoOperacional {
         setStatus(status);
         setData(data);
     }   
+    
+    //Contrutor pro BD
+    public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Date date) {
+        setLixeira(lixeira);
+        setColetor(coletor);
+        setStatus(status);
+        setDate(date);
+    }
+    
+    
     public void setData (Calendar data){
         this.data = data;
     }
@@ -88,6 +93,26 @@ public class SituacaoOperacional {
     @Override
     public String toString() {
         return getCodLixeira()+", "+getCodLixeira()+", "+getCodStatus()+", "+getStringData()+", "+getStringHora();
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
+    public java.sql.Date getDate() {
+        java.sql.Date date = new java.sql.Date(this.date.getTime());
+        System.out.print("date:" + date);
+        
+        return date;
+    }
+    
+    public Time getTime() {
+        Time time = new Time(date.getTime());
+        System.out.print(time);
+        return time;
     }
    
 }

@@ -7,6 +7,7 @@ package coletainteligentedao;
 
 import coletainteligente.Bairro;
 import coletainteligente.Lixeira;
+import coletainteligente.SituacaoOperacional;
 import coletainteligente.Status;
 import conexao.ConexaoDB;
 import java.sql.Connection;
@@ -22,29 +23,26 @@ import javax.swing.JOptionPane;
  */
 public class SituacaoOperacionalDAO {
     
-  /*  public void insere(Bairro bairro, Lixeira lixeira, Status status){
+    public void insere(SituacaoOperacional so){
         
         Connection con = ConexaoDB.getConexao();
         PreparedStatement stmt = null;
         
         try {
             
-            stmt = con.prepareStatement("INSERT INTO situacao_operacional ( cod_lixeira, cod_coletor, marca, ano, capacidade, latitude, longitude) VALUES (?,?,?,?,?,?,?)");
-            stmt.setString(1, coletor.getPlaca());
-            stmt.setString(2, coletor.getModelo());
-            stmt.setString(3, coletor.getMarca());
-            stmt.setInt(4, coletor.getAno());
-            stmt.setFloat(5, coletor.getCapacidade());
-            stmt.setFloat(6, coletor.getLatitude());
-            stmt.setFloat(7, coletor.getLongitude());
-            
+            stmt = con.prepareStatement("INSERT INTO situacao_operacional (cod_lixeira, cod_coletor, cod_status, hora_status, data_status) VALUES (?,?,?,?,?);");
+            stmt.setInt(1, so.lixeira.getCodigo());
+            stmt.setInt(2, so.coletor.getCodigo());
+            stmt.setInt(3, so.status.getCodigo());
+            stmt.setTime(4, so.getTime());
+            stmt.setDate(5, so.getDate());
             stmt.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Insert criado com sucesso");
+            System.out.print("Insert criado com sucesso");
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
-            Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SituacaoOperacionalDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
             
         } finally {
@@ -52,6 +50,6 @@ public class SituacaoOperacionalDAO {
         }
         
     }
-*/
+
     
 }

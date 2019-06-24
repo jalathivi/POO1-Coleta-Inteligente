@@ -6,15 +6,24 @@
 package visao;
 
 import coletainteligente.Coletor;
+import coletainteligente.Lixeira;
+import coletainteligente.SituacaoOperacional;
+import coletainteligente.Status;
 import coletainteligentedao.BairroDAO;
 import coletainteligentedao.ColetorDAO;
 import coletainteligentedao.LixeiraDAO;
+import coletainteligentedao.SituacaoOperacionalDAO;
 import coletainteligentedao.StatusDAO;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -68,7 +77,7 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jListStatus = new javax.swing.JList<>();
+        jListStatus = new javax.swing.JList();
         jComboBoxColetor = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jComboBoxBairro = new javax.swing.JComboBox<>();
@@ -162,7 +171,30 @@ public class TelaRegistraSO extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        // TODO add your handling code here:
+        SituacaoOperacional so;
+        SituacaoOperacionalDAO soDAO = new SituacaoOperacionalDAO();
+        Lixeira lixeira = new Lixeira();
+        Coletor coletor = new Coletor();
+        Status status = new Status();
+        StatusDAO statusDAO = new StatusDAO();
+        try {
+            // TODO add your handling code here:
+            lixeira.setCodigo(jListLixeira.getSelectedValue());
+            coletor.setCodigo(Integer.toString(jComboBoxColetor.getSelectedIndex() + 1));
+            status.setCodigo(Integer.toString(statusDAO.retornaCodigo((String) jListStatus.getSelectedValue())));
+            so = new SituacaoOperacional(lixeira, coletor, status, Calendar.getInstance().getTime());
+            soDAO.insere(so);
+            JOptionPane.showMessageDialog(null, "Realizado o Registro");
+            jTextFieldSOAtual.setText("");
+            
+            
+            
+            // Contrutor SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data)
+        } catch (Exception ex) {
+            System.out.print(ex.getMessage());
+            Logger.getLogger(TelaRegistraSO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
@@ -201,6 +233,8 @@ public class TelaRegistraSO extends javax.swing.JFrame {
             descricao = statusdao.retornaDescricao(codStatus);
             jTextFieldSOAtual.setText(descricao);
         }
+        
+        jListStatus.setListData(statusdao.selectDescricaoRestrita(codStatus).toArray());
         
         
     }//GEN-LAST:event_jButtonVerificaActionPerformed
@@ -255,7 +289,7 @@ public class TelaRegistraSO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jListLixeira;
-    private javax.swing.JList<String> jListStatus;
+    private javax.swing.JList jListStatus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;

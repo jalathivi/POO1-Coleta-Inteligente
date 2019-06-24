@@ -102,6 +102,30 @@ public class StatusDAO {
         }
         return dados;
     }
+    
+    public ArrayList selectDescricaoRestrita(int cod_status) {
+        Connection conexao = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList dados = new ArrayList();
+
+        try {
+            stmt = conexao.prepareStatement("SELECT * FROM status WHERE cod_status != ?;");
+            stmt.setInt(1, cod_status);
+            rs = stmt.executeQuery();
+            
+           while(rs.next()) {
+               dados.add(rs.getString("descricao"));
+           }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(StatusDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(conexao, stmt);
+        }
+        return dados;
+    }
  
     public ArrayList selectListaCodStatus() {
         Connection conexao = ConexaoDB.getConexao();
@@ -229,5 +253,32 @@ public class StatusDAO {
         }
         
         return descricao;
+    }
+    
+    
+    public int retornaCodigo(String descricao) {
+        int cod = 0;
+        Connection con = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.prepareStatement("SELECT cod_status FROM status WHERE descricao = ?;");
+            stmt.setString(1, descricao);
+            
+            rs = stmt.executeQuery();
+            
+            if(rs.next()) {
+                
+                cod = rs.getInt("cod_status");
+            }
+        }  catch (SQLException ex) {
+            Logger.getLogger(StatusDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);
+        }
+        
+        return cod;
     }
 }
