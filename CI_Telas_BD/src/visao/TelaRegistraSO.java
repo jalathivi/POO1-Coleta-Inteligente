@@ -178,7 +178,8 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         Coletor coletor = new Coletor();
         Status status = new Status();
         StatusDAO statusDAO = new StatusDAO();
-        try {
+        if(jListStatus.getSelectedValue() != null){
+            try {
             // TODO add your handling code here:
             lixeira.setCodigo(jListLixeira.getSelectedValue());
             coletor.setCodigo(Integer.toString(jComboBoxColetor.getSelectedIndex() + 1));
@@ -194,10 +195,14 @@ public class TelaRegistraSO extends javax.swing.JFrame {
             
             
             // Contrutor SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data)
-        } catch (Exception ex) {
-            System.out.print(ex.getMessage());
-            Logger.getLogger(TelaRegistraSO.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                System.out.print(ex.getMessage());
+                Logger.getLogger(TelaRegistraSO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else {
+            JOptionPane.showMessageDialog(null, "Selecione 1 Novo Status para o Registro");
         }
+        
         
         
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
@@ -228,18 +233,24 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         // TODO add your handling code here:
         StatusDAO statusdao = new StatusDAO();
         SituacaoOperacionalDAO soDAO = new SituacaoOperacionalDAO();
-        int codLixeira = Integer.parseInt(jListLixeira.getSelectedValue());
-        int codStatus = soDAO.verificaUltimoStatus(codLixeira);
-        System.out.println(codStatus);
-        String descricao;
-        if(codStatus == 0){
-            jTextFieldSOAtual.setText("Não há registro");
+        if(jListLixeira.getSelectedValue() != null){
+            int codLixeira = Integer.parseInt(jListLixeira.getSelectedValue());
+            int codStatus = soDAO.verificaUltimoStatus(codLixeira);
+            System.out.println(codStatus);
+            String descricao;
+            if(codStatus == 0){
+                jTextFieldSOAtual.setText("Não há registro");
+            }else {
+                descricao = statusdao.retornaDescricao(codStatus);
+                jTextFieldSOAtual.setText(descricao);
+            }
+
+            jListStatus.setListData(statusdao.selectDescricaoRestrita(codStatus).toArray());
+            
         }else {
-            descricao = statusdao.retornaDescricao(codStatus);
-            jTextFieldSOAtual.setText(descricao);
+            JOptionPane.showMessageDialog(null, "Selecione 1 lixeira");
         }
         
-        jListStatus.setListData(statusdao.selectDescricaoRestrita(codStatus).toArray());
         
         
     }//GEN-LAST:event_jButtonVerificaActionPerformed
