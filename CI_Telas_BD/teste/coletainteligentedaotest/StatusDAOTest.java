@@ -8,6 +8,8 @@ package coletainteligentedaotest;
 import coletainteligente.Status;
 import coletainteligentedao.StatusDAO;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -46,11 +48,17 @@ public class StatusDAOTest {
     @Test
     public void testInsere() {
         System.out.println("insere");
-        Status b = null;
         StatusDAO instance = new StatusDAO();
-        instance.insere(b);
+        Status b;
+        try {
+            b = new Status("Otimizada");
+            instance.insere(b);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            Logger.getLogger(StatusDAOTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -59,19 +67,19 @@ public class StatusDAOTest {
     @Test
     public void testReadDescricao() {
         System.out.println("readDescricao");
-        String descricao = "";
+        String descricao = "Otimizada";
         StatusDAO instance = new StatusDAO();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.readDescricao(descricao);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of selectListaDescricao method, of class StatusDAO.
      */
-    @Test
+    /*@Test
     public void testSelectListaDescricao() {
         System.out.println("selectListaDescricao");
         StatusDAO instance = new StatusDAO();
@@ -79,28 +87,28 @@ public class StatusDAOTest {
         ArrayList result = instance.selectListaDescricao();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        //fail("The test case is a prototype.");
+    }*/
 
     /**
      * Test of selectDescricaoRestrita method, of class StatusDAO.
      */
-    @Test
+    /*@Test
     public void testSelectDescricaoRestrita() {
         System.out.println("selectDescricaoRestrita");
-        int cod_status = 0;
+        int cod_status = 1;
         StatusDAO instance = new StatusDAO();
         ArrayList expResult = null;
         ArrayList result = instance.selectDescricaoRestrita(cod_status);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
 
     /**
      * Test of selectListaCodStatus method, of class StatusDAO.
      */
-    @Test
+   /* @Test
     public void testSelectListaCodStatus() {
         System.out.println("selectListaCodStatus");
         StatusDAO instance = new StatusDAO();
@@ -109,20 +117,7 @@ public class StatusDAOTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of deleta method, of class StatusDAO.
-     */
-    @Test
-    public void testDeleta() {
-        System.out.println("deleta");
-        String descricao = "";
-        StatusDAO instance = new StatusDAO();
-        instance.deleta(descricao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    }*/
 
     /**
      * Test of alteraStatus method, of class StatusDAO.
@@ -130,28 +125,28 @@ public class StatusDAOTest {
     @Test
     public void testAlteraStatus() {
         System.out.println("alteraStatus");
-        String descricaoOld = "";
-        String descricao = "";
+        String descricaoOld = "Otimizada";
+        String descricao = "Nova";
         StatusDAO instance = new StatusDAO();
         instance.alteraStatus(descricaoOld, descricao);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
-
+    
     /**
-     * Test of verificaUltimoStatus method, of class StatusDAO.
+     * Test of deleta method, of class StatusDAO.
      */
     @Test
-    public void testVerificaUltimoStatus() {
-        System.out.println("verificaUltimoStatus");
-        int cod_lixeira = 0;
+    public void testDeleta() {
+        System.out.println("deleta");
+        String descricao = "Nova";
         StatusDAO instance = new StatusDAO();
-        int expResult = 0;
-        int result = instance.verificaUltimoStatus(cod_lixeira);
-        assertEquals(expResult, result);
+        instance.deleta(descricao);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
+
+    
 
     /**
      * Test of retornaDescricao method, of class StatusDAO.
