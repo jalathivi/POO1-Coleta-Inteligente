@@ -8,7 +8,7 @@ public class SituacaoOperacional {
     public Lixeira lixeira;
     public Coletor coletor;
     public Status status;
-    private Calendar data;
+    private Calendar data;//Usado somente para persistencia arquivo
     private Date date;
     
     public SituacaoOperacional(){

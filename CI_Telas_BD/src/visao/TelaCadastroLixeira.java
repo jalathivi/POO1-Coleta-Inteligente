@@ -323,6 +323,8 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(jLabel2, gridBagConstraints);
 
+        jTextFieldNivelAtual.setEditable(false);
+        jTextFieldNivelAtual.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNivelAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNivelAtualActionPerformed(evt);

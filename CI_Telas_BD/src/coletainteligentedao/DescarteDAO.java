@@ -7,8 +7,9 @@ package coletainteligentedao;
 
 /**
  *
- * @author Vinicius
+ * @author Jackson
  */
+
 
 import conexao.ConexaoDB;
 import coletainteligente.Descarte;
@@ -23,10 +24,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-
-public class descarteDAO {
-    
-    public void insere(Descarte descarte){
+public class DescarteDAO {
+      public void insere(Descarte descarte){
         
         Connection con = ConexaoDB.getConexao();
         PreparedStatement stmt = null;
@@ -41,11 +40,16 @@ public class descarteDAO {
             stmt.setFloat(5, descarte.getVolume());
             stmt.executeUpdate();
             
+            stmt = con.prepareStatement("UPDATE lixeira SET nivel_atual = ? WHERE cod_lixeira=?");
+            stmt.setFloat(1, descarte.getLixeira().getNivelAtual());
+            stmt.setInt(2, descarte.getLixeira().getCodigo());
+            stmt.executeUpdate();
+            
             JOptionPane.showMessageDialog(null, "Insert criado com sucesso");
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
-            Logger.getLogger(descarteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescarteDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
             
         } finally {
@@ -72,11 +76,11 @@ public class descarteDAO {
                     Float.toString(rs.getFloat("volume"))});
                 }
                 catch (SQLException ex) {
-                    Logger.getLogger(descarteDAO.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DescarteDAO.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }  
         } catch (SQLException ex) {
-            Logger.getLogger(descarteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescarteDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Erro na listagem de descartees\n" + ex.getMessage()); 
             
         } finally {
@@ -103,7 +107,7 @@ public class descarteDAO {
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
-            Logger.getLogger(descarteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescarteDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Exclusão não deu certo!\n" + ex.getMessage()); 
             
         } finally {
@@ -132,7 +136,7 @@ public class descarteDAO {
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
-            Logger.getLogger(descarteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescarteDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
             
         } finally {
