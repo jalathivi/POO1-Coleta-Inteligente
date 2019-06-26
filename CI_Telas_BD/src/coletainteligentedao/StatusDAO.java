@@ -203,31 +203,6 @@ public class StatusDAO {
         }
     }
     
-    public int verificaUltimoStatus(int cod_lixeira) {
-        Connection con = ConexaoDB.getConexao();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        int codStatus = 0;
-        
-        try {
-            stmt = con.prepareStatement("SELECT cod_status FROM situacao_operacional WHERE cod_lixeira = ? ORDER BY data_status DESC;");
-            stmt.setInt(1, cod_lixeira);
-            
-            rs = stmt.executeQuery();
-            
-            if(rs.next()) {
-                
-                codStatus = rs.getInt("cod_status");
-            }
-        }  catch (SQLException ex) {
-            Logger.getLogger(StatusDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex);
-        } finally {
-            ConexaoDB.closeConnection(con, stmt);
-        }
-        
-        return codStatus;
-    }
     
     public String retornaDescricao(int cod_status) {
         String descricao = null;

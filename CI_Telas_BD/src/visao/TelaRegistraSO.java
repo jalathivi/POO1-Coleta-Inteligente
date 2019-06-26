@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -186,6 +187,9 @@ public class TelaRegistraSO extends javax.swing.JFrame {
             soDAO.insere(so);
             JOptionPane.showMessageDialog(null, "Realizado o Registro");
             jTextFieldSOAtual.setText("");
+            DefaultListModel model = new DefaultListModel();
+            model.clear();
+            jListStatus.setModel(model);
             
             
             
@@ -223,8 +227,9 @@ public class TelaRegistraSO extends javax.swing.JFrame {
     private void jButtonVerificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerificaActionPerformed
         // TODO add your handling code here:
         StatusDAO statusdao = new StatusDAO();
+        SituacaoOperacionalDAO soDAO = new SituacaoOperacionalDAO();
         int codLixeira = Integer.parseInt(jListLixeira.getSelectedValue());
-        int codStatus = statusdao.verificaUltimoStatus(codLixeira);
+        int codStatus = soDAO.verificaUltimoStatus(codLixeira);
         System.out.println(codStatus);
         String descricao;
         if(codStatus == 0){
