@@ -5,9 +5,16 @@
  */
 package visao;
 
+import coletainteligente.Cidadao;
+import coletainteligente.Descarte;
+import coletainteligente.Lixeira;
 import coletainteligente.PersistenciaArquivo;
+import coletainteligentedao.DescarteDAO;
+import coletainteligentedao.LixeiraDAO;
 import java.util.Calendar;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +26,11 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipalCidadao
      */
+    private Lixeira lixeira;
+   
+    
     public TelaCidadaoDescarte() {
+      
         initComponents();
     }
 
@@ -36,7 +47,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldLatitude = new javax.swing.JTextField();
         jTextFieldLongitude = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelCodigo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButtonLocalizar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -44,6 +55,8 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jTextFieldDirecao = new javax.swing.JTextField();
         jButtonMapa = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
+        jTFcodigo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Principal");
@@ -53,15 +66,21 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 34, -1, -1));
 
         jLabel2.setText("Lixeira Inteligênte Vazia mais Próxima");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 79, -1, -1));
-        getContentPane().add(jTextFieldLatitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 111, 95, -1));
-        getContentPane().add(jTextFieldLongitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 149, 95, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        jLabel3.setText("Latitude");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 114, -1, -1));
+        jTextFieldLatitude.setEditable(false);
+        jTextFieldLatitude.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextFieldLatitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 95, -1));
+
+        jTextFieldLongitude.setEditable(false);
+        jTextFieldLongitude.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextFieldLongitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 95, -1));
+
+        jLabelCodigo.setText("Código");
+        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         jLabel4.setText("Longitude");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 152, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         jButtonLocalizar.setText("Localizar");
         jButtonLocalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +88,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 jButtonLocalizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLocalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 187, -1, -1));
+        getContentPane().add(jButtonLocalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
 
         jButton1.setText("Registrar Descarte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,9 +96,15 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
-        getContentPane().add(jTextFieldDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 221, 96, -1));
-        getContentPane().add(jTextFieldDirecao, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 221, 90, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, -1, -1));
+
+        jTextFieldDistancia.setEditable(false);
+        jTextFieldDistancia.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextFieldDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 96, -1));
+
+        jTextFieldDirecao.setEditable(false);
+        jTextFieldDirecao.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextFieldDirecao, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 90, -1));
 
         jButtonMapa.setText("Visualizar no Mapa");
         jButtonMapa.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +112,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 jButtonMapaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +120,14 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 jButtonVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+        getContentPane().add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
+
+        jTFcodigo.setEditable(false);
+        jTFcodigo.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTFcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 95, -1));
+
+        jLabel5.setText("Latitude");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         setSize(new java.awt.Dimension(490, 359));
         setLocationRelativeTo(null);
@@ -105,21 +137,33 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         // TODO add your handling code here:
         //ESTA PARTE NÃO ESTÁ ACRESCENTANDO NADA AO SISTEMA POR ENQUANTO
         //DEVERIA BUSCAR A LOCALIZAÇÃO DE UMA LIXEIRA NO ARQUIVO, MAS TÔ COM PREGUIÇA
-        Random random = new Random();
+       Random random = new Random();
         int direcao;
         
-        jTextFieldLatitude.setText(String.valueOf(random.nextFloat()));
-        jTextFieldLongitude.setText(String.valueOf(random.nextFloat()));
-        jTextFieldDistancia.setText(String.valueOf(random.nextInt(10)) + " Minutos");
+  
+        LixeiraDAO lixeiradao = new LixeiraDAO();
         
-        direcao = random.nextInt(2);
+        lixeira = lixeiradao.lixeiraVazia();
         
-        if(direcao == 0)
-        {
-            jTextFieldDirecao.setText("Go Right");
-        }else
-        {
-            jTextFieldDirecao.setText("Go Left");
+        if (lixeira.getCodigo() != 0){
+            
+            jTextFieldLatitude.setText(Float.toString(lixeira.getLatitude()));
+            jTextFieldLongitude.setText(Float.toString(lixeira.getLongitude()));
+            jTFcodigo.setText(Integer.toString(lixeira.getCodigo()));
+            jTextFieldDistancia.setText(String.valueOf(random.nextInt(10)) + " Minutos");
+
+            direcao = random.nextInt(2);
+
+            if(direcao == 0)
+            {
+                jTextFieldDirecao.setText("Go Right");
+            }else
+            {
+                jTextFieldDirecao.setText("Go Left");
+            }
+        }else{
+        
+            JOptionPane.showMessageDialog(null, "Não há lixeira disponível para realizar descarte!");
         }
     }//GEN-LAST:event_jButtonLocalizarActionPerformed
 
@@ -127,18 +171,39 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         // TODO add your handling code here:
         //MAIS UMA VEZ ERA PRA ESTAR BUSCANDO AS INFORMAÇÕES DO ARQUIVO OU BD, MAS A PREGUIÇA FEZ ASSIM
         
-        Random random = new Random();
-        
-        float nivel = random.nextFloat() * 100;
-        Calendar data = Calendar.getInstance();
-        
-        //Descarte descarte = new Descarte(nivel, data);
-        
-        PersistenciaArquivo registro = new PersistenciaArquivo();
-        //registro.salvaDescarte(descarte);
-        
-        JOptionPane.showMessageDialog(null, "Descarte Registrado");
-      
+        if (lixeira.getCodigo() != 0){
+            
+            Calendar data = Calendar.getInstance();
+
+            try {
+                lixeira.setNivelAtual(Float.toString((100 - lixeira.getNivelAtual())/3));
+            } catch (Exception ex) {
+                Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            Cidadao cidadao = new Cidadao();
+            
+            try {
+                cidadao.setCodigo("11");
+            } catch (Exception ex) {
+                Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            Descarte descarte = new Descarte();
+            descarte.setCidadao(cidadao);
+            descarte.setLixeira(lixeira);
+            descarte.setData(data.getTime());
+            descarte.setVolume(Float.toString((lixeira.getCapacidade() * lixeira.getNivelAtual())/100));
+
+            DescarteDAO descartedao = new DescarteDAO();
+            descartedao.insere(descarte);
+
+           // PersistenciaArquivo registro = new PersistenciaArquivo();
+            //registro.salvaDescarte(descarte);
+
+            JOptionPane.showMessageDialog(null, "Descarte Registrado");
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMapaActionPerformed
@@ -195,8 +260,10 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelCodigo;
+    private javax.swing.JTextField jTFcodigo;
     private javax.swing.JTextField jTextFieldDirecao;
     private javax.swing.JTextField jTextFieldDistancia;
     private javax.swing.JTextField jTextFieldLatitude;

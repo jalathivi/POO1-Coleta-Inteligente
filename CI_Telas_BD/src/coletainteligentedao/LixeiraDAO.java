@@ -91,6 +91,48 @@ public class LixeiraDAO {
             ConexaoDB.closeConnection(con, stmt); 
         }  
     }
+
+    public Lixeira lixeiraVazia () {
+                    
+        Connection con = ConexaoDB.getConexao();
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+       
+        Lixeira lixeira  = new Lixeira();
+        
+        try {
+            lixeira.setCodigo("0");
+        } catch (Exception ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            stmt = con.prepareStatement("SELECT cod_lixeira, latitude, longitude, capacidade, nivel_atual FROM LIXEIRA WHERE nivel_atual < 100 ORDER BY nivel_atual ASC LIMIT 1");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {  
+                    
+                try {
+                    lixeira.setCodigo(Integer.toString(rs.getInt("cod_lixeira")));
+                    lixeira.setLatitude(Float.toString(rs.getFloat("latitude")));
+                    lixeira.setLongitude(Float.toString(rs.getFloat("longitude")));
+                    lixeira.setNivelAtual(Float.toString(rs.getFloat("nivel_atual")));
+                    lixeira.setCapacidade(Float.toString(rs.getFloat("capacidade")));
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+                } 
+            }        
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LixeiraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro na listagem de lixeiras\n" + ex.getMessage()); 
+            
+        } finally {
+            ConexaoDB.closeConnection(con, stmt); 
+        }  
+        
+        return lixeira;
+    }      
     
     public List<Integer> listaLixeirasPorBairro(int codbairro) {
         Connection con = ConexaoDB.getConexao();
