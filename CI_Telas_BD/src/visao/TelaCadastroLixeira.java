@@ -10,13 +10,11 @@ import coletainteligente.Bairro;
 import coletainteligente.Lixeira;
 import coletainteligentedao.BairroDAO;
 import coletainteligentedao.LixeiraDAO;
-import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import validador.ValidadorLixeira;
 
 /**
  *

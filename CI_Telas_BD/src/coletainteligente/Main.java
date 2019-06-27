@@ -1,10 +1,5 @@
 package coletainteligente;
-import java.util.Calendar;
-import javax.swing.JOptionPane;
 import visao.TelaVersoes;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
  

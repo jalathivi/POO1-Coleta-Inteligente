@@ -7,7 +7,6 @@ package coletainteligentedao;
 
 import conexao.ConexaoDB;
 import coletainteligente.Bairro;
-import coletainteligente.Lixeira;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -7,7 +7,6 @@ package visao;
 
 import coletainteligentedao.CidadaoDAO;
 import javax.swing.JOptionPane;
-import static visao.TelaCidadaoDescarte.jTextFieldCodCidadao;
 
 /**
  *

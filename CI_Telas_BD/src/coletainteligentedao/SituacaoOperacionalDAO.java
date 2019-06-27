@@ -5,10 +5,7 @@
  */
 package coletainteligentedao;
 
-import coletainteligente.Bairro;
-import coletainteligente.Lixeira;
 import coletainteligente.SituacaoOperacional;
-import coletainteligente.Status;
 import conexao.ConexaoDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
