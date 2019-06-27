@@ -8,7 +8,6 @@ package visao;
 import coletainteligente.Cidadao;
 import coletainteligente.Descarte;
 import coletainteligente.Lixeira;
-import coletainteligente.PersistenciaArquivo;
 import coletainteligentedao.DescarteDAO;
 import coletainteligentedao.LixeiraDAO;
 import java.util.Calendar;
@@ -57,6 +56,8 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jButtonVoltar = new javax.swing.JButton();
         jTFcodigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jTextFieldCodCidadao = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Principal");
@@ -129,6 +130,12 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         jLabel5.setText("Latitude");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
+        jTextFieldCodCidadao.setEditable(false);
+        getContentPane().add(jTextFieldCodCidadao, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 40, -1));
+
+        jLabel3.setText("Codigo Cidadão");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
+
         setSize(new java.awt.Dimension(490, 359));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -140,7 +147,6 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
        Random random = new Random();
         int direcao;
         
-  
         LixeiraDAO lixeiradao = new LixeiraDAO();
         
         lixeira = lixeiradao.lixeiraVazia();
@@ -184,7 +190,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
             Cidadao cidadao = new Cidadao();
             
             try {
-                cidadao.setCodigo("11");
+                cidadao.setCodigo(jTextFieldCodCidadao.getText());
             } catch (Exception ex) {
                 Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -260,10 +266,12 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelCodigo;
-    private javax.swing.JTextField jTFcodigo;
+    public static javax.swing.JTextField jTFcodigo;
+    public static javax.swing.JTextField jTextFieldCodCidadao;
     private javax.swing.JTextField jTextFieldDirecao;
     private javax.swing.JTextField jTextFieldDistancia;
     private javax.swing.JTextField jTextFieldLatitude;

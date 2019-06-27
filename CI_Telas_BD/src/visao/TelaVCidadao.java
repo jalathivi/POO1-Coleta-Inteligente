@@ -7,6 +7,7 @@ package visao;
 
 import coletainteligentedao.CidadaoDAO;
 import javax.swing.JOptionPane;
+import static visao.TelaCidadaoDescarte.jTextFieldCodCidadao;
 
 /**
  *
@@ -159,7 +160,9 @@ public class TelaVCidadao extends javax.swing.JFrame {
         CidadaoDAO cidadaoDAO = new CidadaoDAO();
         String senha = new String(jPasswordFieldCSenha.getPassword());
         if(cidadaoDAO.checkLogin(jTextFieldCEmail.getText(), senha)){
+            int cod = cidadaoDAO.retornaCodigo(jTextFieldCEmail.getText());
             TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
+            TelaCidadaoDescarte.jTextFieldCodCidadao.setText(Integer.toString(cod));
             tPCidadao.show(true);
             this.dispose();
         }else {

@@ -218,6 +218,7 @@ public class CidadaoDAO {
         return check;
     }
     
+    
 
    public void selecionaLista(ArrayList lista, String linha) throws Exception {
         Connection conexao = ConexaoDB.getConexao();
@@ -250,7 +251,33 @@ public class CidadaoDAO {
             
         }
             
-    }    
+    }
+   
+   public int retornaCodigo(String email) {
+        int cod = 0;
+        Connection con = ConexaoDB.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.prepareStatement("SELECT cod_cidadao FROM cidadao WHERE email = ?;");
+            stmt.setString(1, email);
+            
+            rs = stmt.executeQuery();
+            
+            if(rs.next()) {
+                
+                cod = rs.getInt("cod_cidadao");
+            }
+        }  catch (SQLException ex) {
+            Logger.getLogger(StatusDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConexaoDB.closeConnection(con, stmt);
+        }
+        
+        return cod;
+    }
     
     public void selecionaEmail(Cidadao c) throws Exception{
         //Cidadao c = new Cidadao();
