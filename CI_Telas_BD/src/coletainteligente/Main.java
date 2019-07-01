@@ -1,12 +1,12 @@
 package coletainteligente;
-import visao.TelaVersoes;
+import visao.TelaInicial;
 
 public class Main {
  
     
     public static void main(String[] args) throws Exception {
        
-        TelaVersoes versoes = new TelaVersoes();
+        TelaInicial versoes = new TelaInicial();
         versoes.show(true);
     
        /*Random random = new Random();

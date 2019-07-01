@@ -3,18 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package visao.admin;
+
+import visao.admin.TelaCadastroSO;
+import visao.admin.TelaCadastroColeta;
+import visao.admin.TelaCadastroStatus;
+import visao.admin.TelaCadastroLixeira;
+import visao.admin.TelaCadastroColetor;
+import visao.admin.TelaCadastroBairro;
 
 /**
  *
  * @author thiag
  */
-public class TelaPrincipalAdm extends javax.swing.JFrame {
+public class TelaMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaPrincipalAdm
      */
-    public TelaPrincipalAdm() {
+    public TelaMenu() {
         initComponents();
     }
 
@@ -189,13 +196,13 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
     private void jButtonSituacaoOperacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSituacaoOperacionalActionPerformed
         // TODO add your handling code here:
-        TelaRegistraSO tSituacaoOperacional = new TelaRegistraSO();
+        TelaCadastroSO tSituacaoOperacional = new TelaCadastroSO();
         tSituacaoOperacional.setVisible(true);
     }//GEN-LAST:event_jButtonSituacaoOperacionalActionPerformed
 
     private void jButtonColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColetaActionPerformed
         // TODO add your handling code here:
-        TelaColeta tGeraRota = new TelaColeta();
+        TelaCadastroColeta tGeraRota = new TelaCadastroColeta();
         tGeraRota.setVisible(true);
     }//GEN-LAST:event_jButtonColetaActionPerformed
 
@@ -221,20 +228,21 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipalAdm().setVisible(true);
+                new TelaMenu().setVisible(true);
             }
         });
     }

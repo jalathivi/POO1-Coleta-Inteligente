@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package visao.admin;
 
 
 import coletainteligente.Coleta;
@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author thiag
  */
-public class TelaColeta extends javax.swing.JFrame {
+public class TelaCadastroColeta extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaGeraRota
@@ -33,7 +33,7 @@ public class TelaColeta extends javax.swing.JFrame {
     private List <Coletor> listaColetor;
     public  DefaultTableModel model;
     
-    public TelaColeta() {
+    public TelaCadastroColeta() {
         initComponents();
         
         BairroDAO bairrodao = new BairroDAO();
@@ -73,7 +73,7 @@ public class TelaColeta extends javax.swing.JFrame {
     private void initComponents() {
 
         jlColetor = new javax.swing.JLabel();
-        jcbBairro = new javax.swing.JComboBox<String>();
+        jcbBairro = new javax.swing.JComboBox<>();
         jbGerarRota = new javax.swing.JButton();
         jbSair = new javax.swing.JButton();
         jbIniciarColeta = new javax.swing.JButton();
@@ -212,7 +212,7 @@ public class TelaColeta extends javax.swing.JFrame {
                     lixeira.setCodigo(jTable1.getModel().getValueAt(0,0).toString());
                     coleta.setVolume(jTable1.getModel().getValueAt(0,1).toString());
                 } catch (Exception ex) {
-                    Logger.getLogger(TelaColeta.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TelaCadastroColeta.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 // Remove primeira linha
@@ -235,7 +235,7 @@ public class TelaColeta extends javax.swing.JFrame {
                try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(TelaColeta.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TelaCadastroColeta.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -275,21 +275,23 @@ public class TelaColeta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroColeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaColeta().setVisible(true);
+                new TelaCadastroColeta().setVisible(true);
             }
         });
     }

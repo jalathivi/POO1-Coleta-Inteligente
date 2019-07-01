@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package visao.admin;
 
 import coletainteligente.Coletor;
 import coletainteligente.PersistenciaArquivo;
@@ -80,7 +80,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextFildlatitude = new javax.swing.JTextField();
         jTextFildlongitude = new javax.swing.JTextField();
-        jComboBoxModelo = new javax.swing.JComboBox<String>();
+        jComboBoxModelo = new javax.swing.JComboBox<>();
         jButtonEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

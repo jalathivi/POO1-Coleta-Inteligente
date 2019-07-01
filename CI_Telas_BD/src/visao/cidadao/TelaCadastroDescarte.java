@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package visao.cidadao;
 
 import coletainteligente.Cidadao;
 import coletainteligente.Descarte;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author thiag
  */
-public class TelaCidadaoDescarte extends javax.swing.JFrame {
+public class TelaCadastroDescarte extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaPrincipalCidadao
@@ -28,7 +28,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
     private Lixeira lixeira;
    
     
-    public TelaCidadaoDescarte() {
+    public TelaCadastroDescarte() {
       
         initComponents();
     }
@@ -91,7 +91,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonLocalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
 
-        jButton1.setText("Registrar Descarte");
+        jButton1.setText("Cadastar Descarte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -184,7 +184,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
             try {
                 lixeira.setNivelAtual(Float.toString((100 - lixeira.getNivelAtual())/3));
             } catch (Exception ex) {
-                Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TelaCadastroDescarte.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             Cidadao cidadao = new Cidadao();
@@ -192,7 +192,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
             try {
                 cidadao.setCodigo(jTextFieldCodCidadao.getText());
             } catch (Exception ex) {
-                Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TelaCadastroDescarte.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             Descarte descarte = new Descarte();
@@ -214,7 +214,7 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
 
     private void jButtonMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMapaActionPerformed
         // TODO add your handling code here:
-        TelaVisualizarMapa tMapa = new TelaVisualizarMapa();
+        TelaMapa tMapa = new TelaMapa();
         tMapa.show(true);
     }//GEN-LAST:event_jButtonMapaActionPerformed
 
@@ -240,21 +240,23 @@ public class TelaCidadaoDescarte extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCidadaoDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroDescarte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCidadaoDescarte().setVisible(true);
+                new TelaCadastroDescarte().setVisible(true);
             }
         });
     }

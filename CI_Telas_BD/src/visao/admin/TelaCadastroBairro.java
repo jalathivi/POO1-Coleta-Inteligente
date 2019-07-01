@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package visao.admin;
 
 import coletainteligente.Bairro;
 import coletainteligente.PersistenciaArquivo;
@@ -21,9 +21,13 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastraBairro
      */
+    
     public TelaCadastroBairro() {
         initComponents();
-    }
+        BairroDAO bairroDAO = new BairroDAO();
+        jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
+        
+        }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -37,7 +41,6 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListBairros = new javax.swing.JList();
         jLabel3 = new javax.swing.JLabel();
-        jButtonViewBairros = new javax.swing.JButton();
         jButtonDeletar = new javax.swing.JButton();
         jButtonAlterar = new javax.swing.JButton();
         jTextFieldNomeNew = new javax.swing.JTextField();
@@ -46,16 +49,20 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Bairro");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Novo Bairro");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
         campoNomeBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNomeBairroActionPerformed(evt);
             }
         });
+        getContentPane().add(campoNomeBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 100, -1));
 
         jLabel2.setText("Cadastro Bairro");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         Salvar.setText("Cadastrar");
         Salvar.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +70,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 SalvarActionPerformed(evt);
             }
         });
+        getContentPane().add(Salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         Sair.setText("Sair");
         Sair.addActionListener(new java.awt.event.ActionListener() {
@@ -70,17 +78,14 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 SairActionPerformed(evt);
             }
         });
+        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
 
         jScrollPane1.setViewportView(jListBairros);
 
-        jLabel3.setText("Bairros");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 146, -1));
 
-        jButtonViewBairros.setText("Ver Bairros");
-        jButtonViewBairros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonViewBairrosActionPerformed(evt);
-            }
-        });
+        jLabel3.setText("Bairros");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
         jButtonDeletar.setText("Deletar");
         jButtonDeletar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +93,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 jButtonDeletarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
         jButtonAlterar.setText("Alterar");
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,98 +101,19 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 jButtonAlterarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
 
         jTextFieldNomeNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeNewActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextFieldNomeNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 93, -1));
 
-        jLabel4.setText("Novo Nome");
+        jLabel4.setText("Alterar Nome");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonViewBairros, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(25, 25, 25)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(campoNomeBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(Salvar))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(jButtonDeletar))
-                        .addGroup(layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButtonAlterar))
-                        .addGroup(layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldNomeNew)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)))
-                .addGap(179, 179, 179))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(Sair)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNomeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(Salvar))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonViewBairros)
-                        .addGap(103, 103, 103))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonDeletar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4)
-                                .addGap(1, 1, 1)
-                                .addComponent(jTextFieldNomeNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jButtonAlterar))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(Sair)
-                        .addContainerGap())))
-        );
-
-        setSize(new java.awt.Dimension(416, 339));
+        setSize(new java.awt.Dimension(542, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -229,14 +156,6 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     private void campoNomeBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeBairroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeBairroActionPerformed
-
-    private void jButtonViewBairrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewBairrosActionPerformed
-        // TODO add your handling code here:
-        BairroDAO bairroDAO = new BairroDAO();
-        jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
-        
-        
-    }//GEN-LAST:event_jButtonViewBairrosActionPerformed
 
     private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
         // TODO add your handling code here:
@@ -309,7 +228,6 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     private javax.swing.JTextField campoNomeBairro;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonDeletar;
-    private javax.swing.JButton jButtonViewBairros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

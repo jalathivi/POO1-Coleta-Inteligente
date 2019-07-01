@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package visao.admin;
 
 import coletainteligente.Coletor;
 import coletainteligente.Lixeira;
@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
  *
  * @author thiag
  */
-public class TelaRegistraSO extends javax.swing.JFrame {
+public class TelaCadastroSO extends javax.swing.JFrame {
 
     /**
      * Creates new form testeJframe
@@ -34,7 +34,7 @@ public class TelaRegistraSO extends javax.swing.JFrame {
     private List <Object> listaBairro;
     private List <Coletor> listaColetor;
     
-    public TelaRegistraSO() {
+    public TelaCadastroSO() {
         initComponents();
         
         BairroDAO bairrodao = new BairroDAO();
@@ -53,6 +53,7 @@ public class TelaRegistraSO extends javax.swing.JFrame {
         listaColetor.forEach((coletor) -> {
             jComboBoxColetor.addItem(coletor.getPlaca());
         });
+        
         
         
     }
@@ -91,10 +92,10 @@ public class TelaRegistraSO extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Registra Situação Operacional");
+        jLabel1.setText("Alteração de Situação Operacional");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 210, 20));
 
-        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.setText("Cadastrar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
@@ -144,17 +145,17 @@ public class TelaRegistraSO extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 100));
 
-        jLabel6.setText("Situação Operacional Atual");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        jLabel6.setText("Status");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
         jPanel1.add(jTextFieldSOAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, 40));
 
-        jButtonVerifica.setText("Verificar Status");
+        jButtonVerifica.setText("Verificar SO Atual");
         jButtonVerifica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerificaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVerifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+        jPanel1.add(jButtonVerifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 370));
 
@@ -193,7 +194,7 @@ public class TelaRegistraSO extends javax.swing.JFrame {
             // Contrutor SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data)
             } catch (Exception ex) {
                 System.out.print(ex.getMessage());
-                Logger.getLogger(TelaRegistraSO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TelaCadastroSO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else {
             JOptionPane.showMessageDialog(null, "Selecione 1 Novo Status para o Registro");
@@ -268,21 +269,23 @@ public class TelaRegistraSO extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistraSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistraSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistraSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistraSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroSO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRegistraSO().setVisible(true);
+                new TelaCadastroSO().setVisible(true);
             }
         });
     }

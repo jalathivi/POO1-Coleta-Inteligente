@@ -40,7 +40,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registra Situa&#xe7;&#xe3;o Operacional"/>
+            <Property name="text" type="java.lang.String" value="Altera&#xe7;&#xe3;o de Situa&#xe7;&#xe3;o Operacional"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -50,7 +50,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRegistrar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registrar"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegistrarActionPerformed"/>
@@ -217,11 +217,11 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o Operacional Atual"/>
+            <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="240" width="-1" height="-1"/>
+              <AbsoluteConstraints x="180" y="240" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -234,14 +234,14 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonVerifica">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Verificar Status"/>
+            <Property name="text" type="java.lang.String" value="Verificar SO Atual"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVerificaActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="150" y="210" width="-1" height="-1"/>
+              <AbsoluteConstraints x="140" y="210" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

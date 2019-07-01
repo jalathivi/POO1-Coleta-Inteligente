@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visao;
+package visao.cidadao;
 
+import visao.cidadao.TelaGerenciaCidadao;
+import visao.cidadao.TelaCadastroDescarte;
+import visao.cidadao.TelaCadastroCidadao;
 import coletainteligentedao.CidadaoDAO;
 import javax.swing.JOptionPane;
 
@@ -12,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author thiag
  */
-public class TelaVCidadao extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaVCidadao
      */
-    public TelaVCidadao() {
+    public TelaLogin() {
         initComponents();
     }
 
@@ -155,13 +158,13 @@ public class TelaVCidadao extends javax.swing.JFrame {
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // TODO add your handling code here:
-        //TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
+        //TelaCidadaoDescarte tPCidadao = new TelaCadastroDescarte();
         CidadaoDAO cidadaoDAO = new CidadaoDAO();
         String senha = new String(jPasswordFieldCSenha.getPassword());
         if(cidadaoDAO.checkLogin(jTextFieldCEmail.getText(), senha)){
             int cod = cidadaoDAO.retornaCodigo(jTextFieldCEmail.getText());
-            TelaCidadaoDescarte tPCidadao = new TelaCidadaoDescarte();
-            TelaCidadaoDescarte.jTextFieldCodCidadao.setText(Integer.toString(cod));
+            TelaCadastroDescarte tPCidadao = new TelaCadastroDescarte();
+            TelaCadastroDescarte.jTextFieldCodCidadao.setText(Integer.toString(cod));
             tPCidadao.show(true);
             this.dispose();
         }else {
@@ -171,7 +174,7 @@ public class TelaVCidadao extends javax.swing.JFrame {
 
     private void jButtonGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenciaActionPerformed
         // TODO add your handling code here:
-        TelaGerencia tGerencia = new TelaGerencia();
+        TelaGerenciaCidadao tGerencia = new TelaGerenciaCidadao();
         tGerencia.show(true);
     }//GEN-LAST:event_jButtonGerenciaActionPerformed
 
@@ -197,20 +200,21 @@ public class TelaVCidadao extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaVCidadao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaVCidadao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaVCidadao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaVCidadao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaVCidadao().setVisible(true);
+                new TelaLogin().setVisible(true);
             }
         });
     }
