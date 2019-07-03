@@ -62,7 +62,7 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
         jLabel1.setText("Cadastro Status");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
-        jPanel1.add(campoDescricaoStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 23));
+        jPanel1.add(campoDescricaoStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, 23));
 
         jButtonSalvar.setText("Cadastrar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,18 +70,18 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
                 jButtonSalvarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel1.add(jButtonSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jLabel2.setText("Novo Status");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
-        jButtonLimpar.setText("Limpar Campos");
+        jButtonLimpar.setText("Limpar");
         jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLimparActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
+        jPanel1.add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, -1, -1));
 
         jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
@@ -89,15 +89,15 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
                 jButtonSairActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        jPanel1.add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
-        jButtonDeletar.setText("Deletar");
+        jButtonDeletar.setText("Excluir");
         jButtonDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeletarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+        jPanel1.add(jButtonDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         jButtonAlterar.setText("Alterar");
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {

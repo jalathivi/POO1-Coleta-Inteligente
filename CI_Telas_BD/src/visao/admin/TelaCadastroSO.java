@@ -76,12 +76,12 @@ public class TelaCadastroSO extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListStatus = new javax.swing.JList();
-        jComboBoxColetor = new javax.swing.JComboBox<>();
+        jComboBoxColetor = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
-        jComboBoxBairro = new javax.swing.JComboBox<>();
+        jComboBoxBairro = new javax.swing.JComboBox<String>();
         jButtonMostrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListLixeira = new javax.swing.JList<>();
+        jListLixeira = new javax.swing.JList<String>();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldSOAtual = new javax.swing.JTextField();
         jButtonVerifica = new javax.swing.JButton();
@@ -101,7 +101,7 @@ public class TelaCadastroSO extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +109,7 @@ public class TelaCadastroSO extends javax.swing.JFrame {
                 jButtonVoltarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
+        jPanel1.add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         jLabel2.setText("Selecionar Coletor");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
@@ -124,13 +124,13 @@ public class TelaCadastroSO extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 85, 100));
 
-        jComboBoxColetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxColetor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBoxColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 190, -1));
 
         jLabel5.setText("Selecionar Bairro");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jComboBoxBairro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxBairro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 190, -1));
 
         jButtonMostrar.setText("Mostrar Lixeiras");

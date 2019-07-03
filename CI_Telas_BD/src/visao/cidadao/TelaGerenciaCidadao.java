@@ -38,6 +38,7 @@ public class TelaGerenciaCidadao extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButtonDeletar = new javax.swing.JButton();
         jButtonAlterar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciar Conta");
@@ -49,9 +50,9 @@ public class TelaGerenciaCidadao extends javax.swing.JFrame {
 
         jLabel3.setText("Nova Senha");
 
-        jLabel4.setText("Deletar Conta");
+        jLabel4.setText("Excluir Conta");
 
-        jButtonDeletar.setText("Deletar");
+        jButtonDeletar.setText("Excluir");
         jButtonDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeletarActionPerformed(evt);
@@ -64,6 +65,8 @@ public class TelaGerenciaCidadao extends javax.swing.JFrame {
                 jButtonAlterarActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Gerenciamento de Conta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,16 +89,21 @@ public class TelaGerenciaCidadao extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonDeletar, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(39, 39, 39))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(133, 133, 133))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addComponent(jLabel5)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -183,6 +191,7 @@ public class TelaGerenciaCidadao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jPasswordFieldSenha;
     private javax.swing.JTextField jTextFieldEmail;
     // End of variables declaration//GEN-END:variables

@@ -70,7 +70,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 SalvarActionPerformed(evt);
             }
         });
-        getContentPane().add(Salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        getContentPane().add(Salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         Sair.setText("Sair");
         Sair.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 SairActionPerformed(evt);
             }
         });
-        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
+        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jScrollPane1.setViewportView(jListBairros);
 
@@ -87,7 +87,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         jLabel3.setText("Bairros");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
-        jButtonDeletar.setText("Deletar");
+        jButtonDeletar.setText("Excluir");
         jButtonDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeletarActionPerformed(evt);
@@ -101,7 +101,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 jButtonAlterarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
+        getContentPane().add(jButtonAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
 
         jTextFieldNomeNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

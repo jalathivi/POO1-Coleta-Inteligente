@@ -64,10 +64,10 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Cidadão");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 34, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
-        jLabel2.setText("Lixeira Inteligênte Vazia mais Próxima");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        jLabel2.setText("Lixeira inteligente vazia mais próxima");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
 
         jTextFieldLatitude.setEditable(false);
         jTextFieldLatitude.setBackground(new java.awt.Color(255, 255, 255));
@@ -89,7 +89,7 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
                 jButtonLocalizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLocalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        getContentPane().add(jButtonLocalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
 
         jButton1.setText("Cadastar Descarte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -97,15 +97,15 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
 
         jTextFieldDistancia.setEditable(false);
         jTextFieldDistancia.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextFieldDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 96, -1));
+        getContentPane().add(jTextFieldDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 96, -1));
 
         jTextFieldDirecao.setEditable(false);
         jTextFieldDirecao.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextFieldDirecao, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 90, -1));
+        getContentPane().add(jTextFieldDirecao, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 90, -1));
 
         jButtonMapa.setText("Visualizar no Mapa");
         jButtonMapa.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
                 jButtonMapaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        getContentPane().add(jButtonMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +121,7 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
                 jButtonVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
+        getContentPane().add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         jTFcodigo.setEditable(false);
         jTFcodigo.setBackground(new java.awt.Color(255, 255, 255));

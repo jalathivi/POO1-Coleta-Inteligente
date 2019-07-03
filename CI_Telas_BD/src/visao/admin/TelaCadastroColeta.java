@@ -73,7 +73,7 @@ public class TelaCadastroColeta extends javax.swing.JFrame {
     private void initComponents() {
 
         jlColetor = new javax.swing.JLabel();
-        jcbBairro = new javax.swing.JComboBox<>();
+        jcbBairro = new javax.swing.JComboBox<String>();
         jbGerarRota = new javax.swing.JButton();
         jbSair = new javax.swing.JButton();
         jbIniciarColeta = new javax.swing.JButton();
@@ -108,7 +108,7 @@ public class TelaCadastroColeta extends javax.swing.JFrame {
                 jbSairActionPerformed(evt);
             }
         });
-        getContentPane().add(jbSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+        getContentPane().add(jbSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         jbIniciarColeta.setText("Iniciar Coleta");
         jbIniciarColeta.addActionListener(new java.awt.event.ActionListener() {
@@ -116,10 +116,10 @@ public class TelaCadastroColeta extends javax.swing.JFrame {
                 jbIniciarColetaActionPerformed(evt);
             }
         });
-        getContentPane().add(jbIniciarColeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
+        getContentPane().add(jbIniciarColeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
         jlNivelColetado.setText("Volume Coletado");
-        getContentPane().add(jlNivelColetado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, 20));
+        getContentPane().add(jlNivelColetado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, 20));
 
         jtfNivelTotal.setEditable(false);
         jtfNivelTotal.setBackground(new java.awt.Color(255, 255, 255));
@@ -129,7 +129,7 @@ public class TelaCadastroColeta extends javax.swing.JFrame {
                 jtfNivelTotalActionPerformed(evt);
             }
         });
-        getContentPane().add(jtfNivelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 70, -1));
+        getContentPane().add(jtfNivelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 70, -1));
 
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
