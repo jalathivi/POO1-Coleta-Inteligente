@@ -4,3 +4,4 @@
 17, thiago, thiago@gmail.com, 01111995, 33.943108, 56.736202
 81, Thiago Moreira Ribeiro, thiago@gmail.com, 01111995, 77.48328, 25.921019
 27, Thiago Moreira Ribeiro, thiago@gmail.com, 01111995, 18.723347, 10.579857
+7, vinicius, vinicius@gmail.com, 123456789, 70.28039, 12.604945

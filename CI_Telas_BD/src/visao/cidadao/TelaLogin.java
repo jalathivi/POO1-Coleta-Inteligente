@@ -48,8 +48,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
-
         jLabel1.setText("Login");
 
         jLabel2.setText("Email");
@@ -110,8 +108,7 @@ public class TelaLogin extends javax.swing.JFrame {
                                             .addComponent(jTextFieldCEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addGap(34, 34, 34)
-                                            .addGap(72, 72, 72)
+                                            .addGap(106, 106, 106)
                                             .addComponent(jButtonCadastrar))
                                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGroup(jPanel1Layout.createSequentialGroup()

@@ -48,8 +48,6 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Cliente");
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
-
         jLabel1.setText("Cadastro Cidadão");
 
         jLabel2.setText("Nome");

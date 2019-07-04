@@ -34,10 +34,10 @@ public class TelaMapa extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/mapa.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 370));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/descarte.PNG"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 460));
 
-        setSize(new java.awt.Dimension(555, 402));
+        setSize(new java.awt.Dimension(657, 501));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
