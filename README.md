@@ -4,7 +4,7 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 
 [CANVAS DE AQUECIMENTO](https://docs.google.com/presentation/d/1y6j9EljmDc8kBXV1M4UDpAI0vJILvSqZwEgCBdyqM8s/edit#slide=id.g275249ce01_0_14)<br>
 
-[Project Model Canvas](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)<br>
+[PROJECT MODEL CANVAS](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)<br>
 
 
 # <a name="sumario"></a>Sumário
