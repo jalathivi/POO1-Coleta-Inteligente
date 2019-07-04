@@ -25,8 +25,8 @@ O sistema precisa armazenar informações da coleta (caminhão coletor, nível c
 
 
 ## <a name="prototipos"></a>Protótipos
-[Protótipo Cidadão](https://github.com/jalathivi/trab01/blob/master/arquivos/pdf/prototipo_cidadao.pdf)<br>
-[Protótipo Coletor](https://github.com/jalathivi/trab01/blob/master/arquivos/pdf/prototipo_motorista.pdf)<br>
+
+[Protótipo de Tela](https://github.com/jalathivi/POO1-Coleta-Inteligente/blob/master/prototipo/tela_coleta_inteligente_poo.pdf)<br>
 
 ## <a name="diagramaclasse"></a>Diagrama de Classe
 ![](DiagramaDeClasse/ColetaInteligenteDiagram.png)
