@@ -114,22 +114,22 @@ public class TelaCadastroSO extends javax.swing.JFrame {
         jLabel2.setText("Selecionar Coletor");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        jLabel3.setText("Selecionar Lixeira");
+        jLabel3.setText("Selecione a Lixeira");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
-        jLabel4.setText("Novo Status");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 80, -1));
+        jLabel4.setText("Selecione o Novo Status");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 150, -1));
 
         jScrollPane3.setViewportView(jListStatus);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, 100));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 130, 100));
 
-        jPanel1.add(jComboBoxColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 190, -1));
+        jPanel1.add(jComboBoxColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 190, -1));
 
         jLabel5.setText("Selecionar Bairro");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jPanel1.add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 190, -1));
+        jPanel1.add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 190, -1));
 
         jButtonMostrar.setText("Mostrar Lixeiras");
         jButtonMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -225,18 +225,20 @@ public class TelaCadastroSO extends javax.swing.JFrame {
             dados = lixeiradao.listaLixeirasPorBairro(codBairro);
             String[] cod;
             cod = new String[dados.size()];
-
+            jListLixeira.setListData(cod);
+            
             if (dados.size() > 0){
                 
                 for(int i=0; i<dados.size();i++) {
                     cod[i] = Integer.toString(dados.get(i));
                 }
+                jListLixeira.setListData(cod);
 
             }else{
                 JOptionPane.showMessageDialog(null, "Não há lixeira nesse bairro");
             }
             
-            jListLixeira.setListData(cod);
+            
 
         }else{
             JOptionPane.showMessageDialog(null, "Selecione o coletor e o bairro");
