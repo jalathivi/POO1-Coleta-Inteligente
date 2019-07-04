@@ -42,7 +42,13 @@ public class BairroDAO {
             
         } catch (SQLException ex) {
             Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
+            
+            if ( ex.getSQLState().equals("23505")){
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar o cadastro do bairro, porque o bairro '"+b.getNome()+"' já está cadastrado nesse sistema!\n"); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar o cadastro do bairro:\n"  + ex.getMessage());
+            }
+            
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);
@@ -189,22 +195,20 @@ public class BairroDAO {
         PreparedStatement stmt = null;
         
         try {
-            System.out.print(nome);
+           
             stmt = con.prepareStatement("DELETE FROM bairro WHERE nome=?");
             stmt.setString(1, nome);
-            
             stmt.executeUpdate();
-            
             JOptionPane.showMessageDialog(null, "Exclusão realizado com sucesso");
+            
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
             Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Exclusão não deu certo!\n" + ex.getMessage()); 
+            JOptionPane.showMessageDialog(null, "Não foi possível excluir:\n"  + ex.getMessage());
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);
-            
         }
     }
     
@@ -226,7 +230,12 @@ public class BairroDAO {
             
         } catch (SQLException ex) {
             Logger.getLogger(BairroDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
+            
+            if ( ex.getSQLState().equals("23505")){
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar a atualização do bairro, porque o bairro '"+nome+"' já está cadastrado nesse sistema!\n"); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar a atualização do bairro:\n"  + ex.getMessage());
+            }
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);

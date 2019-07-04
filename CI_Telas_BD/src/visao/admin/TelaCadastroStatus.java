@@ -142,7 +142,6 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
             Status status = new Status(descricao);
             statusDAO.insere(status);
             registro.salvaStatus(status);
-            JOptionPane.showMessageDialog(null, "Status cadastrado com sucesso!");
             jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
             jTextFieldCampoDescricaoStatus.setText("");
 
@@ -183,7 +182,9 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
             StatusDAO statusDAO = new StatusDAO();
             int index = jListStatus.getSelectedIndex();
             ArrayList dados = statusDAO.selectListaDescricao();
-            statusDAO.deleta((String) dados.get(index));
+            int resposta = JOptionPane.showConfirmDialog(null, "Esse status pode está associado a situação operacional de alguma lixeira.\nExclui-lo pode acarretar na exclusão dos registros de situação operacional!\n\nTem certeza que deseja excluir?\n\n");
+            if(resposta == JOptionPane.YES_OPTION)
+                statusDAO.deleta((String) dados.get(index));
             jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
         }else{
             JOptionPane.showMessageDialog(null, "Selecione um status");

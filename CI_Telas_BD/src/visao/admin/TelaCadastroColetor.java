@@ -395,6 +395,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         // TODO add your handling code here:
+        
         jTextFildcod.setText("");
         jTextFildmarca.setText("");
         jTextFildmodelo.setText("");
@@ -450,30 +451,25 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         Coletor coletor;
         ColetorDAO coletordao = new ColetorDAO();
-        ValidadorColetor validaColetor = new ValidadorColetor();
-        
-        String codigo = jTextFildcod.getText();
-        String placa = jTextFildplaca.getText();
-        String marca = jTextFildmarca.getText();
-        String modelo = jTextFildmodelo.getText();
-        String ano = jTextFildano.getText();
-        String capacidade = jTextFildcapacidade.getText();
-        String latitude = jTextFildlatitude.getText();
-        String longitude = jTextFildlongitude.getText();
-        
 
         try {
             coletor = new Coletor();
-            coletor.setCodigo(codigo);
-            coletor.setPlaca(placa);
-            coletor.setMarca(marca);
-            coletor.setModelo(modelo);
-            coletor.setAno(ano);
-            coletor.setLatitude(latitude);
-            coletor.setLongitude(longitude);  
-            coletor.setCapacidade(capacidade);
-            coletordao.deleta(coletor);
+            coletor.setCodigo(jTextFildcod.getText());
+            int resposta = JOptionPane.showConfirmDialog(null, "Esse coletor pode está associado a algum registro de coleta ou situação operacioanl.\nExclui-lo pode acarretar na exclusão desses regitros!\n\nTem certeza que deseja excluir?\n\n");
+            if(resposta == JOptionPane.YES_OPTION)
+                coletordao.deleta(coletor);
+            
+            jTextFildcod.setText("");
+            jTextFildmarca.setText("");
+            jTextFildmodelo.setText("");
+            jTextFildcapacidade.setText("");
+            jTextFildplaca.setText("");
+            jTextFildano.setText("");
+            jTextFildlatitude.setText("");
+            jTextFildlongitude.setText("");
+            
             listaColetores();
+            
 
         } catch (Exception ex){
             Logger.getLogger(TelaCadastroColetor.class.getName()).log(Level.SEVERE, null, ex);
@@ -518,6 +514,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             coletor.setLatitude(latitude);
             coletor.setLongitude(longitude);  
             coletor.setCapacidade(capacidade);
+            
             coletordao.setColetor(coletor);
             listaColetores();
 

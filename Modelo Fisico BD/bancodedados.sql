@@ -24,7 +24,7 @@ CREATE TABLE CIDADAO (
 
 CREATE TABLE COLETOR (
     cod_coletor SERIAL,
-    placa VARCHAR(8),
+    placa VARCHAR(8) UNIQUE,
     modelo VARCHAR(16),
     marca VARCHAR(16),
     ano INTEGER,
@@ -47,8 +47,8 @@ CREATE TABLE LIXEIRA (
     latitude FLOAT,
     longitude FLOAT,
     nivel_atual FLOAT,
-    CONSTRAINT pk_lixeira PRIMARY KEY(cod_lixeira),
-    CONSTRAINT fk_bairro_lixeira FOREIGN KEY (cod_bairro) REFERENCES BAIRRO (cod_bairro)
+    CONSTRAINT pk_lixeira PRIMARY KEY(cod_lixeira) ,
+    CONSTRAINT fk_bairro_lixeira FOREIGN KEY (cod_bairro) REFERENCES BAIRRO (cod_bairro) ON DELETE CASCADE
 );
 
 CREATE TABLE STATUS (
@@ -63,9 +63,9 @@ CREATE TABLE SITUACAO_OPERACIONAL (
     cod_status INTEGER,
     hora_status TIME,
     data_status DATE,
-    CONSTRAINT fk_lixeira_situacao_operacioanal FOREIGN KEY (cod_lixeira) REFERENCES LIXEIRA (cod_lixeira),
-    CONSTRAINT fk_coletor_situacao_operacioanal FOREIGN KEY (cod_coletor) REFERENCES COLETOR (cod_coletor),
-    CONSTRAINT fk_status_situacao_operacioanal FOREIGN KEY (cod_status) REFERENCES STATUS (cod_status)
+    CONSTRAINT fk_lixeira_situacao_operacioanal FOREIGN KEY (cod_lixeira) REFERENCES LIXEIRA (cod_lixeira) ON DELETE CASCADE,
+    CONSTRAINT fk_coletor_situacao_operacioanal FOREIGN KEY (cod_coletor) REFERENCES COLETOR (cod_coletor) ON DELETE CASCADE,
+    CONSTRAINT fk_status_situacao_operacioanal FOREIGN KEY (cod_status) REFERENCES STATUS (cod_status) ON DELETE CASCADE
 );
 
 CREATE TABLE COLETA (
@@ -74,8 +74,8 @@ CREATE TABLE COLETA (
     volume FLOAT,
     hora_coleta TIME,
     data_coleta DATE,
-    CONSTRAINT fk_coletor_coleta FOREIGN KEY (cod_coletor) REFERENCES COLETOR (cod_coletor),
-    CONSTRAINT fk_lixeira_coleta FOREIGN KEY (cod_lixeira) REFERENCES LIXEIRA (cod_lixeira)
+    CONSTRAINT fk_coletor_coleta FOREIGN KEY (cod_coletor) REFERENCES COLETOR (cod_coletor) ON DELETE CASCADE,
+    CONSTRAINT fk_lixeira_coleta FOREIGN KEY (cod_lixeira) REFERENCES LIXEIRA (cod_lixeira) ON DELETE CASCADE
 );
 
 CREATE TABLE DESCARTE (
@@ -84,8 +84,8 @@ CREATE TABLE DESCARTE (
     volume FLOAT,
     data_descarte DATE,
     hora_descarte TIME,
-    CONSTRAINT fk_cidadao_descarte FOREIGN KEY (cod_cidadao) REFERENCES CIDADAO (cod_cidadao),
-    CONSTRAINT fk_lixeira_descarte FOREIGN KEY (cod_lixeira) REFERENCES LIXEIRA (cod_lixeira)
+    CONSTRAINT fk_cidadao_descarte FOREIGN KEY (cod_cidadao) REFERENCES CIDADAO (cod_cidadao) ON DELETE CASCADE,
+    CONSTRAINT fk_lixeira_descarte FOREIGN KEY (cod_lixeira) REFERENCES LIXEIRA (cod_lixeira) ON DELETE CASCADE
 );
 
 

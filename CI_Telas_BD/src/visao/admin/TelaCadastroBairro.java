@@ -173,7 +173,9 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
             BairroDAO bairroDAO = new BairroDAO();
             int index = jListBairros.getSelectedIndex();
             ArrayList dados = bairroDAO.selectListaBairro();
-            bairroDAO.deleta((String) dados.get(index));
+            int resposta = JOptionPane.showConfirmDialog(null, "Esse bairro pode está associado a alguma lixeira.\nExclui-lo pode acarretar na exclusão das lixeiras associadasa ele!\n\nTem certeza que deseja excluir?\n\n");
+            if(resposta == JOptionPane.YES_OPTION)
+                bairroDAO.deleta((String) dados.get(index));
             jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
         }else{
             JOptionPane.showMessageDialog(null,"Selecione um bairro!");

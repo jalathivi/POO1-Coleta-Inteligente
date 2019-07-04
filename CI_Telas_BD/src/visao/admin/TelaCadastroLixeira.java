@@ -69,7 +69,7 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCapacidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxBairro = new javax.swing.JComboBox<>();
+        jComboBoxBairro = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldLatitude = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -407,15 +407,40 @@ public class TelaCadastroLixeira extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
-        this.dispose();
+      
+        if (!jTextFieldCodigoLixeira.getText().equals("")
+            || !jTextFieldLatitude.getText().equals("")
+            || !jTextFieldCapacidade.getText().equals("")
+            || !jTextFieldLongitude.getText().equals("")
+            || !jTextFieldNivelAtual.getText().equals("")){
+            int resposta = JOptionPane.showConfirmDialog(null, "Há campos preenchidos!\nTem certeza que deseja sair dessa tela?");
+
+            if (resposta == JOptionPane.YES_OPTION){
+                this.dispose();
+            }
+        }else{
+            this.dispose();
+        }
+        
+     
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         String instrucaoDel = "DELETE FROM lixeira WHERE cod_lixeira = ?";
         if (!jTextFieldCodigoLixeira.getText().equalsIgnoreCase("")){
             LixeiraDAO lixeiradao = new LixeiraDAO();
-            instrucaoDel = instrucaoDel.replace("?", jTextFieldCodigoLixeira.getText());
-            lixeiradao.genericSQL(instrucaoDel);
+            int resposta = JOptionPane.showConfirmDialog(null, "Essa lixeira pode está associada a algum registro de coleta ou descarte.\nExclui-la pode acarretar na exclusão desses regitros!\n\nTem certeza que deseja excluir?\n\n");
+            if(resposta == JOptionPane.YES_OPTION){
+                instrucaoDel = instrucaoDel.replace("?", jTextFieldCodigoLixeira.getText());
+                lixeiradao.genericSQL(instrucaoDel);
+            }
+            
+            jTextFieldLatitude.setText("");
+            jTextFieldLongitude.setText("");
+            jTextFieldCapacidade.setText("");
+            jTextFieldCodigoLixeira.setText("");
+            jTextFieldNivelAtual.setText("");
+            
             listaLixeiras();
         }
         else {

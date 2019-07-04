@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.xml.bind.ParseConversionEvent;
 
 
 /**
@@ -44,12 +45,18 @@ public class CidadaoDAO {
             
             stmt.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Insert criado com sucesso");
+            JOptionPane.showMessageDialog(null, "Cadastrado realizado com sucesso");
             ConexaoDB.closeConnection(con, stmt);
             
         } catch (SQLException ex) {
             Logger.getLogger(CidadaoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
+            
+            if ( ex.getSQLState().equals("23505")){
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar o cadastro, porque o email '"+ c.getEmail()+ "' já está cadastrado nesse sistema!\n"); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível efetuar o cadastro:\n"  + ex.getMessage());
+            }
+            
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);

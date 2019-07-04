@@ -6,3 +6,5 @@
 23, Fuentes
 59, Lua
 75, Cru
+36, OK
+11, OK

@@ -40,7 +40,13 @@ public class StatusDAO {
             
         } catch (SQLException ex) {
             Logger.getLogger(StatusDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
+            
+             if ( ex.getSQLState().equals("23505")){
+                JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o status, porque o status '"+b.getDescricao()+"' já está cadastrado nesse sistema!\n"); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o status:\n"  + ex.getMessage());
+            }
+            
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);
@@ -195,7 +201,12 @@ public class StatusDAO {
             
         } catch (SQLException ex) {
             Logger.getLogger(StatusDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
+            
+            if ( ex.getSQLState().equals("23505")){
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar a atualização do status, porque o status '"+descricao+"' já está cadastrado nesse sistema!\n"); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar a atualização do bairro:\n"  + ex.getMessage());
+            }
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);

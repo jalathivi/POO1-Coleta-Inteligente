@@ -124,6 +124,11 @@ public class TelaCadastroSO extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 130, 100));
 
+        jComboBoxColetor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxColetorActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBoxColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 190, -1));
 
         jLabel5.setText("Selecionar Bairro");
@@ -179,7 +184,8 @@ public class TelaCadastroSO extends javax.swing.JFrame {
             try {
                 // TODO add your handling code here:
                 lixeira.setCodigo(jListLixeira.getSelectedValue());
-                coletor.setCodigo(Integer.toString(jComboBoxColetor.getSelectedIndex() + 1));
+                
+                coletor.setCodigo(Integer.toString(listaColetor.get(jComboBoxColetor.getSelectedIndex()).getCodigo()));
                 status.setCodigo(Integer.toString(statusDAO.retornaCodigo((String) jListStatus.getSelectedValue())));
                 so = new SituacaoOperacional(lixeira, coletor, status, Calendar.getInstance().getTime());
                 soDAO.insere(so);
@@ -270,6 +276,10 @@ public class TelaCadastroSO extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jListLixeiraValueChanged
+
+    private void jComboBoxColetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColetorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxColetorActionPerformed
 
     /**
      * @param args the command line arguments

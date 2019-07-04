@@ -47,7 +47,12 @@ public void insere(Coletor coletor){
             
         } catch (SQLException ex) {
             Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Insert não deu certo!\n" + ex.getMessage()); 
+            
+            if ( ex.getSQLState().equals("23505")){
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar o cadastro do coletor, porque a placa '"+coletor.getPlaca()+"' já está cadastrada nesse sistema!\n"); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível efetuar o cadastro do coletor:\n"  + ex.getMessage());
+            }
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);  
@@ -134,7 +139,6 @@ public void insere(Coletor coletor){
                 coletor = new Coletor();
                 try {
                     coletor.setCodigo(Integer.toString(rs.getInt("cod_coletor")));
-                    
                     coletor.setPlaca(rs.getString("placa"));
                     coletor.setModelo(rs.getString("modelo"));
                     coletor.setMarca(rs.getString("marca"));
@@ -233,7 +237,12 @@ public void insere(Coletor coletor){
             
         } catch (SQLException ex) {
             Logger.getLogger(ColetorDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Update não deu certo!\n" + ex.getMessage()); 
+            
+            if ( ex.getSQLState().equals("23505")){
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar a atualização do coletor, porque a placa '"+coletor.getPlaca()+"' já existe nesse sistema!\n"); 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível efetuar a atualização do coletor:\n"  + ex.getMessage());
+            }
             
         } finally {
             ConexaoDB.closeConnection(con, stmt);   

@@ -20,3 +20,5 @@
 55, Santa Lucia
 32, Santa Lucia
 16, Jardim Bela Vista
+49, Carapina
+12, Carapina

@@ -53,7 +53,7 @@ public class ValidadorCidadao implements Validador {
         if (senha.equalsIgnoreCase(""))
             throw new Exception("Senha não pode ser vazia");
         if(!pattern.matcher(senha).matches())
-            throw new Exception("Senha deve ter de 6 a 14 caracteres numéricos");
+            throw new Exception("Senha deve ter de 6 a 14 caracteres");
     }
     
     

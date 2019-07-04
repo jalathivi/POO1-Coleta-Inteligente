@@ -6,3 +6,21 @@
 27, Thiago Moreira Ribeiro, thiago@gmail.com, 01111995, 18.723347, 10.579857
 7, vinicius, vinicius@gmail.com, 123456789, 70.28039, 12.604945
 84, vinicius, vinicius@gmail.com, 123456789, 0.7203662, 37.279316
+55, Jackson, jackson@gmail.com, 1234abcd, 32.72836, 6.649698
+49, lucal@gmail.com, lucas@gmail.com, 1234abcd, 9.553263, 32.042065
+81, ju, ju@gmail.com, 1234abcd, 34.27132, 47.192726
+1, Ju, ju@gmail.com, 123222, 43.867264, 28.146084
+50, joao, joao@gmail.com, 123456, 79.67728, 12.9260845
+18, joao, joao@gmail.com, 123456, 76.193214, 80.44615
+80, joao, joao@gmail.com, 123456, 64.79243, 79.98803
+10, joao, joao@gmail.com, 123456, 62.45306, 47.812523
+14, joao, joao@gmail.com, 123456, 56.692432, 85.51984
+6, joao, joao@gmail.com, 123455, 29.104828, 51.652855
+37, joaolu, joaolu@gmail.com, 1234abcd, 67.69527, 4.4348116
+33, lucas, lucas@gmail.com, 123abcde, 8.891396, 33.5256
+83, lucas, lucas2@gmail.com, 1234abcdgc, 0.040679097, 59.78805
+75, juan, juan@gmail.com, 123456, 37.25711, 25.103027
+70, Carlos, carlos@gmail.com, 123456, 29.895233, 63.139076
+85, Carlos, carlos@gmail.com, 1234567, 26.907816, 83.059204
+3, joao, joao@gmail.com, 123456, 46.711403, 28.637506
+69, joao, joao@gmail.com, 123464, 12.327365, 18.253006
