@@ -4,6 +4,9 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 
 [CANVAS DE AQUECIMENTO](https://docs.google.com/presentation/d/1y6j9EljmDc8kBXV1M4UDpAI0vJILvSqZwEgCBdyqM8s/edit#slide=id.g275249ce01_0_14)<br>
 
+[Project Model Canvas](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)<br>
+
+
 # <a name="sumario"></a>Sumário
 + [INTRODUÇÃO E MOTIVAÇÃO](#introducao)
 + [MINI-MUNDO](#minimundo)
@@ -14,8 +17,6 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 ## <a name="introducao"></a>Introdução e Motivação
   O sistema Lixeira Inteligente tem como objetivo auxiliar na coleta e no descarte de lixo. A aplicação auxiliará os cidadãos a encontrar a lixeira mais próxima disponível para o descarte e os coletores a percorrer o melhor trajeto  para o recolhimento de  resíduos das lixeiras consideradas como cheias.  Esse sistema tenta minimizar o problema de descarte de lixo de modo inapropriado, evitando que a cidade fique suja, e também visa criar rotas otimizadas para os coletores a fim de diminuir o desperdício de recursos durante o processo.<br>
   
-[Project Model Canvas](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)<br>
-
 ## <a name="minimundo"></a>Mini-Mundo
   O sistema Lixeira Inteligente contará com duas versões: uma para o cidadão que permite visualizar uma rota até a lixeira para descarte. E outra versão para o coletor que visualiza a rota de coleta e o administrador que realizará devidos controle de lixeiras e coletores. O sistema deverá obter as informações do cidadão (nome, e-mail, senha) a fim de que o mesmo tenha um cadastro para a utilização da aplicação. Também precisa obter a localização atual do cidadão em formato de coordenadas geográficas (latitude, longitude), para que o sistema possa gerar, automaticamente, uma rota com destino à lixeira que possui a localização mais próxima e com volume viável para o recebimento do descarte. Assim, é necessário saber o nível de lixo contido dentro da lixeira para indicar ao usuário se a lixeira está vazia, com capacidade média ou cheia.  
  
