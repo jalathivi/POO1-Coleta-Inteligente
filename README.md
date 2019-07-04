@@ -6,6 +6,8 @@ Por Jackson William, Lavínia Corteletti, Thiago Moreira e Vinicius Freitas.
 
 [PROJECT MODEL CANVAS](https://docs.google.com/presentation/d/1SUEphWJRHx0OEXC3pngmrGb5BeBi2QcvAo6oGUOrLxs/edit?usp=sharing)<br>
 
+[DIÁRIO DE BORDO]
+(https://docs.google.com/document/d/1N2bfTq--9dVtOqcRP5bTsuJve3REAktGKFht3hsVc0o/edit?usp=sharing)
 
 # <a name="sumario"></a>Sumário
 + [INTRODUÇÃO E MOTIVAÇÃO](#introducao)
