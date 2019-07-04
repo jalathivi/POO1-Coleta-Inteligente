@@ -17,3 +17,5 @@
 40, Coqueiral de Itaparica
 76, bairroTest
 29, Cocal
+55, Santa Lucia
+32, Santa Lucia

@@ -37,8 +37,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldCEmail = new javax.swing.JTextField();
-        jPasswordFieldCSenha = new javax.swing.JPasswordField();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jPasswordFieldSenha = new javax.swing.JPasswordField();
         jButtonEntrar = new javax.swing.JButton();
         jButtonCadastrar = new javax.swing.JButton();
         jButtonGerencia = new javax.swing.JButton();
@@ -105,7 +105,7 @@ public class TelaLogin extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextFieldCEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addGap(106, 106, 106)
@@ -114,7 +114,7 @@ public class TelaLogin extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jPasswordFieldCSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jButtonGerencia))
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonEntrar)))))
@@ -134,11 +134,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldCEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jPasswordFieldCSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonEntrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonGerencia)
@@ -172,9 +172,9 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         //TelaCidadaoDescarte tPCidadao = new TelaCadastroDescarte();
         CidadaoDAO cidadaoDAO = new CidadaoDAO();
-        String senha = new String(jPasswordFieldCSenha.getPassword());
-        if(cidadaoDAO.checkLogin(jTextFieldCEmail.getText(), senha)){
-            int cod = cidadaoDAO.retornaCodigo(jTextFieldCEmail.getText());
+        String senha = new String(jPasswordFieldSenha.getPassword());
+        if(cidadaoDAO.checkLogin(jTextFieldEmail.getText(), senha)){
+            int cod = cidadaoDAO.retornaCodigo(jTextFieldEmail.getText());
             TelaCadastroDescarte tPCidadao = new TelaCadastroDescarte();
             TelaCadastroDescarte.jTextFieldCodCidadao.setText(Integer.toString(cod));
             tPCidadao.show(true);
@@ -242,7 +242,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordFieldCSenha;
-    private javax.swing.JTextField jTextFieldCEmail;
+    private javax.swing.JPasswordField jPasswordFieldSenha;
+    private javax.swing.JTextField jTextFieldEmail;
     // End of variables declaration//GEN-END:variables
 }

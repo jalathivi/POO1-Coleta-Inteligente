@@ -3,3 +3,4 @@
 6, Ausente
 43, Ausente
 65, Lixeira Vagabunda
+23, Fuentes

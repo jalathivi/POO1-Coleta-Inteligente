@@ -36,8 +36,8 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         campoNomeBairro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        Salvar = new javax.swing.JButton();
-        Sair = new javax.swing.JButton();
+        jButtonSalvar = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListBairros = new javax.swing.JList();
         jLabel3 = new javax.swing.JLabel();
@@ -64,21 +64,21 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         jLabel2.setText("Cadastro Bairro");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        Salvar.setText("Cadastrar");
-        Salvar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalvar.setText("Cadastrar");
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalvarActionPerformed(evt);
+                jButtonSalvarActionPerformed(evt);
             }
         });
-        getContentPane().add(Salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        getContentPane().add(jButtonSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        Sair.setText("Sair");
-        Sair.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SairActionPerformed(evt);
+                jButtonSairActionPerformed(evt);
             }
         });
-        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        getContentPane().add(jButtonSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jScrollPane1.setViewportView(jListBairros);
 
@@ -117,7 +117,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         BairroDAO bairroDAO = new BairroDAO();
         
         PersistenciaArquivo registro = new PersistenciaArquivo();
@@ -137,9 +137,9 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
 
-    }//GEN-LAST:event_SalvarActionPerformed
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
 
-    private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
       
         if (! campoNomeBairro.getText().equals("")){
             int resposta = JOptionPane.showConfirmDialog(null, "Há campos preenchidos!\nTem certeza que deseja sair dessa tela?");
@@ -151,7 +151,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
             this.dispose();
         }
         
-    }//GEN-LAST:event_SairActionPerformed
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void campoNomeBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeBairroActionPerformed
         // TODO add your handling code here:
@@ -223,11 +223,11 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Sair;
-    private javax.swing.JButton Salvar;
     private javax.swing.JTextField campoNomeBairro;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonDeletar;
+    private javax.swing.JButton jButtonSair;
+    private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

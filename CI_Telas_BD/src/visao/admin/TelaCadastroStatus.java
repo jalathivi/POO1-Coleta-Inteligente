@@ -40,8 +40,8 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        campoDescricaoStatus = new javax.swing.JTextField();
-        jButtonSalvar = new javax.swing.JButton();
+        jTextFieldCampoDescricaoStatus = new javax.swing.JTextField();
+        jButtonCadastrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButtonLimpar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
@@ -50,7 +50,7 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListStatus = new javax.swing.JList();
         jLabel3 = new javax.swing.JLabel();
-        campoNovaDescricao = new javax.swing.JTextField();
+        jTextFieldCampoNovaDescricao = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,15 +62,15 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
         jLabel1.setText("Cadastro Status");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
-        jPanel1.add(campoDescricaoStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, 23));
+        jPanel1.add(jTextFieldCampoDescricaoStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, 23));
 
-        jButtonSalvar.setText("Cadastrar");
-        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalvarActionPerformed(evt);
+                jButtonCadastrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jPanel1.add(jButtonCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jLabel2.setText("Novo Status");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
@@ -114,12 +114,12 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
         jLabel3.setText("Status");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
 
-        campoNovaDescricao.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCampoNovaDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNovaDescricaoActionPerformed(evt);
+                jTextFieldCampoNovaDescricaoActionPerformed(evt);
             }
         });
-        jPanel1.add(campoNovaDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 132, -1));
+        jPanel1.add(jTextFieldCampoNovaDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 132, -1));
 
         jLabel4.setText("Alterar Status");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
@@ -130,12 +130,12 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         StatusDAO statusDAO = new StatusDAO();
         
         PersistenciaArquivo registro = new PersistenciaArquivo();
         
-        String descricao = campoDescricaoStatus.getText();
+        String descricao = jTextFieldCampoDescricaoStatus.getText();
 
         try {
             
@@ -144,17 +144,17 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
             registro.salvaStatus(status);
             JOptionPane.showMessageDialog(null, "Status cadastrado com sucesso!");
             jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
-            campoDescricaoStatus.setText("");
+            jTextFieldCampoDescricaoStatus.setText("");
 
         } catch (Exception ex){
             Logger.getLogger(TelaCadastroStatus.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         // TODO add your handling code here:
-        if (! campoDescricaoStatus.getText().equals("")){
+        if (! jTextFieldCampoDescricaoStatus.getText().equals("")){
             int resposta = JOptionPane.showConfirmDialog(null, "Há campos preenchidos!\nTem certeza que deseja sair dessa tela?");
         
            if (resposta == JOptionPane.YES_OPTION){
@@ -167,13 +167,13 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         // TODO add your handling code here:
-        campoDescricaoStatus.setText("");
-        campoNovaDescricao.setText("");
+        jTextFieldCampoDescricaoStatus.setText("");
+        jTextFieldCampoNovaDescricao.setText("");
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
-    private void campoNovaDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNovaDescricaoActionPerformed
+    private void jTextFieldCampoNovaDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoNovaDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNovaDescricaoActionPerformed
+    }//GEN-LAST:event_jTextFieldCampoNovaDescricaoActionPerformed
 
     private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
         // TODO add your handling code here:
@@ -189,11 +189,11 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
         StatusDAO statusDAO = new StatusDAO();
         int index = jListStatus.getSelectedIndex();
         ArrayList dados = statusDAO.selectListaDescricao();
-        if(("".equals(campoNovaDescricao.getText())) || index == -1 ) {
+        if(("".equals(jTextFieldCampoNovaDescricao.getText())) || index == -1 ) {
             JOptionPane.showMessageDialog(null, "Insira uma descrição");
         }else{
-            statusDAO.alteraStatus((String) dados.get(index), campoNovaDescricao.getText());
-            campoNovaDescricao.setText(null);
+            statusDAO.alteraStatus((String) dados.get(index), jTextFieldCampoNovaDescricao.getText());
+            jTextFieldCampoNovaDescricao.setText(null);
             jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
         }
     }//GEN-LAST:event_jButtonAlterarActionPerformed
@@ -235,13 +235,11 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField campoDescricaoStatus;
-    private javax.swing.JTextField campoNovaDescricao;
     private javax.swing.JButton jButtonAlterar;
+    private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonDeletar;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -249,5 +247,7 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
     private javax.swing.JList jListStatus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextFieldCampoDescricaoStatus;
+    private javax.swing.JTextField jTextFieldCampoNovaDescricao;
     // End of variables declaration//GEN-END:variables
 }

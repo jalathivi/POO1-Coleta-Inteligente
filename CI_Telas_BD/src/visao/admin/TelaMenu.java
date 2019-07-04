@@ -37,12 +37,12 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButtonLixeira = new javax.swing.JButton();
+        jButtonCadastrarLixeira = new javax.swing.JButton();
         jButtonColetor = new javax.swing.JButton();
-        cadastraBairro = new javax.swing.JButton();
-        jButtonSituacaoOperacional = new javax.swing.JButton();
-        jButtonColeta = new javax.swing.JButton();
-        jButtonStatus = new javax.swing.JButton();
+        jButtonCadastraBairro = new javax.swing.JButton();
+        jButtonRegistrarSituacaoOperacionalLixeira = new javax.swing.JButton();
+        jButtonGerarRotaColeta = new javax.swing.JButton();
+        jButtonCriarStatus = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,10 +61,10 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        jButtonLixeira.setText("Cadastrar Lixeira");
-        jButtonLixeira.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrarLixeira.setText("Cadastrar Lixeira");
+        jButtonCadastrarLixeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLixeiraActionPerformed(evt);
+                jButtonCadastrarLixeiraActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -73,8 +73,8 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 4, 0, 80);
-        jPanel1.add(jButtonLixeira, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(56, 4, 0, 40);
+        jPanel1.add(jButtonCadastrarLixeira, gridBagConstraints);
 
         jButtonColetor.setText("Cadastrar Coletor");
         jButtonColetor.addActionListener(new java.awt.event.ActionListener() {
@@ -91,10 +91,10 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(56, 40, 0, 0);
         jPanel1.add(jButtonColetor, gridBagConstraints);
 
-        cadastraBairro.setText("Cadastrar Bairro");
-        cadastraBairro.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastraBairro.setText("Cadastrar Bairro");
+        jButtonCadastraBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastraBairroActionPerformed(evt);
+                jButtonCadastraBairroActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -104,12 +104,12 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(27, 40, 0, 0);
-        jPanel1.add(cadastraBairro, gridBagConstraints);
+        jPanel1.add(jButtonCadastraBairro, gridBagConstraints);
 
-        jButtonSituacaoOperacional.setText("Registrar S.O. da Lixeira");
-        jButtonSituacaoOperacional.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistrarSituacaoOperacionalLixeira.setText("Registrar S.O. da Lixeira");
+        jButtonRegistrarSituacaoOperacionalLixeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSituacaoOperacionalActionPerformed(evt);
+                jButtonRegistrarSituacaoOperacionalLixeiraActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -118,13 +118,13 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(27, 4, 0, 80);
-        jPanel1.add(jButtonSituacaoOperacional, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(27, 4, 0, 40);
+        jPanel1.add(jButtonRegistrarSituacaoOperacionalLixeira, gridBagConstraints);
 
-        jButtonColeta.setText("Gerar Rota para Coleta");
-        jButtonColeta.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGerarRotaColeta.setText("Gerar Rota para Coleta");
+        jButtonGerarRotaColeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonColetaActionPerformed(evt);
+                jButtonGerarRotaColetaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -133,13 +133,13 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(27, 4, 0, 80);
-        jPanel1.add(jButtonColeta, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(27, 4, 0, 40);
+        jPanel1.add(jButtonGerarRotaColeta, gridBagConstraints);
 
-        jButtonStatus.setText("Criar Status");
-        jButtonStatus.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCriarStatus.setText("Criar Status");
+        jButtonCriarStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonStatusActionPerformed(evt);
+                jButtonCriarStatusActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -149,7 +149,7 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(27, 40, 0, 0);
-        jPanel1.add(jButtonStatus, gridBagConstraints);
+        jPanel1.add(jButtonCriarStatus, gridBagConstraints);
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -160,13 +160,15 @@ public class TelaMenu extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(27, 0, 17, 0);
         jPanel1.add(jButtonVoltar, gridBagConstraints);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 300));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 300));
 
-        setSize(new java.awt.Dimension(524, 339));
+        setSize(new java.awt.Dimension(559, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -176,35 +178,35 @@ public class TelaMenu extends javax.swing.JFrame {
         tCadastroColetor.setVisible(true);
     }//GEN-LAST:event_jButtonColetorActionPerformed
 
-    private void cadastraBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraBairroActionPerformed
+    private void jButtonCadastraBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastraBairroActionPerformed
         // TODO add your handling code here:
         TelaCadastroBairro tCadastroBairro = new TelaCadastroBairro();
         tCadastroBairro.setVisible(true);
-    }//GEN-LAST:event_cadastraBairroActionPerformed
+    }//GEN-LAST:event_jButtonCadastraBairroActionPerformed
 
-    private void jButtonStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStatusActionPerformed
+    private void jButtonCriarStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarStatusActionPerformed
         // TODO add your handling code here:
         TelaCadastroStatus tCadastroStatus = new TelaCadastroStatus();
         tCadastroStatus.setVisible(true);
-    }//GEN-LAST:event_jButtonStatusActionPerformed
+    }//GEN-LAST:event_jButtonCriarStatusActionPerformed
 
-    private void jButtonLixeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLixeiraActionPerformed
+    private void jButtonCadastrarLixeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarLixeiraActionPerformed
         // TODO add your handling code here:
         TelaCadastroLixeira tCadastroLixeira = new TelaCadastroLixeira();
         tCadastroLixeira.setVisible(true);
-    }//GEN-LAST:event_jButtonLixeiraActionPerformed
+    }//GEN-LAST:event_jButtonCadastrarLixeiraActionPerformed
 
-    private void jButtonSituacaoOperacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSituacaoOperacionalActionPerformed
+    private void jButtonRegistrarSituacaoOperacionalLixeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarSituacaoOperacionalLixeiraActionPerformed
         // TODO add your handling code here:
         TelaCadastroSO tSituacaoOperacional = new TelaCadastroSO();
         tSituacaoOperacional.setVisible(true);
-    }//GEN-LAST:event_jButtonSituacaoOperacionalActionPerformed
+    }//GEN-LAST:event_jButtonRegistrarSituacaoOperacionalLixeiraActionPerformed
 
-    private void jButtonColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColetaActionPerformed
+    private void jButtonGerarRotaColetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarRotaColetaActionPerformed
         // TODO add your handling code here:
         TelaCadastroColeta tGeraRota = new TelaCadastroColeta();
         tGeraRota.setVisible(true);
-    }//GEN-LAST:event_jButtonColetaActionPerformed
+    }//GEN-LAST:event_jButtonGerarRotaColetaActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         // TODO add your handling code here:
@@ -248,12 +250,12 @@ public class TelaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cadastraBairro;
-    private javax.swing.JButton jButtonColeta;
+    private javax.swing.JButton jButtonCadastraBairro;
+    private javax.swing.JButton jButtonCadastrarLixeira;
     private javax.swing.JButton jButtonColetor;
-    private javax.swing.JButton jButtonLixeira;
-    private javax.swing.JButton jButtonSituacaoOperacional;
-    private javax.swing.JButton jButtonStatus;
+    private javax.swing.JButton jButtonCriarStatus;
+    private javax.swing.JButton jButtonGerarRotaColeta;
+    private javax.swing.JButton jButtonRegistrarSituacaoOperacionalLixeira;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -70,7 +70,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         jTextFildcapacidade = new javax.swing.JTextField();
         jButtonLimpar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableColetores = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -214,10 +214,10 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 50, 5, 5);
         jPanel1.add(jButtonSair, gridBagConstraints);
 
-        jButton1.setText("Excluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonExcluirActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -226,7 +226,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(jButtonExcluir, gridBagConstraints);
 
         jTableColetores.setAutoCreateRowSorter(true);
         jTableColetores.setModel(new javax.swing.table.DefaultTableModel(
@@ -447,7 +447,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFildcodActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         Coletor coletor;
         ColetorDAO coletordao = new ColetorDAO();
         ValidadorColetor validaColetor = new ValidadorColetor();
@@ -479,7 +479,7 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
             Logger.getLogger(TelaCadastroColetor.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
         if(jComboBoxModelo == null || jComboBoxModelo.getSelectedItem() == null){
@@ -597,8 +597,8 @@ public class TelaCadastroColetor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonRegistrarColetor;
     private javax.swing.JButton jButtonSair;

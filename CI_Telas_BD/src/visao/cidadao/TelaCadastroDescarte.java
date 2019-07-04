@@ -49,12 +49,12 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
         jLabelCodigo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButtonLocalizar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonCadastrarDescarte = new javax.swing.JButton();
         jTextFieldDistancia = new javax.swing.JTextField();
         jTextFieldDirecao = new javax.swing.JTextField();
         jButtonMapa = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
-        jTFcodigo = new javax.swing.JTextField();
+        jTextFieldCodigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldCodCidadao = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -91,13 +91,13 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonLocalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
 
-        jButton1.setText("Cadastar Descarte");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrarDescarte.setText("Cadastar Descarte");
+        jButtonCadastrarDescarte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCadastrarDescarteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+        getContentPane().add(jButtonCadastrarDescarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
 
         jTextFieldDistancia.setEditable(false);
         jTextFieldDistancia.setBackground(new java.awt.Color(255, 255, 255));
@@ -123,9 +123,9 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        jTFcodigo.setEditable(false);
-        jTFcodigo.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTFcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 95, -1));
+        jTextFieldCodigo.setEditable(false);
+        jTextFieldCodigo.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 95, -1));
 
         jLabel5.setText("Latitude");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
@@ -155,7 +155,7 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
             
             jTextFieldLatitude.setText(Float.toString(lixeira.getLatitude()));
             jTextFieldLongitude.setText(Float.toString(lixeira.getLongitude()));
-            jTFcodigo.setText(Integer.toString(lixeira.getCodigo()));
+            jTextFieldCodigo.setText(Integer.toString(lixeira.getCodigo()));
             jTextFieldDistancia.setText(String.valueOf(random.nextInt(10)) + " Minutos");
 
             direcao = random.nextInt(2);
@@ -173,7 +173,7 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonLocalizarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadastrarDescarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarDescarteActionPerformed
         // TODO add your handling code here:
         //MAIS UMA VEZ ERA PRA ESTAR BUSCANDO AS INFORMAÇÕES DO ARQUIVO OU BD, MAS A PREGUIÇA FEZ ASSIM
         
@@ -210,7 +210,7 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Descarte Registrado");
             this.dispose();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonCadastrarDescarteActionPerformed
 
     private void jButtonMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMapaActionPerformed
         // TODO add your handling code here:
@@ -262,7 +262,7 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonCadastrarDescarte;
     private javax.swing.JButton jButtonLocalizar;
     private javax.swing.JButton jButtonMapa;
     private javax.swing.JButton jButtonVoltar;
@@ -272,8 +272,8 @@ public class TelaCadastroDescarte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelCodigo;
-    public static javax.swing.JTextField jTFcodigo;
     public static javax.swing.JTextField jTextFieldCodCidadao;
+    public static javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldDirecao;
     private javax.swing.JTextField jTextFieldDistancia;
     private javax.swing.JTextField jTextFieldLatitude;
