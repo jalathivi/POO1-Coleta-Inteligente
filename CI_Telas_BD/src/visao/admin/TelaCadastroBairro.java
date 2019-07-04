@@ -44,6 +44,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         jButtonDeletar = new javax.swing.JButton();
         jButtonAlterar = new javax.swing.JButton();
         jTextFieldNomeNew = new javax.swing.JTextField();
+        jButtonLimpar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,7 +102,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
                 jButtonAlterarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+        getContentPane().add(jButtonAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
 
         jTextFieldNomeNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +111,15 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldNomeNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 93, -1));
 
-        jLabel4.setText("Alterar Nome");
+        jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, -1, -1));
+
+        jLabel4.setText("Alterar Bairro");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         setSize(new java.awt.Dimension(542, 339));
@@ -159,32 +168,51 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
 
     private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
         // TODO add your handling code here:
-        BairroDAO bairroDAO = new BairroDAO();
-        int index = jListBairros.getSelectedIndex();
-        ArrayList dados = bairroDAO.selectListaBairro();
-        bairroDAO.deleta((String) dados.get(index));
-        jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
+        
+        if (jListBairros.getSelectedIndex() != -1){
+            BairroDAO bairroDAO = new BairroDAO();
+            int index = jListBairros.getSelectedIndex();
+            ArrayList dados = bairroDAO.selectListaBairro();
+            bairroDAO.deleta((String) dados.get(index));
+            jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um bairro!");
+        }
+        
+        
         
     }//GEN-LAST:event_jButtonDeletarActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
-        BairroDAO bairroDAO = new BairroDAO();
-        int index = jListBairros.getSelectedIndex();
-        ArrayList dados = bairroDAO.selectListaBairro();
-        if(("".equals(jTextFieldNomeNew.getText())) || index == -1 ) {
-            JOptionPane.showMessageDialog(null, "Insira um nome");
+        if (jListBairros.getSelectedIndex() != -1){
+            
+            BairroDAO bairroDAO = new BairroDAO();
+            int index = jListBairros.getSelectedIndex();
+            ArrayList dados = bairroDAO.selectListaBairro();
+            if(("".equals(jTextFieldNomeNew.getText())) || index == -1 ) {
+                JOptionPane.showMessageDialog(null, "Preencha o campo alterar bairro");
+            }else{
+                bairroDAO.alteraBairro((String) dados.get(index), jTextFieldNomeNew.getText());
+                jTextFieldNomeNew.setText(null);
+                jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
+
+            }
         }else{
-            bairroDAO.alteraBairro((String) dados.get(index), jTextFieldNomeNew.getText());
-            jTextFieldNomeNew.setText(null);
-            jListBairros.setListData(bairroDAO.selectListaBairro().toArray());
-        
+            JOptionPane.showMessageDialog(null,"Selecione um bairro!");
         }
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jTextFieldNomeNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeNewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeNewActionPerformed
+
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        // TODO add your handling code here:
+        jTextFieldNomeNew.setText("");
+        campoNomeBairro.setText("");
+        
+    }//GEN-LAST:event_jButtonLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,6 +254,7 @@ public class TelaCadastroBairro extends javax.swing.JFrame {
     private javax.swing.JTextField campoNomeBairro;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonDeletar;
+    private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabel1;

@@ -1,26 +1,18 @@
 
 package coletainteligente;
 import java.sql.Time;
-import java.util.Calendar;
+import java.text.DateFormat;
 import java.util.Date;
 
 public class SituacaoOperacional {
     public Lixeira lixeira;
     public Coletor coletor;
     public Status status;
-    private Calendar data;//Usado somente para persistencia arquivo
     private Date date;
     
     public SituacaoOperacional(){
     }
-    
-    public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data ){
-        setLixeira(lixeira);
-        setColetor(coletor);
-        setStatus(status);
-        setData(data);
-    }   
-    
+        
     //Contrutor pro BD
     public SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Date date) {
         setLixeira(lixeira);
@@ -30,12 +22,12 @@ public class SituacaoOperacional {
     }
     
     
-    public void setData (Calendar data){
-        this.data = data;
+    public void setData (Date data){
+        this.date = data;
     }
     
-    public Calendar getData (){
-        return data;
+    public Date getData (){
+        return date;
     }
     
     public void setStatus (Status status){
@@ -61,39 +53,17 @@ public class SituacaoOperacional {
     public int getCodColetor (){
         return coletor.getCodigo();
     }
-    
-    public int getHora() {
-        return data.get(Calendar.HOUR_OF_DAY);
+ 
+    public String getStringHora() {
+        DateFormat hora = DateFormat.getTimeInstance();
+        return hora.format(date);
     }
     
-    public int getMinutos(){
-        return data.get(Calendar.MINUTE);
-    }
-    
-    public int getDia(){
-        return data.get(Calendar.DAY_OF_MONTH);
-    }
-    
-    public int getMes(){
-        return data.get(Calendar.MONTH);
-    }
-    
-    public int getAno(){
-        return data.get(Calendar.YEAR);
-    }
+    public String getStringData() {
+        DateFormat formataData = DateFormat.getDateInstance();
+        return formataData.format(date);
+    }   
 
-    public String getStringHora(){
-        return " " + getHora() + ":" + getMinutos() + " ";
-    }
-            
-    public String getStringData(){
-        return " " + getAno() + "-" + getMes() + "-" +  + getDia() + " ";
-    }
-
-    @Override
-    public String toString() {
-        return getCodLixeira()+", "+getCodLixeira()+", "+getCodStatus()+", "+getStringData()+", "+getStringHora();
-    }
 
     /**
      * @param date the date to set
@@ -115,4 +85,10 @@ public class SituacaoOperacional {
         return time;
     }
    
+   @Override
+    public String toString() {
+        return getCodLixeira()+", "+getCodLixeira()+", "+getCodStatus()+", "+getStringData()+", "+getStringHora();
+    }    
+    
+    
 }

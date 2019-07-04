@@ -177,24 +177,37 @@ public class TelaCadastroStatus extends javax.swing.JFrame {
 
     private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
         // TODO add your handling code here:
-        StatusDAO statusDAO = new StatusDAO();
-        int index = jListStatus.getSelectedIndex();
-        ArrayList dados = statusDAO.selectListaDescricao();
-        statusDAO.deleta((String) dados.get(index));
-        jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
+        
+        if (jListStatus.getSelectedIndex() != -1){
+            
+            StatusDAO statusDAO = new StatusDAO();
+            int index = jListStatus.getSelectedIndex();
+            ArrayList dados = statusDAO.selectListaDescricao();
+            statusDAO.deleta((String) dados.get(index));
+            jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione um status");
+        }
+        
     }//GEN-LAST:event_jButtonDeletarActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
-        StatusDAO statusDAO = new StatusDAO();
-        int index = jListStatus.getSelectedIndex();
-        ArrayList dados = statusDAO.selectListaDescricao();
-        if(("".equals(jTextFieldCampoNovaDescricao.getText())) || index == -1 ) {
-            JOptionPane.showMessageDialog(null, "Insira uma descrição");
+        
+        if (jListStatus.getSelectedIndex() != -1){
+            
+            StatusDAO statusDAO = new StatusDAO();
+            int index = jListStatus.getSelectedIndex();
+            ArrayList dados = statusDAO.selectListaDescricao();
+            if(("".equals(jTextFieldCampoNovaDescricao.getText()))) {
+                JOptionPane.showMessageDialog(null, "Preencha o campo alterar status");
+            }else{
+                statusDAO.alteraStatus((String) dados.get(index), jTextFieldCampoNovaDescricao.getText());
+                jTextFieldCampoNovaDescricao.setText(null);
+                jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
+            }
         }else{
-            statusDAO.alteraStatus((String) dados.get(index), jTextFieldCampoNovaDescricao.getText());
-            jTextFieldCampoNovaDescricao.setText(null);
-            jListStatus.setListData(statusDAO.selectListaDescricao().toArray());
+            JOptionPane.showMessageDialog(null, "Selecione um status");
         }
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 

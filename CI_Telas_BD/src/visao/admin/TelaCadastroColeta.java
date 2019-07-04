@@ -218,7 +218,7 @@ public class TelaCadastroColeta extends javax.swing.JFrame {
                 // Remove primeira linha
                 model.removeRow(0);
 
-                //JOptionPane.showMessageDialog(null, "Lixeira coletada:  "+ lixeira.getCodigo());
+                JOptionPane.showMessageDialog(null, "Lixeira coletada:  "+ lixeira.getCodigo());
 
                 coleta.setColetor(coletor);
                 coleta.setLixeira(lixeira);
@@ -232,19 +232,15 @@ public class TelaCadastroColeta extends javax.swing.JFrame {
                 nivelTotal += coleta.getVolume();
                 jTextFieldTotal.setText(Float.toString(nivelTotal));
 
-               try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(TelaCadastroColeta.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
             }
 
             // SET do model
             jTable1.setModel(model);
             jScrollPane2.setViewportView(jTable1);
 
-            JOptionPane.showMessageDialog(null, "Coleta Registrada");
+            JOptionPane.showMessageDialog(null, "Coleta Registrada!\n\nVolume de lixo coletao " + jTextFieldTotal.getText());
+            jTextFieldTotal.setText("");
+            
             
         }
         

@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -84,7 +85,6 @@ public class TelaCadastroSO extends javax.swing.JFrame {
         jListLixeira = new javax.swing.JList<String>();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldSOAtual = new javax.swing.JTextField();
-        jButtonVerifica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registra SO");
@@ -101,7 +101,7 @@ public class TelaCadastroSO extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, -1, -1));
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,19 +118,17 @@ public class TelaCadastroSO extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         jLabel4.setText("Novo Status");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 80, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 80, -1));
 
         jScrollPane3.setViewportView(jListStatus);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 85, 100));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, 100));
 
-        jComboBoxColetor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBoxColetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 190, -1));
 
         jLabel5.setText("Selecionar Bairro");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jComboBoxBairro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBoxBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 190, -1));
 
         jButtonMostrar.setText("Mostrar Lixeiras");
@@ -141,21 +139,21 @@ public class TelaCadastroSO extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
 
+        jListLixeira.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListLixeiraValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jListLixeira);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 100));
 
-        jLabel6.setText("Status");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
-        jPanel1.add(jTextFieldSOAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, 40));
+        jLabel6.setText("Status Atual");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
 
-        jButtonVerifica.setText("Verificar SO Atual");
-        jButtonVerifica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVerificaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButtonVerifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+        jTextFieldSOAtual.setEditable(false);
+        jTextFieldSOAtual.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jTextFieldSOAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 370));
 
@@ -169,65 +167,87 @@ public class TelaCadastroSO extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        SituacaoOperacional so;
-        SituacaoOperacionalDAO soDAO = new SituacaoOperacionalDAO();
-        Lixeira lixeira = new Lixeira();
-        Coletor coletor = new Coletor();
-        Status status = new Status();
-        StatusDAO statusDAO = new StatusDAO();
-        if(jListStatus.getSelectedValue() != null){
+       
+        if (jListLixeira.getSelectedIndex() != -1 && jListStatus.getSelectedIndex() != -1){
+            SituacaoOperacional so;
+            SituacaoOperacionalDAO soDAO = new SituacaoOperacionalDAO();
+            Lixeira lixeira = new Lixeira();
+            Coletor coletor = new Coletor();
+            Status status = new Status();
+            StatusDAO statusDAO = new StatusDAO();
+            
             try {
-            // TODO add your handling code here:
-            lixeira.setCodigo(jListLixeira.getSelectedValue());
-            coletor.setCodigo(Integer.toString(jComboBoxColetor.getSelectedIndex() + 1));
-            status.setCodigo(Integer.toString(statusDAO.retornaCodigo((String) jListStatus.getSelectedValue())));
-            so = new SituacaoOperacional(lixeira, coletor, status, Calendar.getInstance().getTime());
-            soDAO.insere(so);
-            JOptionPane.showMessageDialog(null, "Realizado o Registro");
-            jTextFieldSOAtual.setText("");
-            DefaultListModel model = new DefaultListModel();
-            model.clear();
-            jListStatus.setModel(model);
-            
-            
-            
-            // Contrutor SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data)
+                // TODO add your handling code here:
+                lixeira.setCodigo(jListLixeira.getSelectedValue());
+                coletor.setCodigo(Integer.toString(jComboBoxColetor.getSelectedIndex() + 1));
+                status.setCodigo(Integer.toString(statusDAO.retornaCodigo((String) jListStatus.getSelectedValue())));
+                so = new SituacaoOperacional(lixeira, coletor, status, Calendar.getInstance().getTime());
+                soDAO.insere(so);
+                JOptionPane.showMessageDialog(null, "O novo status foi associado a lixeira");
+                jTextFieldSOAtual.setText((String) jListStatus.getSelectedValue());
+                DefaultListModel model = new DefaultListModel();
+                model.clear();
+                jListStatus.setModel(model);
+
+
+
+                // Contrutor SituacaoOperacional(Lixeira lixeira, Coletor coletor, Status status, Calendar data)
             } catch (Exception ex) {
-                System.out.print(ex.getMessage());
-                Logger.getLogger(TelaCadastroSO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else {
-            JOptionPane.showMessageDialog(null, "Selecione 1 Novo Status para o Registro");
+                    System.out.print(ex.getMessage());
+                    Logger.getLogger(TelaCadastroSO.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            
+
+        } else{
+         JOptionPane.showMessageDialog(null, "Selecione uma lixeira e um novo status ");
+         
         }
-        
-        
         
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarActionPerformed
         // TODO add your handling code here:
-        int codBairro;
-        List<Integer> dados;
-        BairroDAO bairrodao = new BairroDAO();
-        LixeiraDAO lixeiradao = new LixeiraDAO();
         
-        String nomeBairro = (String) listaBairro.get(jComboBoxBairro.getSelectedIndex());
-        codBairro = bairrodao.codBairro(nomeBairro);
-        dados = new ArrayList();
-        dados = lixeiradao.listaLixeirasPorBairro(codBairro);
-        String[] cod;
-        cod = new String[dados.size()];
-        
-        for(int i=0; i<dados.size();i++) {
-            cod[i] = Integer.toString(dados.get(i));
+        if (jComboBoxColetor.getSelectedIndex() != -1 && jComboBoxBairro.getSelectedIndex() != -1 ){
+            DefaultListModel model = new DefaultListModel();
+            model.clear();
+            jListStatus.setModel(model);
+            jTextFieldSOAtual.setText("");
+
+            int codBairro;
+            List<Integer> dados;
+            BairroDAO bairrodao = new BairroDAO();
+            LixeiraDAO lixeiradao = new LixeiraDAO();
+
+            String nomeBairro = (String) listaBairro.get(jComboBoxBairro.getSelectedIndex());
+            codBairro = bairrodao.codBairro(nomeBairro);
+            dados = new ArrayList();
+            dados = lixeiradao.listaLixeirasPorBairro(codBairro);
+            String[] cod;
+            cod = new String[dados.size()];
+
+            if (dados.size() > 0){
+                
+                for(int i=0; i<dados.size();i++) {
+                    cod[i] = Integer.toString(dados.get(i));
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Não há lixeira nesse bairro");
+            }
+            
+            jListLixeira.setListData(cod);
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione o coletor e o bairro");
         }
-        jListLixeira.setListData(cod);
         
         
     }//GEN-LAST:event_jButtonMostrarActionPerformed
 
-    private void jButtonVerificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerificaActionPerformed
+    private void jListLixeiraValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListLixeiraValueChanged
         // TODO add your handling code here:
+        
         StatusDAO statusdao = new StatusDAO();
         SituacaoOperacionalDAO soDAO = new SituacaoOperacionalDAO();
         if(jListLixeira.getSelectedValue() != null){
@@ -244,13 +264,10 @@ public class TelaCadastroSO extends javax.swing.JFrame {
 
             jListStatus.setListData(statusdao.selectDescricaoRestrita(codStatus).toArray());
             
-        }else {
-            JOptionPane.showMessageDialog(null, "Selecione 1 lixeira");
         }
         
         
-        
-    }//GEN-LAST:event_jButtonVerificaActionPerformed
+    }//GEN-LAST:event_jListLixeiraValueChanged
 
     /**
      * @param args the command line arguments
@@ -293,7 +310,6 @@ public class TelaCadastroSO extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonMostrar;
     private javax.swing.JButton jButtonRegistrar;
-    private javax.swing.JButton jButtonVerifica;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JComboBox<String> jComboBoxBairro;
     private javax.swing.JComboBox<String> jComboBoxColetor;

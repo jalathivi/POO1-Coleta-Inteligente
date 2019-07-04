@@ -11,12 +11,7 @@ public class Descarte {
     public Cidadao cidadao;
     public Date data;
     public float volume;
-    
-    //ATributos provisórios
-    //private int codLixeira;
-    //private int codCidadao;
-    
-
+   
     public Descarte(){
         
     }
@@ -28,39 +23,7 @@ public class Descarte {
         setData(data);
         setVolume(volume);
     }    
-    
-    //CONTRUTOR PROVISÓRIO ENQUANTO NÃO DÁ PRA RESGATAR AS INFORMAÇÕES DO BANCO, OU DO ARQUIVO POR PREGUIÇA RS
-//    public Descarte(float nivelAtual, Calendar data) {
-//        setCodCidadao();
-//        setCodLixeira();
-//        setData(data);
-//        setNivelAtual(nivelAtual);
-//    }
- 
-//    public void setCodCidadao() {
-//        Random random = new Random();
-//        int cidadao = random.nextInt(100);
-//        this.codCidadao = cidadao;
-//    }
-//    
-//    public int getCodCidadao() {
-//        return codCidadao;
-//    }
-//    
-//    public int getCodLixeira() {
-//        return codLixeira;
-//    }
-//    
-//    public void setCodLixeira() {
-//        Random random = new Random();
-//        int lixeira = random.nextInt(100);
-//        this.codLixeira = lixeira;
-//    }
-//    
-//    public void setNivelAtual(float nivelAtual) {
-//        this.nivelAtual = nivelAtual;
-//    }
-//    
+
     
     public void setCidadao(Cidadao cidadao) {
         this.cidadao = cidadao;
